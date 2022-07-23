@@ -1,0 +1,80 @@
+.absolute-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideLeftReturn {
+  -webkit-animation-name: slideLeftReturn;
+  animation-name: slideLeftReturn;
+}
+
+.magictime {
+  -webkit-animation-duration: .35s !important;
+  animation-duration: .35s !important;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.object-center {
+  object-fit: cover;
+}
+
+.aspect-h-4 {
+  --tw-aspect-h: 4;
+}
+
+.aspect-w-3 {
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  --tw-aspect-w: 3;
+}
+
+.aspect-w-3 > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.h-\[35\%\] {
+  height: 35%;
+}
+
+.aspect-h-5 {
+  --tw-aspect-h: 5;
+}
+
+.odd\:bg-highlight\/40:nth-child(odd) {
+  background-color: rgba(63, 63, 63, .4);
+}
+
+.odd_margin-right:nth-child(odd) {
+  margin-right: 7px;
+}
+
+.odd_margin-left:nth-last-child(odd) {
+  margin-left: 7px;
+}
+
+.line-clamp-1, .line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.line-clamp-1 {
+  -webkit-line-clamp: 1;
+}
+
+.pt-20_important {
+  padding-top: 20px !important;
+}
