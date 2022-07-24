@@ -21,6 +21,6 @@ const [{ data: ngonTinh, pending }, { data: damMy }, { data: xuyenKhong }] = awa
     <LazyHomePageNewFeed v-if="!pending" title="# Đam mỹ bách hợp" cateSlug="dam-my" :mangas="damMy" />
     <LazyHomePageNewFeed v-if="!pending" title="# Xuyên không" cateSlug="xuyen-khong-205" :mangas="xuyenKhong" />
     <LazyHomePageNewStory class="mt-10" />
-
+    <LazyHomePageMaybeLove />
   </main>
 </template>

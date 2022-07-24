@@ -95,7 +95,7 @@ useHead({
 <template>
   <div>
     <PageLoading v-if="pending" />
-    <NuxtLayout v-else>
+    <NuxtLayout name="manga" v-else>
       <div class="relative flex h-[100vh] flex-col bg-accent-4">
         <LazyMangaDetailReadButton/>
         <div class=" aspect-w-16 aspect-h-9 rounded-xl-md">
