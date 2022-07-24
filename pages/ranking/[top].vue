@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {watchEffect, ref} from "vue";
-import {useFetch, useRoute} from "#app";
 
 const route = useRoute();
 const params = route.params;
@@ -78,7 +77,7 @@ const cates: ICate[] = [
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
-      <CategorysCateList :cates="cates" v-once/>
+      <CategorysCateList :cates="cates"/>
       <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 200px)">
         <LazyCategorysComicItem :mangas="mangas" />
       </section>

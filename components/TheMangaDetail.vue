@@ -1,11 +1,8 @@
 <script lang="ts" setup>
 import {keys, MangaDetails} from "~/types";
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue'
-import {useFetch, useHead} from "#app";
 import {watchEffect} from "vue";
 import {useStorage} from "@vueuse/core";
-import {MessageType} from "vscode-languageserver-protocol";
-import Log = MessageType.Log;
 import PageLoading from "~/components/common/PageLoading.vue";
 
 const route = useRoute();

@@ -511,25 +511,6 @@ input[type='number'] {
   text-decoration: inherit;
 }
 
-.box-tab .tab-pane ul li {
-  //border-bottom: 1px solid #EAEAEA;
-  //border-top: none;
-}
-
-.box-tab ul.tab-nav li {
-  list-style: none;
-  height: 42px;
-  border-top: none;
-  padding: 0;
-}
-
-.box-tab ul.tab-nav a.active {
-  //border-top: 2px solid #721799;
-  //border-right: 1px solid #ddd;
-  //border-left: 1px solid #ddd;
-  background: #f9f9f9;
-}
-
 .box-tab ul.tab-nav a {
   display: block;
   width: 100%;
@@ -542,11 +523,6 @@ input[type='number'] {
   border-top: 2px solid #ECF0F1;
 }
 
-.box-tab .tab-pane {
-  padding: 10px;
-  //border: 1px solid #EAEAEA;
-  border-top: none;
-}
 
 .items-slide .slide-caption {
   position: absolute;

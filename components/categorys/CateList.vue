@@ -7,9 +7,8 @@ const params = route.params;
 const cate = ref(params.cate)
 const top = ref(params.top)
 
-
 defineProps({
-  cates: []
+  cates: Array
 })
 </script>
 

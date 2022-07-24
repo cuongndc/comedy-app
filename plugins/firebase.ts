@@ -1,10 +1,8 @@
 import {initializeApp} from "firebase/app";
 import useFirebase from '~/composables/useFirebase'
-import {useUserStore} from "~/composables/useUserStore";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
     const {initFirebase} = useFirebase();
-
     const firebaseConfig = {
         apiKey: "AIzaSyBATH9PLhD14TgQWd73dNhd9SJu8FqKhbc",
         authDomain: "comedy-app-d016f.firebaseapp.com",
@@ -18,11 +16,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     try {
         initializeApp(firebaseConfig);
         initFirebase()
-        // const auth = getAuth()
-        // nuxtApp.vueApp.provide('auth', auth);
-        // nuxtApp.provide('auth', auth);
-
     } catch (e) {
+        console.log('err', e);
     }
-
 })

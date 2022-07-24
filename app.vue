@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import "swiper/css/grid";
 import "swiper/css";
-import {useUserStore} from "~/composables/useUserStore";
-const {userInfo} = useUserStore()
 
-// console.log("userInfo", userInfo)
-import {useRuntimeConfig} from "nuxt/app";
 const config = useRuntimeConfig();
 const publicConfig = config.public;
 

@@ -1,5 +1,4 @@
-import {MANGA_PATH_NAME, MANGA_PATH_READ_NAME} from "~/contants";
-import {useState} from "#build/imports";
+import {MANGA_PATH_NAME} from "~/contants";
 
 const useMangaPagePath = (slug: string) => {
     useState('pickManga', () => slug);

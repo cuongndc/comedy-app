@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {watchEffect, ref, onMounted, onUnmounted} from "vue";
-import {useFetch, useRoute} from "#app";
+import {watchEffect, ref} from "vue";
 
 const route = useRoute();
 const params = route.params;
 const cate = ref(params.cate)
 const page = ref(1)
+
 const {pending, data: mangas, refresh} = await useFetch(`/api/filter`, {
   params: {
     page: page.value,
@@ -32,8 +32,7 @@ watchEffect(async () => {
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
-      <CategorysCateList :cates="cates" v-once/>
-      <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 200px)">
+      <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 50px)">
         <LazyCategorysComicItem :mangas="mangas"/>
       </section>
     </div>

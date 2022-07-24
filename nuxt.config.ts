@@ -2,9 +2,6 @@ import {defineNuxtConfig} from "nuxt";
 
 export default defineNuxtConfig({
     ssr: true,
-    privateRuntimeConfig: {
-        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
-    },
     runtimeConfig: {
         public: {
             NUXT_PUBLIC_SERVICE_URL: process.env.NUXT_PUBLIC_SERVICE_URL,
@@ -22,10 +19,10 @@ export default defineNuxtConfig({
             },
         ],
     },
-    experimental: {
-        reactivityTransform: true,
-        viteNode: false,
-    },
+    // experimental: {
+    //     reactivityTransform: true,
+    //     viteNode: false,
+    // },
     image: {
         dir: "public/",
         staticFilename: "[publicPath]/[name]-[hash][ext]",
@@ -52,7 +49,7 @@ export default defineNuxtConfig({
             },
         },
     },
-    css: ["~/assets/css/main.css",
-        "~/assets/css/tailwindcss.css"
+    css: ["~/assets/css/tailwindcss.css",
+        "~/assets/css/main.css",
     ],
 });

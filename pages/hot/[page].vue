@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import {watchEffect, ref} from "vue";
-import {useFetch, useRoute} from "#app";
 import {ChevronDoubleRightIcon, ChevronDoubleLeftIcon} from "@heroicons/vue/solid";
-
 
 const route = useRoute();
 const params = route.params;
 const page = ref(params.page || 1)
-console.log("page", page.value)
 const {pending, data: mangas, refresh} = await useFetch(`/api/manga-updated`, {
   params: {
     page: page.value,

@@ -18,16 +18,16 @@ const {
     <div class="px-4" v-else>
       <div>
         <a href="/xu-huong">
-          <SharedImg class="w-full" src="https://weeboo.vn/icons/widgets/trend/img-header.svg" alt="trend" />
+          <SharedImg class="w-full" src="https://weeboo.vn/icons/widgets/trend/img-header.svg" alt="trend"/>
         </a>
       </div>
       <div class="gxFbOF">
         <ClientOnly>
-          <swiper :modules="[Grid]" :grid="{
+          <Swiper :modules="[Grid]" :grid="{
             rows: 3,
             fill: 'row'
           }" :slides-per-view="1.3" :space-between="14">
-            <swiper-slide v-for="manga in mangas" class="h-[130px]" :key="manga.slug">
+            <SwiperSlide v-for="manga in mangas" class="h-[130px]" :key="manga.slug">
               <div class="p-5 kesnlQ">
                 <NuxtLink class="flex items-center" :to="useMangaDetailPagePath(manga.slug)">
                   <SharedImg
@@ -60,8 +60,8 @@ const {
                   </div>
                 </NuxtLink>
               </div>
-            </swiper-slide>
-          </swiper>
+            </SwiperSlide>
+          </Swiper>
         </ClientOnly>
       </div>
       <div class="rounded-b-xl shadow-[0_3px_20px_rgba(0,0,0,10%)] bg-white">

@@ -55,17 +55,5 @@ watchEffect(() => {
         Đăng xuất
       </button>
     </div>
-
   </NuxtLayout>
-
 </template>
-
-<style scoped>
-.dqMZqX {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  padding: 13px 20px;
-  background: linear-gradient(99.09deg, #ff623e 0%, rgb(255, 248, 236) 100%);
-}
-</style>

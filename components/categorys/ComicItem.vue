@@ -18,7 +18,8 @@ defineProps({
             :src="manga.thumbnail"
             fil="fill"/>
         <div class="absolute bottom-0 bg-deep-black h-[30px] w-full rounded-b-xl opacity-80"></div>
-        <div class="absolute bottom-0 w-full text-xl font-semibold text-white h-[30px] flex items-center justify-center ">
+        <div
+            class="absolute bottom-0 w-full text-xl font-semibold text-white h-[30px] flex items-center justify-center ">
           <a>{{ manga.newChapter }}</a>
         </div>
       </div>

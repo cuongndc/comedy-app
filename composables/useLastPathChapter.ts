@@ -4,12 +4,12 @@ import {useStorage} from "@vueuse/core";
 
 const useLastPathChapter = async (spotlight: Manga, slugs: string | readonly string[]) => {
     const slug = slugs || spotlight?.slug
-    const {data: comic} = await useFetch(`/api/comic?slug=${slug}`);
-    if (!comic.value) {
+    const comic = await $fetch(`/api/comic?slug=${slug}`);
+    if (!comic) {
         return '';
     }
 
-    const mangas: MangaDetails = (comic.value as MangaDetails)
+    const mangas: MangaDetails = (comic as MangaDetails)
     // Cache manga detail to local storage
     const cache = useStorage(keys.mangaCacheDetail, '');
     cache.value = null

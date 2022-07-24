@@ -2,12 +2,11 @@
 import useMangaDetailPagePath from '~/composables/useMangaDetailPagePath';
 import {Manga} from '~/types';
 import {ChevronRightIcon} from "@heroicons/vue/solid";
-import {PropType} from "vue";
 
 const {
   data: mangas,
   pending,
-} = await useLazyFetch<Manga[]>(`/api/manga-updated`);
+} = await useFetch<Manga[]>(`/api/manga-updated`);
 const navigateToManga = async (chapterNumber: string, chapterId: string, slug: string) => {
   const path = await useChapter(chapterNumber, chapterId, slug);
 

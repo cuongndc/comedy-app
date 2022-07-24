@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { IManga } from "~/types";
-import { useFetch } from "#app";
 
 const [{ data: ngonTinh, pending }, { data: damMy }, { data: xuyenKhong }] = await Promise.all([
   useFetch<IManga[]>(`/api/ngon-tinh`),

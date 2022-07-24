@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import {MANGA_PATH_NAME, MANGA_PATH_READ_NAME} from "~/contants";
-import {ref, useRoute} from "#imports";
-import {isClient, set, useStorage} from "@vueuse/core";
-import {CogIcon} from '@heroicons/vue/outline';
+import {isClient, useStorage} from "@vueuse/core";
 import {keys} from "~/types";
 import useMangaDetailPagePath from '~/composables/useMangaDetailPagePath';
 
