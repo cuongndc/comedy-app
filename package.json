@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-manga",
+  "name": "comedy-app",
   "version": "0.0.3",
-  "author": "BaoBao",
+  "author": "baobao",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -32,6 +32,7 @@
     "@headlessui/vue": "^1.4.1",
     "@heroicons/vue": "^1.0.6",
     "axios": "^0.27.2",
+    "firebase": "^9.6.8",
     "swiper": "^8.2.6",
     "tailwind-scrollbar-hide": "^1.1.7",
     "vue-content-loader": "^2.0.1"

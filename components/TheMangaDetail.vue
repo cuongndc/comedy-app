@@ -157,7 +157,7 @@ useHead({
                     'w-full py-2.5 text-xl leading-5 w-[100px]',
                     selected
                       ? 'shadow text-primary border-b-[1px] border-rose-900'
-                      : 'border-b-[1px] border-gray-600 text-gray-custom']">
+                      : 'border-b-[1px] border-gray-600 text-primary-gray']">
                   {{ category }}
                 </button>
               </Tab>

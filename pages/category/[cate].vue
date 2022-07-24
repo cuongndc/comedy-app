@@ -5,7 +5,6 @@ import {useFetch, useRoute} from "#app";
 const route = useRoute();
 const params = route.params;
 const cate = ref(params.cate)
-const scrollComponent = ref(null)
 const page = ref(1)
 const {pending, data: mangas, refresh} = await useFetch(`/api/filter`, {
   params: {
@@ -25,15 +24,15 @@ watchEffect(async () => {
       <NuxtLink to="/" class="mx-2 my-2 flex items-center">
         <SvgHeaderFilterBack/>
       </NuxtLink>
-      <div class="flex items-center w-[70%] mx-2 my-2 text-3xl font-bold">
-        Danh mục truyện
+      <div class="flex items-center w-[70%] mx-2 my-2 text-4xl text-black font-bold">
+        #Danh mục truyện
       </div>
       <NuxtLink to="/filter" class="flex items-center mr-2 h-[40px] w-[30px] mx-2 my-2 rounded-2xl text-white">
         <SvgSearchFilterHeader/>
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
-      <CategorysCateList/>
+      <CategorysCateList :cates="cates" v-once/>
       <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 200px)">
         <LazyCategorysComicItem :mangas="mangas"/>
       </section>

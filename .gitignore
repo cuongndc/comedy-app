@@ -1,0 +1,7 @@
+node_modules
+.nuxt
+.idea
+.output
+.vscode
+.env
+yarn.lock

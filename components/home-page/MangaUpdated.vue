@@ -44,17 +44,17 @@ const {
                     <p class="text-xs italic line-clamp-2 mb-1">
                       {{ manga.review }}
                     </p>
-                    <p class=" text-gray-custom mb-3 text-base">
+                    <p class=" text-primary-gray mb-3 text-base">
                       {{ manga.newChapter }}
                     </p>
                     <div class="flex items-center">
                       <div class="flex items-center">
                         <SvgViewChapter class="w-5 h-5 mb-1"/>
-                        <span class="text-base text-gray-custom">{{ manga.view }}</span>
+                        <span class="text-base text-primary-gray">{{ manga.view }}</span>
                       </div>
                       <div class="flex items-center">
                         <SvgFollow class="w-5 h-5 ml-2 mr-1 mb-1"/>
-                        <span class="text-base text-gray-custom">{{ manga.follow }}</span>
+                        <span class="text-base text-primary-gray">{{ manga.follow }}</span>
                       </div>
                     </div>
                   </div>
@@ -66,10 +66,10 @@ const {
       </div>
       <div class="rounded-b-xl shadow-[0_3px_20px_rgba(0,0,0,10%)] bg-white">
         <div>
-          <a class="flex items-center justify-center p-5">
-            <span class="text-xl text-gray-custom">Xem tất cả</span>
-            <ChevronDoubleRightIcon class="h-4 w-4 text-gray-custom ml-2"/>
-          </a>
+          <NuxtLink to="/hot/1" class="flex items-center justify-center p-5">
+            <span class="text-xl text-primary-gray">Xem tất cả</span>
+            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2"/>
+          </NuxtLink>
         </div>
       </div>
     </div>

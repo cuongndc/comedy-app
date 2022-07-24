@@ -27,8 +27,8 @@ const navigateToManga = async (chapterNumber: string, chapterId: string, slug: s
               Chương {{ chap.chapterNumber }}</a>
           </div>
           <div class="flex justify-between items-center">
-            <div class="text-gray-custom text-base">{{ chap.updatedAt }}</div>
-            <div class="text-gray-custom text-base flex items-center">
+            <div class="text-primary-gray text-base">{{ chap.updatedAt }}</div>
+            <div class="text-primary-gray text-base flex items-center">
               <SvgViewChapter class="w-5 h-5 mb-1" />
               {{ chap.view }}
             </div>

@@ -108,16 +108,23 @@ const handleChapter = async (action: string) => {
 const scrollComponent = ref(null);
 const handleScroll = () => {
   let element = scrollComponent.value
-  if (element.getBoundingClientRect().bottom < window.innerHeight) {
-    handleChapter('next');
+  if (!element) return;
+  if (element.getBoundingClientRect().bottom - 10 < window.innerHeight) {
+    setTimeout(() => {
+      handleChapter('next');
+    }, 1500);
   }
 };
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll)
+  if (isClient) {
+    window.addEventListener('scroll', handleScroll);
+  }
 })
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll)
+  if (isClient) {
+    window.removeEventListener("scroll", handleScroll)
+  }
 })
 
 const handleNextProcess = (action: string) => {
@@ -139,7 +146,7 @@ useHead({
   <div v-if="pending">
     <CommonPageLoading/>
   </div>
-  <div class="flex h-fit min-h-screen flex-col bg-black"
+  <div class="flex h-fit min-h-screen flex-col bg-black scrollbar-hide"
        ref="scrollComponent"
        v-else>
     <div class="relative flex h-fit flex-1 text-white">

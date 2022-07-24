@@ -5,7 +5,7 @@ import {Swiper, SwiperSlide} from 'swiper/vue';
 const {data: mangas, pending} = useLazyFetch<Manga[]>(`/api/manga-new`);
 const SWIPER_BREAK_POINTS = {
   1: {
-    slidesPerView: 2,
+    slidesPerView: 4,
     spaceBetween: 2,
   },
   320: {

@@ -7,7 +7,7 @@ import {HeartIcon} from "@heroicons/vue/solid";
     <div class="grid grid-cols-4">
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink to="/filter?view=month" class="rounded-[100%] bg-yellow-200">
+          <NuxtLink to="/ranking/month" class="rounded-[100%] bg-yellow-200">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
               <SharedImg
                   alt="ranking"
@@ -37,7 +37,7 @@ import {HeartIcon} from "@heroicons/vue/solid";
       </div>
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink class="rounded-[100%] bg-amber-200">
+          <NuxtLink to="/ranking/follow" class="rounded-[100%] bg-amber-200">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
               <HeartIcon class="w-10 h-10"/>
             </div>

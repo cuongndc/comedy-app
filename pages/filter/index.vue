@@ -42,15 +42,15 @@ watchEffect(async () => {
           <SvgSearchFilterHeader/>
         </div>
         <input v-model="refInput" class="search-input" placeholder="Nhập nội dung tìm kiếm"/>
-        <XCircleIcon v-if="refInput.length > 0" @click="clearInput" class="w-8 h-8 text-gray-custom absolute "
+        <XCircleIcon v-if="refInput.length > 0" @click="clearInput" class="w-8 h-8 text-primary-gray absolute "
                      style="right: 10px; top: 7px"/>
       </div>
     </div>
     <div class="tabs">
       <ul class="flex">
         <li class="p-3 border-y-red-700 text-black">Tất cả</li>
-        <li class="p-3 text-gray-custom">Truyện tranh</li>
-        <li class="p-3 text-gray-custom">Truyện chữ</li>
+        <li class="p-3 text-primary-gray">Truyện tranh</li>
+        <li class="p-3 text-primary-gray">Truyện chữ</li>
       </ul>
     </div>
     <section class="bg-white">
@@ -92,11 +92,11 @@ watchEffect(async () => {
                   {{ manga.name }}
                 </NuxtLink>
               </h3>
-              <p class=" text-gray-custom mb-3 text-base">
+              <p class="text-primary-gray mb-3 text-base">
                 {{ manga.newChapter }}
               </p>
               <ul class="flex h-[50%] flex-wrap">
-                <li class="text-gray-custom absolute-center m-2 h-[40%] w-[75px] rounded-xl text-base bg-primary"
+                <li class="text-primary-gray absolute-center m-2 h-[40%] w-[75px] rounded-xl text-base bg-primary"
                     v-for="genre in manga.genres">
                   {{ genre }}
                 </li>
