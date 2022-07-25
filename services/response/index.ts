@@ -1,4 +1,4 @@
-import {ChapterImg, Manga, MangaDetails, SearchResponseData, ServerResponse} from "~/types";
+import {ChapterImg, Manga, ComicPreview, SearchResponseData, ServerResponse} from "~/types";
 
 export interface SearchResponse extends ServerResponse {
     data: SearchResponseData[];
@@ -12,6 +12,6 @@ export interface MangaResponse extends ServerResponse {
     data: Manga[];
 }
 
-export interface MangaDetailsResponse extends ServerResponse {
-    data: MangaDetails
+export interface ComicPreviewResponse extends ServerResponse {
+    data: ComicPreview
 }

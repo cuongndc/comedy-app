@@ -1,4 +1,4 @@
 export const keys = {
-    mangaCacheDetail: 'manga-detail',
+    comicCacheLocalPreview: 'comic-preview',
     visitedComics: 'visited-comics'
 }

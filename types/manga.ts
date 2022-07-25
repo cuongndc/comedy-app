@@ -1,10 +1,8 @@
 import {Chapter, Genre} from "./chapter";
-
-export type Status = "Đang tiến hành" | "Hoàn thành";
 import {DropDownLink} from "~/contants";
-import exp from "constants";
 
 export const MANGA_BROWSE_PAGE = "filter";
+export type Status = "Đang tiến hành" | "Hoàn thành";
 export type SourceCrawl = "nettruyen" | "hamtruyen" | "mangareader";
 
 export enum MANGA_SORT {
@@ -55,7 +53,15 @@ export type ChapSuggests = {
     updatedAt: string;
 }
 
-export interface MangaDetails {
+export type FollowState =
+    | 'reading'
+    | 'on-hold'
+    | 'dropped'
+    | 'plan-to-read'
+    | 'completed'
+    | 're-reading';
+
+export interface ComicPreview {
     title: string;
     updatedAt: string;
     otherName: string;
@@ -69,36 +75,32 @@ export interface MangaDetails {
     follow: string;
 }
 
-export type HeadlessManga = Pick<MangaDetails, "chapterList" | "title"> & {
-    mangaSlug: string;
-};
-
-// export const FOLLOW_STATE: Array<{ id: FollowState; title: string }> = [
-//     {
-//         id: "reading",
-//         title: "Đang đọc",
-//     },
-//     {
-//         id: "completed",
-//         title: "Hoàn thành",
-//     },
-//     {
-//         id: "dropped",
-//         title: "Tạm ngưng",
-//     },
-//     {
-//         id: "on-hold",
-//         title: "Giữ lại",
-//     },
-//     {
-//         id: "plan-to-read",
-//         title: "Dự định đọc",
-//     },
-//     {
-//         id: "re-reading",
-//         title: "Đọc lại",
-//     },
-// ];
+export const FOLLOW_STATE: Array<{ id: FollowState; title: string }> = [
+    {
+        id: "reading",
+        title: "Đang đọc",
+    },
+    {
+        id: "completed",
+        title: "Hoàn thành",
+    },
+    {
+        id: "dropped",
+        title: "Tạm ngưng",
+    },
+    {
+        id: "on-hold",
+        title: "Giữ lại",
+    },
+    {
+        id: "plan-to-read",
+        title: "Dự định đọc",
+    },
+    {
+        id: "re-reading",
+        title: "Đọc lại",
+    },
+];
 
 export const MANGA_NT = [
     {
@@ -209,23 +211,6 @@ export const GENDER = [
     {value: "-1", label: "Tất cả"},
     {value: "1", label: "Chuyện con gái"},
     {value: "2", label: "Chuyện con trai"},
-];
-
-
-export const TailwindColors = [
-    "#facc15",
-    "#a3e635",
-    "#fbbf24",
-    "#34d399",
-    "#fb923c",
-    "#22d3ee",
-    "#f87171",
-    "#38bdf8",
-    "#f472b6",
-    "#818cf8",
-    "#fb7185",
-    "#a78bfa",
-    "#e879f9",
 ];
 
 export const MangaTypesPreview: DropDownLink[] = [

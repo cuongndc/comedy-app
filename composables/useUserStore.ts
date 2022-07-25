@@ -1,20 +1,6 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
+import {UserInfo} from '~/types'
 import { ref } from "vue";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  FacebookAuthProvider,
-} from "@firebase/auth";
-
-interface UserInfo {
-  displayName: string;
-  email: string;
-  photoURL: string;
-  phoneNumber: string;
-  providerId: string;
-  uid: string;
-}
 
 export const useUserStore = defineStore("users", () => {
   const isLoggedIn = ref(false);
@@ -40,8 +26,6 @@ export const useUserStore = defineStore("users", () => {
     isLoggedIn,
     setUserInfo,
     setIsLoggedIn,
-    // signWithGoogle,
-    // signWithFacebook,
   };
 });
 

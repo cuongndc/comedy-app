@@ -2,14 +2,13 @@
 import {MANGA_PATH_NAME, MANGA_PATH_READ_NAME} from "~/contants";
 import {isClient, useStorage} from "@vueuse/core";
 import {keys} from "~/types";
-import useMangaDetailPagePath from '~/composables/useMangaDetailPagePath';
 
 import {
   ArrowLeftIcon,
   ArrowNarrowLeftIcon,
   ArrowRightIcon,
 } from '@heroicons/vue/solid';
-import {onMounted, watchEffect} from "vue";
+import {onMounted, onUnmounted, watchEffect} from "vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -31,7 +30,7 @@ const {
   }
 });
 
-const manga: any = await useStorage(keys.mangaCacheDetail, {
+const manga: any = await useStorage(keys.comicCacheLocalPreview, {
   serializer: {
     read: (v: any) => v ? JSON.parse(v) : null,
     write: (v: any) => JSON.stringify(v),
@@ -119,6 +118,7 @@ onMounted(() => {
     window.addEventListener('scroll', handleScroll);
   }
 })
+
 onUnmounted(() => {
   if (isClient) {
     window.removeEventListener("scroll", handleScroll)
@@ -152,7 +152,7 @@ useHead({
         <div class="fixed top-0 left-0 z-[999] h-[60px] w-full">
           <div class="flex h-full w-full items-center justify-between text-lg md:text-2xl bg-accent-1">
             <div class="flex h-full w-fit items-center justify-evenly gap-4 px-4 md:space-x-4">
-              <LazyNuxtLink :to="useMangaDetailPagePath(params.slug)" class="flex">
+              <LazyNuxtLink :to="useNavigatorComicPreview(params.slug)" class="flex">
                 <button>
                   <ArrowNarrowLeftIcon class="h-9 w-9"/>
                 </button>
@@ -172,11 +172,11 @@ useHead({
                 </button>
               </div>
             </div>
-<!--            <div class="flex h-full w-fit items-center pr-2 md:gap-10 md:px-4">-->
-<!--            <button class="rounded-xl-lg bg-highlight p-2">-->
-<!--              <CogIcon class="h8 w-8"/>-->
-<!--            </button>-->
-<!--          </div>-->
+            <!--            <div class="flex h-full w-fit items-center pr-2 md:gap-10 md:px-4">-->
+            <!--            <button class="rounded-xl-lg bg-highlight p-2">-->
+            <!--              <CogIcon class="h8 w-8"/>-->
+            <!--            </button>-->
+            <!--          </div>-->
           </div>
         </div>
         <LazyMangaChapterImg :chapters="chapters.data"/>

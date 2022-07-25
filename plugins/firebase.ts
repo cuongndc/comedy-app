@@ -1,4 +1,4 @@
-import {initializeApp} from "firebase/app";
+import {initializeApp, getApps} from "firebase/app";
 import useFirebase from '~/composables/useFirebase'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
@@ -13,8 +13,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         measurementId: "G-XRJ0JDNEGY"
     };
 
+
     try {
-        initializeApp(firebaseConfig);
+        const apps = getApps();
+        const app = !apps.length ? initializeApp(firebaseConfig) : apps[0];
         initFirebase()
     } catch (e) {
         console.log('err', e);

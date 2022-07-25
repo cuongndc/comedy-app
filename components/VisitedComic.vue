@@ -2,34 +2,6 @@
 import {keys} from "~/types";
 import {useStorage} from '@vueuse/core';
 import {Swiper, SwiperSlide} from 'swiper/vue';
-import useMangaDetailPagePath from '~/composables/useMangaDetailPagePath'
-
-const SWIPER_BREAK_POINTS = {
-  1: {
-    slidesPerView: 2,
-    spaceBetween: 2,
-  },
-  320: {
-    slidesPerView: 3.4,
-    spaceBetween: 10,
-  },
-  480: {
-    slidesPerView: 4.4,
-    spaceBetween: 10,
-  },
-  640: {
-    slidesPerView: 5.4,
-    spaceBetween: 20,
-  },
-  750: {
-    slidesPerView: 6.4,
-    spaceBetween: 20,
-  },
-  800: {
-    slidesPerView: 7.4,
-    spaceBetween: 20,
-  },
-};
 
 const visitedComics: any = await useStorage(keys.visitedComics, {
   serializer: {
@@ -52,7 +24,7 @@ const visitedComics: any = await useStorage(keys.visitedComics, {
           <div
               class="col-span-1 rounded-[8px] p-13 max-w-[384px] w-full h-[138px] bg-white relative shadow-[0_3px_20px_rgba(0,0,0,10%)]">
             <div class="absolute bottom-[13px] left-[13px]">
-              <NuxtLink :to="useMangaDetailPagePath(manga.slug)">
+              <NuxtLink :to="useNavigatorComicPreview(manga.slug)">
                 <div class=" max-w-full w-[105px]">
                   <div class="relative pb-[133.3333%]">
                     <SharedImg

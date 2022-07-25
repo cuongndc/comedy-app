@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {watchEffect, ref} from "vue";
+import {CateRanks} from '~/contants'
 
 const route = useRoute();
 const params = route.params;
@@ -15,50 +16,6 @@ const {pending, data: mangas, refresh} = await useFetch(`/api/ranking`, {
 watchEffect(async () => {
   await refresh();
 })
-
-interface ICate {
-  title: string;
-  slug: string;
-  router: string
-}
-
-const cates: ICate[] = [
-  {
-    title: 'Top all',
-    slug: 'all',
-    router: '/ranking/all'
-  },
-  {
-    title: 'Top trong tháng',
-    slug: 'month',
-    router: '/ranking/month'
-  },
-  {
-    title: 'Top trong tuần',
-    slug: 'week',
-    router: '/ranking/week'
-  },
-  {
-    title: 'Top trong ngày',
-    slug: 'day',
-    router:  '/ranking/day'
-  },
-  {
-    title: 'Theo dõi',
-    slug: 'follow',
-    router:  '/ranking/follow'
-  },
-  {
-    title: 'Bình luận',
-    slug: 'comment',
-    router:  '/ranking/comment'
-  },
-  {
-    title: 'Số chapter',
-    slug: 'chapter',
-    router:  '/ranking/chapter'
-  },
-]
 
 </script>
 
@@ -77,7 +34,7 @@ const cates: ICate[] = [
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
-      <CategorysCateList :cates="cates"/>
+      <CategorysCateList :cates="CateRanks"/>
       <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 200px)">
         <LazyCategorysComicItem :mangas="mangas" />
       </section>
