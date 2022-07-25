@@ -8,7 +8,7 @@ const isLoggedIn = ref(false)
 
 const doLogout = async () => {
   const auth = getAuth();
-  const result = await auth.signOut();
+  await auth.signOut();
   isLoggedIn.value = false;
   userInfo.value = null;
 }
