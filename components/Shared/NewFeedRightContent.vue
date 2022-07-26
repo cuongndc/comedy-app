@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {PropType} from "vue";
-import {IManga} from "~/types";
+import { PropType } from "vue";
+import { IManga } from "~/types";
 
 defineProps({
   mangas: Array as PropType<IManga[]>,
@@ -14,11 +14,11 @@ defineProps({
     </h3>
     <div>
       <div class="rating flex items-center">
-        <SvgStar/>
-        <SvgStar/>
-        <SvgStar/>
-        <SvgStar/>
-        <SvgStar/>
+        <SvgStar />
+        <SvgStar />
+        <SvgStar />
+        <SvgStar />
+        <SvgStar />
         <p class="text-xl">4.8
           <span class="text-base font-semibold text-gray-500"> (369)</span>
         </p>
@@ -33,7 +33,7 @@ defineProps({
       <div class="mt-3">
         <a class="mt-3">
           <p class="flex items-center justify-start w-full text-gray-500">
-            <SvgComment class="mr-2"/>
+            <SvgComment class="mr-2" />
             <span class="name text-base font-semibold">Bang Vo</span>
             <span class="mx-2 text-xl">•</span>
             <span class="text-base">21 giờ trước</span>

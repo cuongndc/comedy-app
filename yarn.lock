@@ -844,10 +844,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kevinmarrec/nuxt-pwa@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@kevinmarrec/nuxt-pwa/-/nuxt-pwa-0.4.2.tgz#c471bd305797e8619739dd4f6133dff4fd1cad73"
-  integrity sha512-GVLv4knKAFMX0YB0soYEsaTmJrFmm6/QpAPHXf1ZkAF5iHqyvWKW2ymMID0g5YUZjpxJxkAEPlBWSZ1DB7z24A==
+"@kevinmarrec/nuxt-pwa@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@kevinmarrec/nuxt-pwa/-/nuxt-pwa-0.3.1.tgz#1f36f9f026bac3b19ca6d06665d36439f52049ed"
+  integrity sha512-9qyO4wsQlU3V9yHaxLgETSvR7cWjFjC/P8xAZij0UNZZoiyCdZvN9mj87kof5EGIjZ3P3UN4KGApzHx8GT4jKQ==
   dependencies:
     hasha "^5.2.2"
     sharp "^0.30.7"
@@ -4769,7 +4769,7 @@ nuxi@^3.0.0-rc.6:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt@3.0.0-rc.6:
+nuxt@^3.0.0-rc.6:
   version "3.0.0-rc.6"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.0.0-rc.6.tgz#c0a81f53d1c39fefae87abebaba8c63949e40751"
   integrity sha512-Ko/LBIUBf25bSXKoRnPEplMngw2dHU8qkV5Twdm7yZ0DfdFkwaTVzTtwvbWsFt+H9vh1aUUTCSyEWnmNorkkxQ==
@@ -6744,11 +6744,6 @@ vue-bundle-renderer@^0.3.9:
   integrity sha512-jhkyS2Zaey9OAp2xVyGnN0//lLfNtT2elFq1NevaY4JwQEw27DFS970rQbNYPds2WXeq2H/O2HM+qCPcsimJGg==
   dependencies:
     bundle-runner "^0.0.1"
-
-vue-content-loader@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-content-loader/-/vue-content-loader-2.0.1.tgz#c6a3ff0e653671e5e8cff9e0c3814e6d04d3411d"
-  integrity sha512-pkof4+q2xmzNEdhqelxtJejeP/vQUJtLle4/v2ueG+HURqM9Q/GIGC8GJ2bVVWeLfTDET51jqimwQdmxJTlu0g==
 
 vue-demi@*:
   version "0.13.5"

@@ -2,13 +2,13 @@
 import "swiper/css/grid";
 import "swiper/css";
 
-const config = useRuntimeConfig();
-const publicConfig = config.public;
+// const config = useRuntimeConfig();
+// const publicConfig = config.public;
 
 </script>
 
 <template>
-  <Head>
+  <!-- <Head>
     <Meta name="theme-color" content="#f43f5f"/>
     <Meta name="msapplication-navbutton-color" content="#f43f5f"/>
     <Meta name="apple-mobile-web-app-status-bar-style" content="#f43f5f"/>
@@ -35,7 +35,7 @@ const publicConfig = config.public;
     <Meta rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png"/>
     <Meta rel="manifest" href="/assets/favicons/site.webmanifest">
     </Meta>
-  </Head>
+  </Head> -->
   <NuxtLoadingBar/>
   <NuxtPage/>
 </template>

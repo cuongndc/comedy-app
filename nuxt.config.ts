@@ -1,6 +1,9 @@
 import {defineNuxtConfig} from "nuxt";
 
 export default defineNuxtConfig({
+    app: {
+        buildAssetsDir: "/assets/",
+    },
     ssr: true,
     runtimeConfig: {
         public: {
@@ -9,16 +12,38 @@ export default defineNuxtConfig({
             SIZE_NAME: process.env.SIZE_NAME,
         },
     },
-    meta: {
-        title: "Truyện tranh online - Miễn phí - Không quảng cáo",
-        link: [
-            {
-                rel: "icon",
-                type: "image/x-icon",
-                href: "https://i.im.ge/2022/07/15/FotbqY.png",
-            },
-        ],
+    pwa: {
+        meta: {
+            name: 'Truyện tranh online - Miễn phí - Không quảng cáo',
+            author: process.env.SIZE_NAME,
+            description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
+            mobileAppIOS: true,
+            mobileApp: true,
+            ogHost: process.env.DOMAIN,
+            twitterCard: 'summary',
+            twitterSite: process.env.SIZE_NAME,
+            twitterCreator: process.env.SIZE_NAME
+        },
+        manifest: {
+            name: process.env.DOMAIN,
+            short_name: process.env.SIZE_NAME,
+            background_color: '#111827',
+            theme_color: '#f43f5f',
+        },
+        workbox: {
+            enabled: true,
+        }
     },
+    // meta: {
+    //     title: "Truyện tranh online - Miễn phí - Không quảng cáo",
+    //     link: [
+    //         {
+    //             rel: "icon",
+    //             type: "image/x-icon",
+    //             href: "https://i.im.ge/2022/07/15/FotbqY.png",
+    //         },
+    //     ],
+    // },
     // experimental: {
     //     reactivityTransform: true,
     //     viteNode: false,
@@ -37,7 +62,7 @@ export default defineNuxtConfig({
     //         "2xl": 1536,
     //     },
     // },
-    modules: ["@nuxt/image-edge", '@pinia/nuxt',],
+    modules: ["@kevinmarrec/nuxt-pwa", "@nuxt/image-edge", "@pinia/nuxt"],
     build: {
         transpile: ["@heroicons/vue"],
         postcss: {
@@ -49,7 +74,5 @@ export default defineNuxtConfig({
             },
         },
     },
-    css: ["~/assets/css/tailwindcss.css",
-        "~/assets/css/main.css",
-    ],
+    css: ["~/assets/css/tailwindcss.css", "~/assets/css/main.css"],
 });

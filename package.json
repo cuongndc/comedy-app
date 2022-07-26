@@ -12,6 +12,7 @@
     "start": "nuxt start"
   },
   "devDependencies": {
+    "@kevinmarrec/nuxt-pwa": "^0.3.1",
     "@antfu/eslint-config": "^0.25.2",
     "@nuxt/image-edge": "^1.0.0-27628766.3629b9a",
     "@pinia/nuxt": "^0.3.0",
@@ -21,7 +22,7 @@
     "@vueuse/nuxt": "^8.7.5",
     "autoprefixer": "^10.4.7",
     "eslint": "^8.20.0",
-    "nuxt": "3.0.0-rc.6",
+    "nuxt": "^3.0.0-rc.6",
     "pinia": "^2.0.16",
     "postcss": "^8.4.14",
     "sass": "^1.51.0",
@@ -34,8 +35,7 @@
     "axios": "^0.27.2",
     "firebase": "^9.6.8",
     "swiper": "^8.2.6",
-    "tailwind-scrollbar-hide": "^1.1.7",
-    "vue-content-loader": "^2.0.1"
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "license": "ISC"
 }
