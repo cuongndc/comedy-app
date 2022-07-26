@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import {navigateTo, useRoute, ref} from '#imports';
-import {HeartIcon, ShareIcon} from "@heroicons/vue/outline";
+import { HeartIcon, ShareIcon } from '@heroicons/vue/outline'
+import { navigateTo, ref, useRoute } from '#imports'
 
-const route = useRoute();
-const params = route.params;
-const slug = ref(params.slug);
+const route = useRoute()
+const params = route.params
+const slug = ref(params.slug)
 
 const share = () => {
 
@@ -13,9 +13,9 @@ const follow = () => {
 
 }
 const navigateToManga = async () => {
-  const path = await useReadFirstComic(null, slug.value);
+  const path = await useReadFirstComic(null, slug.value)
   return navigateTo({
-    path: path
+    path,
   })
 }
 </script>
@@ -25,13 +25,13 @@ const navigateToManga = async () => {
     <div class="flex items-start ml-10">
       <div class="text-dark mr-8" @click="share">
         <div class="flex items-center justify-center">
-          <ShareIcon class="h-8 w-8"/>
+          <ShareIcon class="h-8 w-8" />
         </div>
         <a class="text-base">Chia sẻ</a>
       </div>
       <div class="text-dark" @click="follow">
         <div class="flex items-center justify-center">
-          <HeartIcon class="h-8 w-8"/>
+          <HeartIcon class="h-8 w-8" />
         </div>
         <a class="text-base">Follow</a>
       </div>
@@ -39,11 +39,11 @@ const navigateToManga = async () => {
 
     <div>
       <button
-          class="btn bg-primary mr-5 h-[35px] text-base hover:bg-highlight flex items-center justify-center w-[160px] rounded-[60px]"
-          @click="navigateToManga">
+        class="btn bg-primary mr-5 h-[35px] text-base hover:bg-highlight flex items-center justify-center w-[160px] rounded-[60px]"
+        @click="navigateToManga"
+      >
         <a>Đọc từ đầu</a>
       </button>
     </div>
-
   </div>
 </template>

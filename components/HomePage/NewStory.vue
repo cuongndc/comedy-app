@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import {Manga} from "~/types";
-import {Swiper, SwiperSlide} from 'swiper/vue';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import type { Manga } from '~/types'
 
-const {data: mangas, pending} = useFetch<Manga[]>(`/api/manga-new`);
+const { data: mangas, pending } = useFetch<Manga[]>('/api/manga-new')
 const SWIPER_BREAK_POINTS = {
   1: {
     slidesPerView: 4,
@@ -28,11 +28,11 @@ const SWIPER_BREAK_POINTS = {
     slidesPerView: 7.4,
     spaceBetween: 20,
   },
-};
+}
 </script>
 
 <template>
-  <div class="px-4 mb-4" v-if="!pending">
+  <div v-if="!pending" class="px-4 mb-4">
     <h2 class=" h-[20px] text-3xl font-bold flex justify-start items-center text-black mb-4">
       # Truyện mới cập nhật
     </h2>
@@ -41,13 +41,13 @@ const SWIPER_BREAK_POINTS = {
         <SwiperSlide v-for="manga in mangas" :key="manga.slug">
           <div class="duration-200 ease-in-out transition-all">
             <NuxtLink :to="useNavigatorComicPreview(manga.slug)">
-              <SharedImg loading="lazy" class="rounded-xl h-[130px] object-cover" :src="manga.thumbnail" fil="fill"/>
+              <SharedImg loading="lazy" class="rounded-xl h-[130px] object-cover" :src="manga.thumbnail" fil="fill" />
             </NuxtLink>
             <h2 class="text-base line-clamp-1 mt-1 text-black font-semibold">
               {{ manga.name }}
             </h2>
             <p class="text-sm text-zinc-500 line-clamp-1 font-secondary">
-              <a class="text-sm font-secondary text-zinc-500 mr-1" v-for="genre in manga.genres">
+              <a v-for="genre in manga.genres" class="text-sm font-secondary text-zinc-500 mr-1" :key="genre">
                 {{ genre }}
               </a>
             </p>

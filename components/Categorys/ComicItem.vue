@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import {PropType} from 'vue';
-import {IManga} from "~/types";
+import type { PropType } from 'vue'
+import type { IManga } from '~/types'
 
 defineProps({
   mangas: Object as PropType<IManga[]>,
 })
-
 </script>
 
 <template>
@@ -13,13 +12,15 @@ defineProps({
     <NuxtLink class="flex items-center p-4" :to="useNavigatorComicPreview(manga.slug)">
       <div class="relative">
         <SharedImg
-            loading="lazy"
-            class="rounded-2xl w-[125px] h-[168px] object-cover"
-            :src="manga.thumbnail"
-            fil="fill"/>
-        <div class="absolute bottom-0 bg-deep-black h-[30px] w-full rounded-b-xl opacity-80"></div>
+          loading="lazy"
+          class="rounded-2xl w-[125px] h-[168px] object-cover"
+          :src="manga.thumbnail"
+          fil="fill"
+        />
+        <div class="absolute bottom-0 bg-deep-black h-[30px] w-full rounded-b-xl opacity-80" />
         <div
-            class="absolute bottom-0 w-full text-xl font-semibold text-white h-[30px] flex items-center justify-center ">
+          class="absolute bottom-0 w-full text-xl font-semibold text-white h-[30px] flex items-center justify-center "
+        >
           <a>{{ manga.newChapter }}</a>
         </div>
       </div>

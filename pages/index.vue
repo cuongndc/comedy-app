@@ -1,5 +1,5 @@
 <template>
   <NuxtLayout>
-    <LazyTheHome/>
+    <LazyTheHome />
   </NuxtLayout>
 </template>

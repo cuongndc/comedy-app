@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PropType } from "vue";
-import { IManga } from "~/types";
+import type { PropType } from 'vue'
+import type { IManga } from '~/types'
 
 defineProps({
   mangas: Array as PropType<IManga[]>,
@@ -19,7 +19,8 @@ defineProps({
         <SvgStar />
         <SvgStar />
         <SvgStar />
-        <p class="text-xl">4.8
+        <p class="text-xl">
+          4.8
           <span class="text-base font-semibold text-gray-500"> (369)</span>
         </p>
       </div>

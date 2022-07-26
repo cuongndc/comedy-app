@@ -1,3 +1,3 @@
 <template>
-  <LazyTheMangaPreview/>
+  <LazyTheMangaPreview />
 </template>

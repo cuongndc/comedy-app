@@ -52,36 +52,36 @@ export type GENRES =
     | 'viet-nam'
     | 'webtoon'
     | 'xuyen-khong-205'
-    | '16';
+    | '16'
 
 export interface FilterRequest {
-    page?: number;
-    genres?: string;
-    top?: string;
-    status?: string;
-    limit?: number;
-    sort?: number;
+  page?: number
+  genres?: string
+  top?: string
+  status?: string
+  limit?: number
+  sort?: number
 }
 
-export type RankingMangeRequest = {
-    status: string;
-    top: string;
-    page: number;
-    genre: GENRES
+export interface RankingMangeRequest {
+  status: string
+  top: string
+  page: number
+  genre: GENRES
 }
 
-export type ChapterRequest = {
-    slug: string;
-    chapter: string;
-    id: string;
+export interface ChapterRequest {
+  slug: string
+  chapter: string
+  id: string
 }
 
 export interface AdvanceQueryRequest {
-    genres?: string;
-    gender?: number;
-    status?: string;
-    top?: string;
-    minchapter?: number;
-    page?: number;
-    comics?: string;
+  genres?: string
+  gender?: number
+  status?: string
+  top?: string
+  minchapter?: number
+  page?: number
+  comics?: string
 }

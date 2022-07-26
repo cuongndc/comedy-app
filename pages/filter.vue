@@ -1,56 +1,64 @@
 <script lang="ts" setup>
-import {ref, watchEffect} from 'vue';
-import {useDebounce} from '@vueuse/core';
-import {XCircleIcon} from '@heroicons/vue/solid'
-import {IManga} from "~/types";
+import { ref, watchEffect } from 'vue'
+import { useDebounce } from '@vueuse/core'
+import { XCircleIcon } from '@heroicons/vue/solid'
+import type { IManga } from '~/types'
 
-const refInput = ref('');
+const refInput = ref('')
 const debounced = useDebounce(refInput, 200)
-const searchData = ref<IManga[]>([]);
-const loading = ref(true);
+const searchData = ref<IManga[]>([])
+const loading = ref(true)
 
 const clearInput = () => {
-  refInput.value = ' ';
-  searchData.value = [];
+  refInput.value = ' '
+  searchData.value = []
 }
 
 watchEffect(async () => {
-  loading.value = true;
+  loading.value = true
   try {
-    searchData.value = await $fetch(`/api/search-manga`, {
+    searchData.value = await $fetch('/api/search-manga', {
       params: {
         q: debounced.value,
-      }
-    });
+      },
+    })
 
-    loading.value = false;
-  } catch (error) {
-    loading.value = false;
-    console.log(error);
+    loading.value = false
+  }
+  catch (error) {
+    loading.value = false
   }
 })
-
 </script>
+
 <template>
   <div class="bg-white h-[100vh] w-full">
     <div class="flex justify-between">
       <NuxtLink to="/" class="mx-2 my-2">
-        <SvgHeaderFilterBack/>
+        <SvgHeaderFilterBack />
       </NuxtLink>
       <div class="flex w-[90%] relative mx-2 my-2">
         <div class="absolute top-1 left-1">
-          <SvgSearchFilterHeader/>
+          <SvgSearchFilterHeader />
         </div>
-        <input v-model="refInput" class="search-input" placeholder="Nhập nội dung tìm kiếm"/>
-        <XCircleIcon v-if="refInput.length > 0" @click="clearInput" class="w-8 h-8 text-primary-gray absolute "
-                     style="right: 10px; top: 7px"/>
+        <input v-model="refInput" class="search-input" placeholder="Nhập nội dung tìm kiếm">
+        <XCircleIcon
+          v-if="refInput.length > 0" class="w-8 h-8 text-primary-gray absolute " style="right: 10px; top: 7px"
+          @click="clearInput"
+        />
       </div>
     </div>
     <div class="tabs">
       <ul class="flex">
-        <li class="p-3 border-y-red-700 text-black">Tất cả</li>
-        <li class="p-3 text-primary-gray">Truyện tranh</li>
-        <li class="p-3 text-primary-gray">Truyện chữ</li>
+        <li class="p-3 border-y-red-700 text-black">
+          Tất cả
+        </li>
+        <li class="p-3 text-primary-gray">
+          Truyện tranh
+        </li>
+        <li class="p-3 text-primary-gray">
+          Truyện chữ
+        </li>
       </ul>
     </div>
     <section class="bg-white">
@@ -77,15 +85,16 @@ watchEffect(async () => {
       <h2 class="font-bold text-2xl text-black p-4">
         Truyện tranh ({{ searchData.length ? searchData.length : 0 }})
       </h2>
-      <CommonSearchLoading class="w-16 h-16" v-if="loading" />
-      <div class="result grid grid-cols-1 md:grid-cols-2" v-if="searchData && searchData.length > 0 && !loading">
-        <div class="p-4 col-span-1" v-for="manga in searchData">
+      <CommonSearchLoading v-if="loading" class="w-16 h-16" />
+      <div v-if="searchData && searchData.length > 0 && !loading" class="result grid grid-cols-1 md:grid-cols-2">
+        <div v-for="manga in searchData" :key="manga.slug" class="p-4 col-span-1">
           <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(manga.slug)">
             <SharedImg
-                loading="lazy"
-                class="rounded-xl w-[75px] h-[100px] object-cover"
-                :src="manga.thumbnail"
-                fil="fill"/>
+              loading="lazy"
+              class="rounded-xl w-[75px] h-[100px] object-cover"
+              :src="manga.thumbnail"
+              fil="fill"
+            />
             <div class="px-5" style="width: calc(100% - 102px)">
               <h3 class="text-xl font-semibold line-clamp-1 mb-1">
                 <NuxtLink :to="useNavigatorComicPreview(manga.slug)">
@@ -96,8 +105,11 @@ watchEffect(async () => {
                 {{ manga.newChapter }}
               </p>
               <ul class="flex h-[50%] flex-wrap">
-                <li class="text-primary-gray absolute-center m-2 h-[40%] w-[75px] rounded-xl text-base bg-primary"
-                    v-for="genre in manga.genres">
+                <li
+                  v-for="genre in manga.genres"
+                  :key="genre"
+                  class="text-primary-gray absolute-center m-2 h-[40%] w-[75px] rounded-xl text-base bg-primary"
+                >
                   {{ genre }}
                 </li>
               </ul>
@@ -107,5 +119,4 @@ watchEffect(async () => {
       </div>
     </section>
   </div>
-
 </template>

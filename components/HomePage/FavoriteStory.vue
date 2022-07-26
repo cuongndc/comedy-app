@@ -1,26 +1,31 @@
 <script lang="ts" setup>
-import {IManga, SWIPER_BREAK_POINTS} from "~/types";
-import {Swiper, SwiperSlide} from 'swiper/vue';
-import {useFetch} from '#imports';
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import type { IManga } from '~/types'
+import { SWIPER_BREAK_POINTS } from '~/types'
+import { useFetch } from '#imports'
 
-const {data: mangas, pending} = useFetch<IManga[]>(`/api/follow-story?genres=manhua`);
+const { data: mangas, pending } = useFetch<IManga[]>('/api/follow-story?genres=manhua')
 </script>
+
 <template>
   <div>
-    <PulseMangaUpdatedLoading v-if="pending"/>
-    <div class="px-4" v-else>
+    <PulseMangaUpdatedLoading v-if="pending" />
+    <div v-else class="px-4">
       <h2 class=" h-[70px] text-3xl font-bold flex justify-start items-center text-black mb-4">
         # Được yêu thích
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div
-            class="col-span-1 rounded-[8px] p-13 max-w-[384px] w-full h-[138px] bg-white relative shadow-[0_3px_20px_rgba(0,0,0,10%)]">
+          class="col-span-1 rounded-[8px] p-13 max-w-[384px] w-full h-[138px] bg-white relative shadow-[0_3px_20px_rgba(0,0,0,10%)]"
+        >
           <div class="absolute bottom-[13px] left-[13px]">
             <NuxtLink :to="useNavigatorComicPreview(mangas[mangas.length - 1].slug)">
               <div class="max-w-full w-[105px]">
                 <div class="relative pb-[133.3333%]">
-                  <SharedImg class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
-                             :src="mangas[mangas.length - 1].thumbnail"/>
+                  <SharedImg
+                    class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
+                    :src="mangas[mangas.length - 1].thumbnail"
+                  />
                 </div>
               </div>
             </NuxtLink>
@@ -31,12 +36,13 @@ const {data: mangas, pending} = useFetch<IManga[]>(`/api/follow-story?genres=man
             </h3>
             <div>
               <div class="rating flex items-center">
-                <SvgStar/>
-                <SvgStar/>
-                <SvgStar/>
-                <SvgStar/>
-                <SvgStar/>
-                <p class="text-xl">4.8
+                <SvgStar />
+                <SvgStar />
+                <SvgStar />
+                <SvgStar />
+                <SvgStar />
+                <p class="text-xl">
+                  4.8
                   <span class="text-base font-semibold text-gray-500"> (369)</span>
                 </p>
               </div>
@@ -50,7 +56,7 @@ const {data: mangas, pending} = useFetch<IManga[]>(`/api/follow-story?genres=man
               <div class="mt-3">
                 <a class="mt-3">
                   <p class="flex items-center justify-start w-full text-gray-500">
-                    <SvgComment class="mr-2"/>
+                    <SvgComment class="mr-2" />
                     <span class="name text-base font-semibold">Bang Vo</span>
                     <span class="mx-2 text-xl">•</span>
                     <span class="text-base">21 giờ trước</span>
@@ -64,15 +70,16 @@ const {data: mangas, pending} = useFetch<IManga[]>(`/api/follow-story?genres=man
       <div class="mt-10">
         <ClientOnly>
           <Swiper :breakpoints="SWIPER_BREAK_POINTS">
-            <SwiperSlide v-for="manga in mangas">
+            <SwiperSlide v-for="manga in mangas" :key="manga.slug">
               <div class="duration-200 ease-in-out transition-all">
                 <NuxtLink :to="useNavigatorComicPreview(manga.slug)">
                   <SharedImg
-                      format="webp"
-                      loading="lazy"
-                      class="rounded-xl object-cover h-[139px] w-full"
-                      :src="manga.thumbnail"
-                      fil="fill"/>
+                    format="webp"
+                    loading="lazy"
+                    class="rounded-xl object-cover h-[139px] w-full"
+                    :src="manga.thumbnail"
+                    fil="fill"
+                  />
                 </NuxtLink>
                 <div class="h-[30px] flex flex-wrap">
                   <h2 class="text-base line-clamp-1 mt-1 text-black font-semibold">

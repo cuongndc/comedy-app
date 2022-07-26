@@ -1,9 +1,9 @@
 export const State = {
-    READ_CHAPTER: 'read-chapter'
+  READ_CHAPTER: 'read-chapter',
 }
 
-export type devices = {
-    hasMobile:boolean;
-    hasTablet:boolean;
-    hasDesktop:boolean;
+export interface devices {
+  hasMobile: boolean
+  hasTablet: boolean
+  hasDesktop: boolean
 }

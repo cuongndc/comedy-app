@@ -1,39 +1,41 @@
 <script lang="ts" setup>
-import {IManga} from "~/types";
-import {Grid} from "swiper";
-import {Swiper, SwiperSlide} from 'swiper/vue';
-import {ChevronDoubleRightIcon} from "@heroicons/vue/solid";
+import { Grid } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { ChevronDoubleRightIcon } from '@heroicons/vue/solid'
+import type { IManga } from '~/types'
 
 const {
   data: mangas,
   pending,
-} = await useFetch<IManga[]>(`/api/manga-updated`);
-
+} = await useFetch<IManga[]>('/api/manga-updated')
 </script>
 
 <template>
   <div class="mb-4">
-    <PulseMangaUpdatedLoading v-if="pending"/>
-    <div class="px-4" v-else>
+    <PulseMangaUpdatedLoading v-if="pending" />
+    <div v-else class="px-4">
       <div>
         <a href="/xu-huong">
-          <SharedImg class="w-full" src="https://weeboo.vn/icons/widgets/trend/img-header.svg" alt="trend"/>
+          <SharedImg class="w-full" src="https://weeboo.vn/icons/widgets/trend/img-header.svg" alt="trend" />
         </a>
       </div>
       <div class="gxFbOF">
         <ClientOnly>
-          <Swiper :modules="[Grid]" :grid="{
-            rows: 3,
-            fill: 'row'
-          }" :slides-per-view="1.3" :space-between="14">
-            <SwiperSlide v-for="manga in mangas" class="h-[130px]" :key="manga.slug">
+          <Swiper
+            :modules="[Grid]" :grid="{
+              rows: 3,
+              fill: 'row',
+            }" :slides-per-view="1.3" :space-between="14"
+          >
+            <SwiperSlide v-for="manga in mangas" :key="manga.slug" class="h-[130px]">
               <div class="p-5 kesnlQ">
                 <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(manga.slug)">
                   <SharedImg
-                      loading="lazy"
-                      class="rounded-xl w-[75px] h-[100px] object-cover"
-                      :src="manga.thumbnail"
-                      fil="fill"/>
+                    loading="lazy"
+                    class="rounded-xl w-[75px] h-[100px] object-cover"
+                    :src="manga.thumbnail"
+                    fil="fill"
+                  />
                   <div class="px-5" style="width: calc(100% - 102px)">
                     <h3 class="text-xl font-semibold line-clamp-1 mb-1">
                       <NuxtLink :to="useNavigatorComicPreview(manga.slug)">
@@ -48,11 +50,11 @@ const {
                     </p>
                     <div class="flex items-center">
                       <div class="flex items-center">
-                        <SvgViewChapter class="w-5 h-5 mb-1"/>
+                        <SvgViewChapter class="w-5 h-5 mb-1" />
                         <span class="text-base text-primary-gray">{{ manga.view }}</span>
                       </div>
                       <div class="flex items-center">
-                        <SvgFollow class="w-5 h-5 ml-2 mr-1 mb-1"/>
+                        <SvgFollow class="w-5 h-5 ml-2 mr-1 mb-1" />
                         <span class="text-base text-primary-gray">{{ manga.follow }}</span>
                       </div>
                     </div>
@@ -67,7 +69,7 @@ const {
         <div>
           <NuxtLink to="/hot/1" class="flex items-center justify-center p-5">
             <span class="text-xl text-primary-gray">Xem tất cả</span>
-            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2"/>
+            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" />
           </NuxtLink>
         </div>
       </div>
@@ -135,7 +137,6 @@ const {
   line-height: 18px;
   color: rgb(138, 138, 143);
 }
-
 
 .kesnlQ {
   display: flex;

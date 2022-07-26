@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import "swiper/css/grid";
-import "swiper/css";
+import 'swiper/css/grid'
+import 'swiper/css'
 
 // const config = useRuntimeConfig();
 // const publicConfig = config.public;
-
 </script>
 
 <template>
@@ -36,6 +35,6 @@ import "swiper/css";
     <Meta rel="manifest" href="/assets/favicons/site.webmanifest">
     </Meta>
   </Head> -->
-  <NuxtLoadingBar/>
-  <NuxtPage/>
+  <NuxtLoadingBar />
+  <NuxtPage />
 </template>

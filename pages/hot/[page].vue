@@ -1,49 +1,48 @@
 <script setup lang="ts">
-import {watchEffect, ref} from "vue";
-import {ChevronDoubleRightIcon, ChevronDoubleLeftIcon} from "@heroicons/vue/solid";
+import { ref, watchEffect } from 'vue'
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/vue/solid'
 
-const route = useRoute();
-const params = route.params;
+const route = useRoute()
+const params = route.params
 const page = ref(params.page || 1)
-const {pending, data: mangas, refresh} = await useFetch(`/api/manga-updated`, {
+const { pending, data: mangas, refresh } = await useFetch('/api/manga-updated', {
   params: {
     page: page.value,
-  }
-});
-
-watchEffect(async () => {
-  await refresh();
+  },
 })
 
+watchEffect(async () => {
+  await refresh()
+})
 </script>
 
 <template>
-  <CommonPageLoading v-if="pending"/>
-  <div class="bg-white h-[100vh]" v-else>
+  <CommonPageLoading v-if="pending" />
+  <div v-else class="bg-white h-[100vh]">
     <div class="flex justify-between justify-center" style="box-shadow: rgb(242 242 242) 0 -1px 0 inset">
       <NuxtLink to="/" class="mx-2 my-2 flex items-center">
-        <SvgHeaderFilterBack/>
+        <SvgHeaderFilterBack />
       </NuxtLink>
       <div class="flex items-center w-[70%] mx-2 my-2 text-4xl text-black font-bold">
         #Truyện cập nhật liên tục
       </div>
       <NuxtLink to="/filter" class="flex items-center mr-2 h-[40px] w-[30px] mx-2 my-2 rounded-2xl text-white">
-        <SvgSearchFilterHeader/>
+        <SvgSearchFilterHeader />
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
       <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 80px)">
-        <LazyCategorysComicItem :mangas="mangas"/>
+        <LazyCategorysComicItem :mangas="mangas" />
       </section>
       <div class="flex items-center justify-center w-full gap-4">
-      <NuxtLink v-if="page > 1" :to="`/hot/${parseInt(page) - 1}`" class="h-[30px] rounded-2xl bg-primary w-full flex items-center justify-center text-primary mt-4">
-        <ChevronDoubleLeftIcon class="h-6 w-6 mr-2"/>
-        Trang trước
-      </NuxtLink>
-      <NuxtLink :to="`/hot/${parseInt(page) + 1}`" class="h-[30px] rounded-2xl w-full flex items-center justify-center text-primary mt-4 bg-primary">
-        Xem thêm
-        <ChevronDoubleRightIcon class="h-6 w-6 ml-2"/>
-      </NuxtLink>
+        <NuxtLink v-if="page > 1" :to="`/hot/${parseInt(page) - 1}`" class="h-[30px] rounded-2xl bg-primary w-full flex items-center justify-center text-primary mt-4">
+          <ChevronDoubleLeftIcon class="h-6 w-6 mr-2" />
+          Trang trước
+        </NuxtLink>
+        <NuxtLink :to="`/hot/${parseInt(page) + 1}`" class="h-[30px] rounded-2xl w-full flex items-center justify-center text-primary mt-4 bg-primary">
+          Xem thêm
+          <ChevronDoubleRightIcon class="h-6 w-6 ml-2" />
+        </NuxtLink>
       </div>
     </div>
   </div>

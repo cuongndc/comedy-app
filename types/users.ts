@@ -1,8 +1,8 @@
 export interface UserInfo {
-    displayName: string;
-    email: string;
-    photoURL: string;
-    phoneNumber: string;
-    providerId: string;
-    uid: string;
+  displayName: string
+  email: string
+  photoURL: string
+  phoneNumber: string
+  providerId: string
+  uid: string
 }

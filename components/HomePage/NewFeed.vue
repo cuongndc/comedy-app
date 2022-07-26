@@ -1,16 +1,17 @@
 <script lang="ts" setup>
-import {INewFeed, IManga} from "~/types";
-import {PropType} from 'vue';
-import {useLazyFetch} from "#app";
+import type { PropType } from 'vue'
+import type { IManga, INewFeed } from '~/types'
+import { useLazyFetch } from '#app'
 
 const props = defineProps({
   newFeed: Object as PropType<INewFeed>,
 })
 
-const {data: mangas, pending} = useLazyFetch<IManga[]>(props.newFeed.endPoint)
+const { data: mangas, pending } = useLazyFetch<IManga[]>(props.newFeed.endPoint)
 </script>
+
 <template>
-  <div class="px-4 mb-10" v-if="!pending">
+  <div v-if="!pending" class="px-4 mb-10">
     <div class="h-[70px] mb-4 flex justify-between">
       <h2 class="text-3xl font-bold flex justify-start items-center text-black ">
         {{ newFeed.title }}
@@ -21,11 +22,12 @@ const {data: mangas, pending} = useLazyFetch<IManga[]>(props.newFeed.endPoint)
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
       <div
-          class="col-span-1 rounded-[8px] p-13 max-w-[384px] w-full h-[138px] bg-white relative shadow-[0_3px_20px_rgba(0,0,0,10%)]">
-        <SharedNewFeedLeftContent :mangas="mangas"/>
-        <SharedNewFeedRightContent :mangas="mangas"/>
+        class="col-span-1 rounded-[8px] p-13 max-w-[384px] w-full h-[138px] bg-white relative shadow-[0_3px_20px_rgba(0,0,0,10%)]"
+      >
+        <SharedNewFeedLeftContent :mangas="mangas" />
+        <SharedNewFeedRightContent :mangas="mangas" />
       </div>
     </div>
-    <SharedSwiperContent :mangas="mangas"/>
+    <SharedSwiperContent :mangas="mangas" />
   </div>
 </template>

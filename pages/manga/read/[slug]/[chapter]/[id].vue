@@ -1,4 +1,3 @@
 <template>
-  <LazyTheRead>
-  </LazyTheRead>
+  <LazyTheRead />
 </template>

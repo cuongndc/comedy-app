@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {PropType} from "vue";
-import {IManga} from "~/types";
+import type { PropType } from 'vue'
+import type { IManga } from '~/types'
 
 defineProps({
   mangas: Array as PropType<IManga[]>,
@@ -13,8 +13,9 @@ defineProps({
       <div class=" max-w-full w-[105px]">
         <div class="relative pb-[133.3333%]">
           <SharedImg
-              class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
-              :src="mangas[mangas.length - 1].thumbnail"/>
+            class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
+            :src="mangas[mangas.length - 1].thumbnail"
+          />
         </div>
       </div>
     </NuxtLink>

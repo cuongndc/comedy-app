@@ -1,5 +1,4 @@
-<script setup>
-
+<script setup lang="ts">
 defineProps({
   src: String,
   alt: String,
@@ -8,15 +7,15 @@ defineProps({
   fil: String,
   format: String,
 })
-
 </script>
 
 <template>
   <img
-      :format="format"
-      :fil="fil"
-      :loading="loading"
-      :class="className"
-      :src="src"
-      :alt="alt">
+    :format="format"
+    :fil="fil"
+    :loading="loading"
+    :class="className"
+    :src="src"
+    :alt="alt"
+  >
 </template>

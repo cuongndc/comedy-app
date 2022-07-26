@@ -1,13 +1,12 @@
-import repositoryFactory, {NET_TRUYEN} from "~/services/repositoryFactory";
-// import {FilterRequest} from "~/services/request";
+import repositoryFactory, { NET_TRUYEN } from '~/services/repositoryFactory'
 
-export default defineEventHandler(async (event) => {
-    const API = repositoryFactory(NET_TRUYEN);
+export default defineEventHandler(async () => {
+  const API = repositoryFactory(NET_TRUYEN)
 
-    const mangas = await API?.getNewManga(1);
+  const mangas = await API?.getNewManga(1)
 
-    if (mangas.status !== 200)
-        return []
+  if (mangas.status !== 200)
+    return []
 
-    return mangas.data.data;
-});
+  return mangas.data.data
+})
