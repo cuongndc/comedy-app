@@ -14,13 +14,14 @@ export default defineNuxtConfig({
   },
   pwa: {
     meta: {
-      name: 'Truyện tranh online - Miễn phí - Không quảng cáo',
+      name: process.env.SIZE_NAME,
+      favicon: true,
       author: process.env.SIZE_NAME,
       description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
       mobileAppIOS: true,
       mobileApp: true,
       ogHost: process.env.DOMAIN,
-      twitterCard: 'summary',
+      twitterCard: process.env.SIZE_NAME,
       twitterSite: process.env.SIZE_NAME,
       twitterCreator: process.env.SIZE_NAME,
     },
@@ -30,20 +31,10 @@ export default defineNuxtConfig({
       background_color: '#111827',
       theme_color: '#f43f5f',
     },
-    workbox: {
-      enabled: true,
-    },
+    // workbox: {
+    //   enabled: true,
+    // },
   },
-  // meta: {
-  //     title: "Truyện tranh online - Miễn phí - Không quảng cáo",
-  //     link: [
-  //         {
-  //             rel: "icon",
-  //             type: "image/x-icon",
-  //             href: "https://i.im.ge/2022/07/15/FotbqY.png",
-  //         },
-  //     ],
-  // },
   // experimental: {
   //     reactivityTransform: true,
   //     viteNode: false,
