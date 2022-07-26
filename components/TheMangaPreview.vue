@@ -3,7 +3,6 @@ import {keys, ComicPreview} from "~/types";
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue'
 import {watchEffect} from "vue";
 import {useStorage} from "@vueuse/core";
-import PageLoading from "~/components/common/PageLoading.vue";
 
 const route = useRoute();
 const params = route.params;
@@ -91,7 +90,7 @@ useHead({
 
 <template>
   <div>
-    <PageLoading v-if="pending" />
+    <CommonPageLoading v-if="pending" />
     <NuxtLayout name="manga" v-else>
       <div class="relative flex h-[100vh] flex-col bg-accent-4">
         <LazyMangaPreviewReadButton/>
