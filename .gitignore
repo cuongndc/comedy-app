@@ -1,8 +1,22 @@
+# Dependencies
 node_modules
-.nuxt
+
+# Coverage
+coverage
+
+# Logs
+*.log*
+
+# IDE
 .idea
-.output
 .vscode
-.env
-yarn.lock
-DS_Store
+
+# Nuxt build
+.nuxt*
+.output
+
+# Module build
+dist
+
+# Environment files
+.env*
