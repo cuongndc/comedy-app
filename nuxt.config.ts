@@ -1,4 +1,4 @@
-import {defineNuxtConfig} from "nuxt";
+import {defineNuxtConfig} from 'nuxt';
 
 export default defineNuxtConfig({
     app: {
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
             SIZE_NAME: process.env.SIZE_NAME,
         },
     },
-    pwa: {
+  pwa: {
         meta: {
             name: 'Truyện tranh online - Miễn phí - Không quảng cáo',
             author: process.env.SIZE_NAME,

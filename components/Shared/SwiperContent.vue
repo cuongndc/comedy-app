@@ -2,7 +2,6 @@
 import {SWIPER_BREAK_POINTS, IManga} from '~/types';
 import {PropType} from 'vue';
 import {Swiper, SwiperSlide} from 'swiper/vue';
-import SharedImg from '~/components/shared/Img.vue';
 
 defineProps({
   mangas: Array as PropType<IManga[]>,
