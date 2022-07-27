@@ -7,7 +7,7 @@ export default defineEventHandler(async () => {
     genres: 'chuyen-sinh-2130',
     page: 1,
     sort: 'month' as any,
-    limit: 16,
+    limit: 9,
   }
 
   const mangas = await API?.filter(filterRequest)

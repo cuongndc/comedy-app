@@ -6,7 +6,7 @@ export default defineEventHandler(async () => {
   const filterRequest: FilterRequest = {
     genres: 'dam-my',
     page: 1,
-    limit: 8,
+    limit: 9,
   }
 
   const mangas = await API?.filter(filterRequest)

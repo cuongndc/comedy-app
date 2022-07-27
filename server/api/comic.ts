@@ -1,15 +1,14 @@
-import { reactive } from 'vue'
-import repositoryFactory, { NET_TRUYEN } from '~/services/repositoryFactory'
+import { useQuery } from 'h3'
+import client from '~/services/client'
 
 export default defineEventHandler(async (event) => {
-  const API = repositoryFactory(NET_TRUYEN)
+  const { slug, _id } = useQuery(event)
+  const response = await client.get('/wb/comic', {
+    params: {
+      slug,
+      _id,
+    },
+  })
 
-  const query = useQuery(event)
-  const { slug } = reactive(query)
-
-  const mangas = await API?.getManga(slug as string)
-  if (mangas.status !== 200)
-    return []
-
-  return mangas?.data.data
+  return response.data.data
 })

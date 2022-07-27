@@ -1,7 +1,15 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper'
+import type { PropType } from 'vue'
 import { ref } from 'vue'
+import { useRuntimeConfig } from '#app'
+import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
+import type { IBanner } from '~/types'
+
+defineProps({
+  banner: Object as PropType<IBanner>,
+})
 
 interface autoSettingSwiper {
   delay: number
@@ -9,66 +17,44 @@ interface autoSettingSwiper {
 }
 
 const modules = ref([Autoplay])
+const config = useRuntimeConfig()
 // A ref object that is passed to the Swiper component.
 const autoPlaySettings = ref<autoSettingSwiper>({
   delay: 3000,
   disableOnInteraction: false,
 })
-
-const { data: spotlights, pending } = await useFetch('/api/spotlights')
 </script>
 
 <template>
-  <div>
-    <SectionSpotlightBannerLoading v-if="pending" />
-    <ClientOnly>
-      <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings" class="relative">
-        <SwiperSlide v-for="spotlight in spotlights" :key="spotlight.slug">
-          <NuxtLink :to="useNavigatorComicPreview(spotlight.slug)">
-            <div class="relative aspect-w-16 aspect-h-9 rounded-xl-md">
-              <div
-                class="z-20 absolute fixed-0 bg-gradient-to-b from-transparent via-black/10 to-black/80 flex items-end bottom-0 w-full"
+  <ClientOnly>
+    <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
+      <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
+        <NuxtLink
+          :to="useNavigatorComicPreview(cover.slug)"
+          class="relative block h-[65vw]"
+          :title="cover.comicName"
+        >
+          <div class="w-full absolute bottom-0">
+            <div class="aspect-w-16 aspect-h-12">
+              <img
+                alt="Hôm Nay Bắt Đầu Làm Siêu Sao"
+                class="img-domain"
+                :src="`${config.public.imageCdn}/${cover.link}`"
               >
-                <div class="p-4 w-full">
-                  <h1 class="text-xl font-semibold uppercase line-clamp-2 text-white w-[70%]">
-                    <a class="flex items-end h-[100%]">{{ spotlight.name }}</a>
-                  </h1>
-                  <div class="flex flex-wrap items-center mt-2 text-sm gap-x-8">
-                    <div class="flex items-center gap-x-2">
-                      <p class="text-white flex items-center">
-                        <span class="text-base mr-1">
-                          <SvgViewSpotLight class="text-white mr-1" />
-                        </span>
-                        {{ spotlight.view }}
-                      </p>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                      <div class="flex items-center gap-x-2">
-                        <p class="text-white flex items-center text-base">
-                          <SvgFollow class="mr-1" />
-                          {{ spotlight.follow }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <figure
-                class="w-full bg-cover bg-center bg-no-repeat z-50"
-                style="background-image: url(https://cdn.funtoon.vn/image/resources/1641268437278.1942.png)"
-              />
-              <div>
-                <SharedImg
-                  loading="lazy"
-                  class="img-position z-10 object-cover"
-                  format="webp"
-                  :src="spotlight.thumbnail"
-                />
-              </div>
             </div>
-          </NuxtLink>
-        </SwiperSlide>
-      </Swiper>
-    </ClientOnly>
-  </div>
+          </div>
+          <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0">
+            <div class="aspect-w-16 aspect-h-12">
+              <img
+                alt=""
+                data-src="https://cdn.funtoon.vn/image/resources/1643553766848.3526.png"
+                class="img-domain"
+                :src="`${config.public.imageCdn}/${animation.image}`"
+              >
+            </div>
+          </div>
+        </NuxtLink>
+      </SwiperSlide>
+    </Swiper>
+  </ClientOnly>
 </template>

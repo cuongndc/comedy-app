@@ -3,7 +3,7 @@ import type { PropType } from 'vue'
 import type { IManga } from '~/types'
 
 defineProps({
-  mangas: Array as PropType<IManga[]>,
+  comicsReviewNewest: Array,
 })
 </script>
 

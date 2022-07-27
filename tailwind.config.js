@@ -31,6 +31,7 @@ module.exports = {
         'secondary': '#2f2f2f',
         'highlight': '#3f3f3f',
         'deep-black': '#1a1a1a',
+        'dark-gray': '#111217',
       },
       listStyleType: {
         circle: 'circle',

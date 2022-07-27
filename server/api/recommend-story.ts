@@ -11,6 +11,7 @@ export default defineEventHandler(async (event) => {
     page: 1,
     status: 'all',
     sort: 'new' as any,
+    limit: 8,
   }
 
   const mangas = await API?.filter(filterRequest)
