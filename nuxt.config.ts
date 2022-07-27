@@ -13,30 +13,30 @@ export default defineNuxtConfig({
       imageCdn: process.env.IMAGE_CDN,
     },
   },
-  // pwa: {
-  //   meta: {
-  //     name: process.env.SIZE_NAME,
-  //     favicon: true,
-  //     author: process.env.SIZE_NAME,
-  //     description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
-  //     mobileAppIOS: true,
-  //     mobileApp: true,
-  //     ogHost: process.env.DOMAIN,
-  //     twitterCard: process.env.SIZE_NAME,
-  //     twitterSite: process.env.SIZE_NAME,
-  //     twitterCreator: process.env.SIZE_NAME,
-  //   },
-  //   manifest: {
-  //     name: process.env.SIZE_NAME,
-  //     short_name: process.env.SIZE_NAME,
-  //     description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
-  //     background_color: '#111827',
-  //     theme_color: '#f43f5f',
-  //   },
-  //   workbox: {
-  //     // enabled: true,
-  //   },
-  // },
+  pwa: {
+    meta: {
+      name: process.env.SIZE_NAME,
+      favicon: true,
+      author: process.env.SIZE_NAME,
+      description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
+      mobileAppIOS: true,
+      mobileApp: true,
+      ogHost: process.env.DOMAIN,
+      twitterCard: process.env.SIZE_NAME,
+      twitterSite: process.env.SIZE_NAME,
+      twitterCreator: process.env.SIZE_NAME,
+    },
+    manifest: {
+      name: process.env.SIZE_NAME,
+      short_name: process.env.SIZE_NAME,
+      description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
+      background_color: '#111827',
+      theme_color: '#f43f5f',
+    },
+    workbox: {
+      // enabled: true,
+    },
+  },
   // experimental: {
   //     reactivityTransform: true,
   //     viteNode: false,
@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   //         "2xl": 1536,
   //     },
   // },
-  modules: ['@nuxt/image-edge', '@pinia/nuxt'],
+  modules: ['@nuxt/image-edge', '@pinia/nuxt', '@kevinmarrec/nuxt-pwa'],
   build: {
     transpile: ['@heroicons/vue'],
     postcss: {
