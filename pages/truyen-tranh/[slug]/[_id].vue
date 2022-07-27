@@ -181,9 +181,10 @@ if (response.value) {
                 </h4>
                 <p><a href="/phan-hoi-chapter/62ce9da056d0bd058118acbd">Nét đẹp nhưng khó hiểu</a></p>
                 <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
-                  <span>0</span><img
-                    src="/icons/comicComments/icon-like.svg" alt="like"
-                  >
+                  <span>0</span>
+<!--                  <img-->
+<!--                    src="/icons/comicComments/icon-like.svg" alt="like"-->
+<!--                  >-->
                 </div>
               </div>
               <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">
@@ -197,10 +198,12 @@ if (response.value) {
               <div class="CommentItem__ViewAllReply-sc-1qlib8c-7 duUGaC">
                 <a
                   href="/phan-hoi-chapter/62ce9da056d0bd058118acbd"
-                ><img
-                  src="/icons/comicComments/icon-enter.svg"
-                  alt="view all reply"
-                ><span>Xem tất cả 5 phản hồi</span></a>
+                >
+                  <!--                  <img -->
+                  <!--                  src="/icons/comicComments/icon-enter.svg" -->
+                  <!--                  alt="view all reply" -->
+                  <!--                > -->
+                  <span>Xem tất cả 5 phản hồi</span></a>
               </div>
               <div class="CommentItem__CommentReply-sc-1qlib8c-8 iyjJoK" />
             </div>
@@ -230,9 +233,10 @@ if (response.value) {
                 </h4>
                 <p><a href="/phan-hoi-chapter/62d0c83aef8ebd056dd8ecf7">*** thì chết ))</a></p>
                 <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
-                  <span>0</span><img
-                    src="/icons/comicComments/icon-like.svg" alt="like"
-                  >
+                  <span>0</span>
+                  <!--                  <img -->
+                  <!--                    src="/icons/comicComments/icon-like.svg" alt="like" -->
+                  <!--                  > -->
                 </div>
               </div>
               <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">
@@ -246,10 +250,12 @@ if (response.value) {
               <div class="CommentItem__ViewAllReply-sc-1qlib8c-7 duUGaC">
                 <a
                   href="/phan-hoi-chapter/62d0c83aef8ebd056dd8ecf7"
-                ><img
-                  src="/icons/comicComments/icon-enter.svg"
-                  alt="view all reply"
-                ><span>Xem tất cả 4 phản hồi</span></a>
+                >
+                  <!--                  <img -->
+                  <!--                  src="/icons/comicComments/icon-enter.svg" -->
+                  <!--                  alt="view all reply" -->
+                  <!--                > -->
+                  <span>Xem tất cả 4 phản hồi</span></a>
               </div>
               <div class="CommentItem__CommentReply-sc-1qlib8c-8 iyjJoK" />
             </div>
@@ -279,9 +285,10 @@ if (response.value) {
                 </h4>
                 <p><a href="/phan-hoi-chapter/62deeb9d886cb50598fcafaf">Haizz đúng là khổ thằng bé</a></p>
                 <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
-                  <span>0</span><img
-                    src="/icons/comicComments/icon-like.svg" alt="like"
-                  >
+                  <span>0</span>
+                  <!--                  <img -->
+                  <!--                    src="/icons/comicComments/icon-like.svg" alt="like" -->
+                  <!--                  > -->
                 </div>
               </div>
               <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">
@@ -295,10 +302,12 @@ if (response.value) {
               <div class="CommentItem__ViewAllReply-sc-1qlib8c-7 duUGaC">
                 <a
                   href="/phan-hoi-chapter/62deeb9d886cb50598fcafaf"
-                ><img
-                  src="/icons/comicComments/icon-enter.svg"
-                  alt="view all reply"
-                ><span>Xem tất cả 3 phản hồi</span></a>
+                >
+                  <!--                  <img -->
+                  <!--                  src="/icons/comicComments/icon-enter.svg" -->
+                  <!--                  alt="view all reply" -->
+                  <!--                > -->
+                  <span>Xem tất cả 3 phản hồi</span></a>
               </div>
               <div class="CommentItem__CommentReply-sc-1qlib8c-8 iyjJoK">
                 <div class="ReplyItem__Root-sc-1csz0ru-0 flVXHU">
@@ -322,9 +331,10 @@ if (response.value) {
                       </h4>
                       <p><a href="/phan-hoi-chapter/62deebb2ef8ebd056ddc190a">Ajdjjdsd</a></p>
                       <div class="ReplyItem__LikeCount-sc-1csz0ru-3 imRA-dJ">
-                        <span>0</span><img
-                          src="/icons/comicComments/icon-like.svg" alt="like"
-                        >
+                        <span>0</span>
+                        <!--                        <img -->
+                        <!--                          src="/icons/comicComments/icon-like.svg" alt="like" -->
+                        <!--                        > -->
                       </div>
                     </div>
                     <div class="ReplyItem__Control-sc-1csz0ru-4 chkTkF">
@@ -356,9 +366,10 @@ if (response.value) {
                       </h4>
                       <p><a href="/phan-hoi-chapter/62deebae9f5af7057f447b4d">Ãdaidjbsb</a></p>
                       <div class="ReplyItem__LikeCount-sc-1csz0ru-3 imRA-dJ">
-                        <span>0</span><img
-                          src="/icons/comicComments/icon-like.svg" alt="like"
-                        >
+                        <span>0</span>
+                        <!--                        <img -->
+                        <!--                          src="/icons/comicComments/icon-like.svg" alt="like" -->
+                        <!--                        > -->
                       </div>
                     </div>
                     <div class="ReplyItem__Control-sc-1csz0ru-4 chkTkF">
@@ -372,9 +383,11 @@ if (response.value) {
               </div>
             </div>
           </div>
-          <a class="all-comment" href="/binh-luan-truyen/5f153b8d4ee1c16765968775"><span>Tất cả bình luận (38426)</span><img
-            src="/icons/comicComments/icon-skip.svg" alt="all comment"
-          ></a>
+          <a class="all-comment" href="/binh-luan-truyen/5f153b8d4ee1c16765968775"><span>Tất cả bình luận (38426)</span>
+            <!--            <img -->
+            <!--            src="/icons/comicComments/icon-skip.svg" alt="all comment" -->
+            <!--          > -->
+          </a>
         </div>
       </div>
       <div class="ComicRelated__Root-rxs36w-0 dEGLdF">
