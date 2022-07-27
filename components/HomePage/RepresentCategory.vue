@@ -26,7 +26,7 @@ const config = useRuntimeConfig()
         class="col-span-1 rounded-[8px] p-13 max-w-[384px] w-full h-[138px] bg-white relative shadow-[0_3px_20px_rgba(0,0,0,10%)]"
       >
         <div class="absolute bottom-[13px] left-[13px]">
-          <NuxtLink :to="useNavigatorComicPreview(comic.slug)">
+          <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
             <div class=" max-w-full w-[105px]">
               <div class="relative pb-[133.3333%]">
                 <SharedImg

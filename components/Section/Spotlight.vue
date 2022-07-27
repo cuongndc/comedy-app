@@ -30,7 +30,7 @@ const autoPlaySettings = ref<autoSettingSwiper>({
     <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
       <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
         <NuxtLink
-          :to="useNavigatorComicPreview(cover.slug)"
+          :to="useNavigatorComicPreview(cover.slug, cover._id)"
           class="relative block h-[65vw]"
           :title="cover.comicName"
         >

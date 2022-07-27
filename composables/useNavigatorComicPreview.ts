@@ -1,5 +1,5 @@
-import { MANGA_PATH_NAME, MANGA_PATH_PREVIEW_NAME } from '~/contants'
+import { TRUYEN_TRANH } from '~/contants'
 
-export default function useNavigatorComicPreview(slug: string) {
-  return `/${MANGA_PATH_NAME}/${MANGA_PATH_PREVIEW_NAME}/${slug}`
+export default function useNavigatorComicPreview(slug: string, _id: string) {
+  return `/${TRUYEN_TRANH}/${slug}/${_id}`
 }

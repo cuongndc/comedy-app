@@ -28,7 +28,7 @@ const config = useRuntimeConfig()
         >
           <SwiperSlide v-for="content in trending.content" :key="content.slug" class="h-[130px]">
             <div class="p-5 kesnlQ">
-              <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(content.slug)">
+              <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(content.slug, content._id)">
                 <SharedImg
                   loading="lazy"
                   class="rounded-xl w-[75px] h-[100px] object-cover"

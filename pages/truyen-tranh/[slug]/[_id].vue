@@ -20,15 +20,31 @@ const {
     _id: _id.value,
   },
 })
-console.log('response', response.value)
 if (response.value) {
   comic.value = response.value.comic
   chapters.value = response.value.chapters
 }
+const backgroundImage = (image) => {
+  return {
+    backgroundImage: `url(${config.public.imageCdn}/${image})`,
+  }
+}
 </script>
 
 <template>
-  <section v-if="!pending" class="ComicPage__Root-sc-1l8m850-0 kjrONi">
+  <section class="ComicPage__Root-sc-1l8m850-0 kjrONi">
+    <div
+      :style="backgroundImage(comic.squareCover)"
+      class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden"
+    >
+      <NuxtLink to="/" class="ml-4">
+        <img src="/icons/comicPage/icon-back.svg" alt="back">
+      </NuxtLink>
+      <div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4">
+        <img class="mr-2" src="/icons/comicPage/icon-report.svg" alt="report">
+        <span class="text-white text-2xl">Báo cáo</span>
+      </div>
+    </div>
     <div class="ComicPage__Background-sc-1l8m850-1 dQstsf">
       <img
         alt=""
@@ -147,7 +163,11 @@ if (response.value) {
       </div>
       <div class="px-5 overflow-auto whitespace-nowrap scrollbar-hide" style="display: -webkit-box">
         <div v-for="chapter in comic.chaptersRepresentData" :key="chapter._id">
-          <img v-if="chapter.imageRepresent" class="h-[40px] w-[100px] inline-block object-cover border-[1px] border-white mr-4 rounded-xl" :src="`${config.public.imageCdn}/${chapter.imageRepresent}`">
+          <img
+            v-if="chapter.imageRepresent"
+            class="h-[40px] w-[100px] inline-block object-cover border-[1px] border-white mr-4 rounded-xl"
+            :src="`${config.public.imageCdn}/${chapter.imageRepresent}`"
+          >
           <p class="text-white text-base mt-2">
             Chương {{ chapter.chapterNum }}
           </p>
@@ -182,9 +202,9 @@ if (response.value) {
                 <p><a href="/phan-hoi-chapter/62ce9da056d0bd058118acbd">Nét đẹp nhưng khó hiểu</a></p>
                 <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
                   <span>0</span>
-<!--                  <img-->
-<!--                    src="/icons/comicComments/icon-like.svg" alt="like"-->
-<!--                  >-->
+                  <!--                  <img -->
+                  <!--                    src="/icons/comicComments/icon-like.svg" alt="like" -->
+                  <!--                  > -->
                 </div>
               </div>
               <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">

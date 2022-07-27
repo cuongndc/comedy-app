@@ -3,8 +3,6 @@ import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
 
 const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
-// eslint-disable-next-line no-console
-console.log('homepages', homepages.value)
 </script>
 
 <template>
