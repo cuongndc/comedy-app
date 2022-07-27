@@ -13,7 +13,7 @@ const config = useRuntimeConfig()
   <div v-for="content in record.content" :key="content._id" class="px-4 mb-10">
     <div class="h-[70px] mb-4 flex justify-between">
       <h2 class="text-3xl font-bold flex justify-start items-center text-black">
-        {{ content.name }}
+        {{ content.name || content.categoryVietName}}
       </h2>
       <NuxtLink :to="`/category/${content.slug}`" class="text-xl font-semibold flex items-center text-primary mr-1">
         Thêm
@@ -73,7 +73,7 @@ const config = useRuntimeConfig()
     <Swiper :breakpoints="SWIPER_BREAK_POINTS">
       <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
         <div>
-          <NuxtLink :to="useNavigatorComicPreview(comic.slug)">
+          <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
             <SharedImg
               format="webp"
               loading="lazy"

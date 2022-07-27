@@ -3,10 +3,11 @@ import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
 
 const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
+console.log("homepages", homepages.value)
 </script>
 
 <template>
-  <main class="h-[auto] bg-white">
+  <main class="h-[auto] bg-white" v-if="!pending">
     <template v-for="record in homepages" :key="record._id">
       <LazySectionSpotlight
         v-if="record.type === 'banner'"

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { convertUnit } from '~/common'
 import { useRuntimeConfig } from '#app'
+import {watchEffect} from "vue";
 
 const route = useRoute()
 const params = route.params
@@ -24,6 +25,9 @@ if (response.value) {
   comic.value = response.value.comic
   chapters.value = response.value.chapters
 }
+watchEffect(async () => {
+  await refresh()
+})
 const backgroundImage = (image) => {
   return {
     backgroundImage: `url(${config.public.imageCdn}/${image})`,
@@ -32,7 +36,7 @@ const backgroundImage = (image) => {
 </script>
 
 <template>
-  <section class="ComicPage__Root-sc-1l8m850-0 kjrONi">
+  <section class="ComicPage__Root-sc-1l8m850-0 kjrONi" v-if="!pending">
     <div
       :style="backgroundImage(comic.squareCover)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden"
