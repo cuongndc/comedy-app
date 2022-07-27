@@ -1,16 +1,16 @@
-import repositoryFactory, { NET_TRUYEN } from '~/services/repositoryFactory'
+import { useQuery } from 'h3'
+import client from '~/services/client'
 
 export default defineEventHandler(async (event) => {
-  const query = useQuery(event)
-
-  const NET_TRUYEN_API = repositoryFactory(NET_TRUYEN)
-  const { slug, chapter, id } = query
-
-  const chapters = await NET_TRUYEN_API.getChapters({
-    slug: slug as string,
-    chapter: chapter as string,
-    id: id as string,
+  const { comic_id, comic_slug } = useQuery(event)
+  console.log("comic_id", comic_id)
+  console.log("comic_slug", comic_slug)
+  const response = await client.get('/wb/chapters', {
+    params: {
+      comic_id,
+      comic_slug,
+    },
   })
 
-  return chapters.data
+  return response.data
 })

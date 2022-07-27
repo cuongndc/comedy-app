@@ -10,6 +10,7 @@ export const SourceParams = {
   netTruyen: 'nt',
 }
 
+export const TRUYEN_TRANH_CHAPTER = 'truyen-tranh-chapter'
 export const TRUYEN_TRANH = 'truyen-tranh'
 export const MANGA_PATH_NAME = 'manga'
 export const MANGA_PATH_DETAIL_NAME = 'detail'
