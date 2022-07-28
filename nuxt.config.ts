@@ -54,6 +54,8 @@ export default defineNuxtConfig({
     },
   },
   image: {
+    dir: 'public/',
+    domains: ['meetoon.co'],
     presets: {
       cover: {
         modifiers: {
