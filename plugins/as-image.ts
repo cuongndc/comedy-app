@@ -6,5 +6,6 @@ import { defineNuxtPlugin } from '#app'
 export default defineNuxtPlugin((nuxtApp: NuxtApp) => {
   nuxtApp.vueApp.use(AsImage, {
     imageUrlGenerator: imageUrlGeneratorFP,
+    auto: true,
   })
 })

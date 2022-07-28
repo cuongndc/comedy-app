@@ -2,6 +2,7 @@
 import { Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ChevronDoubleRightIcon } from '@heroicons/vue/solid'
+import AsImage from '@awesome-image/image'
 import { useRuntimeConfig } from '#app'
 import { convertUnit } from '~/common'
 
@@ -34,11 +35,14 @@ const config = useRuntimeConfig()
           <SwiperSlide v-for="content in trending.content" :key="content.slug" class="h-[130px]">
             <div class="p-5 kesnlQ">
               <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(content.slug, content._id)">
-                <SharedImg
-                  loading="lazy"
-                  class="rounded-xl w-[75px] h-[100px] object-cover"
+                <AsImage
+                  :duration="2"
+                  :width="75"
+                  :height="100"
+                  class=" rounded-xl w-[75px] h-[100px] object-cover aspect-[3/4]"
+                  format="webp"
+                  :lazy="true"
                   :src="`${config.public.imageCdn}/${content.verticalLogo}`"
-                  fil="fill"
                 />
                 <div class="px-5">
                   <h3 class="text-xl font-semibold line-clamp-1 mb-1">
@@ -180,4 +184,5 @@ const config = useRuntimeConfig()
   line-height: 19px;
   color: rgb(138, 138, 143);
 }
+
 </style>

@@ -6,7 +6,7 @@ import {
 } from '@heroicons/vue/solid'
 import { onMounted, onUnmounted, watchEffect } from 'vue'
 import { TRUYEN_TRANH_CHAPTER } from '~/contants'
-import {useAsyncData, useFetch, useLazyFetch, useState} from '#app'
+import { useFetch, useLazyFetch, useState } from '#app'
 
 const route = useRoute()
 const router = useRouter()
@@ -20,12 +20,12 @@ const {
   pending,
   data: response,
   refresh,
-} = await useAsyncData('', () => $fetch('/api/read-comic', {
+} = useLazyFetch('/api/read-comic', {
   params: {
     slug: slug.value,
     _id: _id.value,
   },
-}))
+})
 onMounted(async () => {
   chapters.value = await $fetch('/api/chapters', {
     params: {

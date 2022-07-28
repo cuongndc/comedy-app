@@ -2,7 +2,7 @@
 import { watchEffect } from 'vue'
 import AsImage from '@awesome-image/image'
 import { convertUnit } from '~/common'
-import { useRuntimeConfig } from '#app'
+import {useAsyncData, useFetch, useLazyFetch, useRuntimeConfig} from '#app'
 
 const route = useRoute()
 const params = route.params
@@ -31,7 +31,7 @@ watchEffect(async () => {
 })
 const backgroundImage = (image) => {
   return {
-    backgroundImage: `url(${config.public.imageCdn}/${image})`,
+    backgroundImage: '',
   }
 }
 </script>
@@ -51,12 +51,18 @@ const backgroundImage = (image) => {
       </div>
     </div>
     <div class="ComicPage__Background-sc-1l8m850-1 dQstsf">
-      <img
-        alt=""
-        class="img-domain"
+      <!--      <img -->
+      <!--        alt="" -->
+      <!--        class="img-domain" -->
+      <!--        :src="`${config.public.imageCdn}/${comic.squareCover}`" -->
+      <!--        style="visibility: visible;" -->
+      <!--      > -->
+      <AsImage
+        format="webp"
+        :lazy="true"
+        :duratio="2"
         :src="`${config.public.imageCdn}/${comic.squareCover}`"
-        style="visibility: visible;"
-      >
+      />
     </div>
     <div class="ComicPage__ComicContent-sc-1l8m850-5 ferexP">
       <div class="ComicPage__ComicInfo-sc-1l8m850-6 fUqEJv">
@@ -164,530 +170,65 @@ const backgroundImage = (image) => {
         </div>
       </div>
       <div class="ComicTags__Root-s3c4yv-0 iDELMo mobile scrollbar-hide">
-        <a v-for="tag in comic.tags" :key="tag._id" href="/tag/am-muu/5f5096f37bcb8a019813d710"># {{ tag.name }}</a>
+        <a v-for="tag in comic.tags" :key="tag._id" href="#"># {{ tag.name }}</a>
       </div>
       <div class="px-5 overflow-auto whitespace-nowrap scrollbar-hide" style="display: -webkit-box">
         <div v-for="chapter in comic.chaptersRepresentData" :key="chapter._id">
           <AsImage
             class="h-[40px] w-[100px] inline-block object-cover border-[1px] border-white mr-4 rounded-xl"
             format="webp"
-            :width="100"
-            :height="40"
             :lazy="true"
             :duratio="2"
             :src="`${config.public.imageCdn}/${chapter.imageRepresent}`"
-          >
-          </AsImage>
+          />
           <p class="text-white text-base mt-2">
             Chương {{ chapter.chapterNum }}
           </p>
-        </div>
-      </div>
-      <div class="comicComments__Root-sc-1lmsq62-0 iXLSbq">
-        <h3>Bình luận (38426)</h3>
-        <div class="comicComments__HasComment-sc-1lmsq62-1 crztuk">
-          <div class="CommentItem__Root-sc-1qlib8c-0 jObhDp">
-            <a href="/@userP6eIWDXvrG">
-              <div style="max-width: 100%; width: 36px;">
-                <div style="position: relative; padding-bottom: 100%;"><img
-                  alt="Búp Phạm Thị"
-                  data-src="https://cdn.funtoon.vn/avatar/avatar_62c2946f9c0f282bf20c790e.jpg"
-                  class="img-avatar"
-                  style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  src="https://cdn.funtoon.vn/avatar/avatar_62c2946f9c0f282bf20c790e.jpg"
-                >
-                </div>
-              </div>
-            </a>
-            <div class="CommentItem__Right-sc-1qlib8c-1 ieLuOe">
-              <div class="CommentItem__Content-sc-1qlib8c-2 phDKU">
-                <h4>
-                  <a class="username" href="/@userP6eIWDXvrG">Búp
-                    Phạm Thị</a> - <a
-                    class="chapter"
-                    href="/truyen-tranh-chapter/thinh-sung-cam-tu-chinh-do-chap-21/5f2bb89a876d637deeb788f6"
-                  >Chương
-                    21</a>
-                </h4>
-                <p><a href="/phan-hoi-chapter/62ce9da056d0bd058118acbd">Nét đẹp nhưng khó hiểu</a></p>
-                <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
-                  <span>0</span>
-                  <!--                  <img -->
-                  <!--                    src="/icons/comicComments/icon-like.svg" alt="like" -->
-                  <!--                  > -->
-                </div>
-              </div>
-              <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">
-                <span>1 tuần trước</span><a
-                  href="/phan-hoi-chapter/62ce9da056d0bd058118acbd"
-                >Trả lời</a>
-                <div class="CommentItem__Like-sc-1qlib8c-6 hGZrpm">
-                  Thích
-                </div>
-              </div>
-              <div class="CommentItem__ViewAllReply-sc-1qlib8c-7 duUGaC">
-                <a
-                  href="/phan-hoi-chapter/62ce9da056d0bd058118acbd"
-                >
-                  <!--                  <img -->
-                  <!--                  src="/icons/comicComments/icon-enter.svg" -->
-                  <!--                  alt="view all reply" -->
-                  <!--                > -->
-                  <span>Xem tất cả 5 phản hồi</span></a>
-              </div>
-              <div class="CommentItem__CommentReply-sc-1qlib8c-8 iyjJoK" />
-            </div>
-          </div>
-          <div class="CommentItem__Root-sc-1qlib8c-0 jObhDp">
-            <a href="/@user8kt9VNEOwQ">
-              <div style="max-width: 100%; width: 36px;">
-                <div style="position: relative; padding-bottom: 100%;"><img
-                  alt="|•Dy luxury√"
-                  data-src="https://cdn.funtoon.vn/resources/1654388403036-funcomic-235c28bcfc503496da5e5bb55c5b74e4.jpg"
-                  class="img-avatar"
-                  style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  src="https://cdn.funtoon.vn/resources/1654388403036-funcomic-235c28bcfc503496da5e5bb55c5b74e4.jpg"
-                >
-                </div>
-              </div>
-            </a>
-            <div class="CommentItem__Right-sc-1qlib8c-1 ieLuOe">
-              <div class="CommentItem__Content-sc-1qlib8c-2 phDKU">
-                <h4>
-                  <a class="username" href="/@user8kt9VNEOwQ">|•Dy
-                    luxury√</a> - <a
-                    class="chapter"
-                    href="/truyen-tranh-chapter/thinh-sung-cam-tu-chinh-do-chap-68/5f56fc5e57eba478c673f0b6"
-                  >Chương
-                    68</a>
-                </h4>
-                <p><a href="/phan-hoi-chapter/62d0c83aef8ebd056dd8ecf7">*** thì chết ))</a></p>
-                <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
-                  <span>0</span>
-                  <!--                  <img -->
-                  <!--                    src="/icons/comicComments/icon-like.svg" alt="like" -->
-                  <!--                  > -->
-                </div>
-              </div>
-              <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">
-                <span>1 tuần trước</span><a
-                  href="/phan-hoi-chapter/62d0c83aef8ebd056dd8ecf7"
-                >Trả lời</a>
-                <div class="CommentItem__Like-sc-1qlib8c-6 hGZrpm">
-                  Thích
-                </div>
-              </div>
-              <div class="CommentItem__ViewAllReply-sc-1qlib8c-7 duUGaC">
-                <a
-                  href="/phan-hoi-chapter/62d0c83aef8ebd056dd8ecf7"
-                >
-                  <!--                  <img -->
-                  <!--                  src="/icons/comicComments/icon-enter.svg" -->
-                  <!--                  alt="view all reply" -->
-                  <!--                > -->
-                  <span>Xem tất cả 4 phản hồi</span></a>
-              </div>
-              <div class="CommentItem__CommentReply-sc-1qlib8c-8 iyjJoK" />
-            </div>
-          </div>
-          <div class="CommentItem__Root-sc-1qlib8c-0 jObhDp">
-            <a href="/@userYZ3zWZ6Mah">
-              <div style="max-width: 100%; width: 36px;">
-                <div style="position: relative; padding-bottom: 100%;"><img
-                  alt="Thị Thuỳ Trang Đỗ"
-                  data-src="https://cdn.funtoon.vn/avatar/avatar_62dec523ef8ebd056ddc0fd4.jpg"
-                  class="img-avatar"
-                  style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  src="https://cdn.funtoon.vn/avatar/avatar_62dec523ef8ebd056ddc0fd4.jpg"
-                >
-                </div>
-              </div>
-            </a>
-            <div class="CommentItem__Right-sc-1qlib8c-1 ieLuOe">
-              <div class="CommentItem__Content-sc-1qlib8c-2 phDKU">
-                <h4>
-                  <a class="username" href="/@userYZ3zWZ6Mah">Thị
-                    Thuỳ Trang Đỗ</a> - <a
-                    class="chapter"
-                    href="/truyen-tranh-chapter/thinh-sung-cam-tu-chinh-do-chap-90/5f77ee617d2ba70d40e632ae"
-                  >Chương
-                    90</a>
-                </h4>
-                <p><a href="/phan-hoi-chapter/62deeb9d886cb50598fcafaf">Haizz đúng là khổ thằng bé</a></p>
-                <div class="CommentItem__LikeCount-sc-1qlib8c-3 fNnMeE">
-                  <span>0</span>
-                  <!--                  <img -->
-                  <!--                    src="/icons/comicComments/icon-like.svg" alt="like" -->
-                  <!--                  > -->
-                </div>
-              </div>
-              <div class="CommentItem__Control-sc-1qlib8c-4 emmKaM">
-                <span>1 ngày trước</span><a
-                  href="/phan-hoi-chapter/62deeb9d886cb50598fcafaf"
-                >Trả lời</a>
-                <div class="CommentItem__Like-sc-1qlib8c-6 hGZrpm">
-                  Thích
-                </div>
-              </div>
-              <div class="CommentItem__ViewAllReply-sc-1qlib8c-7 duUGaC">
-                <a
-                  href="/phan-hoi-chapter/62deeb9d886cb50598fcafaf"
-                >
-                  <!--                  <img -->
-                  <!--                  src="/icons/comicComments/icon-enter.svg" -->
-                  <!--                  alt="view all reply" -->
-                  <!--                > -->
-                  <span>Xem tất cả 3 phản hồi</span></a>
-              </div>
-              <div class="CommentItem__CommentReply-sc-1qlib8c-8 iyjJoK">
-                <div class="ReplyItem__Root-sc-1csz0ru-0 flVXHU">
-                  <a href="/@userYZ3zWZ6Mah">
-                    <div style="max-width: 100%; width: 24px;">
-                      <div style="position: relative; padding-bottom: 100%;"><img
-                        alt="Thị Thuỳ Trang Đỗ"
-                        data-src="https://cdn.funtoon.vn/avatar/avatar_62dec523ef8ebd056ddc0fd4.jpg"
-                        class="img-avatar"
-                        style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                        src="https://cdn.funtoon.vn/avatar/avatar_62dec523ef8ebd056ddc0fd4.jpg"
-                      >
-                      </div>
-                    </div>
-                  </a>
-                  <div class="ReplyItem__Right-sc-1csz0ru-1 cbjZaf">
-                    <div class="ReplyItem__Content-sc-1csz0ru-2 cNbQgh">
-                      <h4>
-                        <a class="username" href="/@userYZ3zWZ6Mah">Thị
-                          Thuỳ Trang Đỗ</a>
-                      </h4>
-                      <p><a href="/phan-hoi-chapter/62deebb2ef8ebd056ddc190a">Ajdjjdsd</a></p>
-                      <div class="ReplyItem__LikeCount-sc-1csz0ru-3 imRA-dJ">
-                        <span>0</span>
-                        <!--                        <img -->
-                        <!--                          src="/icons/comicComments/icon-like.svg" alt="like" -->
-                        <!--                        > -->
-                      </div>
-                    </div>
-                    <div class="ReplyItem__Control-sc-1csz0ru-4 chkTkF">
-                      <span>1 ngày trước</span>
-                      <div class="ReplyItem__Like-sc-1csz0ru-5 dPYpgY">
-                        Thích
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ReplyItem__Root-sc-1csz0ru-0 flVXHU">
-                  <a href="/@userYZ3zWZ6Mah">
-                    <div style="max-width: 100%; width: 24px;">
-                      <div style="position: relative; padding-bottom: 100%;"><img
-                        alt="Thị Thuỳ Trang Đỗ"
-                        data-src="https://cdn.funtoon.vn/avatar/avatar_62dec523ef8ebd056ddc0fd4.jpg"
-                        class="img-avatar"
-                        style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                        src="https://cdn.funtoon.vn/avatar/avatar_62dec523ef8ebd056ddc0fd4.jpg"
-                      >
-                      </div>
-                    </div>
-                  </a>
-                  <div class="ReplyItem__Right-sc-1csz0ru-1 cbjZaf">
-                    <div class="ReplyItem__Content-sc-1csz0ru-2 cNbQgh">
-                      <h4>
-                        <a class="username" href="/@userYZ3zWZ6Mah">Thị
-                          Thuỳ Trang Đỗ</a>
-                      </h4>
-                      <p><a href="/phan-hoi-chapter/62deebae9f5af7057f447b4d">Ãdaidjbsb</a></p>
-                      <div class="ReplyItem__LikeCount-sc-1csz0ru-3 imRA-dJ">
-                        <span>0</span>
-                        <!--                        <img -->
-                        <!--                          src="/icons/comicComments/icon-like.svg" alt="like" -->
-                        <!--                        > -->
-                      </div>
-                    </div>
-                    <div class="ReplyItem__Control-sc-1csz0ru-4 chkTkF">
-                      <span>1 ngày trước</span>
-                      <div class="ReplyItem__Like-sc-1csz0ru-5 dPYpgY">
-                        Thích
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="all-comment" href="/binh-luan-truyen/5f153b8d4ee1c16765968775"><span>Tất cả bình luận (38426)</span>
-            <!--            <img -->
-            <!--            src="/icons/comicComments/icon-skip.svg" alt="all comment" -->
-            <!--          > -->
-          </a>
         </div>
       </div>
       <div class="ComicRelated__Root-rxs36w-0 dEGLdF">
         <div class="ComicRelated__Title-rxs36w-1 ivOyJq">
           <h2>Đề xuất liên quan</h2>
         </div>
-        <div class="ComicRelated__SwiperCSS-rxs36w-2 jDXLco">
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
+        <div class="ComicRelated__SwiperCSS-rxs36w-2 jDXLco mb-10">
+          <div v-for="comicsRelated in response.comic.comicsRelated" :key="comicsRelated._id" class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
             <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
               <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
                 <span
                   class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
                 >Full</span>
               </div>
+              <NuxtLink
+                :to="useNavigatorComicPreview(comicsRelated.slug, comicsRelated._id)"
+                :title="comicsRelated.comicName"
+              >
+                <div style="max-width: 100%; width: 105px;">
+                  <div>
+                    <!--                    <img -->
+                    <!--                      alt="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu" -->
+                    <!--                      data-src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" -->
+                    <!--                      class="img-domain" -->
+                    <!--                      style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;" -->
+                    <!--                      src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" -->
+                    <!--                    > -->
+
+                    <AsImage
+                      format="webp"
+                      :lazy="true"
+                      :duratio="2"
+                      :src="`${config.public.imageCdn}/${comicsRelated.verticalLogo}`"
+                    />
+                  </div>
+                </div>
+              </NuxtLink>
+            </div>
+            <h3>
               <a
                 title="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu"
                 href="/truyen-tranh/yeu-dieu-quan-tu-nu-tuong-hao-cau/5fdc3498eba5a06cc3658683"
               >
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu"
-                    data-src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg"
-                    class="img-domain"
-                    style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg"
-                  ></div>
-                </div>
+                {{ comicsRelated.comicName }}
               </a>
-            </div>
-            <h3>
-              <a
-                title="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu"
-                href="/truyen-tranh/yeu-dieu-quan-tu-nu-tuong-hao-cau/5fdc3498eba5a06cc3658683"
-              >Yểu Điệu Quân Tử, Nữ
-                Tướng Hảo Cầu</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a title="Nhất Đại Quỷ Phi" href="/truyen-tranh/nhat-dai-quy-phi/60b8b06fdb49114285822df4">
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Nhất Đại Quỷ Phi"
-                    data-src="https://cdn.funtoon.vn/image/resources/YTbt3OuD2lnncxVgvKpyRczQ_1622716494197.jpg"
-                    class="img-domain"
-                    style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    src="https://cdn.funtoon.vn/image/resources/YTbt3OuD2lnncxVgvKpyRczQ_1622716494197.jpg"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a title="Nhất Đại Quỷ Phi" href="/truyen-tranh/nhat-dai-quy-phi/60b8b06fdb49114285822df4">Nhất Đại Quỷ
-                Phi</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a title="Nhặt Về Một BOSS Xấu Xa" href="/truyen-tranh/nhat-ve-mot-boss-xau-xa/5fb4a9487b449f25817cb2fb">
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Nhặt Về Một BOSS Xấu Xa"
-                    data-src="https://cdn.funtoon.vn/image/resources/5fb4a9487b449f25817cb2fb_1611736284398.jpg"
-                    class="img-domain"
-                    style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    src="https://cdn.funtoon.vn/image/resources/5fb4a9487b449f25817cb2fb_1611736284398.jpg"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a
-                title="Nhặt Về Một BOSS Xấu Xa"
-                href="/truyen-tranh/nhat-ve-mot-boss-xau-xa/5fb4a9487b449f25817cb2fb"
-              >Nhặt Về Một BOSS Xấu Xa</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a
-                title="Nam Thần Kiêu Ngạo Cưng Chiều Vợ"
-                href="/truyen-tranh/nam-than-kieu-ngao-cung-chieu-vo/6013849128122f3f30c18cbf"
-              >
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Nam Thần Kiêu Ngạo Cưng Chiều Vợ"
-                    data-src="https://cdn.funtoon.vn/image/resources/Ym33mfBEk5FNQZfi0LU81jfA_1611891831582.jpg"
-                    class="img-domain"
-                    style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    src="https://cdn.funtoon.vn/image/resources/Ym33mfBEk5FNQZfi0LU81jfA_1611891831582.jpg"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a
-                title="Nam Thần Kiêu Ngạo Cưng Chiều Vợ"
-                href="/truyen-tranh/nam-than-kieu-ngao-cung-chieu-vo/6013849128122f3f30c18cbf"
-              >Nam Thần Kiêu Ngạo
-                Cưng Chiều Vợ</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a
-                title="Hoàng Tử Phu Quân, Ta Nuôi Chàng"
-                href="/truyen-tranh/hoang-tu-phu-quan-ta-nuoi-chang/60430cd7b5c08e0b8d1cb75d"
-              >
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Hoàng Tử Phu Quân, Ta Nuôi Chàng"
-                    data-src="https://cdn.funtoon.vn/image/resources/tjszuxen778q3Xvm0HX6gBR6_1615006871393.jpg"
-                    class="img-domain __lazy"
-                    style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a
-                title="Hoàng Tử Phu Quân, Ta Nuôi Chàng"
-                href="/truyen-tranh/hoang-tu-phu-quan-ta-nuoi-chang/60430cd7b5c08e0b8d1cb75d"
-              >Hoàng Tử Phu Quân, Ta
-                Nuôi Chàng</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a title="Lục Cung Phong Hoa" href="/truyen-tranh/luc-cung-phong-hoa/5fcf4b3161228e64b12c8fde">
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Lục Cung Phong Hoa"
-                    data-src="https://cdn.funtoon.vn/image/resources/5fcf4b3161228e64b12c8fde_1611737128981.jpg"
-                    class="img-domain __lazy"
-                    style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a title="Lục Cung Phong Hoa" href="/truyen-tranh/luc-cung-phong-hoa/5fcf4b3161228e64b12c8fde">Lục Cung
-                Phong Hoa</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a title="Công Chúa Hạ Phàm" href="/truyen-tranh/cong-chua-ha-pham/608a9ca2a9589a5d928e6e82">
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Công Chúa Hạ Phàm"
-                    data-src="https://cdn.funtoon.vn/image/resources/MnzkPV9fFNHcpczUKgw2SjLg_1619696785260.jpg"
-                    class="img-domain __lazy"
-                    style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a title="Công Chúa Hạ Phàm" href="/truyen-tranh/cong-chua-ha-pham/608a9ca2a9589a5d928e6e82">Công Chúa
-                Hạ Phàm</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a title="Hoàng Nữ Công Lược" href="/truyen-tranh/hoang-nu-cong-luoc/608a99f7a9589a5d928e6e80">
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Hoàng Nữ Công Lược"
-                    data-src="https://cdn.funtoon.vn/image/resources/xnawxJwe2l8Z4KjwxO1RmIfd_1619696096635.jpg"
-                    class="img-domain __lazy"
-                    style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a title="Hoàng Nữ Công Lược" href="/truyen-tranh/hoang-nu-cong-luoc/608a99f7a9589a5d928e6e80">Hoàng Nữ
-                Công Lược</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <a
-                title="Tổng Tài Thiên Vị Yêu Mình Ta"
-                href="/truyen-tranh/tong-tai-thien-vi-yeu-minh-ta/5fb38f1de74adb709a09558c"
-              >
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Tổng Tài Thiên Vị Yêu Mình Ta"
-                    data-src="https://cdn.funtoon.vn/image/resources/5fb38f1de74adb709a09558c_1611737666734.jpg"
-                    class="img-domain __lazy"
-                    style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a
-                title="Tổng Tài Thiên Vị Yêu Mình Ta"
-                href="/truyen-tranh/tong-tai-thien-vi-yeu-minh-ta/5fb38f1de74adb709a09558c"
-              >Tổng Tài Thiên Vị Yêu
-                Mình Ta</a>
-            </h3>
-          </div>
-          <div class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp" />
-              <a title="Yêu Nàng Suốt Kiếp" href="/truyen-tranh/yeu-nang-suot-kiep/60b754250a81e635c7cadc21">
-                <div style="max-width: 100%; width: 105px;">
-                  <div style="position: relative; padding-bottom: 133.333%;"><img
-                    alt="Yêu Nàng Suốt Kiếp"
-                    data-src="https://cdn.funtoon.vn/image/resources/60b754250a81e635c7cadc21_1622792731127.jpg"
-                    class="img-domain __lazy"
-                    style="visibility: hidden; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                  >
-                  </div>
-                </div>
-              </a>
-            </div>
-            <h3>
-              <a title="Yêu Nàng Suốt Kiếp" href="/truyen-tranh/yeu-nang-suot-kiep/60b754250a81e635c7cadc21">Yêu Nàng
-                Suốt Kiếp</a>
             </h3>
           </div>
         </div>

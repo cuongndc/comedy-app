@@ -26,33 +26,30 @@ const autoPlaySettings = ref<autoSettingSwiper>({
 </script>
 
 <template>
-  <ClientOnly>
-    <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
-      <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
-        <NuxtLink
-          :to="useNavigatorComicPreview(cover.slug, cover._id)"
-          class="relative block h-[65vw]"
-          :title="cover.comicName"
-        >
-          <div class="w-full absolute bottom-0">
-            <div class="aspect-w-16 aspect-h-12">
-              <img
-                alt="Hôm Nay Bắt Đầu Làm Siêu Sao"
-                :src="`${config.public.imageCdn}/${cover.link}`"
-              >
-            </div>
+  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
+    <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
+      <NuxtLink
+        :to="useNavigatorComicPreview(cover.slug, cover._id)"
+        class="relative block h-[65vw]"
+        :title="cover.comicName"
+      >
+        <div class="w-full absolute bottom-0">
+          <div class="aspect-w-16 aspect-h-12">
+            <img
+              alt="Hôm Nay Bắt Đầu Làm Siêu Sao"
+              :src="`${config.public.imageCdn}/${cover.link}`"
+            >
           </div>
-          <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0">
-            <div class="aspect-w-16 aspect-h-12">
-              <img
-                alt=""
-                class="img-domain"
-                :src="`${config.public.imageCdn}/${animation.image}`"
-              >
-            </div>
+        </div>
+        <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0">
+          <div class="aspect-w-16 aspect-h-12">
+            <img
+              alt=""
+              :src="`${config.public.imageCdn}/${animation.image}`"
+            >
           </div>
-        </NuxtLink>
-      </SwiperSlide>
-    </Swiper>
-  </ClientOnly>
+        </div>
+      </NuxtLink>
+    </SwiperSlide>
+  </Swiper>
 </template>

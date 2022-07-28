@@ -29,12 +29,14 @@ const config = useRuntimeConfig()
         <div class="absolute bottom-[13px] left-[13px]">
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
             <div class=" max-w-full w-[105px]">
-              <div class="relative pb-[133.3333%]">
-                <img
-                  loading="lazy"
-                  class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
+              <div>
+                <AsImage
+                  :duration="2"
+                  class="rounded-2xl visible h-full left-0 relative top-0 w-full"
+                  format="webp"
+                  :lazy="true"
                   :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
-                >
+                />
               </div>
             </div>
           </NuxtLink>
@@ -45,11 +47,11 @@ const config = useRuntimeConfig()
           </h3>
           <div>
             <div class="rating flex items-center">
-              <SvgStar />
-              <SvgStar />
-              <SvgStar />
-              <SvgStar />
-              <SvgStar />
+              <img src="/icons/comicPage/icon-star.svg" alt="rating">
+              <img src="/icons/comicPage/icon-star.svg" alt="rating">
+              <img src="/icons/comicPage/icon-star.svg" alt="rating">
+              <img src="/icons/comicPage/icon-star.svg" alt="rating">
+              <img src="/icons/comicPage/icon-star.svg" alt="rating">
               <p class="text-xl">
                 {{ comic.avgRate.toFixed(1) }}
                 <span class="text-base font-semibold text-gray-500"> (369)</span>
@@ -63,7 +65,7 @@ const config = useRuntimeConfig()
             <div class="mt-3">
               <a class="mt-3">
                 <p class="flex items-center justify-start w-full text-gray-500">
-                  <SvgComment class="mr-2" />
+                  <img src="/icons/comicPage/icon-comment-count.svg" class="mr-2" alt="comment">
                   <span class="name text-base font-semibold">{{ comic.userComment.name }}</span>
                 </p>
               </a>
@@ -76,24 +78,13 @@ const config = useRuntimeConfig()
       <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
         <div>
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
-            <!--            <SharedImg -->
-            <!--              format="webp" -->
-            <!--              loading="lazy" -->
-            <!--              class="rounded-xl object-cover h-[139px] w-full" -->
-            <!--              :src="`${config.public.imageCdn}/${comic.verticalLogo}`" -->
-            <!--              fil="fill" -->
-            <!--            /> -->
             <AsImage
-              :width="1280"
-              :height="640"
+              :duration="2"
+              class="rounded-xl object-cover h-[139px] w-full"
+              format="webp"
               :lazy="true"
-              image-lazy-offset="1000px"
               :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
-            >
-              <template #loading>
-                <div class="loading" />
-              </template>
-            </AsImage>
+            />
           </NuxtLink>
           <div class="h-[30px] flex flex-wrap">
             <h2 class="text-base line-clamp-1 mt-1 text-black font-semibold">
