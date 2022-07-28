@@ -8,15 +8,15 @@ const { data: homepages, pending } = await useAsyncData<IHomePage>('home-page', 
 
 <template>
   <main v-if="!pending" class="h-[auto] bg-white">
-    <template v-for="record in homepages" :key="record._id">
+    <div v-for="record in homepages" :key="record._id" v-memo="homepages">
       <LazySectionSpotlight
-        v-if="record.type === 'banner'"
+        v-if="record.type === HomePageTypes._banner"
         :banner="record"
       />
       <LazySharedBannerBar v-if="record.type === HomePageTypes._menu" />
       <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :trending="record" />
       <LazyHomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
-    </template>
+    </div>
 
     <!--    <div v-for="newFeed in newFeeds" :key="newFeed.id"> -->
     <!--      <LazyHomePageNewFeed :new-feed="newFeed" /> -->

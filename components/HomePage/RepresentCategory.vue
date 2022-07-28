@@ -13,7 +13,7 @@ const config = useRuntimeConfig()
   <div v-for="content in record.content" :key="content._id" class="px-4 mb-10">
     <div class="h-[70px] mb-4 flex justify-between">
       <h2 class="text-3xl font-bold flex justify-start items-center text-black">
-        {{ content.name || content.categoryVietName}}
+        {{ content.name || content.categoryVietName }}
       </h2>
       <NuxtLink :to="`/category/${content.slug}`" class="text-xl font-semibold flex items-center text-primary mr-1">
         Thêm
@@ -29,7 +29,8 @@ const config = useRuntimeConfig()
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
             <div class=" max-w-full w-[105px]">
               <div class="relative pb-[133.3333%]">
-                <SharedImg
+                <img
+                  loading="lazy"
                   class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
                   :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
                 />

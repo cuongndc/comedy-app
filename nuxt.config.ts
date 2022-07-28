@@ -13,6 +13,22 @@ export default defineNuxtConfig({
       imageCdn: process.env.IMAGE_CDN,
     },
   },
+  motions: {
+    directives: {
+      'pop-bottom': {
+        initial: {
+          scale: 0,
+          opacity: 0,
+          y: 100,
+        },
+        visible: {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+        },
+      },
+    },
+  },
   pwa: {
     meta: {
       name: process.env.SIZE_NAME,
@@ -37,24 +53,27 @@ export default defineNuxtConfig({
       // enabled: true,
     },
   },
-  // experimental: {
-  //     reactivityTransform: true,
-  //     viteNode: false,
-  // },
-  // image: {
-  //     dir: "public/",
-  //     staticFilename: "[publicPath]/[name]-[hash][ext]",
-  //     domains: ["meetruyen.com", "meetruyen.netlify.app"],
-  //     screens: {
-  //         xs: 320,
-  //         sm: 640,
-  //         md: 768,
-  //         lg: 1024,
-  //         xl: 1280,
-  //         xxl: 1536,
-  //         "2xl": 1536,
-  //     },
-  // },
+  image: {
+    presets: {
+      cover: {
+        modifiers: {
+          fit: 'cover',
+          format: 'webp',
+          loading: 'lazy',
+        },
+      },
+    },
+    screens: {
+      'xs': 320,
+      'xss': 390,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536,
+    },
+  },
   modules: ['@nuxt/image-edge', '@pinia/nuxt', '@kevinmarrec/nuxt-pwa'],
   build: {
     transpile: ['@heroicons/vue'],

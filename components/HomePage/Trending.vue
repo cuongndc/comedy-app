@@ -14,9 +14,14 @@ const config = useRuntimeConfig()
 <template>
   <div class="px-4">
     <div>
-      <a href="/xu-huong">
-        <SharedImg class="w-full" src="https://weeboo.vn/icons/widgets/trend/img-header.svg" alt="trend" />
-      </a>
+      <NuxtLink href="/">
+        <nuxt-img
+          format="png"
+          class="w-full"
+          src="/icons/widgets/trend/img-header.svg"
+          sizes="xs:320px xss:390px sm:640px"
+        />
+      </NuxtLink>
     </div>
     <div class="gxFbOF">
       <ClientOnly>

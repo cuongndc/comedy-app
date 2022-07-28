@@ -14,14 +14,16 @@
   "dependencies": {
     "@headlessui/vue": "^1.4.1",
     "@heroicons/vue": "^1.0.6",
+    "@vueuse/motion": "^2.0.0-beta.12",
     "axios": "^0.27.2",
     "firebase": "^9.6.8",
     "swiper": "^8.2.6",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
-    "@kevinmarrec/nuxt-pwa": "^0.3.1",
     "@antfu/eslint-config": "^0.25.2",
+    "@kevinmarrec/nuxt-pwa": "^0.3.1",
+    "@nuxt/image": "^0.7.1",
     "@nuxt/image-edge": "^1.0.0-27628766.3629b9a",
     "@pinia/nuxt": "^0.3.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",

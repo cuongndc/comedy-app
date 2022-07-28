@@ -38,7 +38,6 @@ const autoPlaySettings = ref<autoSettingSwiper>({
             <div class="aspect-w-16 aspect-h-12">
               <img
                 alt="Hôm Nay Bắt Đầu Làm Siêu Sao"
-                class="img-domain"
                 :src="`${config.public.imageCdn}/${cover.link}`"
               >
             </div>
@@ -47,7 +46,6 @@ const autoPlaySettings = ref<autoSettingSwiper>({
             <div class="aspect-w-16 aspect-h-12">
               <img
                 alt=""
-                data-src="https://cdn.funtoon.vn/image/resources/1643553766848.3526.png"
                 class="img-domain"
                 :src="`${config.public.imageCdn}/${animation.image}`"
               >
