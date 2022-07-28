@@ -1,14 +1,11 @@
 <script lang="ts" setup>
-import { isClient, useStorage } from '@vueuse/core'
-
 import {
   ArrowLeftIcon,
   ArrowNarrowLeftIcon,
   ArrowRightIcon,
 } from '@heroicons/vue/solid'
 import { onMounted, onUnmounted, watchEffect } from 'vue'
-import { keys } from '~/types'
-import { MANGA_PATH_NAME, MANGA_PATH_READ_NAME, TRUYEN_TRANH_CHAPTER } from '~/contants'
+import { TRUYEN_TRANH_CHAPTER } from '~/contants'
 import { useState } from '#app'
 
 const route = useRoute()
@@ -131,9 +128,6 @@ onMounted(async () => {
 //     window.removeEventListener('scroll', handleScroll)
 // })
 //
-// const handleNextProcess = (action: string) => {
-//   handleChapter(action)
-// }
 
 watchEffect(() => {
   refresh()
@@ -154,6 +148,9 @@ const handleChapter = async (action: 'next' | 'prev') => {
 
     await refresh()
   }
+}
+const handleNextProcess = (action: 'next' | 'prev') => {
+  handleChapter(action)
 }
 useHead({
   title: `${response.value.comicName} | ${response.value.chapterName} - Chapter ${response.value.chapterNum}`,

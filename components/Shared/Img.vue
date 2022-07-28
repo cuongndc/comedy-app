@@ -17,5 +17,5 @@ defineProps({
     :class="className"
     :src="src"
     :alt="alt"
-  >
+  />
 </template>
