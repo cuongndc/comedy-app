@@ -76,7 +76,7 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/image-edge', '@pinia/nuxt', '@kevinmarrec/nuxt-pwa'],
   build: {
-    transpile: ['@heroicons/vue'],
+    transpile: ['@heroicons/vue', '@awesome-image/image'],
     postcss: {
       postcssOptions: {
         plugins: {

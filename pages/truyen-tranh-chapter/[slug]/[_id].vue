@@ -6,7 +6,7 @@ import {
 } from '@heroicons/vue/solid'
 import { onMounted, onUnmounted, watchEffect } from 'vue'
 import { TRUYEN_TRANH_CHAPTER } from '~/contants'
-import { useState } from '#app'
+import {useAsyncData, useFetch, useLazyFetch, useState} from '#app'
 
 const route = useRoute()
 const router = useRouter()
@@ -20,13 +20,12 @@ const {
   pending,
   data: response,
   refresh,
-} = await useFetch('/api/read-comic', {
+} = await useAsyncData('', () => $fetch('/api/read-comic', {
   params: {
     slug: slug.value,
     _id: _id.value,
   },
-})
-
+}))
 onMounted(async () => {
   chapters.value = await $fetch('/api/chapters', {
     params: {
@@ -35,102 +34,9 @@ onMounted(async () => {
     },
   })
 })
-// const manga: any = await useStorage(keys.comicCacheLocalPreview, {
-//   serializer: {
-//     read: (v: any) => v ? JSON.parse(v) : null,
-//     write: (v: any) => JSON.stringify(v),
-//   },
-// })
-//
-// const visitedComics: any = useStorage(keys.visitedComics, {
-//   serializer: {
-//     read: (v: any) => v ? JSON.parse(v) : null,
-//     write: (v: any) => JSON.stringify(v),
-//   },
-// })
-//
-// const scrollToTop = () => {
-//   if (isClient)
-//     window.scrollTo(0, 0)
-// }
-//
-// const handleChapter = async (action: string) => {
-//   let stt = manga.value.chapterList.findIndex(chapter => chapter.chapterNumber === params.chapter)
-//   const visited = visitedComics.value.find(visited => visited.slug === manga.value.slug)
-//
-//   if (action === 'next') {
-//     if (!manga.value.chapterList[--stt])
-//       return
-//
-//     const [cNum, cID] = [
-//       manga.value.chapterList[stt].chapterNumber,
-//       manga.value.chapterList[stt].chapterId,
-//     ]
-//
-//     if (visited) {
-//       visited.chapterNumber = cNum
-//       visited.chapterId = cID
-//     }
-//
-//     chapterID.value = cID
-//     chapterNumber.value = cNum
-//
-//     router.replace(
-//         `/${MANGA_PATH_NAME}/${MANGA_PATH_READ_NAME}/${params.slug}/${cNum}/${cID}`,
-//     )
-//   }
-//
-//   if (action === 'prev') {
-//     if (!manga.value.chapterList[++stt])
-//       return
-//
-//     const [cNum, cID] = [
-//       manga.value.chapterList[stt].chapterNumber,
-//       manga.value.chapterList[stt].chapterId,
-//     ]
-//
-//     if (visited) {
-//       visited.chapterNumber = cNum
-//       visited.chapterId = cID
-//     }
-//
-//     chapterNumber.value = cNum
-//     chapterID.value = cID
-//
-//     router.replace(
-//         `/${MANGA_PATH_NAME}/${MANGA_PATH_READ_NAME}/${params.slug}/${cNum}/${cID}`,
-//     )
-//   }
-//
-//   await refresh()
-//   scrollToTop()
-// }
-//
-// const scrollComponent = ref(null)
-// const handleScroll = () => {
-//   const element = scrollComponent.value
-//   if (!element)
-//     return
-//   if (element.getBoundingClientRect().bottom - 10 < window.innerHeight) {
-//     setTimeout(() => {
-//       handleChapter('next')
-//     }, 1500)
-//   }
-// }
-//
-// onMounted(() => {
-//   if (isClient)
-//     window.addEventListener('scroll', handleScroll)
-// })
-//
-// onUnmounted(() => {
-//   if (isClient)
-//     window.removeEventListener('scroll', handleScroll)
-// })
-//
 
 watchEffect(() => {
-  refresh()
+  // refresh()
 })
 
 const handleChapter = async (action: 'next' | 'prev') => {
@@ -152,9 +58,10 @@ const handleChapter = async (action: 'next' | 'prev') => {
 const handleNextProcess = (action: 'next' | 'prev') => {
   handleChapter(action)
 }
+
 useHead({
-  title: `${response.value.comicName} | ${response.value.chapterName} - Chapter ${response.value.chapterNum}`,
-  description: response.value.chapterName,
+  title: `${response.value?.comicName} | ${response.value?.chapterName} - Chapter ${response.value?.chapterNum}`,
+  description: response.value?.chapterName,
 })
 </script>
 
@@ -201,7 +108,9 @@ useHead({
             <!--          </div> -->
           </div>
         </div>
-        <LazyMangaChapterImg :pages="response.pages" />
+        <ClientOnly>
+          <LazyMangaChapterImg :pages="response.pages" />
+        </ClientOnly>
         <LazyMangaReadMangaFooter @next-process="handleNextProcess" />
       </div>
     </div>

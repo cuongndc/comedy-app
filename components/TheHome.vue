@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
-import { useAsyncData } from '#app'
-
-const { data: homepages, pending } = await useAsyncData<IHomePage>('home-page', () => $fetch('/api/homepage'))
+import { useLazyFetch } from '#app'
+const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
 </script>
 
 <template>
-  <main v-if="!pending" class="h-[auto] bg-white">
+  <main class="h-[auto] bg-white">
     <div v-for="record in homepages" :key="record._id" v-memo="homepages">
       <LazySectionSpotlight
         v-if="record.type === HomePageTypes._banner"

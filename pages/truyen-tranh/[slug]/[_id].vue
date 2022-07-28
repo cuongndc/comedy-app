@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { watchEffect } from 'vue'
+import AsImage from '@awesome-image/image'
 import { convertUnit } from '~/common'
 import { useRuntimeConfig } from '#app'
-import {watchEffect} from "vue";
 
 const route = useRoute()
 const params = route.params
@@ -36,7 +37,7 @@ const backgroundImage = (image) => {
 </script>
 
 <template>
-  <section class="ComicPage__Root-sc-1l8m850-0 kjrONi" v-if="!pending">
+  <section v-if="!pending" class="ComicPage__Root-sc-1l8m850-0 kjrONi">
     <div
       :style="backgroundImage(comic.squareCover)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden"
@@ -167,11 +168,16 @@ const backgroundImage = (image) => {
       </div>
       <div class="px-5 overflow-auto whitespace-nowrap scrollbar-hide" style="display: -webkit-box">
         <div v-for="chapter in comic.chaptersRepresentData" :key="chapter._id">
-          <img
-            v-if="chapter.imageRepresent"
+          <AsImage
             class="h-[40px] w-[100px] inline-block object-cover border-[1px] border-white mr-4 rounded-xl"
+            format="webp"
+            :width="100"
+            :height="40"
+            :lazy="true"
+            :duratio="2"
             :src="`${config.public.imageCdn}/${chapter.imageRepresent}`"
           >
+          </AsImage>
           <p class="text-white text-base mt-2">
             Chương {{ chapter.chapterNum }}
           </p>

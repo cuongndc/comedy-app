@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import AsImage from '@awesome-image/image'
 import { useRuntimeConfig } from '#app'
 import { SWIPER_BREAK_POINTS } from '~/types'
 
@@ -33,7 +34,7 @@ const config = useRuntimeConfig()
                   loading="lazy"
                   class="rounded-2xl visible h-full left-0 absolute top-0 w-full"
                   :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
-                />
+                >
               </div>
             </div>
           </NuxtLink>
@@ -75,13 +76,24 @@ const config = useRuntimeConfig()
       <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
         <div>
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
-            <SharedImg
-              format="webp"
-              loading="lazy"
-              class="rounded-xl object-cover h-[139px] w-full"
+            <!--            <SharedImg -->
+            <!--              format="webp" -->
+            <!--              loading="lazy" -->
+            <!--              class="rounded-xl object-cover h-[139px] w-full" -->
+            <!--              :src="`${config.public.imageCdn}/${comic.verticalLogo}`" -->
+            <!--              fil="fill" -->
+            <!--            /> -->
+            <AsImage
+              :width="1280"
+              :height="640"
+              :lazy="true"
+              image-lazy-offset="1000px"
               :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
-              fil="fill"
-            />
+            >
+              <template #loading>
+                <div class="loading" />
+              </template>
+            </AsImage>
           </NuxtLink>
           <div class="h-[30px] flex flex-wrap">
             <h2 class="text-base line-clamp-1 mt-1 text-black font-semibold">
@@ -93,3 +105,14 @@ const config = useRuntimeConfig()
     </Swiper>
   </div>
 </template>
+
+<style scoped>
+.demoimage {
+  width: 100%;
+}
+.loading {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+</style>
