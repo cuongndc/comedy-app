@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import AsImage from '@awesome-image/image'
 import { useRuntimeConfig } from '#app'
 import { SWIPER_BREAK_POINTS } from '~/types'
 
@@ -30,12 +29,10 @@ const config = useRuntimeConfig()
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
             <div class=" max-w-full w-[105px]">
               <div>
-                <AsImage
-                  :duration="2"
+                <nuxt-img
+                  provider="imageengine"
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
-                  format="webp"
-                  :lazy="true"
-                  :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
+                  :src="`${comic.verticalLogo}`"
                 />
               </div>
             </div>
@@ -78,12 +75,11 @@ const config = useRuntimeConfig()
       <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
         <div>
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
-            <AsImage
-              :duration="2"
+            <nuxt-img
+              provider="imageengine"
               class="rounded-xl object-cover h-[139px] w-full"
               format="webp"
-              :lazy="true"
-              :src="`${config.public.imageCdn}/${comic.verticalLogo}`"
+              :src="`${comic.verticalLogo}`"
             />
           </NuxtLink>
           <div class="h-[30px] flex flex-wrap">

@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   },
   image: {
     imageengine: {
-      baseURL: '6z1a4akz.cdn.imgeng.in',
+      baseURL: 'https://6z1a4akz.cdn.imgeng.in/',
     },
     dir: 'public/',
     domains: ['meetoon.co'],
