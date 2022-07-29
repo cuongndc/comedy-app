@@ -38,6 +38,7 @@ export default defineNuxtConfig({
     },
   },
   image: {
+    domains: ['meetoon.co', 'meetruyen.com'],
     imageengine: {
       baseURL: 'https://6z1a4akz.cdn.imgeng.in/',
     },
