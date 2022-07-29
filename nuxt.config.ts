@@ -13,22 +13,6 @@ export default defineNuxtConfig({
       imageCdn: process.env.IMAGE_CDN,
     },
   },
-  motions: {
-    directives: {
-      'pop-bottom': {
-        initial: {
-          scale: 0,
-          opacity: 0,
-          y: 100,
-        },
-        visible: {
-          scale: 1,
-          opacity: 1,
-          y: 0,
-        },
-      },
-    },
-  },
   pwa: {
     meta: {
       name: process.env.SIZE_NAME,
@@ -54,6 +38,9 @@ export default defineNuxtConfig({
     },
   },
   image: {
+    imageengine: {
+      baseURL: '6z1a4akz.cdn.imgeng.in',
+    },
     dir: 'public/',
     domains: ['meetoon.co'],
     presets: {
