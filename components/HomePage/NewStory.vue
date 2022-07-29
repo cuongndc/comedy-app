@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import type { Manga } from '~/types'
+import { COMIC_STATUS } from '~/contants'
 
-const { data: mangas, pending } = useFetch<Manga[]>('/api/manga-new')
+defineProps({
+  record: Object,
+})
 const SWIPER_BREAK_POINTS = {
   1: {
     slidesPerView: 4,
@@ -32,33 +34,45 @@ const SWIPER_BREAK_POINTS = {
 </script>
 
 <template>
-  <div v-if="!pending" class="px-4 mb-4">
+  <div class="px-4 mb-4 mt-10">
     <h2 class=" h-[20px] text-3xl font-bold flex justify-start items-center text-black mb-4">
-      # Truyện mới cập nhật
+      # {{ record.typeName }}
     </h2>
-    <ClientOnly>
-      <Swiper :breakpoints="SWIPER_BREAK_POINTS">
-        <SwiperSlide v-for="manga in mangas" :key="manga.slug">
-          <div class="duration-200 ease-in-out transition-all">
-            <NuxtLink :to="useNavigatorComicPreview(manga.slug)">
-              <SharedImg loading="lazy" class="rounded-xl h-[130px] object-cover" :src="manga.thumbnail" fil="fill" />
-            </NuxtLink>
-            <h2 class="text-base line-clamp-1 mt-1 text-black font-semibold">
-              {{ manga.name }}
-            </h2>
-            <p class="text-sm text-zinc-500 line-clamp-1 font-secondary">
-              <a v-for="genre in manga.genres" class="text-sm font-secondary text-zinc-500 mr-1" :key="genre">
-                {{ genre }}
-              </a>
-            </p>
-            <p class="text-sm text-zinc-500 line-clamp-1 font-secondary">
-              <a class="text-sm font-secondary text-zinc-500 mr-1">
-                {{ manga.newChapter }}
-              </a>
-            </p>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </ClientOnly>
+    <Swiper :breakpoints="SWIPER_BREAK_POINTS">
+      <SwiperSlide v-for="comic in record.content" :key="comic._id">
+        <div class="duration-200 ease-in-out transition-all">
+          <NuxtLink class="relative" :to="useNavigatorComicPreview(comic.slug, comic._id)">
+            <div class="absolute top-0">
+              <span v-if="!comic.adultContent" class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                {{ COMIC_STATUS[comic.status] }}
+              </span>
+              <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                17+
+              </span>
+            </div>
+            <nuxt-img
+              format="webp"
+              provider="imageengine"
+              loading="lazy"
+              class="rounded-xl h-[130px] object-cover"
+              :src="comic.verticalLogo" fil="fill"
+            />
+          </NuxtLink>
+          <h2 class="text-xl line-clamp-2 mt-1 text-black font-semibold">
+            {{ comic.comicName }}
+          </h2>
+          <!--          <p class="text-sm text-zinc-500 line-clamp-1 font-secondary"> -->
+          <!--            <a v-for="genre in manga.genres" :key="genre" class="text-sm font-secondary text-zinc-500 mr-1"> -->
+          <!--              {{ genre }} -->
+          <!--            </a> -->
+          <!--          </p> -->
+          <p>
+            <a class="text-xl font-secondary text-primary-gray mr-1">
+              Chương {{ comic.newestChapter }}
+            </a>
+          </p>
+        </div>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>

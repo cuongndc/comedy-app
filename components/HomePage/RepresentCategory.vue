@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useRuntimeConfig } from '#app'
 import { SWIPER_BREAK_POINTS } from '~/types'
+import { COMIC_STATUS } from '~/contants'
 
 defineProps({
   record: Object,
@@ -10,7 +11,7 @@ const config = useRuntimeConfig()
 </script>
 
 <template>
-  <div v-for="content in record.content" :key="content._id" class="px-4 mb-10">
+  <div v-for="content in record.content" :key="content._id" class="px-4">
     <div class="h-[70px] mb-4 flex justify-between">
       <h2 class="text-3xl font-bold flex justify-start items-center text-black">
         {{ content.name || content.categoryVietName }}
@@ -28,7 +29,15 @@ const config = useRuntimeConfig()
         <div class="absolute bottom-[13px] left-[13px]">
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
             <div class=" max-w-full w-[105px]">
-              <div>
+              <div class="relative">
+                <div class="absolute top-0">
+                  <span v-if="!comic.adultContent" class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                    {{ COMIC_STATUS[comic.status] }}
+                  </span>
+                  <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                    17+
+                  </span>
+                </div>
                 <nuxt-img
                   provider="imageengine"
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
@@ -39,7 +48,7 @@ const config = useRuntimeConfig()
           </NuxtLink>
         </div>
         <div class="ml-[118px] p-4">
-          <h3 class="text-xl font-bold">
+          <h3 class="text-xl font-medium">
             <a>{{ comic.comicName }}</a>
           </h3>
           <div>
@@ -51,7 +60,7 @@ const config = useRuntimeConfig()
               <img src="/icons/comicPage/icon-star.svg" alt="rating">
               <p class="text-xl">
                 {{ comic.avgRate.toFixed(1) }}
-                <span class="text-base font-semibold text-gray-500"> (369)</span>
+                <span class="text-xl font-semibold text-gray-500"> (369)</span>
               </p>
             </div>
             <a>
@@ -73,8 +82,16 @@ const config = useRuntimeConfig()
     </div>
     <Swiper :breakpoints="SWIPER_BREAK_POINTS">
       <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
-        <div>
-          <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
+        <div class="relative">
+          <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)" class="relative">
+            <div class="absolute top-0">
+              <span v-if="!comic.adultContent" class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                {{ COMIC_STATUS[comic.status] }}
+              </span>
+              <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                17+
+              </span>
+            </div>
             <nuxt-img
               provider="imageengine"
               class="rounded-xl object-cover h-[139px] w-full"
@@ -82,8 +99,8 @@ const config = useRuntimeConfig()
               :src="`${comic.verticalLogo}`"
             />
           </NuxtLink>
-          <div class="h-[30px] flex flex-wrap">
-            <h2 class="text-base line-clamp-1 mt-1 text-black font-semibold">
+          <div class="h-[40px] flex flex-wrap">
+            <h2 class="text-xl line-clamp-1 mt-1 text-black font-semibold">
               {{ comic.comicName }}
             </h2>
           </div>
@@ -92,14 +109,3 @@ const config = useRuntimeConfig()
     </Swiper>
   </div>
 </template>
-
-<style scoped>
-.demoimage {
-  width: 100%;
-}
-.loading {
-  width: 100%;
-  height: 100%;
-  background: #eee;
-}
-</style>

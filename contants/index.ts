@@ -97,3 +97,11 @@ export const newFeeds: INewFeed[] = [
     category: 'xuyen-khong-205',
   },
 ]
+
+export const inprogress = 'inprogress'
+export const completed = 'completed'
+
+export const COMIC_STATUS = {
+  inprogress: 'Đang ra',
+  complete: 'Full',
+}

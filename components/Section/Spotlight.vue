@@ -51,7 +51,6 @@ const autoPlaySettings = ref<autoSettingSwiper>({
               loading="lazy"
               provider="imageengine"
               format="webp"
-              sizes="xs:100px 2xs:390px"
               :src="`${animation.image}`"
             />
           </div>

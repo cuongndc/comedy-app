@@ -41,6 +41,12 @@ export default defineNuxtConfig({
     imageengine: {
       baseURL: 'https://6z1a4akz.cdn.imgeng.in/',
     },
+    presets: {
+      comic: {
+        width: 105,
+        height: 140,
+      },
+    },
     dir: 'public/',
     screens: {
       'xs': 320,

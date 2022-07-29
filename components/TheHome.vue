@@ -15,6 +15,7 @@ const { data: homepages, pending } = await useFetch<IHomePage>('/api/homepage')
       <LazySharedBannerBar v-if="record.type === HomePageTypes._menu" />
       <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :trending="record" />
       <LazyHomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
+      <LazyHomePageNewStory v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation" :record="record" />
     </div>
 
     <!--    <div v-for="newFeed in newFeeds" :key="newFeed.id"> -->
