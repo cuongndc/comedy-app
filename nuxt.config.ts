@@ -42,19 +42,9 @@ export default defineNuxtConfig({
       baseURL: 'https://6z1a4akz.cdn.imgeng.in/',
     },
     dir: 'public/',
-    domains: ['meetoon.co'],
-    presets: {
-      cover: {
-        modifiers: {
-          fit: 'cover',
-          format: 'webp',
-          loading: 'lazy',
-        },
-      },
-    },
     screens: {
       'xs': 320,
-      'xss': 390,
+      '2xs': 390,
       'sm': 640,
       'md': 768,
       'lg': 1024,

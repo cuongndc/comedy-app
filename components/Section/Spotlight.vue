@@ -7,7 +7,7 @@ import { useRuntimeConfig } from '#app'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 import type { IBanner } from '~/types'
 
-defineProps({
+const props = defineProps({
   banner: Object as PropType<IBanner>,
 })
 
@@ -20,7 +20,7 @@ const modules = ref([Autoplay])
 const config = useRuntimeConfig()
 // A ref object that is passed to the Swiper component.
 const autoPlaySettings = ref<autoSettingSwiper>({
-  delay: 3000,
+  delay: 3003330,
   disableOnInteraction: false,
 })
 </script>
@@ -35,18 +35,25 @@ const autoPlaySettings = ref<autoSettingSwiper>({
       >
         <div class="w-full absolute bottom-0">
           <div class="aspect-w-16 aspect-h-12">
-            <img
-              alt="Hôm Nay Bắt Đầu Làm Siêu Sao"
-              :src="`${config.public.imageCdn}/${cover.link}`"
-            >
+            <nuxt-img
+              :alt="cover.comicName"
+              loading="lazy"
+              format="webp"
+              provider="imageengine"
+              :src="`${cover.link}`"
+            />
           </div>
         </div>
         <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0">
           <div class="aspect-w-16 aspect-h-12">
-            <img
-              alt=""
-              :src="`${config.public.imageCdn}/${animation.image}`"
-            >
+            <nuxt-img
+              :alt="cover.comicName"
+              loading="lazy"
+              provider="imageengine"
+              format="webp"
+              sizes="xs:100px 2xs:390px"
+              :src="`${animation.image}`"
+            />
           </div>
         </div>
       </NuxtLink>
