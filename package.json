@@ -21,7 +21,8 @@
     "firebase": "^9.6.8",
     "ipx": "^0.9.10",
     "swiper": "^8.2.6",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "vue-content-loader": "^2.0.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",

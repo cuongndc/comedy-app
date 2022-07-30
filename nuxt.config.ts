@@ -42,8 +42,6 @@ export default defineNuxtConfig({
     imageengine: {
       baseURL: 'https://6z1a4akz.cdn.imgeng.in/',
     },
-    provider: 'ipx',
-    ipx: {},
     screens: {
       'xs': 320,
       '2xs': 390,
@@ -55,10 +53,6 @@ export default defineNuxtConfig({
       '2xl': 1536,
     },
   },
-  serverMiddleware: [{
-    path: '/_ipx',
-    handle: '~/server/middleware/ipx.js',
-  }],
   modules: ['@nuxt/image-edge', '@pinia/nuxt', '@kevinmarrec/nuxt-pwa'],
   build: {
     transpile: ['@heroicons/vue', '@awesome-image/image'],

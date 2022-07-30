@@ -39,6 +39,7 @@ const config = useRuntimeConfig()
                   </span>
                 </div>
                 <nuxt-img
+                  loading="lazy"
                   provider="imageengine"
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
                   :src="`${comic.verticalLogo}`"
@@ -53,11 +54,7 @@ const config = useRuntimeConfig()
           </h3>
           <div>
             <div class="rating flex items-center">
-              <img src="/icons/comicPage/icon-star.svg" alt="rating">
-              <img src="/icons/comicPage/icon-star.svg" alt="rating">
-              <img src="/icons/comicPage/icon-star.svg" alt="rating">
-              <img src="/icons/comicPage/icon-star.svg" alt="rating">
-              <img src="/icons/comicPage/icon-star.svg" alt="rating">
+              <img v-for="i of 5" :key="i" src="/icons/comicPage/icon-star.svg" alt="rating">
               <p class="text-xl">
                 {{ comic.avgRate.toFixed(1) }}
                 <span class="text-xl font-semibold text-gray-500"> (369)</span>
@@ -93,6 +90,7 @@ const config = useRuntimeConfig()
               </span>
             </div>
             <nuxt-img
+              loading="lazy"
               provider="imageengine"
               class="rounded-xl object-cover h-[139px] w-full"
               format="webp"

@@ -12,15 +12,13 @@ const config = useRuntimeConfig()
 </script>
 
 <template>
-  <div class="px-4">
+  <div class="px-4 bg-contain">
     <div>
       <NuxtLink href="/">
-        <nuxt-img
-          format="png"
+        <img
           class="w-full"
           src="/icons/widgets/trend/img-header.svg"
-          sizes="xs:320px xss:390px sm:640px"
-        />
+        >
       </NuxtLink>
     </div>
     <div class="gxFbOF">
@@ -35,6 +33,7 @@ const config = useRuntimeConfig()
             <div class="p-5 kesnlQ">
               <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(content.slug, content._id)">
                 <nuxt-img
+                  loading="lazy"
                   provider="imageengine"
                   class=" rounded-xl w-[75px] h-[100px] object-cover aspect-[3/4]"
                   format="webp"
@@ -50,12 +49,12 @@ const config = useRuntimeConfig()
                     Chương {{ content.newestChapter }}
                   </p>
                   <div class="flex items-center">
-                    <div class="flex items-center">
-                      <SvgViewChapter class="w-5 h-5" />
+                    <div class="flex items-center mr-2">
+                      <img class="w-5 h-5 mr-1" src="/icons/homePage/icon-view-chapter.svg" alt="view chapter">
                       <span class="text-base text-primary-gray">{{ convertUnit(content.viewCount) }}</span>
                     </div>
                     <div class="flex items-center">
-                      <SvgStar class="w-5 h-5 ml-2 mr-1" />
+                      <img class="mr-1" src="/icons/comicPage/icon-star.svg" alt="star">
                       <span class="text-base">5 </span>
                       <span class="text-base text-primary-gray">({{ convertUnit(content.reviewCount) }})</span>
                     </div>
