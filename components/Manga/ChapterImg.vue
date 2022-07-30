@@ -16,7 +16,7 @@ const config = useRuntimeConfig()
         format="webp"
         :lazy="true"
         :duratio="2"
-        :src="`${config.public.imageCdn}${page.linkHD}`"
+        :src="`${config.public.PUBLIC_IMAGE_CDN}${page.linkHD}`"
       />
     </div>
   </div>

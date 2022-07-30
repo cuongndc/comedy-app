@@ -1,47 +1,78 @@
 <script setup lang="ts">
-import { onMounted, watchEffect } from 'vue'
+import { computed, onMounted, watchEffect } from 'vue'
 import AsImage from '@awesome-image/image'
 import { convertUnit } from '~/common'
-import { useFetch, useRuntimeConfig } from '#app'
+import { navigateTo, useFetch, useRuntimeConfig, useState } from '#app'
+import type { Chapter, Comic } from '~/types'
+import {COMIC_STATUS, TRUYEN_TRANH_CHAPTER, comicTabs, TRUYEN_TRANH} from '~/contants'
+const runtimeConfig = useRuntimeConfig()
 
 const route = useRoute()
 const params = route.params
 const slug = ref(params.slug)
-const _id = ref(params._id)
-const chapters = ref([])
 const config = useRuntimeConfig()
+const tab = ref<string>('comic')
+const chapters = useState<Chapter[]>('chapters')
+const comicsRelated = useState<Comic[]>('comicsRelated')
 
 const {
   data: comic,
   pending,
   refresh,
-} = await useFetch('/api/comic', {
+} = await useFetch<Comic>('/api/comic', {
   params: {
     slug: slug.value,
-    _id: _id.value,
   },
 })
-console.log('comic', comic.value)
-// if (response.value) {
-//   comic.value = response.value.comic
-//   chapters.value = response.value.chapters
-// }
+onMounted(async () => {
+  chapters.value = await $fetch('/api/chapters', {
+    params: {
+      comic_slug: comic.value.slug,
+    },
+  })
 
+  comicsRelated.value = await $fetch('/api/comic-related', {
+    params: {
+      tags: comic.value.tags.map((tag: any) => tag.slug),
+    },
+  })
+})
 watchEffect(async () => {
   await refresh()
 })
+const comicTab = computed(() => {
+  return tab.value === comicTabs.comic
+})
+const chapterTab = computed(() => {
+  return tab.value === comicTabs.chapter
+})
+const reviewTab = computed(() => {
+  return tab.value === comicTabs.review
+})
+const setTab = (T: string) => {
+  tab.value = T
+}
+const startRead = () => {
+  if (chapters.value && chapters.value.length > 0)
+    return navigateTo(`/${TRUYEN_TRANH_CHAPTER}/${chapters.value[0]?.slug}/${chapters.value[0]?._id}`)
+
+  return ''
+}
+const readQuickly = (slug: string, _id: string) => {
+  return navigateTo(`/${TRUYEN_TRANH}/${slug}/${_id}`)
+}
 const backgroundImage = (image) => {
   return {
-    backgroundImage: '',
+    backgroundImage: `url(${runtimeConfig.public.PUBLIC_IMAGE_CDN}${image})`,
   }
 }
 </script>
 
 <template>
-  <section v-if="!pending" class="ComicPage__Root-sc-1l8m850-0 kjrONi">
+  <section v-if="!pending">
     <div
       :style="backgroundImage(comic.squareCover)"
-      class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden"
+      class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"
     >
       <NuxtLink to="/" class="ml-4">
         <img src="/icons/comicPage/icon-back.svg" alt="back">
@@ -51,22 +82,16 @@ const backgroundImage = (image) => {
         <span class="text-white text-2xl">Báo cáo</span>
       </div>
     </div>
-    <div class="ComicPage__Background-sc-1l8m850-1 dQstsf">
-      <!--      <img -->
-      <!--        alt="" -->
-      <!--        class="img-domain" -->
-      <!--        :src="`${config.public.imageCdn}/${comic.squareCover}`" -->
-      <!--        style="visibility: visible;" -->
-      <!--      > -->
+    <div class="fixed top-0 w-full max-w-[768px]">
       <AsImage
         format="webp"
         :lazy="true"
         :duratio="2"
-        :src="`${config.public.imageCdn}/${comic.squareCover}`"
+        :src="`${runtimeConfig.public.PUBLIC_IMAGE_CDN}/${comic.squareCover}`"
       />
     </div>
-    <div class="ComicPage__ComicContent-sc-1l8m850-5 ferexP">
-      <div class="ComicPage__ComicInfo-sc-1l8m850-6 fUqEJv">
+    <div class="relative mt-[150px]">
+      <div class="px-5" style="background: linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)">
         <div class="ComicPage__ComicInfoContent-sc-1l8m850-7 hdvgOz">
           <div class="left">
             <div class="ComicPage__ComicName-sc-1l8m850-8 jYlKUE">
@@ -107,11 +132,7 @@ const backgroundImage = (image) => {
                 5
               </p>
               <div class="flex items-center justify-center">
-                <img src="/icons/comicPage/icon-star.svg" alt="rating">
-                <img src="/icons/comicPage/icon-star.svg" alt="rating">
-                <img src="/icons/comicPage/icon-star.svg" alt="rating">
-                <img src="/icons/comicPage/icon-star.svg" alt="rating">
-                <img src="/icons/comicPage/icon-star.svg" alt="rating">
+                <img v-for="i of 5" :key="i" src="/icons/comicPage/icon-star.svg" alt="rating">
               </div>
               <div>
                 <span class="text-white text-xl">{{ comic.reviewCount }} Đánh giá</span>
@@ -121,40 +142,39 @@ const backgroundImage = (image) => {
         </div>
       </div>
     </div>
-    <div class="ComicPage__ComicControl-sc-1l8m850-16 bUAGYH">
-      <div class="ComicPage__ButtonShare-sc-1l8m850-17 ilMCJd comic-share">
+    <div class="bg-background px-3 fixed bottom-0 w-full h-[52px] max-w-[768px] flex items-center z-50">
+      <div class="cursor-pointer">
         <img
           src="/icons/comicPage/icon-share.svg"
           alt="Chia sẻ"
         >
       </div>
-      <div class="ComicPage__ButtonFollow-sc-1l8m850-18 gjzfNW comic-follow">
+      <div class="ml-6 cursor-pointer">
         <img
           src="/icons/comicPage/icon-follow.svg"
           alt="Theo dõi"
         >
       </div>
-      <a class="comic-read" href="/truyen-tranh-chapter/thinh-sung-cam-tu-chinh-do-chuong-1/5f164d0b3813bf13f46fcba7">Bắt
-        đầu đọc</a>
+      <a class="comic-read" @click="startRead">
+        Bắt đầu đọc
+      </a>
     </div>
-    <div class="ComicTabs__Root-lsu3at-0 kqexPd">
-      <div class="ComicTabs__TabList-lsu3at-1 AAQSf">
-        <div class="ComicTabs__TabItem-lsu3at-2 eKaTWX active">
+
+    <div class="relative bg-accent-4">
+      <div class="whitespace-nowrap overflow-x-auto" style="border-bottom: 1px solid rgb(27, 28, 35)">
+        <div :class="{ active: comicTab }" class="eKaTWX inline-block" @click="setTab(comicTabs.comic)">
           <span>Giới thiệu</span>
         </div>
-        <div class="ComicTabs__TabItem-lsu3at-2 eKaTWX">
-          <a
-            href="/truyen-tranh/thinh-sung-cam-tu-chinh-do/5f153b8d4ee1c16765968775/chapters"
-          >Chapters (155)</a>
+        <div :class="{ active: chapterTab }" class="eKaTWX" @click="setTab(comicTabs.chapter)">
+          <a>Chapters ({{ chapters?.length }})</a>
         </div>
-        <div class="ComicTabs__TabItem-lsu3at-2 eKaTWX">
-          <a
-            href="/truyen-tranh/thinh-sung-cam-tu-chinh-do/5f153b8d4ee1c16765968775/danh-gia"
-          >Đánh giá</a>
+        <div :class="{ active: reviewTab }" class="eKaTWX" @click="setTab(comicTabs.review)">
+          <a>Đánh giá</a>
         </div>
       </div>
     </div>
-    <div class="ComicPage__ComicIntro-sc-1l8m850-19 relative bg-dark-gray">
+
+    <div v-if="comicTab" class="relative bg-dark-gray">
       <!--      <div class="content flex items-center"> -->
       <!--        <div class="w-[24px] max-w-[100%]"> -->
       <!--          <div style="position: relative; padding-bottom: 100%;"> -->
@@ -180,76 +200,99 @@ const backgroundImage = (image) => {
             format="webp"
             :lazy="true"
             :duratio="2"
-            :src="`${config.public.imageCdn}/${chapter.imageRepresent}`"
+            :src="`${config.public.PUBLIC_IMAGE_CDN}/${chapter.imageRepresent}`"
           />
           <p class="text-white text-base mt-2">
             Chương {{ chapter.chapterNum }}
           </p>
         </div>
       </div>
-      <div class="ComicRelated__Root-rxs36w-0 dEGLdF">
-        <div class="ComicRelated__Title-rxs36w-1 ivOyJq">
-          <h2>Đề xuất liên quan</h2>
-        </div>
-        <!--        <div class="ComicRelated__SwiperCSS-rxs36w-2 jDXLco mb-10"> -->
-        <!--          <div v-for="comicsRelated in response.comic.comicsRelated" :key="comicsRelated._id" class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem"> -->
-        <!--            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ"> -->
-        <!--              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp"> -->
-        <!--                <span -->
-        <!--                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq" -->
-        <!--                >Full</span> -->
-        <!--              </div> -->
-        <!--              <NuxtLink -->
-        <!--                :to="useNavigatorComicPreview(comicsRelated.slug, comicsRelated._id)" -->
-        <!--                :title="comicsRelated.comicName" -->
-        <!--              > -->
-        <!--                <div style="max-width: 100%; width: 105px;"> -->
-        <!--                  <div> -->
-        <!--                    &lt;!&ndash;                    <img &ndash;&gt; -->
-        <!--                    &lt;!&ndash;                      alt="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu" &ndash;&gt; -->
-        <!--                    &lt;!&ndash;                      data-src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" &ndash;&gt; -->
-        <!--                    &lt;!&ndash;                      class="img-domain" &ndash;&gt; -->
-        <!--                    &lt;!&ndash;                      style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;" &ndash;&gt; -->
-        <!--                    &lt;!&ndash;                      src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" &ndash;&gt; -->
-        <!--                    &lt;!&ndash;                    > &ndash;&gt; -->
 
-        <!--                    <AsImage -->
-        <!--                      format="webp" -->
-        <!--                      :lazy="true" -->
-        <!--                      :duratio="2" -->
-        <!--                      :src="`${config.public.imageCdn}/${comicsRelated.verticalLogo}`" -->
-        <!--                    /> -->
-        <!--                  </div> -->
-        <!--                </div> -->
-        <!--              </NuxtLink> -->
-        <!--            </div> -->
-        <!--            <h3> -->
-        <!--              <a -->
-        <!--                title="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu" -->
-        <!--                href="/truyen-tranh/yeu-dieu-quan-tu-nu-tuong-hao-cau/5fdc3498eba5a06cc3658683" -->
-        <!--              > -->
-        <!--                {{ comicsRelated.comicName }} -->
-        <!--              </a> -->
-        <!--            </h3> -->
-        <!--          </div> -->
-        <!--        </div> -->
+      <div class="px-5 py-5 mb-10" style="border-top: 3px solid rgb(27, 28, 35)">
+        <div class=" flex items-center justify-between">
+          <h2 class="text-white font-bold text-3xl mb-7">
+            Đề xuất liên quan
+          </h2>
+        </div>
+        <div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide">
+          <div v-for="comicRelated in comicsRelated" :key="comicRelated._id" class="inline-block w-[105px] mr-6">
+            <div class="relative">
+              <div class="absolute top-[-3px] left-0 w-full z-10">
+                <span
+                  class="inline-block bg-primary px-3 rounded-xl bg-primary font-bold text-white text-xl"
+                >
+                  {{ COMIC_STATUS[comic.status] }}
+                </span>
+              </div>
+              <NuxtLink
+                :to="useNavigatorComicPreview(comicRelated.slug, comicRelated._id)"
+                :title="comicRelated.comicName"
+              >
+                <div style="max-width: 100%; width: 105px;">
+                  <div>
+                    <AsImage
+                      format="webp"
+                      :lazy="true"
+                      :duratio="2"
+                      :src="`${runtimeConfig.public.PUBLIC_IMAGE_CDN}/${comicRelated.verticalLogo}`"
+                    />
+                  </div>
+                </div>
+              </NuxtLink>
+            </div>
+            <h3 class="w-[100px] line-clamp-1">
+              <NuxtLink
+                class="text-white font-bold text-xl"
+                :title="comicRelated.comicName"
+                :to="useNavigatorComicPreview(comicRelated.slug, comicRelated._id)"
+              >
+                {{ comicRelated.comicName }}
+              </NuxtLink>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="chapterTab" class="relative bg-accent-4">
+      <div v-for="chapter in chapters" :key="chapter._id" style="border-bottom: 1px solid rgb(27, 28, 35)">
+        <div class="px-5 py-5 cursor-pointe ">
+          <a @click="readQuickly(chapter.slug, chapter._id)">
+            <h3 class="text-2xl mb-4">
+              <b>
+                Chương {{ chapter.chapterNum }}
+              </b>
+            </h3>
+            <div class="flex">
+              <p class="mr-8 text-primary-gray text-2xl flex items-center">
+                {{ new Date(chapter.createdAt).toLocaleDateString() }}
+              </p>
+              <div class="mr-[17px] flex items-center justify-center text-2xl">
+                <img class="mr-2" src="/icons/chapterItem/icon-view.svg" alt="view">
+                <span class="text-primary-gray">
+                  {{ chapter.totalView ? convertUnit(chapter.totalView) : 0 }}
+                </span>
+              </div>
+              <div class="mr-8 flex items-center justify-center text-2xl">
+                <img class="mr-2" src="/icons/chapterItem/icon-like.svg" alt="like">
+                <span class="text-primary-gray">
+                  {{ chapter.totalLike ? convertUnit(chapter.totalLike) : 0 }}
+                </span>
+              </div>
+              <div class="flex items-center justify-center mr-4 text-2xl">
+                <img class="mr-2" src="/icons/chapterItem/icon-comment.svg" alt="comment">
+                <span class="text-primary-gray">
+                  {{ chapter.totalComment ? convertUnit(chapter.totalComment) : 0 }}
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-.ferexP {
-  margin-top: 150px;
-  position: relative;
-}
-
-.fUqEJv {
-  padding: 60px 13px 0px;
-  background: linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%);
-
-}
-
 .hdvgOz {
   min-height: 115px;
   padding: 15px;

@@ -6,11 +6,13 @@ export default defineNuxtConfig({
   },
   ssr: true,
   runtimeConfig: {
+    mongodbURI: process.env.MONGODB_URI,
+    imageCDN: process.env.IMAGE_CDN,
     public: {
       NUXT_PUBLIC_SERVICE_URL: process.env.NUXT_PUBLIC_SERVICE_URL,
       DOMAIN: process.env.DOMAIN,
       SIZE_NAME: process.env.SIZE_NAME,
-      imageCdn: process.env.IMAGE_CDN,
+      PUBLIC_IMAGE_CDN: process.env.IMAGE_CDN,
     },
   },
   pwa: {
@@ -52,7 +54,11 @@ export default defineNuxtConfig({
       '2xl': 1536,
     },
   },
-  modules: ['@nuxt/image-edge', '@pinia/nuxt', '@kevinmarrec/nuxt-pwa'],
+  modules: [
+    '@nuxt/image-edge',
+    '@kevinmarrec/nuxt-pwa',
+    '@pinia/nuxt',
+    './modules/mongodb-setup'],
   build: {
     transpile: ['@heroicons/vue', '@awesome-image/image'],
     postcss: {

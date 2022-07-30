@@ -6,7 +6,7 @@ const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
 </script>
 
 <template>
-  <div v-if="pending" class="h-full bg-white">
+  <div v-if="pending" class="bg-white">
     <PulseHomeLoading />
   </div>
   <main v-else class="h-[auto] bg-white">

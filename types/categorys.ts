@@ -1,12 +1,8 @@
-export interface ICate {
-  title: string
-  slug: string
-  router: string
-}
-
-export interface INewFeed {
-  id: number
-  title: string
-  endPoint: string
-  category: string
+export interface Category {
+  type: string
+  categoryId: string
+  categoryCode: string
+  categoryVietName: string
+  categoryEngName: string
+  categorySlug: string
 }

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { CateRanks } from '~/contants'
 
 const route = useRoute()
 const params = route.params
@@ -33,7 +32,7 @@ watchEffect(async () => {
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
-      <CategorysCateList :cates="CateRanks" />
+      <CategorysCateList :cates="[]" />
       <section ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 200px)">
         <LazyCategorysComicItem :mangas="mangas" />
       </section>

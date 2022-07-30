@@ -19,6 +19,9 @@ export interface Chapter {
   comicId: string
   chapterOrderIndex: number
   createdAt: string
+  totalComment: number
+  totalLike: number
+  totalView: number
 }
 
 export interface ReadPage {

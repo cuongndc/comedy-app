@@ -10,7 +10,6 @@ import { navigateTo, useAsyncData, useLazyFetch, useState } from '#app'
 import type { Chapter, ReadPage } from '~/types'
 
 const route = useRoute()
-const router = useRouter()
 const params = route.params
 
 const chapterSlug = ref(params.chapter_slug)
@@ -20,19 +19,17 @@ const {
   pending,
   data: readPage,
   refresh,
-} = await useAsyncData<ReadPage>('read-page', () => $fetch('/api/read-comic', {
+} = await useLazyFetch<ReadPage>('/api/read-comic', {
   params: {
     chapter_slug: chapterSlug.value,
   },
-}))
+})
 
 onMounted(async () => {
-  $fetch('/api/chapters', {
+  chapters.value = await $fetch('/api/chapters', {
     params: {
       comic_slug: readPage.value.chapter.comicSlug,
     },
-  }).then((res) => {
-    chapters.value = res.data
   })
 })
 

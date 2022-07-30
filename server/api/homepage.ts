@@ -1,6 +1,10 @@
-import client from '~/services/client'
+import mongo from '~/server/api/mongo'
+import { collections } from '~/contants'
 
 export default defineEventHandler(async () => {
-  const data = await client.get('/wb/homepage')
-  return data.data?.data
+  const pages = await mongo.db().collection(collections.homePages).find({}).sort({
+    orderIndex: 1,
+  }).limit(10).toArray()
+
+  return pages
 })

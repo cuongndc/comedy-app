@@ -2,13 +2,11 @@
 import { Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { ChevronDoubleRightIcon } from '@heroicons/vue/solid'
-import { useRuntimeConfig } from '#app'
 import { convertUnit } from '~/common'
 
 defineProps({
   trending: Object,
 })
-const config = useRuntimeConfig()
 </script>
 
 <template>
@@ -24,10 +22,21 @@ const config = useRuntimeConfig()
     <div class="gxFbOF">
       <ClientOnly>
         <Swiper
-          :modules="[Grid]" :grid="{
+          :breakpoints="{
+            320: {
+              slidesPerView: 1.3,
+              spaceBetween: 14,
+            },
+            640: {
+              slidesPerView: 3.3,
+              spaceBetween: 14,
+            },
+          }"
+          :modules="[Grid]"
+          :grid="{
             rows: 3,
             fill: 'row',
-          }" :slides-per-view="1.3" :space-between="14"
+          }"
         >
           <SwiperSlide v-for="content in trending.content" :key="content.slug" class="h-[130px]">
             <div class="p-5 kesnlQ">

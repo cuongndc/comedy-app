@@ -1,13 +1,10 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { useRuntimeConfig } from '#app'
-import { SWIPER_BREAK_POINTS } from '~/types'
 import { COMIC_STATUS } from '~/contants'
 
 defineProps({
   record: Object,
 })
-const config = useRuntimeConfig()
 </script>
 
 <template>
@@ -77,7 +74,22 @@ const config = useRuntimeConfig()
         </div>
       </div>
     </div>
-    <Swiper :breakpoints="SWIPER_BREAK_POINTS">
+    <Swiper
+      :breakpoints="{
+        320: {
+          slidesPerView: 3.4,
+          spaceBetween: 10,
+        },
+        480: {
+          slidesPerView: 4.4,
+          spaceBetween: 10,
+        },
+        640: {
+          slidesPerView: 5.4,
+          spaceBetween: 20,
+        },
+      }"
+    >
       <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
         <div class="relative">
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)" class="relative">

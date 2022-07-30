@@ -1,6 +1,6 @@
 export * from './chapter'
 export * from './storage'
-export * from './swiper'
 export * from './users'
 export * from './categorys'
 export * from './homepage'
+export * from './comic'

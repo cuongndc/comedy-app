@@ -3,11 +3,10 @@ import mongo from '~/server/api/mongo'
 import { collections } from '~/contants'
 
 export default defineEventHandler(async (event) => {
-  const { slug } = useQuery(event)
-
-  const comic = await mongo.db().collection(collections.comics).findOne({
-    slug,
-  })
-
-  return comic
+  const { tags } = useQuery(event)
+  return await mongo.db().collection(collections.comics).find({
+    'tags.slug': {
+      $in: tags,
+    },
+  }).limit(10).toArray()
 })
