@@ -16,7 +16,6 @@ export default defineNuxtConfig({
   pwa: {
     meta: {
       name: process.env.SIZE_NAME,
-      favicon: true,
       author: process.env.SIZE_NAME,
       description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
       mobileAppIOS: true,

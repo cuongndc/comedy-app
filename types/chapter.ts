@@ -1,19 +1,27 @@
-export interface Chapter {
+export interface Page {
+  _id: string
   chapterId: string
-  chapterNumber: string
-  chapterTitle: string
-  updatedAt: string
-  view: string
+  chapterSlug: string
+  linkHD: string
+  linkSD: string
+  width: number
+  height: number
+  pageNum: string
 }
 
-export interface Genre {
-  genreTitle: string
+export interface Chapter {
+  _id: string
+  chapterNum: string
+  chapterName: string
+  isUnlocked: boolean
   slug: string
+  comicSlug: string
+  comicId: string
+  chapterOrderIndex: number
+  createdAt: string
 }
 
-export interface ChapterImg {
-  id: string
-  imgSrc: string
-  title: string
-  imgSrcCDN: string
+export interface ReadPage {
+  pages: Page[]
+  chapter: Chapter
 }

@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { watchEffect } from 'vue'
+import { onMounted, watchEffect } from 'vue'
 import AsImage from '@awesome-image/image'
 import { convertUnit } from '~/common'
-import {useAsyncData, useFetch, useLazyFetch, useRuntimeConfig} from '#app'
+import { useFetch, useRuntimeConfig } from '#app'
 
 const route = useRoute()
 const params = route.params
 const slug = ref(params.slug)
 const _id = ref(params._id)
-const comic = ref({})
 const chapters = ref([])
 const config = useRuntimeConfig()
 
 const {
-  data: response,
+  data: comic,
   pending,
   refresh,
 } = await useFetch('/api/comic', {
@@ -22,10 +21,12 @@ const {
     _id: _id.value,
   },
 })
-if (response.value) {
-  comic.value = response.value.comic
-  chapters.value = response.value.chapters
-}
+console.log('comic', comic.value)
+// if (response.value) {
+//   comic.value = response.value.comic
+//   chapters.value = response.value.chapters
+// }
+
 watchEffect(async () => {
   await refresh()
 })
@@ -190,48 +191,48 @@ const backgroundImage = (image) => {
         <div class="ComicRelated__Title-rxs36w-1 ivOyJq">
           <h2>Đề xuất liên quan</h2>
         </div>
-        <div class="ComicRelated__SwiperCSS-rxs36w-2 jDXLco mb-10">
-          <div v-for="comicsRelated in response.comic.comicsRelated" :key="comicsRelated._id" class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem">
-            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ">
-              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp">
-                <span
-                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq"
-                >Full</span>
-              </div>
-              <NuxtLink
-                :to="useNavigatorComicPreview(comicsRelated.slug, comicsRelated._id)"
-                :title="comicsRelated.comicName"
-              >
-                <div style="max-width: 100%; width: 105px;">
-                  <div>
-                    <!--                    <img -->
-                    <!--                      alt="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu" -->
-                    <!--                      data-src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" -->
-                    <!--                      class="img-domain" -->
-                    <!--                      style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;" -->
-                    <!--                      src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" -->
-                    <!--                    > -->
+        <!--        <div class="ComicRelated__SwiperCSS-rxs36w-2 jDXLco mb-10"> -->
+        <!--          <div v-for="comicsRelated in response.comic.comicsRelated" :key="comicsRelated._id" class="ComicItem__Root-qz9ayw-0 eMTnkV comicItem"> -->
+        <!--            <div class="ComicItem__Image-qz9ayw-1 fpWJnZ"> -->
+        <!--              <div class="stickerComicItem__Root-sc-103tcpt-0 hPsokp"> -->
+        <!--                <span -->
+        <!--                  class="stickerComicItem__Full-sc-103tcpt-2 kDxWKq" -->
+        <!--                >Full</span> -->
+        <!--              </div> -->
+        <!--              <NuxtLink -->
+        <!--                :to="useNavigatorComicPreview(comicsRelated.slug, comicsRelated._id)" -->
+        <!--                :title="comicsRelated.comicName" -->
+        <!--              > -->
+        <!--                <div style="max-width: 100%; width: 105px;"> -->
+        <!--                  <div> -->
+        <!--                    &lt;!&ndash;                    <img &ndash;&gt; -->
+        <!--                    &lt;!&ndash;                      alt="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu" &ndash;&gt; -->
+        <!--                    &lt;!&ndash;                      data-src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" &ndash;&gt; -->
+        <!--                    &lt;!&ndash;                      class="img-domain" &ndash;&gt; -->
+        <!--                    &lt;!&ndash;                      style="visibility: visible; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;" &ndash;&gt; -->
+        <!--                    &lt;!&ndash;                      src="https://cdn.funtoon.vn/image/resources/5fdc3498eba5a06cc3658683_1611744681645.jpg" &ndash;&gt; -->
+        <!--                    &lt;!&ndash;                    > &ndash;&gt; -->
 
-                    <AsImage
-                      format="webp"
-                      :lazy="true"
-                      :duratio="2"
-                      :src="`${config.public.imageCdn}/${comicsRelated.verticalLogo}`"
-                    />
-                  </div>
-                </div>
-              </NuxtLink>
-            </div>
-            <h3>
-              <a
-                title="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu"
-                href="/truyen-tranh/yeu-dieu-quan-tu-nu-tuong-hao-cau/5fdc3498eba5a06cc3658683"
-              >
-                {{ comicsRelated.comicName }}
-              </a>
-            </h3>
-          </div>
-        </div>
+        <!--                    <AsImage -->
+        <!--                      format="webp" -->
+        <!--                      :lazy="true" -->
+        <!--                      :duratio="2" -->
+        <!--                      :src="`${config.public.imageCdn}/${comicsRelated.verticalLogo}`" -->
+        <!--                    /> -->
+        <!--                  </div> -->
+        <!--                </div> -->
+        <!--              </NuxtLink> -->
+        <!--            </div> -->
+        <!--            <h3> -->
+        <!--              <a -->
+        <!--                title="Yểu Điệu Quân Tử, Nữ Tướng Hảo Cầu" -->
+        <!--                href="/truyen-tranh/yeu-dieu-quan-tu-nu-tuong-hao-cau/5fdc3498eba5a06cc3658683" -->
+        <!--              > -->
+        <!--                {{ comicsRelated.comicName }} -->
+        <!--              </a> -->
+        <!--            </h3> -->
+        <!--          </div> -->
+        <!--        </div> -->
       </div>
     </div>
   </section>

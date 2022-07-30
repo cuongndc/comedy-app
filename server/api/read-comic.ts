@@ -2,11 +2,10 @@ import { useQuery } from 'h3'
 import client from '~/services/client'
 
 export default defineEventHandler(async (event) => {
-  const { slug, _id } = useQuery(event)
+  const { chapter_slug } = useQuery(event)
   const response = await client.get('/wb/read-comic', {
     params: {
-      slug,
-      _id,
+      chapter_slug,
     },
   })
 

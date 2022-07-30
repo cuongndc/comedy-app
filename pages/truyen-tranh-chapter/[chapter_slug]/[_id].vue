@@ -4,65 +4,66 @@ import {
   ArrowNarrowLeftIcon,
   ArrowRightIcon,
 } from '@heroicons/vue/solid'
-import { onMounted, onUnmounted, watchEffect } from 'vue'
+import { onMounted, watchEffect } from 'vue'
 import { TRUYEN_TRANH_CHAPTER } from '~/contants'
-import { useFetch, useLazyFetch, useState } from '#app'
+import { navigateTo, useAsyncData, useLazyFetch, useState } from '#app'
+import type { Chapter, ReadPage } from '~/types'
 
 const route = useRoute()
 const router = useRouter()
 const params = route.params
 
-const slug = ref(params.slug)
-const _id = ref(params._id)
-const chapters = useState('chapters')
+const chapterSlug = ref(params.chapter_slug)
+const chapters = useState<Chapter[]>('chapters')
 
 const {
   pending,
-  data: response,
+  data: readPage,
   refresh,
-} = useLazyFetch('/api/read-comic', {
+} = await useAsyncData<ReadPage>('read-page', () => $fetch('/api/read-comic', {
   params: {
-    slug: slug.value,
-    _id: _id.value,
+    chapter_slug: chapterSlug.value,
   },
-})
+}))
+
 onMounted(async () => {
-  chapters.value = await $fetch('/api/chapters', {
+  $fetch('/api/chapters', {
     params: {
-      comic_id: response.value.comic._id,
-      comic_slug: response.value.comic.slug,
+      comic_slug: readPage.value.chapter.comicSlug,
     },
+  }).then((res) => {
+    chapters.value = res.data
   })
 })
 
 watchEffect(() => {
-  // refresh()
+  refresh()
 })
 
 const handleChapter = async (action: 'next' | 'prev') => {
-  const cuChapterNumber = response.value.chapterOrderIndex
   if (action === 'next') {
-    const nextChapter = chapters.value.data.find(chapter => chapter.chapterOrderIndex === cuChapterNumber + 1)
-    router.replace(`/${TRUYEN_TRANH_CHAPTER}/${nextChapter.slug}/${nextChapter._id}`)
+    const nextC = readPage.value.chapter.chapterOrderIndex + 1
+    const next = chapters.value.find((chap: Chapter) => chap.chapterOrderIndex === nextC)
 
-    await refresh()
+    navigateTo({
+      path: `/${TRUYEN_TRANH_CHAPTER}/${next.slug}/${next._id}`,
+      replace: true,
+    })
   }
 
   if (action === 'prev') {
-    const nextChapter = chapters.value.data.find(chapter => chapter.chapterOrderIndex === cuChapterNumber - 1)
-    router.replace(`/${TRUYEN_TRANH_CHAPTER}/${nextChapter.slug}/${nextChapter._id}`)
+    const prevC = readPage.value.chapter.chapterOrderIndex - 1
+    const prev = chapters.value.find((chap: Chapter) => chap.chapterOrderIndex === prevC)
 
-    await refresh()
+    navigateTo({
+      path: `/${TRUYEN_TRANH_CHAPTER}/${prev.slug}/${prev._id}`,
+      replace: true,
+    })
   }
 }
 const handleNextProcess = (action: 'next' | 'prev') => {
   handleChapter(action)
 }
-
-useHead({
-  title: `${response.value?.comicName} | ${response.value?.chapterName} - Chapter ${response.value?.chapterNum}`,
-  description: response.value?.chapterName,
-})
 </script>
 
 <template>
@@ -74,23 +75,28 @@ useHead({
     ref="scrollComponent"
     class="flex h-fit min-h-screen flex-col bg-black scrollbar-hide"
   >
+    <Head>
+      <Title>
+        {{ readPage.chapter?.chapterName }} | Chương {{ readPage.chapter?.chapterNum }}
+      </Title>
+    </Head>
     <div class="relative flex h-fit flex-1 text-white">
       <div class="h-fit min-h-screen w-full bg-black">
         <div class="fixed top-0 left-0 z-[999] h-[60px] w-full">
           <div class="flex h-full w-full items-center justify-between text-lg md:text-2xl bg-accent-1">
             <div class="flex h-full w-fit items-center justify-evenly gap-4 px-4 md:space-x-4">
-              <LazyNuxtLink :to="useNavigatorComicPreview(response.comic.slug, response.comic._id)" class="flex">
+              <LazyNuxtLink :to="useNavigatorComicPreview(readPage.chapter.comicSlug, readPage.chapter.comicId)" class="flex">
                 <button>
                   <ArrowNarrowLeftIcon class="h-9 w-9" />
                 </button>
               </LazyNuxtLink>
               <h1 class="fond-bold h-fit w-[25%] capitalize line-clamp-1 md:w-[30%]">
-                {{ response.comicName }}
+                {{ readPage.chapter?.chapterName }}
               </h1>
               <button
                 class="h-[60%] w-fit max-w-[80px] whitespace-nowrap rounded-xl bg-highlight p-2 text-base line-clamp-1 md:text-lg"
               >
-                Chapter: {{ response.chapterNum }}
+                Chapter: {{ readPage.chapter?.chapterNum }}
               </button>
               <div class="absolute-center h-full w-fit gap-4 md:mx-6">
                 <button data-id="prev" class="rounded-xl-lg bg-highlight p-4 md:p-4" @click="handleChapter('prev')">
@@ -109,7 +115,7 @@ useHead({
           </div>
         </div>
         <ClientOnly>
-          <LazyMangaChapterImg :pages="response.pages" />
+          <LazyMangaChapterImg :pages="readPage.pages" />
         </ClientOnly>
         <LazyMangaReadMangaFooter @next-process="handleNextProcess" />
       </div>
