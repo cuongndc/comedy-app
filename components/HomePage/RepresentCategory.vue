@@ -39,9 +39,9 @@ defineProps({
                   </span>
                 </div>
                 <SharedMeeToonImg
+                  :lazy="true"
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
                   :src="comic.verticalLogo"
-                  :lazy-src="comic.verticalLogo"
                   :width="105"
                   :height="138"
                 />
@@ -109,10 +109,9 @@ defineProps({
               </span>
             </div>
             <SharedMeeToonImg
-              cover
+              :lazy="true"
               class="rounded-xl w-full"
               :src="comic.verticalLogo"
-              :lazy-src="comic.verticalLogo"
               :width="105"
               :height="138"
             />

@@ -11,7 +11,7 @@ const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
   </div>
   <main v-else class="h-[auto] bg-white">
     <div v-for="record in homepages" :key="record._id" v-memo="homepages">
-      <LazySectionSpotlight
+      <LazyHomePageSpotlight
         v-if="record.type === HomePageTypes._banner"
         :banner="record"
       />

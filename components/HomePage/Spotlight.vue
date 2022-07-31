@@ -27,7 +27,7 @@ const autoPlaySettings = ref<autoSettingSwiper>({
 
 <template>
   <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
-    <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
+    <SwiperSlide v-for="cover in banner.covers" :key="cover._id" :virtual-index="cover._id">
       <NuxtLink
         :to="useNavigatorComicPreview(cover.slug, cover._id)"
         class="relative block h-[65vw]"
@@ -35,18 +35,21 @@ const autoPlaySettings = ref<autoSettingSwiper>({
       >
         <div class="w-full absolute bottom-0">
           <SharedMeeToonImg
+            class="w-full"
             :alt="cover.comicName"
             :src="`${cover.link}`"
             :lazy-src="cover.link"
           />
         </div>
-        <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0">
-          <SharedMeeToonImg
-            :lazy-src="animation.image"
-            :alt="cover.comicName"
-            :src="`${animation.image}`"
-          />
-        </div>
+        <!--        <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0"> -->
+        <SharedMeeToonImg
+          v-for="animation in cover.animations" :key="animation.image"
+          class="w-full absolute bottom-0"
+          :lazy-src="animation.image"
+          :alt="cover.comicName"
+          :src="`${animation.image}`"
+        />
+        <!--        </div> -->
       </NuxtLink>
     </SwiperSlide>
   </Swiper>
