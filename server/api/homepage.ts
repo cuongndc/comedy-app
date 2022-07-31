@@ -4,5 +4,5 @@ import { collections } from '~/contants'
 export default defineEventHandler(async () => {
   return await mongo.db().collection(collections.homePages).find({}).sort({
     orderIndex: 1,
-  }).limit(20).toArray()
+  }).limit(12).toArray()
 })

@@ -20,14 +20,14 @@ const modules = ref([Autoplay])
 const config = useRuntimeConfig()
 // A ref object that is passed to the Swiper component.
 const autoPlaySettings = ref<autoSettingSwiper>({
-  delay: 3003330,
+  delay: 3000,
   disableOnInteraction: false,
 })
 </script>
 
 <template>
   <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
-    <SwiperSlide v-for="cover in banner.covers" :key="cover._id" :virtual-index="cover._id">
+    <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
       <NuxtLink
         :to="useNavigatorComicPreview(cover.slug, cover._id)"
         class="relative block h-[65vw]"
@@ -41,7 +41,6 @@ const autoPlaySettings = ref<autoSettingSwiper>({
             :lazy-src="cover.link"
           />
         </div>
-        <!--        <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0"> -->
         <SharedMeeToonImg
           v-for="animation in cover.animations" :key="animation.image"
           class="w-full absolute bottom-0"
@@ -49,7 +48,6 @@ const autoPlaySettings = ref<autoSettingSwiper>({
           :alt="cover.comicName"
           :src="`${animation.image}`"
         />
-        <!--        </div> -->
       </NuxtLink>
     </SwiperSlide>
   </Swiper>

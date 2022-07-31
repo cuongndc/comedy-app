@@ -12,16 +12,16 @@ const { data: homepages, pending } = useFetch<IHomePage>('/api/homepage')
   </div>
   <main v-else class="h-[auto] bg-white">
     <div v-for="record in homepages" :key="record._id" v-memo="homepages">
-      <LazyHomePageSpotlight
-          v-if="record.type === HomePageTypes._banner"
-          :banner="record"
-      />
+<!--      <LazyHomePageSpotlight-->
+<!--        v-if="record.type === HomePageTypes._banner"-->
+<!--        :banner="record"-->
+<!--      />-->
       <LazySharedBannerBar v-if="record.type === HomePageTypes._menu" />
-      <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :record="record" />
+<!--      <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :record="record" />-->
       <LazyHomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
       <LazyHomePageNewStory
-          v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
-          :record="record"
+        v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
+        :record="record"
       />
     </div>
   </main>
