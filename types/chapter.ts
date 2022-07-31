@@ -1,4 +1,4 @@
-export interface Page {
+export type Page = {
   _id: string
   chapterId: string
   chapterSlug: string
@@ -9,7 +9,7 @@ export interface Page {
   pageNum: string
 }
 
-export interface Chapter {
+export type Chapter = {
   _id: string
   chapterNum: string
   chapterName: string
@@ -24,7 +24,7 @@ export interface Chapter {
   totalView: number
 }
 
-export interface ReadPage {
+export type ReadPage = {
   pages: Page[]
   chapter: Chapter
 }

@@ -1,4 +1,4 @@
-export interface Category {
+export type Category = {
   type: string
   categoryId: string
   categoryCode: string

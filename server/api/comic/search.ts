@@ -3,11 +3,7 @@ import mongo from '~/server/api/mongo'
 import { collections } from '~/contants'
 
 export default defineEventHandler(async (event) => {
-  const { slug } = useQuery(event)
+  const { q } = useQuery(event)
 
-  const comic = await mongo.db().collection(collections.comics).findOne({
-    slug,
-  })
-
-  return comic
+  return await mongo.db().collection(collections.comics).find({ $text: { $search: q } }).limit(15).toArray()
 })

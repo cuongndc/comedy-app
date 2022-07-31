@@ -28,18 +28,22 @@ defineProps({
             <div class=" max-w-full w-[105px]">
               <div class="relative">
                 <div class="absolute top-0">
-                  <span v-if="!comic.adultContent" class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                  <span
+                    v-if="!comic.adultContent"
+                    class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1"
+                  >
                     {{ COMIC_STATUS[comic.status] }}
                   </span>
                   <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
                     17+
                   </span>
                 </div>
-                <nuxt-img
-                  loading="lazy"
-                  provider="imageengine"
+                <SharedMeeToonImg
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
-                  :src="`${comic.verticalLogo}`"
+                  :src="comic.verticalLogo"
+                  :lazy-src="comic.verticalLogo"
+                  :width="105"
+                  :height="138"
                 />
               </div>
             </div>
@@ -58,7 +62,7 @@ defineProps({
               </p>
             </div>
             <a>
-              <i class="w-full text-base">
+              <i class="w-full text-base line-clamp-3">
                 "{{ comic.contentReview }}"
               </i>
             </a>
@@ -94,19 +98,23 @@ defineProps({
         <div class="relative">
           <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)" class="relative">
             <div class="absolute top-0">
-              <span v-if="!comic.adultContent" class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+              <span
+                v-if="!comic.adultContent"
+                class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1"
+              >
                 {{ COMIC_STATUS[comic.status] }}
               </span>
               <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
                 17+
               </span>
             </div>
-            <nuxt-img
-              loading="lazy"
-              provider="imageengine"
-              class="rounded-xl object-cover h-[139px] w-full"
-              format="webp"
-              :src="`${comic.verticalLogo}`"
+            <SharedMeeToonImg
+              cover
+              class="rounded-xl w-full"
+              :src="comic.verticalLogo"
+              :lazy-src="comic.verticalLogo"
+              :width="105"
+              :height="138"
             />
           </NuxtLink>
           <div class="h-[40px] flex flex-wrap">

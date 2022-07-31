@@ -1,5 +1,6 @@
 <script setup>
 import { HeartIcon } from '@heroicons/vue/solid'
+import { DANH_MUC } from '~/contants'
 </script>
 
 <template>
@@ -9,11 +10,11 @@ import { HeartIcon } from '@heroicons/vue/solid'
         <div class="flex items-center justify-center">
           <NuxtLink to="/ranking/month" class="rounded-[100%] bg-yellow-200">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
-              <SharedImg
+              <img
                 alt="ranking"
                 class="w-9 h-9 mb-2"
                 src="/images/ranking.png"
-              />
+              >
             </div>
           </NuxtLink>
         </div>
@@ -23,13 +24,13 @@ import { HeartIcon } from '@heroicons/vue/solid'
       </div>
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink to="/category/all" class="rounded-[100%] bg-blue-200">
+          <NuxtLink :to="`${DANH_MUC}/all`" class="rounded-[100%] bg-blue-200">
             <div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]">
-              <SharedImg
+              <img
                 alt="category"
                 class="w-9 h-9"
                 src="/images/category.png"
-              />
+              >
             </div>
           </NuxtLink>
         </div>

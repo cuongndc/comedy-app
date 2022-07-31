@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
-import mongodbSetup from "./modules/mongodb-setup";
+import mongodbSetup from './modules/mongodb-setup'
 
 export default defineNuxtConfig({
   app: {
@@ -60,9 +60,7 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     '@kevinmarrec/nuxt-pwa',
     '@pinia/nuxt',
-    mongodbSetup],
-  buildModules: [
-    './modules/mongodb-setup',
+    mongodbSetup,
   ],
   build: {
     transpile: ['@heroicons/vue', '@awesome-image/image'],

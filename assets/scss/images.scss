@@ -50,8 +50,9 @@
 .vue-awesome-image img {
   width: 100%;
   height: 100%;
-  //transition: opacity;
-  //vertical-align: bottom
+  vertical-align: bottom;
+  border-radius: 8px;
+  transition: all 0.3s ease 0s;
 }
 
 .vue-awesome-image img._has-webgl-filter_18kuj_30._image-loaded_18kuj_47 {

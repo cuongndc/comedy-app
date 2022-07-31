@@ -34,26 +34,18 @@ const autoPlaySettings = ref<autoSettingSwiper>({
         :title="cover.comicName"
       >
         <div class="w-full absolute bottom-0">
-          <div class="aspect-w-16 aspect-h-12">
-            <nuxt-img
-              :alt="cover.comicName"
-              loading="lazy"
-              format="webp"
-              provider="imageengine"
-              :src="`${cover.link}`"
-            />
-          </div>
+          <SharedMeeToonImg
+            :alt="cover.comicName"
+            :src="`${cover.link}`"
+            :lazy-src="cover.link"
+          />
         </div>
         <div v-for="animation in cover.animations" :key="animation.image" class="w-full absolute bottom-0">
-          <div class="aspect-w-16 aspect-h-12">
-            <nuxt-img
-              :alt="cover.comicName"
-              loading="lazy"
-              provider="imageengine"
-              format="webp"
-              :src="`${animation.image}`"
-            />
-          </div>
+          <SharedMeeToonImg
+            :lazy-src="animation.image"
+            :alt="cover.comicName"
+            :src="`${animation.image}`"
+          />
         </div>
       </NuxtLink>
     </SwiperSlide>

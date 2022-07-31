@@ -1,12 +1,12 @@
-import { useQuery } from 'h3'
+import { useBody } from 'h3'
 import mongo from '~/server/api/mongo'
 import { collections } from '~/contants'
 
 export default defineEventHandler(async (event) => {
-  const { tags } = useQuery(event)
+  const body = await useBody(event)
   return await mongo.db().collection(collections.comics).find({
     'tags.slug': {
-      $in: tags,
+      $in: body.tags,
     },
-  }).limit(10).toArray()
+  }).limit(15).toArray()
 })

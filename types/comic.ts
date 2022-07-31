@@ -1,6 +1,6 @@
 import type { Category } from './categorys'
 
-export interface Comic {
+export type Comic = {
   _id: string
   type: string
   title: string
@@ -39,6 +39,7 @@ export interface Comic {
   source: string
   tags: tag[]
   description: string
+  chaptersRepresentData: []
 }
 
 export interface tag {

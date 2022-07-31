@@ -43,22 +43,17 @@ defineProps({
                 17+
               </span>
             </div>
-            <nuxt-img
-              format="webp"
-              provider="imageengine"
-              loading="lazy"
-              class="rounded-xl h-[130px] object-cover"
-              :src="comic.verticalLogo" fil="fill"
+            <SharedMeeToonImg
+              cover
+              class="rounded-xl w-full"
+              :src="comic.verticalLogo"
+              :lazy-src="comic.verticalLogo"
+              :height="138"
             />
           </NuxtLink>
           <h2 class="text-xl line-clamp-2 mt-1 text-black font-semibold">
             {{ comic.comicName }}
           </h2>
-          <!--          <p class="text-sm text-zinc-500 line-clamp-1 font-secondary"> -->
-          <!--            <a v-for="genre in manga.genres" :key="genre" class="text-sm font-secondary text-zinc-500 mr-1"> -->
-          <!--              {{ genre }} -->
-          <!--            </a> -->
-          <!--          </p> -->
           <p>
             <a class="text-xl font-secondary text-primary-gray mr-1">
               Chương {{ comic.newestChapter }}

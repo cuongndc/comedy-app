@@ -1,39 +1,31 @@
 <script setup lang="ts">
 import { computed, onMounted, watchEffect } from 'vue'
-import AsImage from '@awesome-image/image'
 import { convertUnit } from '~/common'
 import { navigateTo, useFetch, useRuntimeConfig, useState } from '#app'
 import type { Chapter, Comic } from '~/types'
-import {COMIC_STATUS, TRUYEN_TRANH_CHAPTER, comicTabs, TRUYEN_TRANH} from '~/contants'
-const runtimeConfig = useRuntimeConfig()
+import { TRUYEN_TRANH_CHAPTER, comicTabs } from '~/contants'
+import ComicChapterTab from '~/components/ComicChapterTab.vue'
+import ComicTab from '~/components/ComicTab.vue'
 
 const route = useRoute()
 const params = route.params
 const slug = ref(params.slug)
-const config = useRuntimeConfig()
+const _id = ref(params._id)
 const tab = ref<string>('comic')
 const chapters = useState<Chapter[]>('chapters')
-const comicsRelated = useState<Comic[]>('comicsRelated')
+const runtimeConfig = useRuntimeConfig()
 
 const {
   data: comic,
   pending,
   refresh,
-} = await useFetch<Comic>('/api/comic', {
-  params: {
-    slug: slug.value,
-  },
-})
+} = await useFetch<Comic>(`/api/comic/${slug.value}/${_id.value}`)
 onMounted(async () => {
+  if (!comic.value)
+    return
   chapters.value = await $fetch('/api/chapters', {
     params: {
       comic_slug: comic.value.slug,
-    },
-  })
-
-  comicsRelated.value = await $fetch('/api/comic-related', {
-    params: {
-      tags: comic.value.tags.map((tag: any) => tag.slug),
     },
   })
 })
@@ -58,9 +50,6 @@ const startRead = () => {
 
   return ''
 }
-const readQuickly = (slug: string, _id: string) => {
-  return navigateTo(`/${TRUYEN_TRANH}/${slug}/${_id}`)
-}
 const backgroundImage = (image) => {
   return {
     backgroundImage: `url(${runtimeConfig.public.PUBLIC_IMAGE_CDN}${image})`,
@@ -83,16 +72,14 @@ const backgroundImage = (image) => {
       </div>
     </div>
     <div class="fixed top-0 w-full max-w-[768px]">
-      <AsImage
-        format="webp"
-        :lazy="true"
-        :duratio="2"
-        :src="`${runtimeConfig.public.PUBLIC_IMAGE_CDN}/${comic.squareCover}`"
+      <SharedMeeToonImg
+        :lazy-src="comic.squareCover"
+        :src="comic.squareCover"
       />
     </div>
     <div class="relative mt-[150px]">
       <div class="px-5" style="background: linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)">
-        <div class="ComicPage__ComicInfoContent-sc-1l8m850-7 hdvgOz">
+        <div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="background-image: url(/icons/comicPage/backgroundInfo.png)">
           <div class="left">
             <div class="ComicPage__ComicName-sc-1l8m850-8 jYlKUE">
               <h1>
@@ -173,142 +160,12 @@ const backgroundImage = (image) => {
         </div>
       </div>
     </div>
-
-    <div v-if="comicTab" class="relative bg-dark-gray">
-      <!--      <div class="content flex items-center"> -->
-      <!--        <div class="w-[24px] max-w-[100%]"> -->
-      <!--          <div style="position: relative; padding-bottom: 100%;"> -->
-      <!--            <img src="/icons/comicPage/icon-promote.png"> -->
-      <!--          </div> -->
-      <!--        </div> -->
-      <!--        <span>Top 1 nữ cường bá đạo</span> -->
-      <!--      </div> -->
-      <div class="px-6 h-auto relative overflow-hidden pt-6">
-        <div class="content mb-4">
-          <p class="text-xl text-white whitespace-pre-line">
-            {{ comic?.description }}
-          </p>
-        </div>
-      </div>
-      <div class="ComicTags__Root-s3c4yv-0 iDELMo mobile scrollbar-hide">
-        <a v-for="tag in comic.tags" :key="tag._id" href="#"># {{ tag.name }}</a>
-      </div>
-      <div class="px-5 overflow-auto whitespace-nowrap scrollbar-hide" style="display: -webkit-box">
-        <div v-for="chapter in comic.chaptersRepresentData" :key="chapter._id">
-          <AsImage
-            class="h-[40px] w-[100px] inline-block object-cover border-[1px] border-white mr-4 rounded-xl"
-            format="webp"
-            :lazy="true"
-            :duratio="2"
-            :src="`${config.public.PUBLIC_IMAGE_CDN}/${chapter.imageRepresent}`"
-          />
-          <p class="text-white text-base mt-2">
-            Chương {{ chapter.chapterNum }}
-          </p>
-        </div>
-      </div>
-
-      <div class="px-5 py-5 mb-10" style="border-top: 3px solid rgb(27, 28, 35)">
-        <div class=" flex items-center justify-between">
-          <h2 class="text-white font-bold text-3xl mb-7">
-            Đề xuất liên quan
-          </h2>
-        </div>
-        <div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide">
-          <div v-for="comicRelated in comicsRelated" :key="comicRelated._id" class="inline-block w-[105px] mr-6">
-            <div class="relative">
-              <div class="absolute top-[-3px] left-0 w-full z-10">
-                <span
-                  class="inline-block bg-primary px-3 rounded-xl bg-primary font-bold text-white text-xl"
-                >
-                  {{ COMIC_STATUS[comic.status] }}
-                </span>
-              </div>
-              <NuxtLink
-                :to="useNavigatorComicPreview(comicRelated.slug, comicRelated._id)"
-                :title="comicRelated.comicName"
-              >
-                <div style="max-width: 100%; width: 105px;">
-                  <div>
-                    <AsImage
-                      format="webp"
-                      :lazy="true"
-                      :duratio="2"
-                      :src="`${runtimeConfig.public.PUBLIC_IMAGE_CDN}/${comicRelated.verticalLogo}`"
-                    />
-                  </div>
-                </div>
-              </NuxtLink>
-            </div>
-            <h3 class="w-[100px] line-clamp-1">
-              <NuxtLink
-                class="text-white font-bold text-xl"
-                :title="comicRelated.comicName"
-                :to="useNavigatorComicPreview(comicRelated.slug, comicRelated._id)"
-              >
-                {{ comicRelated.comicName }}
-              </NuxtLink>
-            </h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div v-if="chapterTab" class="relative bg-accent-4">
-      <div v-for="chapter in chapters" :key="chapter._id" style="border-bottom: 1px solid rgb(27, 28, 35)">
-        <div class="px-5 py-5 cursor-pointe ">
-          <a @click="readQuickly(chapter.slug, chapter._id)">
-            <h3 class="text-2xl mb-4">
-              <b>
-                Chương {{ chapter.chapterNum }}
-              </b>
-            </h3>
-            <div class="flex">
-              <p class="mr-8 text-primary-gray text-2xl flex items-center">
-                {{ new Date(chapter.createdAt).toLocaleDateString() }}
-              </p>
-              <div class="mr-[17px] flex items-center justify-center text-2xl">
-                <img class="mr-2" src="/icons/chapterItem/icon-view.svg" alt="view">
-                <span class="text-primary-gray">
-                  {{ chapter.totalView ? convertUnit(chapter.totalView) : 0 }}
-                </span>
-              </div>
-              <div class="mr-8 flex items-center justify-center text-2xl">
-                <img class="mr-2" src="/icons/chapterItem/icon-like.svg" alt="like">
-                <span class="text-primary-gray">
-                  {{ chapter.totalLike ? convertUnit(chapter.totalLike) : 0 }}
-                </span>
-              </div>
-              <div class="flex items-center justify-center mr-4 text-2xl">
-                <img class="mr-2" src="/icons/chapterItem/icon-comment.svg" alt="comment">
-                <span class="text-primary-gray">
-                  {{ chapter.totalComment ? convertUnit(chapter.totalComment) : 0 }}
-                </span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
+    <ComicTab v-if="comicTab" :comic="comic" />
+    <ComicChapterTab v-if="chapterTab" :chapters="chapters" />
   </section>
 </template>
 
 <style scoped lang="scss">
-.hdvgOz {
-  min-height: 115px;
-  padding: 15px;
-  background-color: rgb(27, 28, 35);
-  border-radius: 8px;
-  background-image: url(/icons/comicPage/backgroundInfo.png);
-  background-size: contain;
-  background-position: right center;
-  background-repeat: no-repeat;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  align-items: center;
-}
-
 .jYlKUE {
   margin-right: 20px;
   display: flex;
