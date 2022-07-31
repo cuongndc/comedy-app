@@ -8,7 +8,7 @@ import { DANH_MUC } from '~/contants'
     <div class="grid grid-cols-4">
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink to="/ranking/month" class="rounded-[100%] bg-yellow-200">
+          <NuxtLink to="/" class="rounded-[100%] bg-yellow-200">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
               <img
                 alt="ranking"
@@ -40,7 +40,7 @@ import { DANH_MUC } from '~/contants'
       </div>
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink to="/ranking/follow" class="rounded-[100%] bg-amber-200">
+          <NuxtLink to="/" class="rounded-[100%] bg-amber-200">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
               <HeartIcon class="w-10 h-10" />
             </div>

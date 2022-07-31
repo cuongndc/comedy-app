@@ -20,7 +20,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="px-5 py-5 mb-10" style="border-top: 3px solid rgb(27, 28, 35)">
+  <div class="px-5 py-5 mb-14" style="border-top: 3px solid rgb(27, 28, 35)">
     <div class=" flex items-center justify-between">
       <h2 class="text-white font-bold text-3xl mb-7">
         Đề xuất liên quan
@@ -49,7 +49,7 @@ onMounted(async () => {
             </div>
           </NuxtLink>
         </div>
-        <h3 class="w-[100px] line-clamp-1">
+        <h3 class="line-clamp-1">
           <NuxtLink
             class="text-white font-bold text-xl"
             :title="comicRelated.comicName"
@@ -58,6 +58,9 @@ onMounted(async () => {
             {{ comicRelated.comicName }}
           </NuxtLink>
         </h3>
+        <p class="text-gray-100 text-base">
+          Chương {{ comicRelated.newestChapter }}
+        </p>
       </div>
     </div>
   </div>

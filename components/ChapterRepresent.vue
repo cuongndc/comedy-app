@@ -15,7 +15,7 @@ defineProps({
     <div v-for="chapter in representData" :key="chapter._id">
       <SharedMeeToonImg
         class="h-[40px] w-[100px] inline-block object-cover border-[1px] border-white mr-4 rounded-xl"
-        :lazy-src="chapter.imageRepresent"
+        :lazy="true"
         :src="chapter.imageRepresent"
       />
       <p class="text-white text-base mt-2">

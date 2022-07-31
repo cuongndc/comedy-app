@@ -1,6 +1,8 @@
 export const TRUYEN_TRANH_CHAPTER = 'truyen-tranh-chapter'
 export const TRUYEN_TRANH = 'truyen-tranh'
 export const DANH_MUC = 'danh-muc'
+export const TRENDING = 'trending'
+export const TAG = 'tag'
 
 export const categories = [
   {

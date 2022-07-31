@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { onMounted, watchEffect } from 'vue'
-import CateList from '~/components/Categorys/CateList.vue'
-import { categories } from '~/contants'
+import { onMounted } from 'vue'
 import type { Comic } from '~/types'
 import SearchLoading from '~/components/Common/SearchLoading.vue'
 
@@ -13,7 +11,7 @@ const loading = ref(false)
 const comics = useState<Comic[]>('comics')
 onMounted(async () => {
   loading.value = true
-  comics.value = await $fetch(`/api/danh-muc/${slug.value}`)
+  comics.value = await $fetch(`/api/tag/${slug.value}`)
   loading.value = false
 })
 </script>
@@ -32,7 +30,6 @@ onMounted(async () => {
       </NuxtLink>
     </div>
     <div class="flex flex-wrap p-4 bg-white">
-      <CateList :categories="categories" />
       <SearchLoading v-if="loading" class="w-[150px] h-[50px]" />
       <section v-else ref="scrollComponent" class="mt-4 overflow-auto scrollbar-hide" style="height: calc(100vh - 50px)">
         <LazyCategorysComicItem :comics="comics" />

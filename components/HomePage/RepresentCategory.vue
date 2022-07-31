@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { COMIC_STATUS } from '~/contants'
+import { COMIC_STATUS, DANH_MUC, TAG } from '~/contants'
 
 defineProps({
   record: Object,
@@ -13,7 +13,7 @@ defineProps({
       <h2 class="text-3xl font-bold flex justify-start items-center text-black">
         {{ content.name || content.categoryVietName }}
       </h2>
-      <NuxtLink :to="`/category/${content.slug}`" class="text-xl font-semibold flex items-center text-primary mr-1">
+      <NuxtLink :to="content.type !== 'category' ? `${TAG}/${content.slug}` : `${DANH_MUC}/${content.slug}`" class="text-xl font-semibold flex items-center text-primary mr-1">
         Thêm
       </NuxtLink>
     </div>

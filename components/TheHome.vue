@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
-import { useLazyFetch } from '#app'
-const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
+import { useFetch } from '#app'
+
+const { data: homepages, pending } = useFetch<IHomePage>('/api/homepage')
 </script>
 
 <template>
@@ -12,15 +13,15 @@ const { data: homepages, pending } = useLazyFetch<IHomePage>('/api/homepage')
   <main v-else class="h-[auto] bg-white">
     <div v-for="record in homepages" :key="record._id" v-memo="homepages">
       <LazyHomePageSpotlight
-        v-if="record.type === HomePageTypes._banner"
-        :banner="record"
+          v-if="record.type === HomePageTypes._banner"
+          :banner="record"
       />
       <LazySharedBannerBar v-if="record.type === HomePageTypes._menu" />
       <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :record="record" />
       <LazyHomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
       <LazyHomePageNewStory
-        v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
-        :record="record"
+          v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
+          :record="record"
       />
     </div>
   </main>

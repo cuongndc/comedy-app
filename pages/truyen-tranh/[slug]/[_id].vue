@@ -73,7 +73,7 @@ const backgroundImage = (image) => {
     </div>
     <div class="fixed top-0 w-full max-w-[768px]">
       <SharedMeeToonImg
-        :lazy-src="comic.squareCover"
+        class="relative w-full"
         :src="comic.squareCover"
       />
     </div>
@@ -129,7 +129,7 @@ const backgroundImage = (image) => {
         </div>
       </div>
     </div>
-    <div class="bg-background px-3 fixed bottom-0 w-full h-[52px] max-w-[768px] flex items-center z-50">
+    <div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[52px] max-w-[768px] flex items-center z-50">
       <div class="cursor-pointer">
         <img
           src="/icons/comicPage/icon-share.svg"
@@ -146,7 +146,6 @@ const backgroundImage = (image) => {
         Bắt đầu đọc
       </a>
     </div>
-
     <div class="relative bg-accent-4">
       <div class="whitespace-nowrap overflow-x-auto" style="border-bottom: 1px solid rgb(27, 28, 35)">
         <div :class="{ active: comicTab }" class="eKaTWX inline-block" @click="setTab(comicTabs.comic)">

@@ -35,7 +35,7 @@ const config = useRuntimeConfig()
     :width="width"
     :height="height"
     :lazy="lazy"
-    :lazy-src="`${config.public.PUBLIC_IMAGE_CDN}${lazySrc}`"
+    :lazy-src="`${config.public.PUBLIC_IMAGE_CDN}${src}`"
     :src="`${config.public.PUBLIC_IMAGE_CDN}${src}`"
     :progressive="progressive"
     :responsive="responsive"
@@ -44,6 +44,6 @@ const config = useRuntimeConfig()
   >
     <template #loading>
       <div class="placeholder" />
-    </template><AsImage />
-  </asimage>
+    </template>
+  </AsImage>
 </template>

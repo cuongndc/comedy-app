@@ -76,11 +76,14 @@ watchEffect(async () => {
       <div v-if="searchData && searchData.length > 0 && !loading" class="result grid grid-cols-1 md:grid-cols-2 overflow-y-scroll scrollbar-hide">
         <div v-for="comic in searchData" :key="comic._id" class="p-4 col-span-1">
           <NuxtLink class="flex items-center" :to="useNavigatorComicPreview(comic.slug, comic._id)">
-            <SharedMeeToonImg
-              class="rounded-xl w-[75px] h-[100px] object-cover"
-              :src="comic.verticalLogo"
-              fil="fill"
-            />
+            <div class="relative">
+              <SharedMeeToonImg
+                :width="75"
+                :height="100"
+                class="rounded-xl w-[75px] h-[100px] object-cover"
+                :src="comic.verticalLogo"
+              />
+            </div>
             <div class="px-5" style="width: calc(100% - 102px)">
               <h3 class="text-xl font-semibold line-clamp-1 mb-1">
                 <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">

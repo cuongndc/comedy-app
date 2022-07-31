@@ -13,7 +13,10 @@ defineProps({
     <NuxtLink class="flex items-center p-4" :to="useNavigatorComicPreview(comic.slug, comic._id)">
       <div class="relative">
         <SharedMeeToonImg
-          class="rounded-2xl w-[125px] h-[168px] object-cover"
+          class="w-[125px] h-[168px]"
+          :width="125"
+          :height="168"
+          :lazy="true"
           :src="comic.verticalLogo"
           fil="fill"
         />
