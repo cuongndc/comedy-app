@@ -34,7 +34,7 @@ export default defineNuxtConfig({
       short_name: process.env.SIZE_NAME,
       description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
       background_color: '#111827',
-      theme_color: '#f43f5f',
+      theme_color: '#fff',
     },
     workbox: {
       // enabled: true,
