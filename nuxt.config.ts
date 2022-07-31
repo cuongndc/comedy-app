@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
+import mongodbSetup from "./modules/mongodb-setup";
 
 export default defineNuxtConfig({
   app: {
@@ -17,6 +18,7 @@ export default defineNuxtConfig({
   },
   pwa: {
     meta: {
+      favicon: true,
       name: process.env.SIZE_NAME,
       author: process.env.SIZE_NAME,
       description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
@@ -58,7 +60,10 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     '@kevinmarrec/nuxt-pwa',
     '@pinia/nuxt',
-    './modules/mongodb-setup'],
+    mongodbSetup],
+  buildModules: [
+    './modules/mongodb-setup',
+  ],
   build: {
     transpile: ['@heroicons/vue', '@awesome-image/image'],
     postcss: {
