@@ -19,18 +19,21 @@ const { data: homepages } = await useAsyncData<IHomePage>('home-page', () => $fe
   <!--    <PulseHomeLoading /> -->
   <!--  </div> -->
   <main class="h-[auto] bg-white">
-    <div v-for="record in homepages" :key="record._id" v-memo="homepages">
-      <!--      <LazyHomePageSpotlight -->
-      <!--        v-if="record.type === HomePageTypes._banner" -->
-      <!--        :banner="record" -->
-      <!--      /> -->
-      <SharedBannerBar v-if="record.type === HomePageTypes._menu" />
-      <!--      <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :record="record" /> -->
-      <HomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
-      <HomePageNewStory
-        v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
-        :record="record"
-      />
-    </div>
+<!--    <div v-for="record in homepages" :key="record._id" v-memo="homepages">-->
+<!--      &lt;!&ndash;      <LazyHomePageSpotlight &ndash;&gt;-->
+<!--      &lt;!&ndash;        v-if="record.type === HomePageTypes._banner" &ndash;&gt;-->
+<!--      &lt;!&ndash;        :banner="record" &ndash;&gt;-->
+<!--      &lt;!&ndash;      /> &ndash;&gt;-->
+<!--      <SharedBannerBar v-if="record.type === HomePageTypes._menu" />-->
+<!--      &lt;!&ndash;      <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :record="record" /> &ndash;&gt;-->
+<!--      <HomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />-->
+<!--      <HomePageNewStory-->
+<!--        v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"-->
+<!--        :record="record"-->
+<!--      />-->
+<!--    </div>-->
+    <h1>
+      Hello nuxt
+    </h1>
   </main>
 </template>
