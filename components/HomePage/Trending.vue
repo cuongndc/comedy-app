@@ -38,14 +38,13 @@ const navigatorComicPreview = (slug: string, _id: string) => {
       >
         <SwiperSlide v-for="content in record.content" :key="content.slug" class="h-[130px]">
           <div class="flex items-center p-5" @click="navigatorComicPreview(content.slug, content._id)">
-            <div class="w-[75px]">
-              <SharedMeeToonImg
-                class="aspect-[3/4] w-[75px] h-full relative"
-                :width="75"
-                :height="100"
-                :src="content.verticalLogo"
-              />
-            </div>
+            <SharedMeeToonImg
+              fil="cover"
+              class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
+              :width="75"
+              :height="100"
+              :src="content.verticalLogo"
+            />
             <div class="px-5">
               <h3 class="text-xl font-semibold line-clamp-1 mb-1">
                 <NuxtLink :to="useNavigatorComicPreview(content.slug, content._id)">

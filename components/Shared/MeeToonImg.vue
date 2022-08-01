@@ -1,49 +1,38 @@
 <script setup lang="ts">
-import AsImage from '@awesome-image/image'
-
 defineProps({
-  lazySrc: String,
   src: String,
   fil: String,
   width: Number,
   height: Number,
   className: String,
   alt: String,
-  progressive: {
-    type: Boolean,
-    default: true,
+  sizes: String,
+  modifiers: Object,
+  preset: String,
+  quality: {
+    type: Number,
+    default: 80,
   },
-  responsive: {
-    type: Boolean,
-    default: true,
-  },
-  lazy: {
-    type: Boolean,
-    default: false,
+  format: {
+    type: String,
+    default: 'webp',
   },
 })
-
-const config = useRuntimeConfig()
 </script>
 
 <template>
-  <AsImage
-    :alt="alt"
-    format="webp"
+  <nuxt-img
+    :preset="preset"
+    :modifiers="modifiers"
+    :sizes="sizes"
     :fil="fil"
     :class="className"
+    :alt="alt"
+    provider="imageengine"
+    :src="src"
     :width="width"
     :height="height"
-    :lazy="lazy"
-    :lazy-src="`${config.public.PUBLIC_IMAGE_CDN}${src}`"
-    :src="`${config.public.PUBLIC_IMAGE_CDN}${src}`"
-    :progressive="progressive"
-    :responsive="responsive"
-    :auto-wepb="true"
-    class="rounded-xl"
-  >
-    <template #loading>
-      <div class="placeholder" />
-    </template>
-  </AsImage>
+    :quality="quality"
+    :format="format"
+  />
 </template>

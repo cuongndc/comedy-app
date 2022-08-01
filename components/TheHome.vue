@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
-import { useFetch } from '#app'
+import { useAsyncData } from '#app'
 
-const { data: homepages, pending } = useFetch<IHomePage>('/api/homepage')
+const { data: homepages, pending } = useAsyncData<IHomePage>('home-page', () => $fetch('/api/homepage'))
 </script>
 
 <template>

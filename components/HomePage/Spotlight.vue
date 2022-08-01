@@ -38,13 +38,11 @@ const autoPlaySettings = ref<autoSettingSwiper>({
             class="w-full"
             :alt="cover.comicName"
             :src="`${cover.link}`"
-            :lazy-src="cover.link"
           />
         </div>
         <SharedMeeToonImg
           v-for="animation in cover.animations" :key="animation.image"
           class="w-full absolute bottom-0"
-          :lazy-src="animation.image"
           :alt="cover.comicName"
           :src="`${animation.image}`"
         />
