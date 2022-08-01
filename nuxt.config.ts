@@ -16,30 +16,30 @@ export default defineNuxtConfig({
       PUBLIC_IMAGE_CDN: process.env.IMAGE_CDN,
     },
   },
-  pwa: {
-    meta: {
-      favicon: true,
-      name: process.env.SIZE_NAME,
-      author: process.env.SIZE_NAME,
-      description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
-      mobileAppIOS: true,
-      mobileApp: true,
-      ogHost: process.env.DOMAIN,
-      twitterCard: process.env.SIZE_NAME,
-      twitterSite: process.env.SIZE_NAME,
-      twitterCreator: process.env.SIZE_NAME,
-    },
-    manifest: {
-      name: process.env.SIZE_NAME,
-      short_name: process.env.SIZE_NAME,
-      description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
-      background_color: '#111827',
-      theme_color: '#fff',
-    },
-    workbox: {
-      // enabled: true,
-    },
-  },
+  // pwa: {
+  //   meta: {
+  //     favicon: true,
+  //     name: process.env.SIZE_NAME,
+  //     author: process.env.SIZE_NAME,
+  //     description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
+  //     mobileAppIOS: true,
+  //     mobileApp: true,
+  //     ogHost: process.env.DOMAIN,
+  //     twitterCard: process.env.SIZE_NAME,
+  //     twitterSite: process.env.SIZE_NAME,
+  //     twitterCreator: process.env.SIZE_NAME,
+  //   },
+  //   manifest: {
+  //     name: process.env.SIZE_NAME,
+  //     short_name: process.env.SIZE_NAME,
+  //     description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
+  //     background_color: '#111827',
+  //     theme_color: '#fff',
+  //   },
+  //   workbox: {
+  //     enabled: true,
+  //   },
+  // },
   image: {
     domains: ['meetoon.co', 'meetruyen.com'],
     imageengine: {
@@ -58,7 +58,6 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/image-edge',
-    '@kevinmarrec/nuxt-pwa',
     mongodbSetup,
   ],
   build: {
