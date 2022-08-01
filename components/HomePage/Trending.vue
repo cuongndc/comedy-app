@@ -74,7 +74,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
       <div>
         <NuxtLink :to="`/${TRENDING}`" class="flex items-center justify-center p-5">
           <span class="text-xl text-primary-gray">Xem tất cả</span>
-          <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" />
+<!--          <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" />-->
         </NuxtLink>
       </div>
     </div>
