@@ -20,7 +20,7 @@ import HomePageNewStory from '~/components/HomePage/NewStory.vue'
   <!--  </div> -->
   <main class="h-[auto] bg-white">
     <h1>
-      Hello Index
+      Hello Home
     </h1>
     <!--    <div v-for="record in homepages" :key="record._id" v-memo="homepages"> -->
     <!--      &lt;!&ndash;      <LazyHomePageSpotlight &ndash;&gt; -->

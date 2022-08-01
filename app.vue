@@ -4,6 +4,7 @@ import 'swiper/css'
 </script>
 
 <template>
-  <NuxtLoadingBar />
-  <NuxtPage />
+  <div>
+    <NuxtPage />
+  </div>
 </template>
