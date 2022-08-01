@@ -7,9 +7,9 @@ const { data: homepages } = await useAsyncData<IHomePage>('home-page', () => $fe
 </script>
 
 <template>
-    <div v-if="pending" class="bg-white">
-      <PulseHomeLoading />
-    </div>
+  <!--  <div v-if="pending" class="bg-white"> -->
+  <!--    <PulseHomeLoading /> -->
+  <!--  </div> -->
   <main class="h-[auto] bg-white">
     <div v-for="record in homepages" :key="record._id" v-memo="homepages">
       <!--      <LazyHomePageSpotlight -->
