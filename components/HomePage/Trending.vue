@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { ChevronDoubleRightIcon } from '@heroicons/vue/solid'
 import { convertUnit } from '~/common'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 import { navigateTo } from '#app'

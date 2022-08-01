@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/vue/solid'
-
 const emit = defineEmits(['nextProcess'])
 const prev = () => {
   emit('nextProcess', 'prev')
