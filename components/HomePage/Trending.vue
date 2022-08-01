@@ -41,8 +41,6 @@ const navigatorComicPreview = (slug: string, _id: string) => {
             <SharedMeeToonImg
               fil="cover"
               class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
-              :width="75"
-              :height="100"
               :src="content.verticalLogo"
             />
             <div class="px-5">

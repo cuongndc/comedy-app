@@ -59,11 +59,10 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image-edge',
     '@kevinmarrec/nuxt-pwa',
-    '@pinia/nuxt',
     mongodbSetup,
   ],
   build: {
-    transpile: ['@heroicons/vue', '@awesome-image/image'],
+    transpile: ['@heroicons/vue'],
     postcss: {
       postcssOptions: {
         plugins: {
