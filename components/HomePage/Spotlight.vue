@@ -7,7 +7,7 @@ import { useRuntimeConfig } from '#app'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 import type { IBanner } from '~/types'
 
-const props = defineProps({
+defineProps({
   banner: Object as PropType<IBanner>,
 })
 

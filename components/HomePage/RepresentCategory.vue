@@ -93,7 +93,34 @@ defineProps({
         },
       }"
     >
-      <SwiperSlide v-for="comic in content.comics" :key="comic.slug" />
-    </Swiper>
+      <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
+        <div class="relative">
+          <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)" class="relative">
+            <div class="absolute top-0">
+              <span
+                v-if="!comic.adultContent"
+                class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1"
+              >
+                {{ COMIC_STATUS[comic.status] }}
+              </span>
+              <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
+                17+
+              </span>
+            </div>
+            <SharedMeeToonImg
+              loading="lazy"
+              class="rounded-xl w-full"
+              :src="comic.verticalLogo"
+              :height="138"
+            />
+          </NuxtLink>
+          <div class="h-[40px] flex flex-wrap">
+            <h2 class="text-xl line-clamp-1 mt-1 text-black font-semibold">
+              {{ comic.comicName }}
+            </h2>
+          </div>
+        </div>
+      </swiperslide>
+    </swiper>
   </div>
 </template>
