@@ -699,3 +699,33 @@ input[type='number'] {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-success {
+  color: #fff !important;
+  background-color: #625df5 !important;
+  border-color: #625df5 !important;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #ed2e80;
+  border-color: #e86ea2;
+}
