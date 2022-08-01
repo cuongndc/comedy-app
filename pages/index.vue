@@ -11,7 +11,7 @@ import SharedBannerBar from '~/components/Shared/BannerBar.vue'
 import HomePageRepresentCategory from '~/components/HomePage/RepresentCategory.vue'
 import HomePageNewStory from '~/components/HomePage/NewStory.vue'
 
-const { data: homepages } = useFetch<IHomePage>('/api/homepage')
+// const { data: homepages } = useFetch<IHomePage>('/api/homepage')
 </script>
 
 <template>
