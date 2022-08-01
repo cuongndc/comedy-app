@@ -77,51 +77,23 @@ defineProps({
         </div>
       </div>
     </div>
-    <!--    <Swiper -->
-    <!--      :breakpoints="{ -->
-    <!--        320: { -->
-    <!--          slidesPerView: 3.4, -->
-    <!--          spaceBetween: 10, -->
-    <!--        }, -->
-    <!--        480: { -->
-    <!--          slidesPerView: 4.4, -->
-    <!--          spaceBetween: 10, -->
-    <!--        }, -->
-    <!--        640: { -->
-    <!--          slidesPerView: 5.4, -->
-    <!--          spaceBetween: 20, -->
-    <!--        }, -->
-    <!--      }" -->
-    <!--    > -->
-    <!--      <SwiperSlide v-for="comic in content.comics" :key="comic.slug"> -->
-    <div v-for="comic in content.comics" :key="comic.slug" class="w-[75px]">
-      <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)">
-        <div class="absolute top-0">
-          <span
-            v-if="!comic.adultContent"
-            class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1"
-          >
-            {{ COMIC_STATUS[comic.status] }}
-          </span>
-          <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
-            17+
-          </span>
-        </div>
-        <SharedMeeToonImg
-          loading="lazy"
-          class="rounded-xl w-full"
-          :src="comic.verticalLogo"
-          :width="105"
-          :height="138"
-        />
-      </NuxtLink>
-      <div class="h-[40px] flex flex-wrap">
-        <h2 class="text-xl line-clamp-1 mt-1 text-black font-semibold">
-          {{ comic.comicName }}
-        </h2>
-      </div>
-    </div>
-    <!--      </SwiperSlide> -->
-    <!--    </Swiper> -->
+    <Swiper
+      :breakpoints="{
+        320: {
+          slidesPerView: 3.4,
+          spaceBetween: 10,
+        },
+        480: {
+          slidesPerView: 4.4,
+          spaceBetween: 10,
+        },
+        640: {
+          slidesPerView: 5.4,
+          spaceBetween: 20,
+        },
+      }"
+    >
+      <SwiperSlide v-for="comic in content.comics" :key="comic.slug" />
+    </Swiper>
   </div>
 </template>

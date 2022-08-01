@@ -9,7 +9,6 @@ const navigator = (slug: string, _id: string) => {
   return navigateTo(useNavigatorComicPreview(slug, _id))
 }
 </script>
-
 <template>
   <SearchLoading v-if="pending" class="w-[150px] h-[50px]" />
   <div v-else class="bg-white h-[100vh]">
