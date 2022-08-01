@@ -44,7 +44,7 @@ defineProps({
               </span>
             </div>
             <SharedMeeToonImg
-              :lazy="true"
+              loading="lazy"
               class="rounded-xl w-full"
               :src="comic.verticalLogo"
               :height="138"

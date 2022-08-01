@@ -39,7 +39,6 @@ defineProps({
                   </span>
                 </div>
                 <SharedMeeToonImg
-                  :lazy="true"
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
                   :src="comic.verticalLogo"
                   :width="105"
@@ -109,10 +108,9 @@ defineProps({
               </span>
             </div>
             <SharedMeeToonImg
-              :lazy="true"
+              loading="lazy"
               class="rounded-xl w-full"
               :src="comic.verticalLogo"
-              :width="105"
               :height="138"
             />
           </NuxtLink>

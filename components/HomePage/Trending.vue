@@ -43,6 +43,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
               class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
               :width="75"
               :height="100"
+              loading="lazy"
               :src="content.verticalLogo"
             />
             <div class="px-5">

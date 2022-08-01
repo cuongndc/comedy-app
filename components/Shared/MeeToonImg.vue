@@ -17,6 +17,7 @@ defineProps({
     type: String,
     default: 'webp',
   },
+  loading: String,
 })
 </script>
 
@@ -34,5 +35,6 @@ defineProps({
     :height="height"
     :quality="quality"
     :format="format"
+    :loading="loading"
   />
 </template>
