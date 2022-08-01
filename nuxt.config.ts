@@ -2,9 +2,6 @@ import { defineNuxtConfig } from 'nuxt'
 import mongodbSetup from './modules/mongodb-setup'
 
 export default defineNuxtConfig({
-  app: {
-    buildAssetsDir: '/assets/',
-  },
   runtimeConfig: {
     mongodbURI: process.env.MONGODB_URI,
     imageCDN: process.env.IMAGE_CDN,
