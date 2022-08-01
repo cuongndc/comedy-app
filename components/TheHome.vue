@@ -2,6 +2,9 @@
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
 import { useAsyncData } from '#app'
+import SharedBannerBar from '~/components/Shared/BannerBar.vue'
+import HomePageRepresentCategory from '~/components/HomePage/RepresentCategory.vue'
+import HomePageNewStory from '~/components/HomePage/NewStory.vue'
 
 const { data: homepages } = await useAsyncData<IHomePage>('home-page', () => $fetch('/api/homepage'))
 </script>
@@ -16,10 +19,10 @@ const { data: homepages } = await useAsyncData<IHomePage>('home-page', () => $fe
       <!--        v-if="record.type === HomePageTypes._banner" -->
       <!--        :banner="record" -->
       <!--      /> -->
-      <LazySharedBannerBar v-if="record.type === HomePageTypes._menu" />
+      <SharedBannerBar v-if="record.type === HomePageTypes._menu" />
       <!--      <LazyHomePageTrending v-if="record.type === HomePageTypes._trend" :record="record" /> -->
-      <LazyHomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
-      <LazyHomePageNewStory
+      <HomePageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
+      <HomePageNewStory
         v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
         :record="record"
       />
