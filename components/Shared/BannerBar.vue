@@ -1,5 +1,4 @@
 <script setup>
-import { HeartIcon } from '@heroicons/vue/solid'
 import { DANH_MUC } from '~/contants'
 </script>
 
@@ -42,7 +41,7 @@ import { DANH_MUC } from '~/contants'
         <div class="flex items-center justify-center">
           <NuxtLink to="/" class="rounded-[100%] bg-amber-200">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
-              <HeartIcon class="w-10 h-10" />
+<!--              <HeartIcon class="w-10 h-10" />-->
             </div>
           </NuxtLink>
         </div>

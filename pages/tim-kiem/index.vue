@@ -1,12 +1,10 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
-import { useDebounce } from '@vueuse/core'
 import type { Comic } from '~/types'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 import { convertUnit } from '~/common'
 
 const refInput = ref('')
-const debounced = useDebounce(refInput, 200)
 const searchData = ref<Comic[]>([])
 const loading = ref(true)
 
@@ -31,7 +29,7 @@ watchEffect(async () => {
   try {
     searchData.value = await $fetch('/api/comic/search', {
       params: {
-        q: debounced.value,
+        q: refInput.value,
       },
     })
 

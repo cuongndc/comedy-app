@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-import {
-  ArrowLeftIcon,
-  ArrowNarrowLeftIcon,
-  ArrowRightIcon,
-} from '@heroicons/vue/solid'
 import { onMounted, watchEffect } from 'vue'
 import { TRUYEN_TRANH_CHAPTER } from '~/contants'
 import { navigateTo, useAsyncData, useLazyFetch, useState } from '#app'
