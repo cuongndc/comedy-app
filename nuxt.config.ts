@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   app: {
     buildAssetsDir: '/assets/',
   },
-  ssr: true,
   runtimeConfig: {
     mongodbURI: process.env.MONGODB_URI,
     imageCDN: process.env.IMAGE_CDN,
