@@ -18,6 +18,8 @@
     "swiper": "^8.2.6"
   },
   "devDependencies": {
+    "@vuetify/nightly": "npm:@vuetify/nightly@next",
+    "vuetify": "^3.0.0-alpha.12",
     "tailwind-scrollbar-hide": "^1.1.7",
     "@antfu/eslint-config": "^0.25.2",
     "@kevinmarrec/nuxt-pwa": "^0.3.1",

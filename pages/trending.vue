@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Comic } from '~/types'
 import { navigateTo, useFetch } from '#app'
-import SearchLoading from '~/components/Common/SearchLoading.vue'
+import SearchLoading from '~/components/common/SearchLoading.vue'
 import { convertUnit } from '~/common'
 
 const { data: comics, pending } = await useFetch<Comic>('/api/trending')

@@ -1074,6 +1074,11 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.37.tgz#8e6adc3f2759af52f0e85863dfb0b711ecc5c702"
   integrity sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==
 
+"@vuetify/nightly@npm:@vuetify/nightly@next":
+  version "3.0.0-next-20220801.0"
+  resolved "https://registry.yarnpkg.com/@vuetify/nightly/-/nightly-3.0.0-next-20220801.0.tgz#7391531b8dac83fe1dacb94528737c20ae28386e"
+  integrity sha512-i0xzbw98zP9Ca5nbhPZvaETZGc3VXmmWPose0sMUvI6ldedJRzkoNatzC8rTxAfLAgdIeJd1civ2WxBSj1SlkA==
+
 "@vueuse/core@8.9.4", "@vueuse/core@^8.7.5":
   version "8.9.4"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-8.9.4.tgz#c7db40f19390b3c9f4ff9294a30461497f62ec19"
@@ -6312,6 +6317,11 @@ vue@^3.2.37:
     "@vue/runtime-dom" "3.2.37"
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
+
+vuetify@^3.0.0-alpha.12:
+  version "3.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-3.0.0-beta.6.tgz#c429837b2facd8cdb2eb7229dd979496e99f57c9"
+  integrity sha512-eL8l4YdpB8ePWex1NkB35nqgWIJCsElTk4XzZEXeN7ECh5Qd1JqPwxEE+JVVC5e1+Ut2EQw+08ouLkeEk2uMow==
 
 wcwidth@^1.0.1:
   version "1.0.1"

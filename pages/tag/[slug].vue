@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import type { Comic } from '~/types'
-import SearchLoading from '~/components/Common/SearchLoading.vue'
+import SearchLoading from '~/components/common/SearchLoading.vue'
 
 const route = useRoute()
 const params = route.params

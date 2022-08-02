@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { COMIC_STATUS, DANH_MUC, TAG } from '~/contants'
+import ComicsComicHorizontal from '~/components/comics/ComicHorizontal'
 
 defineProps({
   record: Object,
@@ -75,48 +76,20 @@ defineProps({
         </div>
       </div>
     </div>
-    <Swiper
-      :breakpoints="{
-        320: {
-          slidesPerView: 3.4,
-          spaceBetween: 10,
-        },
-        480: {
-          slidesPerView: 4.4,
-          spaceBetween: 10,
-        },
-        640: {
-          slidesPerView: 5.4,
-          spaceBetween: 20,
-        },
-      }"
-    >
-      <SwiperSlide v-for="comic in content.comics" :key="comic.slug">
-        <div class="relative">
-          <NuxtLink :to="useNavigatorComicPreview(comic.slug, comic._id)" class="relative">
-            <div class="absolute top-0">
-              <span
-                v-if="!comic.adultContent"
-                class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1"
-              >
-                {{ COMIC_STATUS[comic.status] }}
-              </span>
-              <span v-else class="bg-primary rounded-xl text-white text-xl font-bold px-3 py-1 ml-1">
-                17+
-              </span>
-            </div>
-            <SharedMeeToonImg
-              class="rounded-xl w-full"
-              :src="comic.verticalLogo"
-            />
-          </NuxtLink>
-          <div class="h-[40px] flex flex-wrap">
-            <h2 class="text-xl line-clamp-1 mt-1 text-black font-semibold">
-              {{ comic.comicName }}
-            </h2>
-          </div>
-        </div>
-      </SwiperSlide>
-    </Swiper>
+    <div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide">
+      <ComicsComicHorizontal
+        v-for="comic in content.comics"
+        :key="comic.slug"
+        :_id="comic._id"
+        :comic="comic"
+        :adult-content="comic.adultContent"
+        :chap-number="comic.newestChapter"
+        :comic-name="comic.comicName"
+        :slug="comic.slug"
+        :status="comic.status"
+        :vertical-logo="comic.verticalLogo"
+        :tags="comic.tags"
+      />
+    </div>
   </div>
 </template>

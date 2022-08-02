@@ -20,20 +20,20 @@ const modules = ref([Autoplay])
 const config = useRuntimeConfig()
 // A ref object that is passed to the Swiper component.
 const autoPlaySettings = ref<autoSettingSwiper>({
-  delay: 3000,
+  delay: 2500,
   disableOnInteraction: false,
 })
 </script>
 
 <template>
-  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
-    <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
+  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings" class="bc-banner">
+    <SwiperSlide v-for="cover in banner.covers" :key="cover._id" class="carousel-image">
       <NuxtLink
         :to="useNavigatorComicPreview(cover.slug, cover._id)"
         class="relative block h-[65vw]"
         :title="cover.comicName"
       >
-        <div class="w-full absolute bottom-0">
+        <div class="w-full bottom-0">
           <SharedMeeToonImg
             class="w-full"
             :alt="cover.comicName"
@@ -41,8 +41,9 @@ const autoPlaySettings = ref<autoSettingSwiper>({
           />
         </div>
         <SharedMeeToonImg
-          v-for="animation in cover.animations" :key="animation.image"
-          class="w-full absolute bottom-0"
+          v-for="animation in cover.animations"
+          :key="animation.image"
+          class="w-full bottom-0"
           :alt="cover.comicName"
           :src="`${animation.image}`"
         />
@@ -50,3 +51,18 @@ const autoPlaySettings = ref<autoSettingSwiper>({
     </SwiperSlide>
   </Swiper>
 </template>
+
+<style scoped lang="scss">
+.v-responsive {
+  position: absolute !important;
+  max-height: fit-content;
+}
+
+.bc-banner {
+  transition: height 0.2s;
+  /* height: calc(100vh - 68px - 24px); */
+  .carousel-image {
+    transition: height 0.2s;
+  }
+}
+</style>

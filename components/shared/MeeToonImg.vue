@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   src: String,
   fil: String,
   width: Number,
@@ -21,18 +21,11 @@ defineProps({
 </script>
 
 <template>
-  <nuxt-img
-    :preset="preset"
-    :modifiers="modifiers"
-    :sizes="sizes"
-    :fil="fil"
-    :class="className"
-    :alt="alt"
-    provider="imageengine"
-    :src="src"
+  <v-img
     :width="width"
     :height="height"
-    :quality="quality"
-    :format="format"
+    :class="className"
+    :src="$img(src, { quality: 20, format: 'webp' }, { provider: 'imageengine' })"
+    :lazy-src="$img(src, { quality: 20, format: 'webp' }, { provider: 'imageengine' })"
   />
 </template>

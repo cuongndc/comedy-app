@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, watchEffect } from 'vue'
-import CateList from '~/components/Categorys/CateList.vue'
+import CateList from '~/components/categorys/CateList.vue'
 import { categories } from '~/contants'
 import type { Comic } from '~/types'
-import SearchLoading from '~/components/Common/SearchLoading.vue'
+import SearchLoading from '~/components/common/SearchLoading.vue'
 
 const route = useRoute()
 const params = route.params
