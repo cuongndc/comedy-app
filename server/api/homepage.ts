@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 export default defineEventHandler(async () => {
-  console.log("process.env.SERVICE_URL", process.env.SERVICE_URL)
   return axios.get('/api/wb/homepage', {
-    baseURL: process.env.SERVICE_URL,
+    baseURL: process.env.SERVICE_URL || 'http://103.166.185.88:5001',
   }).then(res => res.data)
 })
