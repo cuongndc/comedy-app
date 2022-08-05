@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
-import { useAsyncData, useRuntimeConfig } from '#app'
+import { useAsyncData } from '#app'
 
 import { LazyHomepageNewStory, LazyHomepageRepresentCategory, LazyHomepageSpotlight, LazyHomepageTrending, PulseHomeLoading, SharedBannerBar } from '#components'
-const config = useRuntimeConfig()
 
-const { data: homepages, pending } = await useAsyncData<IHomePage>('home-page', () => $fetch(`${config.public.publicURL}/api/proxy/homepage`))
+const { data: homepages, pending } = await useAsyncData<IHomePage>('home-page', () => $fetch('/api/homepage'))
 </script>
 
 <template>
