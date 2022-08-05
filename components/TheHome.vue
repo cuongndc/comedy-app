@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import axios from 'axios'
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
 import { useAsyncData } from '#app'
@@ -12,7 +13,7 @@ const { data: homepages, pending } = await useAsyncData<IHomePage>('home-page', 
     <PulseHomeLoading />
   </div>
   <main v-else class="h-[auto] bg-white">
-    <div v-for="record in homepages" :key="record._id" v-memo="homepages">
+    <div v-for="record in homepages.data" :key="record._id">
       <LazyHomepageSpotlight
         v-if="record.type === HomePageTypes._banner"
         :banner="record"

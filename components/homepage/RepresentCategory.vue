@@ -49,19 +49,19 @@ defineProps({
         </div>
         <div class="ml-[118px] p-4">
           <h3 class="text-xl font-medium">
-            <a>{{ comic.comicName }}</a>
+            <a>{{ comic?.comicName }}</a>
           </h3>
           <div>
             <div class="rating flex items-center">
               <img v-for="i of 5" :key="i" src="/icons/comicPage/icon-star.svg" alt="rating">
               <p class="text-xl">
-                {{ comic.avgRate.toFixed(1) }}
+                {{ comic?.avgRate.toFixed(1) }}
                 <span class="text-xl font-semibold text-gray-500"> (369)</span>
               </p>
             </div>
             <a>
               <i class="w-full text-base line-clamp-3">
-                "{{ comic.contentReview }}"
+                "{{ comic?.contentReview }}"
               </i>
             </a>
             <div class="mt-3">
@@ -79,16 +79,15 @@ defineProps({
     <div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide">
       <ComicsComicHorizontal
         v-for="comic in content.comics"
-        :key="comic.slug"
-        :_id="comic._id"
-        :comic="comic"
-        :adult-content="comic.adultContent"
-        :chap-number="comic.newestChapter"
-        :comic-name="comic.comicName"
-        :slug="comic.slug"
-        :status="comic.status"
-        :vertical-logo="comic.verticalLogo"
-        :tags="comic.tags"
+        :key="comic?.slug"
+        :_id="comic?._id"
+        :adult-content="comic?.adultContent"
+        :chap-number="comic?.newestChapter"
+        :comic-name="comic?.comicName"
+        :slug="comic?.slug"
+        :status="comic?.status"
+        :vertical-logo="comic?.verticalLogo"
+        :tags="comic?.tags"
       />
     </div>
   </div>

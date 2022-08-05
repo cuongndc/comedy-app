@@ -3,7 +3,6 @@ import { COMIC_STATUS } from '~/contants'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 
 defineProps({
-  comic: Object,
   _id: String,
   chapNumber: String,
   className: String,
