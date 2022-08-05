@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-import axios from 'axios'
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
 import { useAsyncData } from '#app'
 import { LazyHomepageNewStory, LazyHomepageRepresentCategory, LazyHomepageSpotlight, LazyHomepageTrending, PulseHomeLoading, SharedBannerBar } from '#components'
-
 const { data: homepages, pending } = await useAsyncData<IHomePage>('home-page', () => $fetch('/api/homepage'))
 </script>
 
