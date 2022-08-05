@@ -19,32 +19,18 @@ const navigatorComicPreview = (slug: string, _id: string) => {
   <div class="px-4 bg-contain">
     <div>
       <NuxtLink href="/">
-        <img
-          class="w-full"
-          src="/icons/widgets/trend/img-header.svg"
-          alt="Có chắc đây là hot"
-        >
+        <img class="w-full" src="/icons/widgets/trend/img-header.svg" alt="Có chắc đây là hot">
       </NuxtLink>
     </div>
     <div class="bg-white px-2 shadow">
-      <Swiper
-        :slides-per-view="1.3"
-        :space-between="14"
-        :modules="[Grid]"
-        :grid="{
-          rows: 3,
-          fill: 'row',
-        }"
-      >
+      <Swiper :slides-per-view="1.3" :space-between="14" :modules="[Grid]" :grid="{
+        rows: 3,
+        fill: 'row',
+      }">
         <SwiperSlide v-for="content in record.content" :key="content.slug" class="h-[130px]">
           <div class="flex items-center p-5" @click="navigatorComicPreview(content.slug, content._id)">
-            <div class="w-[75px]">
-              <SharedMeeToonImg
-                fil="cover"
-                class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
-                :src="content.verticalLogo"
-              />
-            </div>
+            <SharedMeeToonImg fil="cover" class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
+              :src="content.verticalLogo" />
 
             <div class="px-5">
               <h3 class="text-xl font-semibold line-clamp-1 mb-1">

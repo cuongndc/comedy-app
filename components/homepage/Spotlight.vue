@@ -26,43 +26,16 @@ const autoPlaySettings = ref<autoSettingSwiper>({
 </script>
 
 <template>
-  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings" class="bc-banner">
-    <SwiperSlide v-for="cover in banner.covers" :key="cover._id" class="carousel-image">
-      <NuxtLink
-        :to="useNavigatorComicPreview(cover.slug, cover._id)"
-        class="relative block h-[65vw]"
-        :title="cover.comicName"
-      >
+  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
+    <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
+      <NuxtLink :to="useNavigatorComicPreview(cover.slug, cover._id)" class="relative block h-[65vw]"
+        :title="cover.comicName">
         <div class="w-full bottom-0">
-          <SharedMeeToonImg
-            class="w-full"
-            :alt="cover.comicName"
-            :src="`${cover.link}`"
-          />
+          <SharedMeeToonImg class="w-full" :alt="cover.comicName" :src="`${cover.link}`" />
         </div>
-        <SharedMeeToonImg
-          v-for="animation in cover.animations"
-          :key="animation.image"
-          class="w-full bottom-0"
-          :alt="cover.comicName"
-          :src="`${animation.image}`"
-        />
+        <SharedMeeToonImg v-for="animation in cover.animations" :key="animation.image" class="absolute w-full bottom-0"
+          :alt="cover.comicName" :src="`${animation.image}`" />
       </NuxtLink>
     </SwiperSlide>
   </Swiper>
 </template>
-
-<style scoped lang="scss">
-.v-responsive {
-  position: absolute !important;
-  max-height: fit-content;
-}
-
-.bc-banner {
-  transition: height 0.2s;
-  /* height: calc(100vh - 68px - 24px); */
-  .carousel-image {
-    transition: height 0.2s;
-  }
-}
-</style>
