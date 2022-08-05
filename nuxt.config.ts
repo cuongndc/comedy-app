@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     mongodbURI: process.env.MONGODB_URI,
     serviceURL: process.env.SERVICE_URL,
     public: {
+      publicURL: process.env.PUBLIC_URL,
       DOMAIN: process.env.DOMAIN,
       SIZE_NAME: process.env.SIZE_NAME,
       imgCDN: process.env.IMAGE_CDN,
@@ -25,7 +26,7 @@ export default defineNuxtConfig({
   },
   proxy: {
     options: {
-      target: 'http://localhost:5001',
+      target: process.env.SERVICE_URL,
       changeOrigin: true,
       pathRewrite: {
         '^/api/proxy': '/api/wb',
