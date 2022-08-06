@@ -40,6 +40,8 @@ defineProps({
                   </span>
                 </div>
                 <SharedMeeToonImg
+                  :alt="comic.comicName"
+                  sizes="sm:100px 2xs:150px md:200px md:300px"
                   class="rounded-2xl visible h-full left-0 relative top-0 w-full"
                   :src="comic.verticalLogo"
                 />

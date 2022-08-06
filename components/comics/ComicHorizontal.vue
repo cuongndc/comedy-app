@@ -30,7 +30,10 @@ defineProps({
           </span>
         </div>
         <LazySharedMeeToonImg
-          sizes="sm:100px 2xs:100px md:200px md:300px"
+          :alt="comicName"
+          sizes="sm:100px 2xs:150px md:200px md:250px"
+          :width="105"
+          :height="140"
           class="rounded-2xl w-full"
           :src="verticalLogo"
         />

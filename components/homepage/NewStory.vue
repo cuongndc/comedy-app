@@ -16,16 +16,16 @@ defineProps({
 
     <div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide">
       <ComicsComicHorizontal
-          v-for="comic in record.content"
-          :key="comic.slug"
-          :_id="comic._id"
-          :comic="comic"
-          :adult-content="comic.adultContent"
-          :chap-number="comic.newestChapter"
-          :comic-name="comic.comicName"
-          :slug="comic.slug"
-          :status="comic.status"
-          :vertical-logo="comic.verticalLogo"
+        v-for="comic in record.content"
+        :key="comic.slug"
+        :_id="comic._id"
+        :comic="comic"
+        :adult-content="comic.adultContent"
+        :chap-number="comic.newestChapter"
+        :comic-name="comic.comicName"
+        :slug="comic.slug"
+        :status="comic.status"
+        :vertical-logo="comic.verticalLogo"
       />
     </div>
   </div>

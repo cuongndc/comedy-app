@@ -9,7 +9,10 @@ const props = defineProps({
   height: Number,
   className: String,
   alt: String,
-  sizes: String,
+  sizes: {
+    type: String,
+    default: 'xs:100vw 2xs:100vw sm:100vw',
+  },
   modifiers: Object,
   preset: String,
   quality: {
@@ -24,13 +27,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <!-- <v-img
-    :width="width"
-    :height="height"
-    :class="className"
-    :src="$img(src, { quality: 20, format: 'webp' }, { provider: 'imageengine' })"
-    :lazy-src="$img(src, { quality: 20, format: 'webp' }, { provider: 'imageengine' })"
-  /> -->
   <nuxt-img
     :width="width"
     :height="height"

@@ -45,6 +45,8 @@ const autoPlaySettings = ref<autoSettingSwiper>({
           class="absolute w-full bottom-0"
           :alt="cover.comicName"
           :src="`${animation.image}`"
+          :width="375"
+          :height="280"
         />
       </NuxtLink>
     </SwiperSlide>

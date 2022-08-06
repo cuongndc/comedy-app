@@ -20,7 +20,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
     <div class="px-4 bg-contain">
       <div>
         <NuxtLink href="/">
-          <img class="w-full" src="/icons/widgets/trend/img-header.svg" alt="Có chắc đây là hot">
+          <nuxt-img format="png" quality="100" class="w-full" src="/icons/widgets/trend/img-header.svg" alt="Có chắc đây là hot" />
         </NuxtLink>
       </div>
       <div class="bg-white px-2 shadow">
@@ -34,6 +34,8 @@ const navigatorComicPreview = (slug: string, _id: string) => {
             <div class="flex items-center p-5" @click="navigatorComicPreview(content.slug, content._id)">
               <shared-mee-toon-img
                 fil="cover" class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
+                :width="75" :height="100"
+                sizes="sm:75px 2sm:100px sm:150px md:150px"
                 :src="content.verticalLogo"
               />
 

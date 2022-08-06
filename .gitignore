@@ -13,7 +13,6 @@ coverage
 
 # Nuxt build
 .nuxt*
-.output
 
 # Module build
 dist

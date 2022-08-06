@@ -2,6 +2,9 @@ import { defineNuxtConfig } from 'nuxt'
 import mongodbSetup from './modules/mongodb-setup'
 
 export default defineNuxtConfig({
+  nitro: {
+    timing: true,
+  },
   app: {
     buildAssetsDir: '/assets/',
   },
