@@ -4,6 +4,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  loading: {
+    type: String,
+    default: 'lazy',
+  },
   fil: String,
   width: Number,
   height: Number,
@@ -28,6 +32,7 @@ const props = defineProps({
 
 <template>
   <nuxt-img
+    :loading="loading"
     :width="width"
     :height="height"
     :quality="quality"

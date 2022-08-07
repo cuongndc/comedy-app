@@ -25,7 +25,18 @@ const navigatorComicPreview = (slug: string, _id: string) => {
       </div>
       <div class="bg-white px-2 shadow">
         <Swiper
-          :slides-per-view="1.3" :space-between="14" :modules="[Grid]" :grid="{
+          :breakpoints="{
+            0: {
+              slidesPerView: 1.3,
+              spaceBetween: 14,
+            },
+            768: {
+              slidesPerView: 2.3,
+              spaceBetween: 14,
+            },
+            }"
+          :modules="[Grid]"
+          :grid="{
             rows: 3,
             fill: 'row',
           }"

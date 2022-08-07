@@ -12,7 +12,7 @@ if (typeof document !== 'undefined') {
 <template>
   <div
     :class="scrollTransform === 0 ? '' : 'bg-black/70'"
-    class="max-w-[450px] md:max-w-[750px] px-4 md:px-12 lg:px-20 xl:px-28 2xl:px-36 px-4 md:px-12 flex items-center h-24 fixed top w-full z-50 transition duration-500 to-transparent"
+    class="max-w-[450px] md:max-w-[768px] px-4 md:px-12 lg:px-20 xl:px-28 2xl:px-36 px-4 md:px-12 flex items-center h-24 fixed top w-full z-50 transition duration-500 to-transparent"
   >
     <div class="mr-4">
       <NuxtLink v-if="route.name !== 'index'" class="flex items-center" to="/">

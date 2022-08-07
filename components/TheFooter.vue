@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[450px] md:max-w-[750px] flex fixed bottom-0 z-50 bg-white w-full items-center justify-between shadow">
+  <div class="max-w-[450px] md:max-w-[768px] flex fixed bottom-0 z-50 bg-white w-full items-center justify-between shadow h-[60px]">
     <div class="w-[20%]">
       <a class="h-[50px] flex flex-col items-center" title="Bảng tin" href="/bang-tin">
         <div class="w-[30px] max-w-[100%]">
