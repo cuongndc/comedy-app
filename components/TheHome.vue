@@ -3,19 +3,31 @@ import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
 import { useFetch } from '#app'
 
-const { data: homepages } = useAsyncData<IHomePage>('home-page', () => process.server && $fetch('/api/homepage'))
+const { data: homepages } = useFetch<IHomePage>('/api/homepage')
 </script>
 
 <template>
   <main class="h-[auto] bg-white">
     <div v-for="record in homepages.data" :key="record._id">
-      <LazyHomepageSpotlight v-if="record.type === HomePageTypes._banner" :banner="record" />
-      <SharedBannerBar v-if="record.type === HomePageTypes._menu" />
-      <LazyHomepageTrending v-if="record.type === HomePageTypes._trend" :record="record" />
-      <LazyHomepageRepresentCategory v-if="record.type === HomePageTypes._representCategory" :record="record" />
+      <LazyHomepageSpotlight
+        v-if="record.type === HomePageTypes._banner"
+        :banner="record"
+      />
+      <SharedBannerBar
+        v-if="record.type === HomePageTypes._menu"
+      />
+      <LazyHomepageTrending
+        v-if="record.type === HomePageTypes._trend"
+        :record="record"
+      />
+      <LazyHomepageRepresentCategory
+        v-if="record.type === HomePageTypes._representCategory"
+        :record="record"
+      />
       <LazyHomepageNewStory
         v-if="record.type === HomePageTypes._newest || record.type === HomePageTypes._recommendation"
-        :record="record" />
+        :record="record"
+      />
     </div>
   </main>
 </template>
