@@ -1,12 +1,12 @@
-import { defineNuxtConfig } from 'nuxt'
-import mongodbSetup from './modules/mongodb-setup'
+import { defineNuxtConfig } from "nuxt";
+import mongodbSetup from "./modules/mongodb-setup";
 
 export default defineNuxtConfig({
   nitro: {
     timing: true,
   },
   app: {
-    buildAssetsDir: '/assets/',
+    buildAssetsDir: "/assets/",
   },
   runtimeConfig: {
     mongodbURI: process.env.MONGODB_URI,
@@ -19,11 +19,11 @@ export default defineNuxtConfig({
     },
   },
   hooks: {
-    'vite:extendConfig': function (config, { isServer }) {
+    "vite:extendConfig": function (config, { isServer }) {
       if (isServer) {
         // Workaround for Netlify issue
         // https://github.com/nuxt/framework/issues/6204
-        config.build.rollupOptions.output.inlineDynamicImports = true
+        config.build.rollupOptions.output.inlineDynamicImports = true;
       }
     },
   },
@@ -32,11 +32,9 @@ export default defineNuxtConfig({
       target: process.env.SERVICE_URL,
       changeOrigin: true,
       pathRewrite: {
-        '^/api/proxy': '/api/wb',
+        "^/api/proxy": "/api/wb",
       },
-      pathFilter: [
-        '/api/proxy',
-      ],
+      pathFilter: ["/api/proxy"],
     },
   },
   pwa: {
@@ -56,32 +54,38 @@ export default defineNuxtConfig({
       name: process.env.SITE_NAME,
       short_name: process.env.SITE_NAME,
       description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SIZE_NAME}`,
-      background_color: '#111827',
-      theme_color: '#fff',
+      background_color: "#111827",
+      theme_color: "#fff",
     },
     workbox: {
       // enabled: true,
     },
   },
   image: {
-    domains: ['meetoon.co', 'meetruyen.com'],
+    domains: ["meetoon.co", "meetruyen.com"],
     imageengine: {
-      baseURL: 'https://6z1a4akz.cdn.imgeng.in/',
+      baseURL: "https://6z1a4akz.cdn.imgeng.in/",
     },
     screens: {
-      'xs': 320,
-      '2xs': 390,
-      'sm': 640,
-      'md': 768,
-      'lg': 1024,
-      'xl': 1280,
-      'xxl': 1536,
-      '2xl': 1536,
+      xs: 320,
+      "2xs": 390,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      "2xl": 1536,
     },
   },
-  modules: ['nuxt-proxy', '@nuxt/image-edge', '@kevinmarrec/nuxt-pwa', mongodbSetup],
+  modules: [
+    "nuxt-proxy",
+    "@nuxt/image-edge",
+    "@kevinmarrec/nuxt-pwa",
+    "nuxt-full-static",
+    mongodbSetup,
+  ],
   build: {
-    transpile: ['@heroicons/vue'],
+    transpile: ["@heroicons/vue"],
     postcss: {
       postcssOptions: {
         plugins: {
@@ -91,5 +95,5 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ['~/assets/css/tailwindcss.css', '~/assets/css/main.css'],
-})
+  css: ["~/assets/css/tailwindcss.css", "~/assets/css/main.css"],
+});
