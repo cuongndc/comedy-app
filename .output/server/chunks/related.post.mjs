@@ -5,7 +5,7 @@ import 'mongodb';
 
 const related_post = defineEventHandler(async (event) => {
   const body = await useBody(event);
-  return await mongo.db().collection(collections.comics).find({
+  return await mongo.db().collection(collections.novels).find({
     "tags.slug": {
       $in: body.tags
     }
