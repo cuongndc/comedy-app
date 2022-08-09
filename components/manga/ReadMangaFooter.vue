@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/vue/solid'
-
 const emit = defineEmits(['nextProcess'])
 const prev = () => {
   emit('nextProcess', 'prev')
@@ -19,7 +17,7 @@ const next = () => {
           data-id="prev" class="absolute-center z-[700] h-full w-[20%] border-2 border-dashed border-white/40 px-2 text-white/40 transition-all hover:border-white hover:text-white md:gap-2"
           @click="prev"
         >
-          <ArrowLeftIcon class-name="inline h-8 w-8" />
+<!--          <ArrowLeftIcon class-name="inline h-8 w-8" />-->
           Chapter trước
         </button>
         <button
@@ -27,7 +25,7 @@ const next = () => {
           @click="next"
         >
           Chapter kế tiếp
-          <ArrowRightIcon class-name="inline-block h-8 w-8" />
+<!--          <ArrowRightIcon class-name="inline-block h-8 w-8" />-->
         </button>
       </div>
       <h1 class="py-4 px-2 text-center text-white/75">

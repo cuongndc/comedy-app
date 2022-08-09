@@ -3,7 +3,7 @@ import { computed, onMounted, watchEffect } from 'vue'
 import { convertUnit } from '~/common'
 import { navigateTo, useFetch, useRuntimeConfig, useState } from '#app'
 import type { Chapter, Comic } from '~/types'
-import { COMIC_STATUS, TRUYEN_TRANH_CHAPTER, comicTabs } from '~/contants'
+import {TRUYEN_TRANH_CHAPTER, comicTabs, COMIC_STATUS, TRUYEN_CHU_CHAPTER} from '~/contants'
 import ComicChapterTab from '~/components/comics/ComicChapterTab.vue'
 import ComicTab from '~/components/comics/ComicTab.vue'
 import { definePageMeta } from '#imports'
@@ -18,7 +18,6 @@ definePageMeta({
 const route = useRoute()
 const params = route.params
 const slug = ref(params.slug)
-const _id = ref(params._id)
 const tab = ref<string>('comic')
 const chapters = useState<Chapter[]>('chapters')
 const runtimeConfig = useRuntimeConfig()
@@ -27,13 +26,13 @@ const {
   data: comic,
   pending,
   refresh,
-} = await useFetch<Comic>(`/api/comic/${slug.value}/${_id.value}`)
+} = await useFetch<Comic>(`/api/novel/${slug.value}`)
 onMounted(async () => {
   if (!comic.value)
     return
-  chapters.value = await $fetch('/api/chapters', {
+  chapters.value = await $fetch('/api/novel/chapters', {
     params: {
-      comic_slug: comic.value.slug,
+      novelId: comic.value._id,
     },
   })
 })
@@ -54,7 +53,7 @@ const setTab = (T: string) => {
 }
 const startRead = () => {
   if (chapters.value && chapters.value.length > 0)
-    return navigateTo(`/${TRUYEN_TRANH_CHAPTER}/${chapters.value[0]?.slug}/${chapters.value[0]?._id}`)
+    return navigateTo(`/${TRUYEN_CHU_CHAPTER}/${chapters.value[0]?.slug}/${chapters.value[0]?._id}`)
 
   return ''
 }
@@ -68,7 +67,7 @@ const backgroundImage = (image) => {
 <template>
   <section>
     <div
-      :style="backgroundImage(comic.squareCover)"
+      :style="backgroundImage(comic.verticalLogo)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"
     >
       <NuxtLink to="/" class="ml-4">
@@ -82,7 +81,7 @@ const backgroundImage = (image) => {
     <div class="fixed top-0 w-full max-w-[768px]">
       <LazySharedMeeToonImg
         class="relative w-full"
-        :src="comic.squareCover"
+        :src="comic?.verticalLogo"
       />
     </div>
     <div class="relative mt-[150px]">
@@ -91,33 +90,33 @@ const backgroundImage = (image) => {
           <div class="left">
             <div>
               <h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white">
-                {{ comic?.comicName }}
+                {{ comic?.name }}
               </h1>
             </div>
             <div class="flex flex-wrap">
               <div
                 class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]"
               >
-                {{ COMIC_STATUS[comic?.status] }}
+                {{COMIC_STATUS[comic?.novelStatus]}}
               </div>
               <div class="mx-4 my-4 flex items-center text-gray-50 text-base">
                 <img
                   src="/icons/comicPage/icon-view-count.svg" alt="view count"
                 >
-                <span class="ml-1">{{ convertUnit(comic.viewCount) }}</span>
+                <span class="ml-1">{{ convertUnit(comic?.viewCount) }}</span>
               </div>
               <div class="mx-4 my-4 flex items-center text-gray-50 text-base">
                 <img
                   class="w-[18px] h-[18px]"
                   src="/icons/comicPage/icon-follow-count.svg" alt="follow count"
                 >
-                <span class="ml-1">{{ convertUnit(comic.followingCount) }}</span>
+                <span class="ml-1">{{ convertUnit(comic?.followingCount) }}</span>
               </div>
               <div class="flex items-center text-base text-gray-50">
                 <img
                   src="/icons/comicPage/icon-comment-count.svg" alt="comment count"
                 >
-                <span class="ml-1">{{ convertUnit(comic.totalComment) }}</span>
+                <span class="ml-1">{{ convertUnit(comic?.totalComment) }}</span>
               </div>
             </div>
           </div>
@@ -130,7 +129,7 @@ const backgroundImage = (image) => {
                 <img v-for="i of 5" :key="i" src="/icons/comicPage/icon-star.svg" alt="rating">
               </div>
               <div>
-                <span class="text-white text-xl">{{ comic.reviewCount }} Đánh giá</span>
+                <span class="text-white text-xl">{{ comic?.reviewCount }} Đánh giá</span>
               </div>
             </div>
           </div>

@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-import {
-  ArrowLeftIcon,
-  ArrowNarrowLeftIcon,
-  ArrowRightIcon,
-} from '@heroicons/vue/solid'
 import { onMounted, watchEffect } from 'vue'
 import { TRUYEN_TRANH_CHAPTER } from '~/contants'
 import { navigateTo, useAsyncData, useLazyFetch, useState } from '#app'
@@ -84,7 +79,7 @@ const handleNextProcess = (action: 'next' | 'prev') => {
             <div class="flex h-full w-fit items-center justify-evenly gap-4 px-4 md:space-x-4">
               <LazyNuxtLink :to="useNavigatorComicPreview(readPage.chapter.comicSlug, readPage.chapter.comicId)" class="flex">
                 <button>
-                  <ArrowNarrowLeftIcon class="h-9 w-9" />
+<!--                  <ArrowNarrowLeftIcon class="h-9 w-9" />-->
                 </button>
               </LazyNuxtLink>
               <h1 class="fond-bold h-fit w-[25%] capitalize line-clamp-1 md:w-[30%]">
@@ -97,10 +92,10 @@ const handleNextProcess = (action: 'next' | 'prev') => {
               </button>
               <div class="absolute-center h-full w-fit gap-4 md:mx-6">
                 <button data-id="prev" class="rounded-xl-lg bg-highlight p-4 md:p-4" @click="handleChapter('prev')">
-                  <ArrowLeftIcon class="h-7 w-7" />
+<!--                  <ArrowLeftIcon class="h-7 w-7" />-->
                 </button>
                 <button data-id="next" class="rounded-xl-lg bg-highlight p-4 md:p-4" @click="handleChapter('next')">
-                  <ArrowRightIcon class="w-8 h-7" />
+<!--                  <ArrowRightIcon class="w-8 h-7" />-->
                 </button>
               </div>
             </div>

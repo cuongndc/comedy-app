@@ -1,6 +1,6 @@
 import type { Category } from './categorys'
 
-export type Comic = {
+export interface Comic {
   _id: string
   type: string
   title: string

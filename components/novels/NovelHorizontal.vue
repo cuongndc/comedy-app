@@ -4,21 +4,21 @@ import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 
 defineProps({
   _id: String,
-  chapNumber: String,
+  chapNumber: Number,
   className: String,
   adultContent: Boolean,
   slug: String,
   status: String,
   verticalLogo: String,
-  comicName: String,
+  name: String,
   tags: Array,
 })
 </script>
 
 <template>
   <NuxtLink
-    :to="useNavigatorComicPreview(slug, _id)"
-    :title="comicName"
+    :to="useNavigatorNovel(slug)"
+    :title="name"
   >
     <div class="inline-block w-[105px] mr-6">
       <div class="relative">
@@ -30,7 +30,7 @@ defineProps({
           </span>
         </div>
         <LazySharedMeeToonImg
-          :alt="comicName"
+          :alt="name"
           sizes="sm:100px 2xs:150px md:200px md:250px"
           :width="105"
           :height="140"
@@ -40,13 +40,14 @@ defineProps({
       </div>
       <h3
         class="text-xl line-clamp-1 mt-1 text-black font-semibold"
-        :title="comicName"
+        :title="name"
       >
-        {{ comicName }}
+        {{ name }}
       </h3>
       <p v-if="tags && tags.length > 0" class="text-primary-gray text-base font-medium line-clamp-1">
         #{{ tags[0].name }}
       </p>
+      <p v-else class="text-primary-gray text-base font-medium line-clamp-1">#</p>
       <p v-if="chapNumber" class="text-primary-gray text-base">
         Chương {{ chapNumber }}
       </p>

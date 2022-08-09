@@ -2,7 +2,7 @@
 import { Grid } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { convertUnit } from '~/common'
-import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
+import useNavigatorNovel from '~/composables/useNavigatorNovel'
 import { navigateTo } from '#app'
 import { TRENDING } from '~/contants'
 
@@ -10,16 +10,16 @@ defineProps({
   record: Object,
 })
 const navigatorComicPreview = (slug: string, _id: string) => {
-  return navigateTo(useNavigatorComicPreview(slug, _id))
+  return navigateTo(useNavigatorNovel(slug))
 }
 </script>
 
 <template>
   <client-only>
-    <div class="px-4 bg-contain">
+    <div class="px-4 bg-contain mb-4">
       <div>
         <NuxtLink href="/">
-          <nuxt-img format="png" quality="100" class="w-full" src="/icons/widgets/trend/img-header.svg" alt="Có chắc đây là hot" />
+          <nuxt-img format="png" quality="100" class="w-full" src="/icons/widgets/trend/img-header-novel.svg" alt="Có chắc đây là hot" />
         </NuxtLink>
       </div>
       <div class="bg-white px-2 shadow">
@@ -55,7 +55,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
               <div class="px-5">
                 <h3 class="text-xl font-semibold line-clamp-1 mb-1">
                   <NuxtLink :to="useNavigatorComicPreview(content.slug, content._id)">
-                    {{ content.comicName }}
+                    {{ content.name }}
                   </NuxtLink>
                 </h3>
                 <p class=" text-primary-gray mb-3 text-base">

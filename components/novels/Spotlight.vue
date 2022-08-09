@@ -29,7 +29,7 @@ const autoPlaySettings = ref<autoSettingSwiper>({
   <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings" class="bc-banner">
     <SwiperSlide v-for="cover in banner.covers" :key="cover._id" class="carousel-image">
       <NuxtLink
-        :to="useNavigatorComicPreview(cover.slug, cover._id)"
+        :to="useNavigatorNovel(cover.slug)"
         class="relative block h-[65vw] sm:h-[460px] md:[460px]"
         :title="cover.comicName"
       >

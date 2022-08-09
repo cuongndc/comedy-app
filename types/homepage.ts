@@ -8,6 +8,7 @@ export const HomePageTypes = {
   _newest: 'newest',
   _comingSoon: 'comingSoon',
   _funtoonChoice: 'funtoonChoice',
+  _hottest_in_week: 'hottest_in_week',
 }
 
 export interface IHomePage {

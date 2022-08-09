@@ -1,5 +1,7 @@
 export const TRUYEN_TRANH_CHAPTER = 'truyen-tranh-chapter'
+export const TRUYEN_CHU_CHAPTER = 'truyen-chu-chapter'
 export const TRUYEN_TRANH = 'truyen-tranh'
+export const TRUYEN_CHU = 'truyen-chu'
 export const DANH_MUC = 'danh-muc'
 export const TRENDING = 'trending'
 export const TAG = 'tag'
@@ -41,6 +43,8 @@ export const collections = {
   comics: 'comics',
   homePages: 'homepages',
   chapterPages: 'chapter-pages',
+  novelChapters: 'novel-chapters',
+  novels: 'novels',
 }
 export const comicTabs = {
   comic: 'comic',
@@ -69,5 +73,5 @@ export const completed = 'completed'
 
 export const COMIC_STATUS = {
   inprogress: 'Đang ra',
-  complete: 'Full',
+  complete: 'Hoàn thành',
 }

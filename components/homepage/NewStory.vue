@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { COMIC_STATUS } from '~/contants'
 import ComicsComicHorizontal from '~/components/comics/ComicHorizontal'
+import { LazyComicsComicHorizontal } from '#components'
 
 defineProps({
   record: Object,
@@ -15,11 +14,10 @@ defineProps({
     </h2>
 
     <div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide">
-      <ComicsComicHorizontal
+      <LazyComicsComicHorizontal
         v-for="comic in record.content"
         :key="comic.slug"
         :_id="comic._id"
-        :comic="comic"
         :adult-content="comic.adultContent"
         :chap-number="comic.newestChapter"
         :comic-name="comic.comicName"

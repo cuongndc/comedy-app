@@ -13,28 +13,50 @@
         <span class="text-xl text-primary-gray">Bảng tin</span></a>
     </div>
     <div class="w-[20%]">
-      <a class="h-[50px] flex flex-col items-center" title="Truyện tranh" href="/">
+      <NuxtLink to="/" class="h-[50px] flex flex-col items-center" title="Truyện tranh">
         <div class="w-[30px] max-w-[100%]">
-          <div class="relative pb-[100%]"><img
-            alt="Truyện tranh"
-            data-src="/icons/tabbar/icon-toon-active.svg"
-            class="visible h-full left-0 absolute top-0 w-full"
-            src="/icons/tabbar/icon-toon-active.svg"
-          ></div>
+          <div class="relative pb-[100%]">
+            <img
+              v-if="$route.name === 'index'"
+              alt="Truyện tranh"
+              data-src="/icons/tabbar/icon-toon-active.svg"
+              class="visible h-full left-0 absolute top-0 w-full"
+              src="/icons/tabbar/icon-toon-active.svg"
+            >
+            <img
+              v-else
+              alt="Truyện tranh"
+              data-src="/icons/tabbar/icon-toon-active.svg"
+              class="visible h-full left-0 absolute top-0 w-full"
+              src="/icons/tabbar/icon-toon.svg"
+            >
+          </div>
         </div>
-        <span class="text-primary-gray text-xl">Truyện tranh</span></a>
+        <span class="text-primary-gray text-xl" :class="{ 'text-[#059e5d]': $route.name === 'index' }">Truyện tranh</span>
+      </NuxtLink>
     </div>
     <div class="w-[20%]">
-      <a class="h-[50px] flex flex-col items-center" title="Tiểu thuyết" href="/novel">
+      <NuxtLink to="/novel" class="h-[50px] flex flex-col items-center" title="Truyện chữ">
         <div class="w-[30px] max-w-[100%]">
-          <div class="relative pb-[100%]"><img
-            alt="Tiểu thuyết"
-            data-src="/icons/tabbar/icon-novel.svg"
-            class="visible h-full left-0 absolute top-0 w-full"
-            src="/icons/tabbar/icon-novel.svg"
-          ></div>
+          <div class="relative pb-[100%]">
+            <img
+              v-if="$route.name === 'novel'"
+              alt="Tiểu thuyết"
+              data-src="/icons/tabbar/icon-novel.svg"
+              class="visible h-full left-0 absolute top-0 w-full"
+              src="/icons/tabbar/icon-novel-active.svg"
+            >
+            <img
+              v-else
+              alt="Tiểu thuyết"
+              data-src="/icons/tabbar/icon-novel.svg"
+              class="visible h-full left-0 absolute top-0 w-full"
+              src="/icons/tabbar/icon-novel.svg"
+            >
+          </div>
         </div>
-        <span class="text-primary-gray text-xl">Tiểu thuyết</span></a>
+        <span class="text-primary-gray text-xl" :class="{ 'text-[#059e5d]': $route.name === 'novel' }">Truyện chữ</span>
+      </NuxtLink>
     </div>
     <div class="w-[20%]">
       <a class="h-[50px] flex flex-col items-center" title="Giá sách" href="/gia-sach">
