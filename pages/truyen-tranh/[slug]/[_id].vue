@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, watchEffect } from 'vue'
+import { isClient } from '@vueuse/core'
 import { convertUnit } from '~/common'
 import { navigateTo, useFetch, useRuntimeConfig, useState } from '#app'
 import type { Chapter, Comic } from '~/types'
@@ -31,13 +32,17 @@ const {
 onMounted(async () => {
   if (!comic.value)
     return
+
   chapters.value = await $fetch('/api/chapters', {
     params: {
-      comic_slug: comic.value.slug,
+      comic_slug: comic.value?.slug,
     },
   })
 })
 watchEffect(async () => {
+  if (isClient)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+
   await refresh()
 })
 const comicTab = computed(() => {

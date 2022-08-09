@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { IHomePage } from '~/types'
 import { HomePageTypes } from '~/types'
-import {useLazyAsyncData, useRuntimeConfig} from '#app'
+import { useLazyAsyncData } from '#app'
 
-const { data: homepages, pending } = await useLazyAsyncData<IHomePage>('novel', () => $fetch(`${useRuntimeConfig().public.domain}/api/proxy/home-novel`))
+const { data: homepages, pending } = await useLazyAsyncData<IHomePage>('novel', () => $fetch('/api/home-novel'))
 </script>
 
 <template>

@@ -26,7 +26,7 @@
             <img
               v-else
               alt="Truyện tranh"
-              data-src="/icons/tabbar/icon-toon-active.svg"
+              data-src="/icons/tabbar/icon-toon.svg"
               class="visible h-full left-0 absolute top-0 w-full"
               src="/icons/tabbar/icon-toon.svg"
             >

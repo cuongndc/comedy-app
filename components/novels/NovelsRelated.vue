@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import type { Comic } from '~/types'
 import { COMIC_STATUS } from '~/contants'
-import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
+import useNavigatorNovel from '~/composables/useNavigatorNovel'
 
 const { tags } = defineProps({
   tags: Array as () => string[],
@@ -37,7 +37,7 @@ onMounted(async () => {
             </span>
           </div>
           <NuxtLink
-            :to="useNavigatorComicPreview(comicRelated.slug, comicRelated._id)"
+            :to="useNavigatorNovel(comicRelated.slug)"
             :title="comicRelated.comicName"
           >
             <LazySharedMeeToonImg
@@ -50,7 +50,7 @@ onMounted(async () => {
           <NuxtLink
             class="text-white font-bold text-xl"
             :title="comicRelated.comicName"
-            :to="useNavigatorComicPreview(comicRelated.slug, comicRelated._id)"
+            :to="useNavigatorNovel(comicRelated.slug)"
           >
             {{ comicRelated.name }}
           </NuxtLink>

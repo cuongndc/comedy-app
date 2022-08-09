@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, watchEffect } from 'vue'
+import { isClient } from '@vueuse/core'
 import { convertUnit } from '~/common'
 import { navigateTo, useFetch, useRuntimeConfig, useState } from '#app'
 import type { Chapter, Comic } from '~/types'
-import {TRUYEN_TRANH_CHAPTER, comicTabs, COMIC_STATUS, TRUYEN_CHU_CHAPTER} from '~/contants'
+import { COMIC_STATUS, TRUYEN_CHU_CHAPTER, comicTabs } from '~/contants'
 import ComicChapterTab from '~/components/comics/ComicChapterTab.vue'
 import ComicTab from '~/components/comics/ComicTab.vue'
 import { definePageMeta } from '#imports'
@@ -37,6 +38,9 @@ onMounted(async () => {
   })
 })
 watchEffect(async () => {
+  if (isClient)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+
   await refresh()
 })
 const comicTab = computed(() => {
@@ -67,7 +71,7 @@ const backgroundImage = (image) => {
 <template>
   <section>
     <div
-      :style="backgroundImage(comic.verticalLogo)"
+      :style="backgroundImage(comic?.verticalLogo)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"
     >
       <NuxtLink to="/" class="ml-4">
@@ -97,7 +101,7 @@ const backgroundImage = (image) => {
               <div
                 class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]"
               >
-                {{COMIC_STATUS[comic?.novelStatus]}}
+                {{ COMIC_STATUS[comic?.novelStatus] }}
               </div>
               <div class="mx-4 my-4 flex items-center text-gray-50 text-base">
                 <img

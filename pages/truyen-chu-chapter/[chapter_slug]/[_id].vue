@@ -27,13 +27,11 @@ const {
 })
 
 onMounted(async () => {
-  if (!chapters.value) {
-    novelInfo.value = await $fetch('/api/novel/information', {
-      params: {
-        novelId: readPage.value?.novelId,
-      },
-    })
-  }
+  novelInfo.value = await $fetch('/api/novel/information', {
+    params: {
+      novelId: readPage.value?.novelId,
+    },
+  })
 
   set(chapters, novelInfo.value?.chapters)
   set(novel, novelInfo.value?.novel)
