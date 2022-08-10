@@ -28,6 +28,7 @@ const {
   pending,
   refresh,
 } = await useFetch<Comic>(`/api/novel/${slug.value}`)
+
 onMounted(async () => {
   if (!comic.value)
     return
@@ -37,30 +38,37 @@ onMounted(async () => {
     },
   })
 })
+
 watchEffect(async () => {
   if (isClient)
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
   await refresh()
 })
+
 const comicTab = computed(() => {
   return tab.value === comicTabs.comic
 })
+
 const chapterTab = computed(() => {
   return tab.value === comicTabs.chapter
 })
+
 const reviewTab = computed(() => {
   return tab.value === comicTabs.review
 })
+
 const setTab = (T: string) => {
   tab.value = T
 }
+
 const startRead = () => {
   if (chapters.value && chapters.value.length > 0)
     return navigateTo(`/${TRUYEN_CHU_CHAPTER}/${chapters.value[0]?.slug}/${chapters.value[0]?._id}`)
 
   return ''
 }
+
 const backgroundImage = (image) => {
   return {
     backgroundImage: `url(${runtimeConfig.public.imgCDN}${image})`,
@@ -74,7 +82,7 @@ const backgroundImage = (image) => {
       :style="backgroundImage(comic?.verticalLogo)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"
     >
-      <NuxtLink to="/" class="ml-4">
+      <NuxtLink class="ml-4" @click="$router.back()">
         <img src="/icons/comicPage/icon-back.svg" alt="back">
       </NuxtLink>
       <div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4">

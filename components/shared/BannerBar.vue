@@ -4,63 +4,80 @@ import { DANH_MUC } from '~/contants'
 
 <template>
   <div class="py-2 mt-6">
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-5">
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink to="/" class="rounded-[100%] bg-yellow-200">
+          <NuxtLink to="/">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
               <img
                 alt="ranking"
-                class="w-9 h-9 mb-2"
-                src="/images/ranking.png"
+                src="/icons/menuBar/ranking_v2.png"
               >
             </div>
           </NuxtLink>
         </div>
-        <p class="text-center font-semibold text-xl mt-2">
-          Bảng xếp hạng
+        <p class="text-center text-xl mt-2">
+          BXH
         </p>
       </div>
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <client-only>
-            <NuxtLink :to="`${DANH_MUC}/all`" class="rounded-[100%] bg-blue-200">
-              <div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]">
-                <img
-                  alt="category"
-                  class="w-9 h-9"
-                  src="/images/category.png"
-                >
-              </div>
-            </NuxtLink>
-          </client-only>
+          <NuxtLink :to="`${DANH_MUC}/all`">
+            <div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]">
+              <img
+                alt="category"
+                src="/icons/menuBar/category_v2.png"
+              >
+            </div>
+          </NuxtLink>
         </div>
-        <p class="text-center font-semibold text-xl mt-2">
+        <p class="text-center text-xl mt-2">
           Thể loại
         </p>
       </div>
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink to="/" class="rounded-[100%] bg-amber-200">
+          <NuxtLink to="/">
             <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
-              <!--              <HeartIcon class="w-10 h-10" /> -->
+              <img
+                alt="category"
+                src="/icons/menuBar/follow_v2.png"
+              >
             </div>
           </NuxtLink>
         </div>
-        <p class="text-center font-semibold text-xl mt-2">
+        <p class="text-center text-xl mt-2">
           Theo dõi
         </p>
       </div>
       <div class="grid grid-cols-1">
         <div class="flex items-center justify-center">
-          <NuxtLink class="rounded-[100%] bg-green-200">
-            <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center text-3xl">
-              📚
+          <NuxtLink to="/">
+            <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
+              <img
+                alt="category"
+                src="/icons/menuBar/community_v2.png"
+              >
             </div>
           </NuxtLink>
         </div>
-        <p class="text-center font-semibold text-xl mt-2">
-          Lịch sử
+        <p class="text-center text-xl mt-2">
+          Hội nhóm
+        </p>
+      </div>
+      <div class="grid grid-cols-1">
+        <div class="flex items-center justify-center">
+          <NuxtLink to="/">
+            <div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center">
+              <img
+                alt="category"
+                src="/icons/menuBar/mission_v2.png"
+              >
+            </div>
+          </NuxtLink>
+        </div>
+        <p class="text-center text-xl mt-2">
+          Nhiệm vụ
         </p>
       </div>
     </div>

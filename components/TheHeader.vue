@@ -15,9 +15,9 @@ if (typeof document !== 'undefined') {
     class="max-w-[450px] md:max-w-[768px] px-4 md:px-12 lg:px-20 xl:px-28 2xl:px-36 px-4 md:px-12 flex items-center h-24 fixed top w-full z-50 transition duration-500 to-transparent"
   >
     <div class="mr-4">
-      <NuxtLink v-if="route.name !== 'index'" class="flex items-center" to="/">
-        <SvgBack class="h-12 w-12 text-white" />
-      </NuxtLink>
+      <!--      <div v-if="route.name !== 'index'" class="flex items-center" @click="$router.back()"> -->
+      <!--        <SvgBack class="h-12 w-12 text-white" /> -->
+      <!--      </div> -->
     </div>
     <div class="flex items-center space-x-4 ml-auto">
       <form class="flex" @click="open">

@@ -76,7 +76,7 @@ const backgroundImage = (image) => {
       :style="backgroundImage(comic.squareCover)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"
     >
-      <NuxtLink to="/" class="ml-4">
+      <NuxtLink class="ml-4" @click="$router.back()">
         <img src="/icons/comicPage/icon-back.svg" alt="back">
       </NuxtLink>
       <div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4">

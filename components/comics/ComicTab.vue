@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Comic } from '~/types'
-import { LazyNovelsRelated } from '#components'
+import { LazyComicsRelated } from '#components'
 
 const { comic } = defineProps({
   comic: Object as () => Comic,
@@ -31,6 +31,6 @@ const tags = computed(() => {
     <div class="scrollbar-hide overflow-auto whitespace-nowrap p-4" style="display: -webkit-box">
       <a v-for="tag in comic.tags" :key="tag._id" class="inline-block py-1 px-4 mr-2 text-xl rounded-xl bg-accent-5" href="#"># {{ tag.name }}</a>
     </div>
-    <LazyNovelsRelated :tags="tags" />
+    <LazyComicsRelated :tags="tags" />
   </div>
 </template>

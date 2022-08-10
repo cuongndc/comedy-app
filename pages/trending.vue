@@ -3,6 +3,7 @@ import type { Comic } from '~/types'
 import { navigateTo, useFetch } from '#app'
 import SearchLoading from '~/components/common/SearchLoading.vue'
 import { convertUnit } from '~/common'
+import { COMIC_STATUS } from '~/contants'
 
 const { data: comics, pending } = await useFetch<Comic>('/api/trending')
 const navigator = (slug: string, _id: string) => {
@@ -59,6 +60,12 @@ const navigator = (slug: string, _id: string) => {
               </span>
               <p class="text-background my-2 text-base">
                 Chương {{ comic.newestChapter }}
+                <span v-if="comic.adultContent" class="text-[red] font-normal pl-2">
+                  17+
+                </span>
+                <span class="text-[#2dcb48] font-normal px-2">
+                  {{ COMIC_STATUS[comic.status] }}
+                </span>
               </p>
               <div class="flex items-center">
                 <div class="text-primary-gray mb-3 text-base flex items-center mr-4">

@@ -24,7 +24,7 @@ defineProps({
       <div class="relative">
         <div class="absolute top-[-3px] left-1 w-full z-10">
           <span
-            class="inline-block px-3 rounded-xl bg-[#1fcf84] font-bold text-white text-xl my-2"
+            class="inline-block px-3 rounded-xl bg-[#1fcf84] font-semibold text-white text-base my-2"
           >
             {{ COMIC_STATUS[status] }}
           </span>

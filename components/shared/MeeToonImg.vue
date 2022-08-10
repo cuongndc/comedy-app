@@ -21,7 +21,7 @@ const props = defineProps({
   preset: String,
   quality: {
     type: Number,
-    default: 80,
+    default: 40,
   },
   format: {
     type: String,
@@ -39,7 +39,5 @@ const props = defineProps({
     :class="className"
     :src="$img(src, { quality, format: 'webp' }, { provider: 'imageengine' })"
     :lazy-src="$img(src, { quality, format: 'webp' }, { provider: 'imageengine' })"
-    :sizes="sizes"
-    :srcset="sizes"
   />
 </template>

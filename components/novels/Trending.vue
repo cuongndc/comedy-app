@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { convertUnit } from '~/common'
 import useNavigatorNovel from '~/composables/useNavigatorNovel'
 import { navigateTo } from '#app'
-import { TRENDING } from '~/contants'
+import { TRUYEN_CHU_HOT } from '~/contants'
 
 defineProps({
   record: Object,
@@ -79,7 +79,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
       </div>
       <div class="rounded-b-xl shadow-[0_3px_20px_rgba(0,0,0,10%)] bg-white">
         <div>
-          <NuxtLink :to="`/${TRENDING}`" class="flex items-center justify-center p-5">
+          <NuxtLink :to="`/${TRUYEN_CHU_HOT}`" class="flex items-center justify-center p-5">
             <span class="text-xl text-primary-gray">Xem tất cả</span>
 <!--            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" />-->
           </NuxtLink>
