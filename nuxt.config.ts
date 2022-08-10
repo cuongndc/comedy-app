@@ -87,16 +87,6 @@ export default defineNuxtConfig({
     '@kevinmarrec/nuxt-pwa',
     mongodbSetup,
   ],
-  buildModules: [
-    ['@nuxt-modules/compression', {
-      algorithm: 'gzip',
-      filter: /\.(js|mjs|css|html)$/i,
-      success: () => {
-        // eslint-disable-next-line no-console
-        console.log('✅ Success gzip compression')
-      },
-    }],
-  ],
   build: {
     postcss: {
       postcssOptions: {

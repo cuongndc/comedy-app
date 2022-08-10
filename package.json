@@ -11,6 +11,9 @@
     "lint": "eslint .",
     "start": "nuxt start"
   },
+  "resolutions": {
+    "nitropack": "patch:nitropack@npm:0.2.4#/patches/nitropack-npm-0.2.4-598f2e4fe6.patch"
+  },
   "dependencies": {
     "@nuxt-modules/compression": "^0.1.0",
     "axios": "^0.27.2",
