@@ -42,16 +42,13 @@ const navigatorComicPreview = (slug: string, _id: string) => {
         >
           <SwiperSlide v-for="content in record.content" :key="content.slug" class="h-[130px]">
             <div class="flex items-center p-5" @click="navigatorComicPreview(content.slug, content._id)">
-              <div>
-                <shared-mee-toon-img
-                  fil="cover"
-                  class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
-                  :width="75" :height="100"
-                  sizes="sm:75px 2sm:100px sm:150px md:150px"
-                  :src="content.verticalLogo"
-                />
-              </div>
-
+              <shared-mee-toon-img
+                fil="cover"
+                class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
+                :width="75" :height="100"
+                sizes="sm:75px 2sm:100px sm:150px md:150px"
+                :src="content.verticalLogo"
+              />
               <div class="px-5">
                 <h3 class="text-xl font-semibold line-clamp-1 mb-1">
                   <NuxtLink :to="useNavigatorComicPreview(content.slug, content._id)">
@@ -81,7 +78,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
         <div>
           <NuxtLink :to="`/${TRUYEN_CHU_HOT}`" class="flex items-center justify-center p-5">
             <span class="text-xl text-primary-gray">Xem tất cả</span>
-<!--            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" />-->
+            <!--            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" /> -->
           </NuxtLink>
         </div>
       </div>

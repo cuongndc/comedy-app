@@ -8,6 +8,10 @@ export default defineNuxtConfig({
   app: {
     buildAssetsDir: '/assets/',
   },
+  experimental: {
+    reactivityTransform: true,
+    viteNode: false,
+  },
   runtimeConfig: {
     mongodbURI: process.env.MONGODB_URI,
     serviceURL: process.env.SERVICE_URL,
@@ -83,8 +87,17 @@ export default defineNuxtConfig({
     '@kevinmarrec/nuxt-pwa',
     mongodbSetup,
   ],
+  buildModules: [
+    ['@nuxt-modules/compression', {
+      algorithm: 'gzip',
+      filter: /\.(js|mjs|css|html)$/i,
+      success: () => {
+        // eslint-disable-next-line no-console
+        console.log('✅ Success gzip compression')
+      },
+    }],
+  ],
   build: {
-    transpile: ['@heroicons/vue', 'vuetify'],
     postcss: {
       postcssOptions: {
         plugins: {

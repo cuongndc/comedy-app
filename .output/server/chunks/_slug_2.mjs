@@ -4,11 +4,16 @@ import { c as collections } from './index.mjs';
 import 'mongodb';
 
 const _slug_ = defineEventHandler(async (event) => {
-  const params = event.context.params;
-  const { slug } = params;
-  return await mongo.db().collection(collections.novels).findOne({
-    slug
-  });
+  const slug = event.context.params.slug;
+  let filter = {};
+  if (slug !== "all") {
+    filter = {
+      "categories.categorySlug": {
+        $in: [slug]
+      }
+    };
+  }
+  return await mongo.db().collection(collections.novels).find(filter).limit(30).sort({ updatedAt: -1 }).toArray();
 });
 
 export { _slug_ as default };;globalThis.__timing__.logEnd('Load chunks/_slug_2');

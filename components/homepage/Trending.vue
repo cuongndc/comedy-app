@@ -16,7 +16,7 @@ const navigatorComicPreview = (slug: string, _id: string) => {
 
 <template>
   <client-only>
-    <div class="px-4 bg-contain">
+    <div class="px-4 bg-contain mb-4">
       <div>
         <NuxtLink href="/">
           <nuxt-img format="png" quality="100" class="w-full" src="/icons/widgets/trend/img-header.svg" alt="Có chắc đây là hot" />
@@ -42,15 +42,12 @@ const navigatorComicPreview = (slug: string, _id: string) => {
         >
           <SwiperSlide v-for="content in record.content" :key="content.slug" class="h-[130px]">
             <div class="flex items-center p-5" @click="navigatorComicPreview(content.slug, content._id)">
-              <div class="w-[75px]">
-                <shared-mee-toon-img
-                  fil="cover"
-                  class="w-[75px] h-full relative rounded-2xl"
-                  :width="75" :height="100"
-                  sizes="sm:75px 2sm:100px sm:150px md:150px"
-                  :src="content.verticalLogo"
-                />
-              </div>
+              <shared-mee-toon-img
+                fil="cover" class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
+                :width="75" :height="100"
+                sizes="sm:75px 2sm:100px sm:150px md:150px"
+                :src="content.verticalLogo"
+              />
 
               <div class="px-5">
                 <h3 class="text-xl font-semibold line-clamp-1 mb-1">
@@ -81,7 +78,6 @@ const navigatorComicPreview = (slug: string, _id: string) => {
         <div>
           <NuxtLink :to="`/${TRENDING}`" class="flex items-center justify-center p-5">
             <span class="text-xl text-primary-gray">Xem tất cả</span>
-<!--            <ChevronDoubleRightIcon class="h-4 w-4 text-primary-gray ml-2" />-->
           </NuxtLink>
         </div>
       </div>
@@ -97,3 +93,4 @@ const navigatorComicPreview = (slug: string, _id: string) => {
   }
 }
 </style>
+
