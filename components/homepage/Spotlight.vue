@@ -6,6 +6,7 @@ import { ref } from 'vue'
 import { useRuntimeConfig } from '#app'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 import type { IBanner } from '~/types'
+import { LazySharedMeeToonImg } from '#components'
 
 const props = defineProps({
   banner: Object as PropType<IBanner>,
@@ -33,22 +34,28 @@ const autoPlaySettings = ref<autoSettingSwiper>({
         :title="cover.comicName"
       >
         <div class="w-full bottom-0">
-          <shared-mee-toon-img
+          <nuxt-img
+            preload
+            :quality="40"
+            format="webp"
             class="w-full"
+            provider="imageengine"
             :alt="cover.comicName"
             :src="`${cover.link}`"
             sizes="xs:320px 2xs:390px sm:640px md:768px"
           />
         </div>
-        <shared-mee-toon-img
+        <nuxt-img
           v-for="animation in cover.animations"
           :key="animation.image"
+          preload
+          :quality="40"
+          format="webp"
           class="absolute w-full bottom-0"
+          provider="imageengine"
           :alt="cover.comicName"
           :src="`${animation.image}`"
           sizes="xs:320px 2xs:390px sm:640px md:768px"
-          :width="375"
-          :height="280"
         />
       </NuxtLink>
     </SwiperSlide>

@@ -71,7 +71,10 @@ const backgroundImage = (image) => {
 </script>
 
 <template>
-  <section>
+  <div v-if="pending">
+    <CommonPageLoading />
+  </div>
+  <section v-else class="h-[100vh] bg-accent-4">
     <div
       :style="backgroundImage(comic.squareCover)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"

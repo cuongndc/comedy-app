@@ -5,7 +5,16 @@ import { collections } from '~/contants'
 export default defineEventHandler(async (event) => {
   const { slug } = useQuery(event)
 
-  return await mongo.db().collection(collections.novelChapters).findOne({
+  const chapter = await mongo.db().collection(collections.novelChapters).findOne({
     slug,
   })
+
+  const novel = await mongo.db().collection(collections.novels).findOne({
+    _id: chapter.novelId,
+  })
+
+  return {
+    chapter,
+    novel,
+  }
 })

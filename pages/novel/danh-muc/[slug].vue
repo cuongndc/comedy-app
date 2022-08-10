@@ -24,7 +24,7 @@ watchEffect(() => {
     <PageLoading v-if="pending" />
     <div class="bg-white h-[100vh]">
       <div class="flex justify-between justify-center" style="box-shadow: rgb(242 242 242) 0 -1px 0 inset">
-        <NuxtLink class="mx-2 my-2 flex items-center" @click="$router.back()">
+        <NuxtLink class="mx-2 my-2 flex items-center" to="/novel">
           <img src="/icons/header/icon-back-white.svg" alt="back">
         </NuxtLink>
         <div class="flex items-center justify-center w-[70%] mx-2 my-2 text-4xl text-black font-semibold">

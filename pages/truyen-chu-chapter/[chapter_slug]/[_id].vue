@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, watchEffect } from 'vue'
-import { set } from '@vueuse/core'
+import { onClickOutside, set } from '@vueuse/core'
 import { TRUYEN_CHU_CHAPTER } from '~/contants'
 import { navigateTo, useLazyFetch, useState } from '#app'
 import type { Chapter, ReadPage } from '~/types'
@@ -9,12 +9,17 @@ const route = useRoute()
 const params = route.params
 
 const chapterSlug = ref(params.chapter_slug)
-const novelInfo = useState<ReadPage>('novelInfo')
+const novelInfo = useState('novelInfo')
+
 const chapters = useState<Chapter[]>('chapters')
-const novel = useState<Chapter[]>('novel')
 const shouldShowControl = ref(true)
+
 const settingFont = ref(false)
 const fontDefault = ref(15)
+
+const chapterListEL = ref(null)
+const shouldShowChapterList = ref(false)
+onClickOutside(chapterListEL, event => set(shouldShowChapterList, false))
 
 const {
   pending,
@@ -27,14 +32,14 @@ const {
 })
 
 onMounted(async () => {
-  novelInfo.value = await $fetch('/api/novel/information', {
-    params: {
-      novelId: readPage.value?.novelId,
-    },
-  })
-
-  set(chapters, novelInfo.value?.chapters)
-  set(novel, novelInfo.value?.novel)
+  if (!chapters.value) {
+    novelInfo.value = await $fetch('/api/novel/information', {
+      params: {
+        novelId: readPage.value?.novel._id,
+      },
+    })
+    set(chapters, novelInfo.value?.chapters)
+  }
 })
 
 watchEffect(() => {
@@ -58,9 +63,14 @@ const handleControl = () => {
   set(settingFont, false)
 }
 
+const readQuickly = (slug: string) => {
+  return navigateTo(`/${TRUYEN_CHU_CHAPTER}/${slug}}`)
+}
+
 const handleChapter = async (action: 'next' | 'prev') => {
+  const chapterNum = readPage.value?.chapter.chapterNum
   if (action === 'next') {
-    const nextC = readPage.value?.chapterNum + 1
+    const nextC = chapterNum + 1
     const next = chapters.value.find((chap: Chapter) => chap.chapterNum === nextC)
 
     navigateTo({
@@ -70,7 +80,7 @@ const handleChapter = async (action: 'next' | 'prev') => {
   }
 
   if (action === 'prev') {
-    const prevC = readPage.value?.chapterNum - 1
+    const prevC = chapterNum - 1
     const prev = chapters.value.find((chap: Chapter) => chap.chapterNum === prevC)
 
     navigateTo({
@@ -92,19 +102,19 @@ const handleChapter = async (action: 'next' | 'prev') => {
   >
     <Head>
       <Title>
-        {{ novel?.name }} | Chương {{ readPage?.chapterNum }}
+        {{ readPage.novel?.name }} | Chương {{ readPage?.chapter.chapterNum }}
       </Title>
     </Head>
-    <div class="relative flex h-fit flex-1 text-white" @click="handleControl">
-      <div class="h-fit min-h-screen w-full bg-[#f8f3e6] text-black">
+    <div class="relative flex h-fit flex-1 text-white">
+      <div class="h-fit min-h-screen w-full bg-[#f8f3e6] text-black" @click.prevent="handleControl">
         <div :class="{ 'top-0': shouldShowControl }" class="ease-in-out duration-300 fixed top-[-70px] left-0 z-[999] h-[44px] w-full">
           <div class="flex h-full w-full items-center justify-between text-lg md:text-2xl bg-black/40">
-            <LazyNuxtLink :to="useNavigatorNovel(novel?.slug)" class="w-[30px] h-[30px] flex ml-4">
+            <LazyNuxtLink :to="useNavigatorNovel(readPage.novel?.slug)" class="w-[30px] h-[30px] flex ml-4">
               <img src="/icons/novelChapterPage/icon-back.svg" alt="back">
             </LazyNuxtLink>
-            <div class="flex align-center">
+            <div class="flex align-center" @click.stop="shouldShowChapterList = true">
               <span class="text-2xl font-semibold text-white">
-                Chương {{ readPage?.chapterNum }}
+                Chương {{ readPage?.chapter.chapterNum }}
               </span>
               <img src="/icons/novelChapterPage/icon-arrow-down.svg" alt="arrow down">
             </div>
@@ -128,10 +138,10 @@ const handleChapter = async (action: 'next' | 'prev') => {
             <div class="flex align-center w-[30px]" @click.stop="settingFont = true">
               <img src="/icons/novelChapterPage/icon-footer-setting.svg" alt="setting">
             </div>
-            <div class="flex align-center w-[30px]" @click="handleChapter('prev')">
+            <div class="flex align-center w-[30px]" @click.stop="handleChapter('prev')">
               <img src="/icons/novelChapterPage/icon-prev.svg" alt="setting">
             </div>
-            <div class="flex align-center w-[30px] mr-3" @click="handleChapter('next')">
+            <div class="flex align-center w-[30px] mr-3" @click.stop="handleChapter('next')">
               <img src="/icons/novelChapterPage/icon-next.svg" alt="setting">
             </div>
           </div>
@@ -147,10 +157,56 @@ const handleChapter = async (action: 'next' | 'prev') => {
             </div>
           </div>
         </footer>
-        <h1 class="px-7 pt-[60px] font-[Literata] text-3xl">
-          Chương {{ readPage?.chapterNum }}: {{ readPage?.chapterName ? readPage?.chapterName : '...' }}
-        </h1>
-        <div :style="{ 'font-size': `${fontDefault}px` }" class="px-7 pt-10  chapter-content font-[Literata]" v-html="readPage?.content" />
+        <div v-if="shouldShowChapterList" ref="chapterListEL" class="fixed z-[9999] bottom-0 w-full h-full h-[90%] bg-accent-4 overflow-auto scrollbar-hide">
+          <div class="absolute w-full">
+            <div class="rounded-l-2xl rounded-r-2xl px-5 py-5">
+              <h3 class="text-white text-3xl">
+                Chapters
+              </h3>
+            </div>
+            <div v-for="chapter in chapters" :key="chapter._id" class="relative" style="border-bottom: 1px solid rgb(27, 28, 35)">
+              <div class="px-5 py-5 cursor-pointe ">
+                <a @click="readQuickly(chapter.slug)">
+                  <h3 class="text-xl mb-4">
+                    <b>
+                      Chương {{ chapter.chapterNum }}
+                    </b>
+                  </h3>
+                  <div class="flex">
+                    <p class="mr-8 text-primary-gray text-2xl flex items-center">
+                      {{ new Date(chapter.createdAt).toLocaleDateString() }}
+                    </p>
+                    <div class="mr-[17px] flex items-center justify-center text-2xl">
+                      <img class="mr-2" src="/icons/chapterItem/icon-view.svg" alt="view">
+                      <span class="text-primary-gray">
+                        {{ chapter.totalView ? convertUnit(chapter.totalView) : 0 }}
+                      </span>
+                    </div>
+                    <div class="mr-8 flex items-center justify-center text-2xl">
+                      <img class="mr-2" src="/icons/chapterItem/icon-like.svg" alt="like">
+                      <span class="text-primary-gray">
+                        {{ chapter.totalLike ? convertUnit(chapter.totalLike) : 0 }}
+                      </span>
+                    </div>
+                    <div class="flex items-center justify-center mr-4 text-2xl">
+                      <img class="mr-2" src="/icons/chapterItem/icon-comment.svg" alt="comment">
+                      <span class="text-primary-gray">
+                        {{ chapter.totalComment ? convertUnit(chapter.totalComment) : 0 }}
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h1 class="px-7 pt-[60px] font-[Literata] text-3xl">
+            Chương {{ readPage?.chapter.chapterNum }}: {{ readPage?.chapter.chapterName ? readPage?.chapter.chapterName : '...' }}
+          </h1>
+          <div :style="{ 'font-size': `${fontDefault}px` }" class="px-7 pt-10  chapter-content font-[Literata]" v-html="readPage?.chapter.content" />
+        </div>
       </div>
     </div>
   </div>

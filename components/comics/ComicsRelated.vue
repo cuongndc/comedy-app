@@ -20,7 +20,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="px-5 py-5 mb-14" style="border-top: 3px solid rgb(27, 28, 35)">
+  <div class="px-5 py-5 pb-20" style="border-top: 3px solid rgb(27, 28, 35)">
     <div class=" flex items-center justify-between">
       <h2 class="text-white font-bold text-3xl mb-7">
         Đề xuất liên quan

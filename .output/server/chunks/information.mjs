@@ -8,12 +8,8 @@ const information = defineEventHandler(async (event) => {
   const chapters = await mongo.db().collection(collections.novelChapters).find({
     novelId
   }).toArray();
-  const novel = await mongo.db().collection(collections.novels).findOne({
-    _id: novelId
-  });
   return {
-    chapters,
-    novel
+    chapters
   };
 });
 

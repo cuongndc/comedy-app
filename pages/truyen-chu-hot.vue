@@ -21,7 +21,7 @@ watchEffect(() => {
   <SearchLoading v-if="pending" class="w-[150px] h-[50px]" />
   <div v-else class="bg-white h-[100vh]">
     <div class="flex justify-between justify-center" style="box-shadow: rgb(242 242 242) 0 -1px 0 inset">
-      <NuxtLink to="/" class="mx-2 my-2 flex items-center">
+      <NuxtLink class="mx-2 my-2 flex items-center" @click="$router.back()">
         <img src="/icons/header/icon-back-white.svg" alt="back">
       </NuxtLink>
       <div class="flex items-center justify-center w-[70%] mx-2 my-2 text-4xl text-black font-semibold">

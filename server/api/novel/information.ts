@@ -8,12 +8,7 @@ export default defineEventHandler(async (event) => {
     novelId,
   }).toArray()
 
-  const novel = await mongo.db().collection(collections.novels).findOne({
-    _id: novelId,
-  })
-
   return {
     chapters,
-    novel,
   }
 })

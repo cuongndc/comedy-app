@@ -5,9 +5,16 @@ import 'mongodb';
 
 const readNovel = defineEventHandler(async (event) => {
   const { slug } = useQuery(event);
-  return await mongo.db().collection(collections.novelChapters).findOne({
+  const chapter = await mongo.db().collection(collections.novelChapters).findOne({
     slug
   });
+  const novel = await mongo.db().collection(collections.novels).findOne({
+    _id: chapter.novelId
+  });
+  return {
+    chapter,
+    novel
+  };
 });
 
 export { readNovel as default };;globalThis.__timing__.logEnd('Load chunks/read-novel');

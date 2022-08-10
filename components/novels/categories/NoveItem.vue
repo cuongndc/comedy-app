@@ -31,7 +31,7 @@ defineProps({
           />
         </div>
         <h3
-          class="text-xl line-clamp-1 mt-1 text-black font-semibold"
+          class="text-xl line-clamp-2 mt-1 text-black font-semibold"
           :title="novel.name"
         >
           {{ novel.name }}

@@ -47,7 +47,6 @@ export default defineNuxtConfig({
       name: process.env.SITE_NAME,
       author: process.env.SITE_NAME,
       description: `Web đọc truyện tranh online lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia đọc truyện và thảo luận với hơn 💚10 triệu thành viên tại ${process.env.SITE_NAME}`,
-      mobileAppIOS: true,
       mobileApp: true,
       ogHost: process.env.DOMAIN,
       twitterCard: process.env.SITE_NAME,

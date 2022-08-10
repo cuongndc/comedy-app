@@ -1,6 +1,6 @@
 globalThis.__timing__.logStart('Load chunks/app/server');import { v as vue_cjs_prod, s as serverRenderer } from '../handlers/renderer.mjs';
 import { joinURL, hasProtocol, isEqual, encodeParam, withBase, withQuery, withLeadingSlash, parseURL, encodePath } from 'ufo';
-import { useStorage, useDebounce, set, isClient } from '@vueuse/core';
+import { useStorage, useDebounce, onClickOutside, set, isClient } from '@vueuse/core';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { u as useRuntimeConfig$1 } from '../nitro/node-server.mjs';
 import 'h3';
@@ -5217,7 +5217,7 @@ const Components = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePr
   Html,
   Body
 }, Symbol.toStringTag, { value: "Module" }));
-const metaConfig = { "globalMeta": { "charset": "utf-8", "viewport": "width=device-width, initial-scale=1", "meta": [{ "name": "mobile-web-app-capable", "content": "yes" }, { "name": "apple-mobile-web-app-capable", "content": "yes" }, { "name": "apple-mobile-web-app-status-bar-style", "content": "default" }, { "name": "apple-mobile-web-app-title", "content": "MEETOON" }, { "name": "author", "content": "MEETOON" }, { "name": "description", "content": "Web \u0111\u1ECDc truy\u1EC7n tranh online l\u1EDBn nh\u1EA5t \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt li\xEAn t\u1EE5c m\u1ED7i ng\xE0y - C\xF9ng tham gia \u0111\u1ECDc truy\u1EC7n v\xE0 th\u1EA3o lu\u1EADn v\u1EDBi h\u01A1n \u{1F49A}10 tri\u1EC7u th\xE0nh vi\xEAn t\u1EA1i MEETOON" }, { "name": "theme-color", "content": "#fff" }, { "property": "og:type", "content": "website" }, { "property": "og:url", "content": "https://meetoon.co" }, { "property": "og:title", "content": "MEETOON" }, { "property": "og:site_name", "content": "MEETOON" }, { "property": "og:description", "content": "Web \u0111\u1ECDc truy\u1EC7n tranh online l\u1EDBn nh\u1EA5t \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt li\xEAn t\u1EE5c m\u1ED7i ng\xE0y - C\xF9ng tham gia \u0111\u1ECDc truy\u1EC7n v\xE0 th\u1EA3o lu\u1EADn v\u1EDBi h\u01A1n \u{1F49A}10 tri\u1EC7u th\xE0nh vi\xEAn t\u1EA1i MEETOON" }, { "property": "og:image", "content": "https://meetoon.co/assets/icons/512x512.maskable.af090742.png" }, { "property": "og:image:width", "content": 512 }, { "property": "og:image:height", "content": 512 }, { "property": "og:image:type", "content": "image/png" }, { "name": "twitter:card", "content": "MEETOON" }, { "name": "twitter:site", "content": "MEETOON" }, { "name": "twitter:creator", "content": "MEETOON" }], "link": [{ "href": "/assets/splash/640x1136.af090742.png", "media": "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/750x1334.af090742.png", "media": "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/828x1792.af090742.png", "media": "(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1125x2436.af090742.png", "media": "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1170x2532.af090742.png", "media": "(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1242x2208.af090742.png", "media": "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1242x2688.af090742.png", "media": "(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1284x2778.af090742.png", "media": "(device-width: 642px) and (device-height: 1389px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1536x2048.af090742.png", "media": "(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1620x2160.af090742.png", "media": "(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1668x2224.af090742.png", "media": "(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1668x2388.af090742.png", "media": "(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1136x640.af090742.png", "media": "(device-width: 568px) and (device-height: 320px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1334x750.af090742.png", "media": "(device-width: 667px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/1792x828.af090742.png", "media": "(device-width: 896px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2048x1536.af090742.png", "media": "(device-width: 1024px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2160x1620.af090742.png", "media": "(device-width: 1080px) and (device-height: 810px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2208x1242.af090742.png", "media": "(device-width: 736px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2224x1668.af090742.png", "media": "(device-width: 1112px) and (device-height: 834px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2388x1668.af090742.png", "media": "(device-width: 1194px) and (device-height: 834px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2436x1125.af090742.png", "media": "(device-width: 812px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2532x1170.af090742.png", "media": "(device-width: 844px) and (device-height: 390px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2688x1242.af090742.png", "media": "(device-width: 896px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2732x2048.af090742.png", "media": "(device-width: 1366px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "href": "/assets/splash/2778x1284.af090742.png", "media": "(device-width: 926px) and (device-height: 428px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)", "rel": "apple-touch-startup-image" }, { "rel": "shortcut icon", "href": "/assets/icons/64x64.af090742.png" }, { "rel": "apple-touch-icon", "href": "/assets/icons/512x512.maskable.af090742.png", "sizes": "512x512" }, { "rel": "manifest", "href": "/manifest.579c8d44.json" }], "style": [], "script": [{ "children": "if ('serviceWorker' in navigator) {\n  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'))\n}" }], "title": "MEETOON", "htmlAttrs": { "lang": "en" } } };
+const metaConfig = { "globalMeta": { "charset": "utf-8", "viewport": "width=device-width, initial-scale=1", "meta": [{ "name": "mobile-web-app-capable", "content": "yes" }, { "name": "apple-mobile-web-app-title", "content": "MEETOON" }, { "name": "author", "content": "MEETOON" }, { "name": "description", "content": "Web \u0111\u1ECDc truy\u1EC7n tranh online l\u1EDBn nh\u1EA5t \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt li\xEAn t\u1EE5c m\u1ED7i ng\xE0y - C\xF9ng tham gia \u0111\u1ECDc truy\u1EC7n v\xE0 th\u1EA3o lu\u1EADn v\u1EDBi h\u01A1n \u{1F49A}10 tri\u1EC7u th\xE0nh vi\xEAn t\u1EA1i MEETOON" }, { "name": "theme-color", "content": "#fff" }, { "property": "og:type", "content": "website" }, { "property": "og:url", "content": "https://meetoon.co" }, { "property": "og:title", "content": "MEETOON" }, { "property": "og:site_name", "content": "MEETOON" }, { "property": "og:description", "content": "Web \u0111\u1ECDc truy\u1EC7n tranh online l\u1EDBn nh\u1EA5t \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt li\xEAn t\u1EE5c m\u1ED7i ng\xE0y - C\xF9ng tham gia \u0111\u1ECDc truy\u1EC7n v\xE0 th\u1EA3o lu\u1EADn v\u1EDBi h\u01A1n \u{1F49A}10 tri\u1EC7u th\xE0nh vi\xEAn t\u1EA1i MEETOON" }, { "property": "og:image", "content": "https://meetoon.co/assets/icons/512x512.maskable.af090742.png" }, { "property": "og:image:width", "content": 512 }, { "property": "og:image:height", "content": 512 }, { "property": "og:image:type", "content": "image/png" }, { "name": "twitter:card", "content": "MEETOON" }, { "name": "twitter:site", "content": "MEETOON" }, { "name": "twitter:creator", "content": "MEETOON" }], "link": [{ "rel": "shortcut icon", "href": "/assets/icons/64x64.af090742.png" }, { "rel": "apple-touch-icon", "href": "/assets/icons/512x512.maskable.af090742.png", "sizes": "512x512" }, { "rel": "manifest", "href": "/manifest.579c8d44.json" }], "style": [], "script": [{ "children": "if ('serviceWorker' in navigator) {\n  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'))\n}" }], "title": "MEETOON", "htmlAttrs": { "lang": "en" } } };
 const metaMixin = {
   created() {
     const instance = vue_cjs_prod.getCurrentInstance();
@@ -5300,9 +5300,9 @@ const NuxtPage = vue_cjs_prod.defineComponent({
   }
 });
 const defaultPageTransition = { name: "page", mode: "out-in" };
-const _imports_0$8 = publicAssetsURL(`icons/header/icon-back-white.svg`);
-const _imports_1$6 = publicAssetsURL(`icons/header/icon-search.svg`);
-const _sfc_main$14 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _imports_0$7 = publicAssetsURL(`icons/header/icon-back-white.svg`);
+const _imports_1$5 = publicAssetsURL(`icons/header/icon-search.svg`);
+const _sfc_main$18 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "CateList",
   __ssrInlineRender: true,
   props: {
@@ -5340,15 +5340,15 @@ const _sfc_main$14 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$13 = _sfc_main$14.setup;
-_sfc_main$14.setup = (props, ctx) => {
+const _sfc_setup$17 = _sfc_main$18.setup;
+_sfc_main$18.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/categorys/CateList.vue");
-  return _sfc_setup$13 ? _sfc_setup$13(props, ctx) : void 0;
+  return _sfc_setup$17 ? _sfc_setup$17(props, ctx) : void 0;
 };
 const CateList = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$14
+  "default": _sfc_main$18
 }, Symbol.toStringTag, { value: "Module" }));
 const TRUYEN_TRANH_CHAPTER = "truyen-tranh-chapter";
 const TRUYEN_TRANH = "truyen-tranh";
@@ -5451,7 +5451,7 @@ const COMIC_STATUS = {
   inprogress: "\u0110ang ra",
   complete: "Ho\xE0n th\xE0nh"
 };
-const _sfc_main$13 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$17 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "SearchLoading",
   __ssrInlineRender: true,
   props: {
@@ -5475,20 +5475,20 @@ const _sfc_main$13 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$12 = _sfc_main$13.setup;
-_sfc_main$13.setup = (props, ctx) => {
+const _sfc_setup$16 = _sfc_main$17.setup;
+_sfc_main$17.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/common/SearchLoading.vue");
-  return _sfc_setup$12 ? _sfc_setup$12(props, ctx) : void 0;
+  return _sfc_setup$16 ? _sfc_setup$16(props, ctx) : void 0;
 };
 const SearchLoading = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$13
+  "default": _sfc_main$17
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$j = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$h = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ComicItem;
 }));
-const _sfc_main$12 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$16 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
   __ssrInlineRender: true,
   setup(__props) {
@@ -5504,7 +5504,7 @@ const _sfc_main$12 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$j;
+      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$h;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         to: "/",
@@ -5512,11 +5512,11 @@ const _sfc_main$12 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_0$8,
+                src: _imports_0$7,
                 alt: "back"
               })
             ];
@@ -5531,11 +5531,11 @@ const _sfc_main$12 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_1$6,
+                src: _imports_1$5,
                 alt: "search"
               })
             ];
@@ -5544,9 +5544,9 @@ const _sfc_main$12 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         _: 1
       }, _parent));
       _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
-      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$14, { categories: vue_cjs_prod.unref(categories) }, null, _parent));
+      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$18, { categories: vue_cjs_prod.unref(categories) }, null, _parent));
       if (loading.value) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, { class: "w-[150px] h-[50px]" }, null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, { class: "w-[150px] h-[50px]" }, null, _parent));
       } else {
         _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_LazyCategorysComicItem, { comics: vue_cjs_prod.unref(comics) }, null, _parent));
@@ -5556,13 +5556,13 @@ const _sfc_main$12 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$11 = _sfc_main$12.setup;
-_sfc_main$12.setup = (props, ctx) => {
+const _sfc_setup$15 = _sfc_main$16.setup;
+_sfc_main$16.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/danh-muc/[slug].vue");
-  return _sfc_setup$11 ? _sfc_setup$11(props, ctx) : void 0;
+  return _sfc_setup$15 ? _sfc_setup$15(props, ctx) : void 0;
 };
-const meta$b = void 0;
+const meta$c = void 0;
 const layouts = {
   default: vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
     return _default$1;
@@ -5606,7 +5606,7 @@ const _export_sfc = (sfc, props) => {
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheHome;
 }));
-const meta$a = void 0;
+const meta$b = void 0;
 function getFileExtension(url = "") {
   const extension = url.split(/[?#]/).shift().split("/").pop().split(".").pop();
   return extension;
@@ -5722,7 +5722,7 @@ async function imageMeta$1(_ctx, url) {
 async function _imageMeta(url) {
   {
     const imageMeta2 = await Promise.resolve().then(function() {
-      return index$5;
+      return index$6;
     }).then((r) => r.imageMeta);
     const data = await fetch(url).then((res) => res.buffer());
     const metadata = imageMeta2(data);
@@ -5882,7 +5882,7 @@ function getSizes(ctx, input, opts) {
     src: defaultVar == null ? void 0 : defaultVar.src
   };
 }
-const _sfc_main$11 = vue_cjs_prod.defineComponent({
+const _sfc_main$15 = vue_cjs_prod.defineComponent({
   name: "NuxtImg",
   mixins: [imageMixin],
   props: {
@@ -5976,18 +5976,18 @@ function _sfc_ssrRender$a(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     src: _ctx.nSrc
   }, _attrs))}>`);
 }
-const _sfc_setup$10 = _sfc_main$11.setup;
-_sfc_main$11.setup = (props, ctx) => {
+const _sfc_setup$14 = _sfc_main$15.setup;
+_sfc_main$15.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/@nuxt/image-edge/dist/runtime/components/nuxt-img.vue");
-  return _sfc_setup$10 ? _sfc_setup$10(props, ctx) : void 0;
+  return _sfc_setup$14 ? _sfc_setup$14(props, ctx) : void 0;
 };
-const __nuxt_component_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["ssrRender", _sfc_ssrRender$a]]);
+const __nuxt_component_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["ssrRender", _sfc_ssrRender$a]]);
 const nuxtImg = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": __nuxt_component_2$1
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$10 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$14 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "MeeToonImg",
   __ssrInlineRender: true,
   props: {
@@ -6040,17 +6040,17 @@ const _sfc_main$10 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$$ = _sfc_main$10.setup;
-_sfc_main$10.setup = (props, ctx) => {
+const _sfc_setup$13 = _sfc_main$14.setup;
+_sfc_main$14.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/shared/MeeToonImg.vue");
-  return _sfc_setup$$ ? _sfc_setup$$(props, ctx) : void 0;
+  return _sfc_setup$13 ? _sfc_setup$13(props, ctx) : void 0;
 };
 const MeeToonImg = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$10
+  "default": _sfc_main$14
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$$ = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$13 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "ChapterRepresent",
   __ssrInlineRender: true,
   props: {
@@ -6058,7 +6058,7 @@ const _sfc_main$$ = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
         class: "px-5 overflow-auto whitespace-nowrap scrollbar-hide",
         style: { "display": "-webkit-box" }
@@ -6076,17 +6076,17 @@ const _sfc_main$$ = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$_ = _sfc_main$$.setup;
-_sfc_main$$.setup = (props, ctx) => {
+const _sfc_setup$12 = _sfc_main$13.setup;
+_sfc_main$13.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/ChapterRepresent.vue");
-  return _sfc_setup$_ ? _sfc_setup$_(props, ctx) : void 0;
+  return _sfc_setup$12 ? _sfc_setup$12(props, ctx) : void 0;
 };
 const ChapterRepresent = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$$
+  "default": _sfc_main$13
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$_ = vue_cjs_prod.defineComponent({
+const _sfc_main$12 = vue_cjs_prod.defineComponent({
   name: "NuxtLoadingIndicator",
   props: {
     throttle: {
@@ -6167,27 +6167,27 @@ function useLoadingIndicator$1(opts) {
     clear
   };
 }
-const _sfc_setup$Z = _sfc_main$_.setup;
-_sfc_main$_.setup = (props, ctx) => {
+const _sfc_setup$11 = _sfc_main$12.setup;
+_sfc_main$12.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/NuxtLoadingBar.vue");
-  return _sfc_setup$Z ? _sfc_setup$Z(props, ctx) : void 0;
+  return _sfc_setup$11 ? _sfc_setup$11(props, ctx) : void 0;
 };
 const NuxtLoadingBar = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$_
+  "default": _sfc_main$12
 }, Symbol.toStringTag, { value: "Module" }));
-const _imports_0$7 = publicAssetsURL(`icons/tabbar/icon-newsfeed.svg`);
-const _imports_1$5 = publicAssetsURL(`icons/tabbar/icon-toon-active.svg`);
-const _imports_2$6 = publicAssetsURL(`icons/tabbar/icon-toon.svg`);
+const _imports_0$6 = publicAssetsURL(`icons/tabbar/icon-newsfeed.svg`);
+const _imports_1$4 = publicAssetsURL(`icons/tabbar/icon-toon-active.svg`);
+const _imports_2$5 = publicAssetsURL(`icons/tabbar/icon-toon.svg`);
 const _imports_3$4 = publicAssetsURL(`icons/tabbar/icon-novel-active.svg`);
 const _imports_4$3 = publicAssetsURL(`icons/tabbar/icon-novel.svg`);
 const _imports_5$2 = publicAssetsURL(`icons/tabbar/icon-tutruyen.svg`);
 const _imports_6$2 = publicAssetsURL(`icons/tabbar/icon-canhan.svg`);
-const _sfc_main$Z = {};
+const _sfc_main$11 = {};
 function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLink = __nuxt_component_0$2;
-  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "max-w-[450px] md:max-w-[768px] flex fixed bottom-0 z-50 bg-white w-full items-center justify-between shadow h-[60px]" }, _attrs))}><div class="w-[20%]"><a class="h-[50px] flex flex-col items-center" title="B\u1EA3ng tin" href="/bang-tin"><div class="w-[30px] max-w-[100%]"><div class="relative pb-[100%]"><img alt="B\u1EA3ng tin" data-src="/icons/tabbar/icon-newsfeed.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)}></div></div><span class="text-xl text-primary-gray">B\u1EA3ng tin</span></a></div><div class="w-[20%]">`);
+  _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "max-w-[450px] md:max-w-[768px] flex fixed bottom-0 z-50 bg-white w-full items-center justify-between shadow h-[60px]" }, _attrs))}><div class="w-[20%]"><a class="h-[50px] flex flex-col items-center" title="B\u1EA3ng tin" href="/bang-tin"><div class="w-[30px] max-w-[100%]"><div class="relative pb-[100%]"><img alt="B\u1EA3ng tin" data-src="/icons/tabbar/icon-newsfeed.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$6)}></div></div><span class="text-xl text-primary-gray">B\u1EA3ng tin</span></a></div><div class="w-[20%]">`);
   _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
     to: "/",
     class: "h-[50px] flex flex-col items-center",
@@ -6197,9 +6197,9 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs) {
       if (_push2) {
         _push2(`<div class="w-[30px] max-w-[100%]"${_scopeId}><div class="relative pb-[100%]"${_scopeId}>`);
         if (_ctx.$route.name === "index") {
-          _push2(`<img alt="Truy\u1EC7n tranh" data-src="/icons/tabbar/icon-toon-active.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)}${_scopeId}>`);
+          _push2(`<img alt="Truy\u1EC7n tranh" data-src="/icons/tabbar/icon-toon-active.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$4)}${_scopeId}>`);
         } else {
-          _push2(`<img alt="Truy\u1EC7n tranh" data-src="/icons/tabbar/icon-toon.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$6)}${_scopeId}>`);
+          _push2(`<img alt="Truy\u1EC7n tranh" data-src="/icons/tabbar/icon-toon.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$5)}${_scopeId}>`);
         }
         _push2(`</div></div><span class="${serverRenderer.exports.ssrRenderClass([{ "text-[#059e5d]": _ctx.$route.name === "index" }, "text-primary-gray text-xl"])}"${_scopeId}>Truy\u1EC7n tranh</span>`);
       } else {
@@ -6211,13 +6211,13 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs) {
                 alt: "Truy\u1EC7n tranh",
                 "data-src": "/icons/tabbar/icon-toon-active.svg",
                 class: "visible h-full left-0 absolute top-0 w-full",
-                src: _imports_1$5
+                src: _imports_1$4
               })) : (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("img", {
                 key: 1,
                 alt: "Truy\u1EC7n tranh",
                 "data-src": "/icons/tabbar/icon-toon.svg",
                 class: "visible h-full left-0 absolute top-0 w-full",
-                src: _imports_2$6
+                src: _imports_2$5
               }))
             ])
           ]),
@@ -6273,18 +6273,18 @@ function _sfc_ssrRender$9(_ctx, _push, _parent, _attrs) {
   }, _parent));
   _push(`</div><div class="w-[20%]"><a class="h-[50px] flex flex-col items-center" title="Gi\xE1 s\xE1ch" href="/gia-sach"><div class="w-[30px] max-w-[100%]"><div class="relative pb-[100%]"><img alt="Gi\xE1 s\xE1ch" data-src="/icons/tabbar/icon-tutruyen.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_5$2)}></div></div><span class="text-primary-gray text-xl">Gi\xE1 s\xE1ch</span></a></div><div class="w-[20%]"><a class="h-[50px] flex flex-col items-center" title="C\xE1 nh\xE2n" href="/menu"><div class="w-[30px] max-w-[100%]"><div class="relative pb-[100%]"><img alt="C\xE1 nh\xE2n" data-src="/icons/tabbar/icon-canhan.svg" class="visible h-full left-0 absolute top-0 w-full"${serverRenderer.exports.ssrRenderAttr("src", _imports_6$2)}></div></div><span class="text-primary-gray text-xl">C\xE1 nh\xE2n</span></a></div></div>`);
 }
-const _sfc_setup$Y = _sfc_main$Z.setup;
-_sfc_main$Z.setup = (props, ctx) => {
+const _sfc_setup$10 = _sfc_main$11.setup;
+_sfc_main$11.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/TheFooter.vue");
-  return _sfc_setup$Y ? _sfc_setup$Y(props, ctx) : void 0;
+  return _sfc_setup$10 ? _sfc_setup$10(props, ctx) : void 0;
 };
-const TheFooter = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["ssrRender", _sfc_ssrRender$9]]);
+const TheFooter = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["ssrRender", _sfc_ssrRender$9]]);
 const TheFooter$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TheFooter
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Y = {
+const _sfc_main$10 = {
   __name: "TheHeader",
   __ssrInlineRender: true,
   setup(__props) {
@@ -6314,17 +6314,17 @@ const _sfc_main$Y = {
     };
   }
 };
-const _sfc_setup$X = _sfc_main$Y.setup;
-_sfc_main$Y.setup = (props, ctx) => {
+const _sfc_setup$$ = _sfc_main$10.setup;
+_sfc_main$10.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/TheHeader.vue");
-  return _sfc_setup$X ? _sfc_setup$X(props, ctx) : void 0;
+  return _sfc_setup$$ ? _sfc_setup$$(props, ctx) : void 0;
 };
 const TheHeader = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$Y
+  "default": _sfc_main$10
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$X = {};
+const _sfc_main$$ = {};
 function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs) {
   _push(`<!--[--><div class="h-[270px]"><div class="animate-pulse h-full"><div class="animate-pulse bg-black/10 aspect-w-16 aspect-h-9"></div></div></div><div class="py-2 flex justify-around"><!--[-->`);
   serverRenderer.exports.ssrRenderList(4, (i) => {
@@ -6340,23 +6340,23 @@ function _sfc_ssrRender$8(_ctx, _push, _parent, _attrs) {
   });
   _push(`<!--]--></div></div><!--]-->`);
 }
-const _sfc_setup$W = _sfc_main$X.setup;
-_sfc_main$X.setup = (props, ctx) => {
+const _sfc_setup$_ = _sfc_main$$.setup;
+_sfc_main$$.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/pulse/HomeLoading.vue");
-  return _sfc_setup$W ? _sfc_setup$W(props, ctx) : void 0;
+  return _sfc_setup$_ ? _sfc_setup$_(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["ssrRender", _sfc_ssrRender$8]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["ssrRender", _sfc_ssrRender$8]]);
 const HomeLoading = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": __nuxt_component_0
 }, Symbol.toStringTag, { value: "Module" }));
-const _imports_0$6 = publicAssetsURL(`icons/menuBar/ranking_v2.png`);
-const _imports_1$4 = publicAssetsURL(`icons/menuBar/category_v2.png`);
-const _imports_2$5 = publicAssetsURL(`icons/menuBar/follow_v2.png`);
+const _imports_0$5 = publicAssetsURL(`icons/menuBar/ranking_v2.png`);
+const _imports_1$3 = publicAssetsURL(`icons/menuBar/category_v2.png`);
+const _imports_2$4 = publicAssetsURL(`icons/menuBar/follow_v2.png`);
 const _imports_3$3 = publicAssetsURL(`icons/menuBar/community_v2.png`);
 const _imports_4$2 = publicAssetsURL(`icons/menuBar/mission_v2.png`);
-const _sfc_main$W = {
+const _sfc_main$_ = {
   __name: "BannerBar",
   __ssrInlineRender: true,
   setup(__props) {
@@ -6366,13 +6366,13 @@ const _sfc_main$W = {
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="ranking"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$6)}${_scopeId}></div>`);
+            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="ranking"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$5)}${_scopeId}></div>`);
           } else {
             return [
               vue_cjs_prod.createVNode("div", { class: "icon w-16 h-16 rounded-[100%] flex items-center justify-center" }, [
                 vue_cjs_prod.createVNode("img", {
                   alt: "ranking",
-                  src: _imports_0$6
+                  src: _imports_0$5
                 })
               ])
             ];
@@ -6386,13 +6386,13 @@ const _sfc_main$W = {
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$4)}${_scopeId}></div>`);
+            _push2(`<div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$3)}${_scopeId}></div>`);
           } else {
             return [
               vue_cjs_prod.createVNode("div", { class: "icon w-16 h-16 flex items-center justify-center rounded-[100%]" }, [
                 vue_cjs_prod.createVNode("img", {
                   alt: "category",
-                  src: _imports_1$4
+                  src: _imports_1$3
                 })
               ])
             ];
@@ -6404,13 +6404,13 @@ const _sfc_main$W = {
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$5)}${_scopeId}></div>`);
+            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$4)}${_scopeId}></div>`);
           } else {
             return [
               vue_cjs_prod.createVNode("div", { class: "icon w-16 h-16 rounded-[100%] flex items-center justify-center" }, [
                 vue_cjs_prod.createVNode("img", {
                   alt: "category",
-                  src: _imports_2$5
+                  src: _imports_2$4
                 })
               ])
             ];
@@ -6458,15 +6458,15 @@ const _sfc_main$W = {
     };
   }
 };
-const _sfc_setup$V = _sfc_main$W.setup;
-_sfc_main$W.setup = (props, ctx) => {
+const _sfc_setup$Z = _sfc_main$_.setup;
+_sfc_main$_.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/shared/BannerBar.vue");
-  return _sfc_setup$V ? _sfc_setup$V(props, ctx) : void 0;
+  return _sfc_setup$Z ? _sfc_setup$Z(props, ctx) : void 0;
 };
 const BannerBar$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$W
+  "default": _sfc_main$_
 }, Symbol.toStringTag, { value: "Module" }));
 const keys$1 = {
   comicCacheLocalPreview: "comic-preview",
@@ -6484,10 +6484,10 @@ const HomePageTypes = {
   _funtoonChoice: "funtoonChoice",
   _hottest_in_week: "hottest_in_week"
 };
-const __nuxt_component_1_lazy$i = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$g = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return Spotlight$3;
 }));
-const __nuxt_component_3_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_3_lazy$5 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return Trending$3;
 }));
 const __nuxt_component_4_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
@@ -6496,7 +6496,7 @@ const __nuxt_component_4_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promis
 const __nuxt_component_5_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return NewStory$1;
 }));
-const _sfc_main$V = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$Z = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "TheHome",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -6504,9 +6504,9 @@ const _sfc_main$V = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const { data: homepages, pending } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useLazyAsyncData("home", () => $fetch("/api/homepage"), "$lUPtx2FKUZ")), __temp = await __temp, __restore(), __temp);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_PulseHomeLoading = __nuxt_component_0;
-      const _component_LazyHomepageSpotlight = __nuxt_component_1_lazy$i;
-      const _component_SharedBannerBar = _sfc_main$W;
-      const _component_LazyHomepageTrending = __nuxt_component_3_lazy$3;
+      const _component_LazyHomepageSpotlight = __nuxt_component_1_lazy$g;
+      const _component_SharedBannerBar = _sfc_main$_;
+      const _component_LazyHomepageTrending = __nuxt_component_3_lazy$5;
       const _component_LazyHomepageRepresentCategory = __nuxt_component_4_lazy$3;
       const _component_LazyHomepageNewStory = __nuxt_component_5_lazy$1;
       if (vue_cjs_prod.unref(pending)) {
@@ -6547,17 +6547,17 @@ const _sfc_main$V = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$U = _sfc_main$V.setup;
-_sfc_main$V.setup = (props, ctx) => {
+const _sfc_setup$Y = _sfc_main$Z.setup;
+_sfc_main$Z.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/TheHome.vue");
-  return _sfc_setup$U ? _sfc_setup$U(props, ctx) : void 0;
+  return _sfc_setup$Y ? _sfc_setup$Y(props, ctx) : void 0;
 };
 const TheHome = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$V
+  "default": _sfc_main$Z
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$U = {
+const _sfc_main$Y = {
   __name: "BannerBar",
   __ssrInlineRender: true,
   setup(__props) {
@@ -6567,13 +6567,13 @@ const _sfc_main$U = {
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="ranking"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$6)}${_scopeId}></div>`);
+            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="ranking"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$5)}${_scopeId}></div>`);
           } else {
             return [
               vue_cjs_prod.createVNode("div", { class: "icon w-16 h-16 rounded-[100%] flex items-center justify-center" }, [
                 vue_cjs_prod.createVNode("img", {
                   alt: "ranking",
-                  src: _imports_0$6
+                  src: _imports_0$5
                 })
               ])
             ];
@@ -6587,13 +6587,13 @@ const _sfc_main$U = {
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$4)}${_scopeId}></div>`);
+            _push2(`<div class="icon w-16 h-16 flex items-center justify-center rounded-[100%]"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$3)}${_scopeId}></div>`);
           } else {
             return [
               vue_cjs_prod.createVNode("div", { class: "icon w-16 h-16 flex items-center justify-center rounded-[100%]" }, [
                 vue_cjs_prod.createVNode("img", {
                   alt: "category",
-                  src: _imports_1$4
+                  src: _imports_1$3
                 })
               ])
             ];
@@ -6605,13 +6605,13 @@ const _sfc_main$U = {
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$5)}${_scopeId}></div>`);
+            _push2(`<div class="icon w-16 h-16 rounded-[100%] flex items-center justify-center"${_scopeId}><img alt="category"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$4)}${_scopeId}></div>`);
           } else {
             return [
               vue_cjs_prod.createVNode("div", { class: "icon w-16 h-16 rounded-[100%] flex items-center justify-center" }, [
                 vue_cjs_prod.createVNode("img", {
                   alt: "category",
-                  src: _imports_2$5
+                  src: _imports_2$4
                 })
               ])
             ];
@@ -6659,20 +6659,20 @@ const _sfc_main$U = {
     };
   }
 };
-const _sfc_setup$T = _sfc_main$U.setup;
-_sfc_main$U.setup = (props, ctx) => {
+const _sfc_setup$X = _sfc_main$Y.setup;
+_sfc_main$Y.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/BannerBar.vue");
-  return _sfc_setup$T ? _sfc_setup$T(props, ctx) : void 0;
+  return _sfc_setup$X ? _sfc_setup$X(props, ctx) : void 0;
 };
 const BannerBar = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$U
+  "default": _sfc_main$Y
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$h = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$f = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return Spotlight$1;
 }));
-const __nuxt_component_3_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_3_lazy$4 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return Trending$1;
 }));
 const __nuxt_component_4_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
@@ -6681,7 +6681,7 @@ const __nuxt_component_4_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promis
 const __nuxt_component_5_lazy = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return NewStory;
 }));
-const _sfc_main$T = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$X = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "TheNovel",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -6690,9 +6690,9 @@ const _sfc_main$T = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const { data: homepages, pending } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useLazyAsyncData("novel", () => $fetch("/api/home-novel"), "$widxVJ6ega")), __temp = await __temp, __restore(), __temp);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_PulseHomeLoading = __nuxt_component_0;
-      const _component_LazyNovelsSpotlight = __nuxt_component_1_lazy$h;
-      const _component_NovelsBannerBar = _sfc_main$U;
-      const _component_LazyNovelsTrending = __nuxt_component_3_lazy$2;
+      const _component_LazyNovelsSpotlight = __nuxt_component_1_lazy$f;
+      const _component_NovelsBannerBar = _sfc_main$Y;
+      const _component_LazyNovelsTrending = __nuxt_component_3_lazy$4;
       const _component_LazyNovelsRepresentCategory = __nuxt_component_4_lazy$2;
       const _component_LazyNovelsNewStory = __nuxt_component_5_lazy;
       if (vue_cjs_prod.unref(pending)) {
@@ -6733,15 +6733,15 @@ const _sfc_main$T = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$S = _sfc_main$T.setup;
-_sfc_main$T.setup = (props, ctx) => {
+const _sfc_setup$W = _sfc_main$X.setup;
+_sfc_main$X.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/TheNovel.vue");
-  return _sfc_setup$S ? _sfc_setup$S(props, ctx) : void 0;
+  return _sfc_setup$W ? _sfc_setup$W(props, ctx) : void 0;
 };
 const TheNovel = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$T
+  "default": _sfc_main$X
 }, Symbol.toStringTag, { value: "Module" }));
 const __nuxt_component_2 = vue_cjs_prod.defineComponent({
   name: "ClientOnly",
@@ -6786,7 +6786,7 @@ const clientOnly = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePr
 function useNavigatorComicPreview(slug, _id) {
   return `/${TRUYEN_TRANH}/${slug}/${_id}`;
 }
-const _sfc_main$S = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$W = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "VisitedComic",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -7008,15 +7008,15 @@ const _sfc_main$S = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$R = _sfc_main$S.setup;
-_sfc_main$S.setup = (props, ctx) => {
+const _sfc_setup$V = _sfc_main$W.setup;
+_sfc_main$W.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/VisitedComic.vue");
-  return _sfc_setup$R ? _sfc_setup$R(props, ctx) : void 0;
+  return _sfc_setup$V ? _sfc_setup$V(props, ctx) : void 0;
 };
 const VisitedComic = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$S
+  "default": _sfc_main$W
 }, Symbol.toStringTag, { value: "Module" }));
 const convertUnit = (unit) => {
   const pUnit = parseFloat(unit);
@@ -7027,7 +7027,7 @@ const convertUnit = (unit) => {
   else
     return `${pUnit}`;
 };
-const _sfc_main$R = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$V = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "ComicItem",
   __ssrInlineRender: true,
   props: {
@@ -7036,7 +7036,7 @@ const _sfc_main$R = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(`<!--[-->`);
       serverRenderer.exports.ssrRenderList(__props.comics, (comic) => {
         _push(`<div>`);
@@ -7116,18 +7116,18 @@ const _sfc_main$R = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$Q = _sfc_main$R.setup;
-_sfc_main$R.setup = (props, ctx) => {
+const _sfc_setup$U = _sfc_main$V.setup;
+_sfc_main$V.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/categorys/ComicItem.vue");
-  return _sfc_setup$Q ? _sfc_setup$Q(props, ctx) : void 0;
+  return _sfc_setup$U ? _sfc_setup$U(props, ctx) : void 0;
 };
 const ComicItem = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$R
+  "default": _sfc_main$V
 }, Symbol.toStringTag, { value: "Module" }));
-const _imports_0$5 = publicAssetsURL(`loading/pikachu.gif`);
-const _sfc_main$Q = {
+const _imports_0$4 = publicAssetsURL(`loading/pikachu.gif`);
+const _sfc_main$U = {
   __name: "PageLoading",
   __ssrInlineRender: true,
   props: {
@@ -7138,21 +7138,21 @@ const _sfc_main$Q = {
   },
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex w-full bg-black/40 h-full fixed z-50" }, _attrs))}><img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$5)} alt="loading" class="h-[50px] fixed top-[50%] left-[calc(50%_-_30px)]"></div>`);
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "flex w-full bg-black/40 h-full fixed z-50" }, _attrs))}><img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$4)} alt="loading" class="h-[50px] fixed top-[50%] left-[calc(50%_-_30px)]"></div>`);
     };
   }
 };
-const _sfc_setup$P = _sfc_main$Q.setup;
-_sfc_main$Q.setup = (props, ctx) => {
+const _sfc_setup$T = _sfc_main$U.setup;
+_sfc_main$U.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/common/PageLoading.vue");
-  return _sfc_setup$P ? _sfc_setup$P(props, ctx) : void 0;
+  return _sfc_setup$T ? _sfc_setup$T(props, ctx) : void 0;
 };
 const PageLoading = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$Q
+  "default": _sfc_main$U
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$P = {};
+const _sfc_main$T = {};
 function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLink = __nuxt_component_0$2;
   const _component_SharedImg = vue_cjs_prod.resolveComponent("SharedImg");
@@ -7320,18 +7320,18 @@ function _sfc_ssrRender$7(_ctx, _push, _parent, _attrs) {
   }, _parent));
   _push(`</div></div></div>`);
 }
-const _sfc_setup$O = _sfc_main$P.setup;
-_sfc_main$P.setup = (props, ctx) => {
+const _sfc_setup$S = _sfc_main$T.setup;
+_sfc_main$T.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/homepage/Catelog.vue");
-  return _sfc_setup$O ? _sfc_setup$O(props, ctx) : void 0;
+  return _sfc_setup$S ? _sfc_setup$S(props, ctx) : void 0;
 };
-const Catelog = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["ssrRender", _sfc_ssrRender$7]]);
+const Catelog = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["ssrRender", _sfc_ssrRender$7]]);
 const Catelog$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": Catelog
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$O = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$S = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "NewStory",
   __ssrInlineRender: true,
   props: {
@@ -7356,22 +7356,22 @@ const _sfc_main$O = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$N = _sfc_main$O.setup;
-_sfc_main$O.setup = (props, ctx) => {
+const _sfc_setup$R = _sfc_main$S.setup;
+_sfc_main$S.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/homepage/NewStory.vue");
-  return _sfc_setup$N ? _sfc_setup$N(props, ctx) : void 0;
+  return _sfc_setup$R ? _sfc_setup$R(props, ctx) : void 0;
 };
 const NewStory$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$O
+  "default": _sfc_main$S
 }, Symbol.toStringTag, { value: "Module" }));
 const _imports_5$1 = publicAssetsURL(`icons/comicPage/icon-star.svg`);
 const _imports_4$1 = publicAssetsURL(`icons/comicPage/icon-comment-count.svg`);
-const __nuxt_component_1_lazy$g = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$e = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
 }));
-const _sfc_main$N = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$R = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "ComicHorizontal",
   __ssrInlineRender: true,
   props: {
@@ -7388,7 +7388,7 @@ const _sfc_main$N = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$g;
+      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$e;
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({
         to: vue_cjs_prod.unref(useNavigatorComicPreview)(__props.slug, __props._id),
         title: __props.comicName
@@ -7453,17 +7453,17 @@ const _sfc_main$N = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$M = _sfc_main$N.setup;
-_sfc_main$N.setup = (props, ctx) => {
+const _sfc_setup$Q = _sfc_main$R.setup;
+_sfc_main$R.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicHorizontal.vue");
-  return _sfc_setup$M ? _sfc_setup$M(props, ctx) : void 0;
+  return _sfc_setup$Q ? _sfc_setup$Q(props, ctx) : void 0;
 };
 const ComicHorizontal = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$N
+  "default": _sfc_main$R
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$M = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$Q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "RepresentCategory",
   __ssrInlineRender: true,
   props: {
@@ -7477,7 +7477,7 @@ const _sfc_main$M = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_client_only = __nuxt_component_2;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(`<!--[-->`);
       serverRenderer.exports.ssrRenderList(__props.record.content, (content) => {
         _push(`<div class="px-4"><div class="h-[40px] mb-4 flex justify-between"><h2 class="text-3xl font-bold flex justify-start items-center text-black">${serverRenderer.exports.ssrInterpolate(content.name || content.categoryVietName)}</h2>`);
@@ -7571,7 +7571,7 @@ const _sfc_main$M = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         });
         _push(`<!--]--></div><div class="whitespace-nowrap overflow-x-auto mb-10 scrollbar-hide"><!--[-->`);
         serverRenderer.exports.ssrRenderList(content.comics, (comic) => {
-          _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(_sfc_main$N), {
+          _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(_sfc_main$R), {
             key: comic == null ? void 0 : comic.slug,
             _id: comic == null ? void 0 : comic._id,
             "adult-content": comic == null ? void 0 : comic.adultContent,
@@ -7589,17 +7589,17 @@ const _sfc_main$M = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$L = _sfc_main$M.setup;
-_sfc_main$M.setup = (props, ctx) => {
+const _sfc_setup$P = _sfc_main$Q.setup;
+_sfc_main$Q.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/homepage/RepresentCategory.vue");
-  return _sfc_setup$L ? _sfc_setup$L(props, ctx) : void 0;
+  return _sfc_setup$P ? _sfc_setup$P(props, ctx) : void 0;
 };
 const RepresentCategory$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$M
+  "default": _sfc_main$Q
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$P = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "Spotlight",
   __ssrInlineRender: true,
   props: {
@@ -7614,7 +7614,7 @@ const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_shared_mee_toon_img = _sfc_main$10;
+      const _component_nuxt_img = __nuxt_component_2$1;
       _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(Swiper), vue_cjs_prod.mergeProps({
         loop: true,
         modules: modules.value,
@@ -7636,45 +7636,57 @@ const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                     }, {
                       default: vue_cjs_prod.withCtx((_3, _push4, _parent4, _scopeId3) => {
                         if (_push4) {
-                          _push4(`<div class="w-full bottom-0" data-v-9a099ddc${_scopeId3}>`);
-                          _push4(serverRenderer.exports.ssrRenderComponent(_component_shared_mee_toon_img, {
+                          _push4(`<div class="w-full bottom-0" data-v-742c771b${_scopeId3}>`);
+                          _push4(serverRenderer.exports.ssrRenderComponent(_component_nuxt_img, {
+                            preload: "",
+                            quality: 40,
+                            format: "webp",
                             class: "w-full",
+                            provider: "imageengine",
                             alt: cover.comicName,
                             src: `${cover.link}`,
                             sizes: "xs:320px 2xs:390px sm:640px md:768px"
                           }, null, _parent4, _scopeId3));
                           _push4(`</div><!--[-->`);
                           serverRenderer.exports.ssrRenderList(cover.animations, (animation) => {
-                            _push4(serverRenderer.exports.ssrRenderComponent(_component_shared_mee_toon_img, {
+                            _push4(serverRenderer.exports.ssrRenderComponent(_component_nuxt_img, {
                               key: animation.image,
+                              preload: "",
+                              quality: 40,
+                              format: "webp",
                               class: "absolute w-full bottom-0",
+                              provider: "imageengine",
                               alt: cover.comicName,
                               src: `${animation.image}`,
-                              sizes: "xs:320px 2xs:390px sm:640px md:768px",
-                              width: 375,
-                              height: 280
+                              sizes: "xs:320px 2xs:390px sm:640px md:768px"
                             }, null, _parent4, _scopeId3));
                           });
                           _push4(`<!--]-->`);
                         } else {
                           return [
                             vue_cjs_prod.createVNode("div", { class: "w-full bottom-0" }, [
-                              vue_cjs_prod.createVNode(_component_shared_mee_toon_img, {
+                              vue_cjs_prod.createVNode(_component_nuxt_img, {
+                                preload: "",
+                                quality: 40,
+                                format: "webp",
                                 class: "w-full",
+                                provider: "imageengine",
                                 alt: cover.comicName,
                                 src: `${cover.link}`,
                                 sizes: "xs:320px 2xs:390px sm:640px md:768px"
                               }, null, 8, ["alt", "src"])
                             ]),
                             (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(cover.animations, (animation) => {
-                              return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_shared_mee_toon_img, {
+                              return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_nuxt_img, {
                                 key: animation.image,
+                                preload: "",
+                                quality: 40,
+                                format: "webp",
                                 class: "absolute w-full bottom-0",
+                                provider: "imageengine",
                                 alt: cover.comicName,
                                 src: `${animation.image}`,
-                                sizes: "xs:320px 2xs:390px sm:640px md:768px",
-                                width: 375,
-                                height: 280
+                                sizes: "xs:320px 2xs:390px sm:640px md:768px"
                               }, null, 8, ["alt", "src"]);
                             }), 128))
                           ];
@@ -7691,22 +7703,28 @@ const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                       }, {
                         default: vue_cjs_prod.withCtx(() => [
                           vue_cjs_prod.createVNode("div", { class: "w-full bottom-0" }, [
-                            vue_cjs_prod.createVNode(_component_shared_mee_toon_img, {
+                            vue_cjs_prod.createVNode(_component_nuxt_img, {
+                              preload: "",
+                              quality: 40,
+                              format: "webp",
                               class: "w-full",
+                              provider: "imageengine",
                               alt: cover.comicName,
                               src: `${cover.link}`,
                               sizes: "xs:320px 2xs:390px sm:640px md:768px"
                             }, null, 8, ["alt", "src"])
                           ]),
                           (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(cover.animations, (animation) => {
-                            return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_shared_mee_toon_img, {
+                            return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_nuxt_img, {
                               key: animation.image,
+                              preload: "",
+                              quality: 40,
+                              format: "webp",
                               class: "absolute w-full bottom-0",
+                              provider: "imageengine",
                               alt: cover.comicName,
                               src: `${animation.image}`,
-                              sizes: "xs:320px 2xs:390px sm:640px md:768px",
-                              width: 375,
-                              height: 280
+                              sizes: "xs:320px 2xs:390px sm:640px md:768px"
                             }, null, 8, ["alt", "src"]);
                           }), 128))
                         ]),
@@ -7733,22 +7751,28 @@ const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                     }, {
                       default: vue_cjs_prod.withCtx(() => [
                         vue_cjs_prod.createVNode("div", { class: "w-full bottom-0" }, [
-                          vue_cjs_prod.createVNode(_component_shared_mee_toon_img, {
+                          vue_cjs_prod.createVNode(_component_nuxt_img, {
+                            preload: "",
+                            quality: 40,
+                            format: "webp",
                             class: "w-full",
+                            provider: "imageengine",
                             alt: cover.comicName,
                             src: `${cover.link}`,
                             sizes: "xs:320px 2xs:390px sm:640px md:768px"
                           }, null, 8, ["alt", "src"])
                         ]),
                         (vue_cjs_prod.openBlock(true), vue_cjs_prod.createBlock(vue_cjs_prod.Fragment, null, vue_cjs_prod.renderList(cover.animations, (animation) => {
-                          return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_shared_mee_toon_img, {
+                          return vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock(_component_nuxt_img, {
                             key: animation.image,
+                            preload: "",
+                            quality: 40,
+                            format: "webp",
                             class: "absolute w-full bottom-0",
+                            provider: "imageengine",
                             alt: cover.comicName,
                             src: `${animation.image}`,
-                            sizes: "xs:320px 2xs:390px sm:640px md:768px",
-                            width: 375,
-                            height: 280
+                            sizes: "xs:320px 2xs:390px sm:640px md:768px"
                           }, null, 8, ["alt", "src"]);
                         }), 128))
                       ]),
@@ -7766,19 +7790,19 @@ const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$K = _sfc_main$L.setup;
-_sfc_main$L.setup = (props, ctx) => {
+const _sfc_setup$O = _sfc_main$P.setup;
+_sfc_main$P.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/homepage/Spotlight.vue");
-  return _sfc_setup$K ? _sfc_setup$K(props, ctx) : void 0;
+  return _sfc_setup$O ? _sfc_setup$O(props, ctx) : void 0;
 };
-const Spotlight$2 = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["__scopeId", "data-v-9a099ddc"]]);
+const Spotlight$2 = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["__scopeId", "data-v-742c771b"]]);
 const Spotlight$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": Spotlight$2
 }, Symbol.toStringTag, { value: "Module" }));
-const _imports_0$4 = publicAssetsURL(`icons/homePage/icon-view-chapter.svg`);
-const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _imports_0$3 = publicAssetsURL(`icons/homePage/icon-view-chapter.svg`);
+const _sfc_main$O = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "Trending",
   __ssrInlineRender: true,
   props: {
@@ -7792,7 +7816,7 @@ const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       const _component_client_only = __nuxt_component_2;
       const _component_NuxtLink = __nuxt_component_0$2;
       const _component_nuxt_img = __nuxt_component_2$1;
-      const _component_shared_mee_toon_img = _sfc_main$10;
+      const _component_shared_mee_toon_img = _sfc_main$14;
       _push(serverRenderer.exports.ssrRenderComponent(_component_client_only, _attrs, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -7873,7 +7897,7 @@ const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                             }),
                             _: 2
                           }, _parent4, _scopeId3));
-                          _push4(`</h3><p class="text-primary-gray mb-3 text-base" data-v-8d22a320${_scopeId3}> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(content.newestChapter)}</p><div class="flex items-center" data-v-8d22a320${_scopeId3}><div class="flex items-center mr-2" data-v-8d22a320${_scopeId3}><img class="w-5 h-5 mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$4)} alt="view chapter" data-v-8d22a320${_scopeId3}><span class="text-base text-primary-gray" data-v-8d22a320${_scopeId3}>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.viewCount))}</span></div><div class="flex items-center" data-v-8d22a320${_scopeId3}><img class="mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="star" data-v-8d22a320${_scopeId3}><span class="text-base" data-v-8d22a320${_scopeId3}>5 </span><span class="text-base text-primary-gray" data-v-8d22a320${_scopeId3}>(${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.reviewCount))})</span></div></div></div></div>`);
+                          _push4(`</h3><p class="text-primary-gray mb-3 text-base" data-v-8d22a320${_scopeId3}> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(content.newestChapter)}</p><div class="flex items-center" data-v-8d22a320${_scopeId3}><div class="flex items-center mr-2" data-v-8d22a320${_scopeId3}><img class="w-5 h-5 mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$3)} alt="view chapter" data-v-8d22a320${_scopeId3}><span class="text-base text-primary-gray" data-v-8d22a320${_scopeId3}>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.viewCount))}</span></div><div class="flex items-center" data-v-8d22a320${_scopeId3}><img class="mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="star" data-v-8d22a320${_scopeId3}><span class="text-base" data-v-8d22a320${_scopeId3}>5 </span><span class="text-base text-primary-gray" data-v-8d22a320${_scopeId3}>(${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.reviewCount))})</span></div></div></div></div>`);
                         } else {
                           return [
                             vue_cjs_prod.createVNode("div", {
@@ -7904,7 +7928,7 @@ const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                                   vue_cjs_prod.createVNode("div", { class: "flex items-center mr-2" }, [
                                     vue_cjs_prod.createVNode("img", {
                                       class: "w-5 h-5 mr-1",
-                                      src: _imports_0$4,
+                                      src: _imports_0$3,
                                       alt: "view chapter"
                                     }),
                                     vue_cjs_prod.createVNode("span", { class: "text-base text-primary-gray" }, vue_cjs_prod.toDisplayString(vue_cjs_prod.unref(convertUnit)(content.viewCount)), 1)
@@ -7964,7 +7988,7 @@ const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                                 vue_cjs_prod.createVNode("div", { class: "flex items-center mr-2" }, [
                                   vue_cjs_prod.createVNode("img", {
                                     class: "w-5 h-5 mr-1",
-                                    src: _imports_0$4,
+                                    src: _imports_0$3,
                                     alt: "view chapter"
                                   }),
                                   vue_cjs_prod.createVNode("span", { class: "text-base text-primary-gray" }, vue_cjs_prod.toDisplayString(vue_cjs_prod.unref(convertUnit)(content.viewCount)), 1)
@@ -8077,7 +8101,7 @@ const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                                   vue_cjs_prod.createVNode("div", { class: "flex items-center mr-2" }, [
                                     vue_cjs_prod.createVNode("img", {
                                       class: "w-5 h-5 mr-1",
-                                      src: _imports_0$4,
+                                      src: _imports_0$3,
                                       alt: "view chapter"
                                     }),
                                     vue_cjs_prod.createVNode("span", { class: "text-base text-primary-gray" }, vue_cjs_prod.toDisplayString(vue_cjs_prod.unref(convertUnit)(content.viewCount)), 1)
@@ -8124,22 +8148,22 @@ const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$J = _sfc_main$K.setup;
-_sfc_main$K.setup = (props, ctx) => {
+const _sfc_setup$N = _sfc_main$O.setup;
+_sfc_main$O.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/homepage/Trending.vue");
-  return _sfc_setup$J ? _sfc_setup$J(props, ctx) : void 0;
+  return _sfc_setup$N ? _sfc_setup$N(props, ctx) : void 0;
 };
-const Trending$2 = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["__scopeId", "data-v-8d22a320"]]);
+const Trending$2 = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["__scopeId", "data-v-8d22a320"]]);
 const Trending$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": Trending$2
 }, Symbol.toStringTag, { value: "Module" }));
-const _imports_0$3 = publicAssetsURL(`icons/chapterItem/icon-view.svg`);
-const _imports_1$3 = publicAssetsURL(`icons/chapterItem/icon-like.svg`);
-const _imports_2$4 = publicAssetsURL(`icons/chapterItem/icon-comment.svg`);
-const _sfc_main$J = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "ComicChapterTab",
+const _imports_9 = publicAssetsURL(`icons/chapterItem/icon-view.svg`);
+const _imports_10 = publicAssetsURL(`icons/chapterItem/icon-like.svg`);
+const _imports_11 = publicAssetsURL(`icons/chapterItem/icon-comment.svg`);
+const _sfc_main$N = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "ChapterTab",
   __ssrInlineRender: true,
   props: {
     chapters: Array
@@ -8148,24 +8172,27 @@ const _sfc_main$J = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<!--[-->`);
       serverRenderer.exports.ssrRenderList(__props.chapters, (chapter) => {
-        _push(`<div class="relative bg-accent-4" style="${serverRenderer.exports.ssrRenderStyle({ "border-bottom": "1px solid rgb(27, 28, 35)" })}"><div class="px-5 py-5 cursor-pointe"><a><h3 class="text-2xl mb-4"><b> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chapter.chapterNum)}</b></h3><div class="flex"><p class="mr-8 text-primary-gray text-2xl flex items-center">${serverRenderer.exports.ssrInterpolate(new Date(chapter.createdAt).toLocaleDateString())}</p><div class="mr-[17px] flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$3)} alt="view"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalView ? vue_cjs_prod.unref(convertUnit)(chapter.totalView) : 0)}</span></div><div class="mr-8 flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1$3)} alt="like"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalLike ? vue_cjs_prod.unref(convertUnit)(chapter.totalLike) : 0)}</span></div><div class="flex items-center justify-center mr-4 text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_2$4)} alt="comment"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalComment ? vue_cjs_prod.unref(convertUnit)(chapter.totalComment) : 0)}</span></div></div></a></div></div>`);
+        _push(`<div class="relative bg-accent-4" style="${serverRenderer.exports.ssrRenderStyle({ "border-bottom": "1px solid rgb(27, 28, 35)" })}"><div class="px-5 py-5 cursor-pointe"><a><h3 class="text-2xl mb-4"><b> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chapter.chapterNum)}</b></h3><div class="flex"><p class="mr-8 text-primary-gray text-2xl flex items-center">${serverRenderer.exports.ssrInterpolate(new Date(chapter.createdAt).toLocaleDateString())}</p><div class="mr-[17px] flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_9)} alt="view"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalView ? vue_cjs_prod.unref(convertUnit)(chapter.totalView) : 0)}</span></div><div class="mr-8 flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_10)} alt="like"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalLike ? vue_cjs_prod.unref(convertUnit)(chapter.totalLike) : 0)}</span></div><div class="flex items-center justify-center mr-4 text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_11)} alt="comment"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalComment ? vue_cjs_prod.unref(convertUnit)(chapter.totalComment) : 0)}</span></div></div></a></div></div>`);
       });
       _push(`<!--]-->`);
     };
   }
 });
-const _sfc_setup$I = _sfc_main$J.setup;
-_sfc_main$J.setup = (props, ctx) => {
+const _sfc_setup$M = _sfc_main$N.setup;
+_sfc_main$N.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicChapterTab.vue");
-  return _sfc_setup$I ? _sfc_setup$I(props, ctx) : void 0;
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/ChapterTab.vue");
+  return _sfc_setup$M ? _sfc_setup$M(props, ctx) : void 0;
 };
-const ComicChapterTab = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const ChapterTab = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$J
+  "default": _sfc_main$N
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$I = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "ComicTab",
+const __nuxt_component_0_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return RelatedItem;
+}));
+const _sfc_main$M = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "InfoTab",
   __ssrInlineRender: true,
   props: {
     comic: Object
@@ -8176,206 +8203,28 @@ const _sfc_main$I = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       var _a;
+      const _component_LazyNovelsRelatedItem = __nuxt_component_0_lazy$3;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "relative bg-dark-gray" }, _attrs))}><div class="px-6 h-auto relative overflow-hidden pt-6"><div class="content mb-4"><p class="text-xl text-white whitespace-pre-line">${serverRenderer.exports.ssrInterpolate((_a = __props.comic) == null ? void 0 : _a.description)}</p></div></div><div class="scrollbar-hide overflow-auto whitespace-nowrap p-4" style="${serverRenderer.exports.ssrRenderStyle({ "display": "-webkit-box" })}"><!--[-->`);
       serverRenderer.exports.ssrRenderList(__props.comic.tags, (tag) => {
         _push(`<a class="inline-block py-1 px-4 mr-2 text-xl rounded-xl bg-accent-5" href="#"># ${serverRenderer.exports.ssrInterpolate(tag.name)}</a>`);
       });
       _push(`<!--]--></div>`);
-      _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(LazyComicsRelated), { tags: vue_cjs_prod.unref(tags) }, null, _parent));
+      _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNovelsRelatedItem, { tags: vue_cjs_prod.unref(tags) }, null, _parent));
       _push(`</div>`);
     };
   }
 });
-const _sfc_setup$H = _sfc_main$I.setup;
-_sfc_main$I.setup = (props, ctx) => {
+const _sfc_setup$L = _sfc_main$M.setup;
+_sfc_main$M.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicTab.vue");
-  return _sfc_setup$H ? _sfc_setup$H(props, ctx) : void 0;
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/InfoTab.vue");
+  return _sfc_setup$L ? _sfc_setup$L(props, ctx) : void 0;
 };
-const ComicTab = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const InfoTab = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$I
+  "default": _sfc_main$M
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$f = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return MeeToonImg;
-}));
-const _sfc_main$H = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "ComicsRelated",
-  __ssrInlineRender: true,
-  props: {
-    tags: Array
-  },
-  setup(__props) {
-    const comicsRelated = useState("comicsRelated", "$83Bf6yO1tN");
-    return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$f;
-      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-        class: "px-5 py-5 mb-14",
-        style: { "border-top": "3px solid rgb(27, 28, 35)" }
-      }, _attrs))}><div class="flex items-center justify-between"><h2 class="text-white font-bold text-3xl mb-7"> \u0110\u1EC1 xu\u1EA5t li\xEAn quan </h2></div><div class="whitespace-nowrap overflow-x-auto scrollbar-hide min-h-[200px]"><!--[-->`);
-      serverRenderer.exports.ssrRenderList(vue_cjs_prod.unref(comicsRelated), (comicRelated) => {
-        _push(`<div class="inline-block w-[105px] mr-6"><div class="relative"><div class="absolute top-[-3px] left-0 w-full z-10"><span class="inline-block px-3 rounded-xl bg-[#1fcf84] font-semibold text-white text-base">${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[comicRelated.status])}</span></div>`);
-        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-          to: vue_cjs_prod.unref(useNavigatorComicPreview)(comicRelated.slug, comicRelated._id),
-          title: comicRelated.comicName
-        }, {
-          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
-                class: "rounded-2xl",
-                src: comicRelated.verticalLogo
-              }, null, _parent2, _scopeId));
-            } else {
-              return [
-                vue_cjs_prod.createVNode(_component_LazySharedMeeToonImg, {
-                  class: "rounded-2xl",
-                  src: comicRelated.verticalLogo
-                }, null, 8, ["src"])
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
-        _push(`</div><h3 class="line-clamp-1">`);
-        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-          class: "text-white font-bold text-xl",
-          title: comicRelated.comicName,
-          to: vue_cjs_prod.unref(useNavigatorComicPreview)(comicRelated.slug, comicRelated._id)
-        }, {
-          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`${serverRenderer.exports.ssrInterpolate(comicRelated.comicName)}`);
-            } else {
-              return [
-                vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString(comicRelated.comicName), 1)
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
-        _push(`</h3><p class="text-gray-100 text-base"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(comicRelated.newestChapter)}</p></div>`);
-      });
-      _push(`<!--]--></div></div>`);
-    };
-  }
-});
-const _sfc_setup$G = _sfc_main$H.setup;
-_sfc_main$H.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicsRelated.vue");
-  return _sfc_setup$G ? _sfc_setup$G(props, ctx) : void 0;
-};
-const ComicsRelated = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": _sfc_main$H
-}, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$G = {};
-function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs) {
-}
-const _sfc_setup$F = _sfc_main$G.setup;
-_sfc_main$G.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/CommentComic.vue");
-  return _sfc_setup$F ? _sfc_setup$F(props, ctx) : void 0;
-};
-const CommentComic = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["ssrRender", _sfc_ssrRender$6]]);
-const CommentComic$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": CommentComic
-}, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$F = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "Chaplist",
-  __ssrInlineRender: true,
-  props: {
-    slug: String,
-    chapterList: Object
-  },
-  setup(__props) {
-    return (_ctx, _push, _parent, _attrs) => {
-      const _component_SvgViewChapter = vue_cjs_prod.resolveComponent("SvgViewChapter");
-      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-        class: "list-chapter overflow-auto",
-        style: { "height": "calc(100vh - 400px)" }
-      }, _attrs))}><ul><!--[-->`);
-      serverRenderer.exports.ssrRenderList(__props.chapterList, (chap, cI) => {
-        _push(`<li class="flex items-center justify-between py-3 grid grid-cols-1 chapter_list-detail">`);
-        if (cI >= 0) {
-          _push(`<div><div class="chapter"><a class="text-xl text-white font-bold"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chap.chapterNumber)}</a></div><div class="flex justify-between items-center"><div class="text-primary-gray text-base">${serverRenderer.exports.ssrInterpolate(chap.updatedAt)}</div><div class="text-primary-gray text-base flex items-center">`);
-          _push(serverRenderer.exports.ssrRenderComponent(_component_SvgViewChapter, { class: "w-5 h-5 mb-1" }, null, _parent));
-          _push(` ${serverRenderer.exports.ssrInterpolate(chap.view)}</div></div></div>`);
-        } else {
-          _push(`<!---->`);
-        }
-        _push(`</li>`);
-      });
-      _push(`<!--]--></ul></div>`);
-    };
-  }
-});
-const _sfc_setup$E = _sfc_main$F.setup;
-_sfc_main$F.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/manga/Chaplist.vue");
-  return _sfc_setup$E ? _sfc_setup$E(props, ctx) : void 0;
-};
-const Chaplist = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": _sfc_main$F
-}, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$E = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "ChapterImg",
-  __ssrInlineRender: true,
-  props: {
-    pages: Array
-  },
-  setup(__props) {
-    return (_ctx, _push, _parent, _attrs) => {
-      const _component_SharedMeeToonImg = _sfc_main$10;
-      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "pt-24 mx-auto w-full lg:w-[60%] bg-accent-1" }, _attrs))}><!--[-->`);
-      serverRenderer.exports.ssrRenderList(__props.pages, (page) => {
-        _push(`<div class="relative my-0 h-fit w-full">`);
-        _push(serverRenderer.exports.ssrRenderComponent(_component_SharedMeeToonImg, {
-          class: "w-full h-full",
-          src: page.linkHD
-        }, null, _parent));
-        _push(`</div>`);
-      });
-      _push(`<!--]--></div>`);
-    };
-  }
-});
-const _sfc_setup$D = _sfc_main$E.setup;
-_sfc_main$E.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/manga/ChapterImg.vue");
-  return _sfc_setup$D ? _sfc_setup$D(props, ctx) : void 0;
-};
-const ChapterImg = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": _sfc_main$E
-}, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$D = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "ReadMangaFooter",
-  __ssrInlineRender: true,
-  emits: ["nextProcess"],
-  setup(__props, { emit }) {
-    return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "h-[200px] w-full overflow-hidden py-4 bg-accent-1" }, _attrs))}><div class="mx-auto flex h-full w-full flex-col space-y-4 md:w-1/2"><div class="flex h-full w-full gap-4"><button data-id="prev" class="absolute-center z-[700] h-full w-[20%] border-2 border-dashed border-white/40 px-2 text-white/40 transition-all hover:border-white hover:text-white md:gap-2"> Chapter tr\u01B0\u1EDBc </button><button data-id="next" class="absolute-center h-full w-[80%] gap-2 border-2 border-dashed border-white/40 text-white/40 transition-all hover:border-white hover:text-white"> Chapter k\u1EBF ti\u1EBFp </button></div><h1 class="py-4 px-2 text-center text-white/75"> M\u1EB9o: B\u1EA1n c\xF3 th\u1EC3 double tap/click v\xE0o 2 c\u1EA1nh c\u1EE7a m\xE0n h\xECnh \u0111\u1EC3 chuy\u1EC3n chap \u1EDF b\u1EA5t c\u1EE9 v\u1ECB tr\xED n\xE0o \u1EDF ch\u1EBF \u0111\u1ED9 d\u1ECDc! </h1></div></div>`);
-    };
-  }
-});
-const _sfc_setup$C = _sfc_main$D.setup;
-_sfc_main$D.setup = (props, ctx) => {
-  const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/manga/ReadMangaFooter.vue");
-  return _sfc_setup$C ? _sfc_setup$C(props, ctx) : void 0;
-};
-const ReadMangaFooter = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": _sfc_main$D
-}, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$C = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$L = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "NewStory",
   __ssrInlineRender: true,
   props: {
@@ -8400,23 +8249,23 @@ const _sfc_main$C = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$B = _sfc_main$C.setup;
-_sfc_main$C.setup = (props, ctx) => {
+const _sfc_setup$K = _sfc_main$L.setup;
+_sfc_main$L.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/NewStory.vue");
-  return _sfc_setup$B ? _sfc_setup$B(props, ctx) : void 0;
+  return _sfc_setup$K ? _sfc_setup$K(props, ctx) : void 0;
 };
 const NewStory = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$C
+  "default": _sfc_main$L
 }, Symbol.toStringTag, { value: "Module" }));
 function useNavigatorNovel(slug) {
   return `/${TRUYEN_CHU}/${slug}`;
 }
-const __nuxt_component_1_lazy$e = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$d = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
 }));
-const _sfc_main$B = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$K = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "NovelHorizontal",
   __ssrInlineRender: true,
   props: {
@@ -8433,7 +8282,7 @@ const _sfc_main$B = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$e;
+      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$d;
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, vue_cjs_prod.mergeProps({
         to: vue_cjs_prod.unref(useNavigatorNovel)(__props.slug),
         title: __props.name
@@ -8501,32 +8350,32 @@ const _sfc_main$B = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$A = _sfc_main$B.setup;
-_sfc_main$B.setup = (props, ctx) => {
+const _sfc_setup$J = _sfc_main$K.setup;
+_sfc_main$K.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/NovelHorizontal.vue");
-  return _sfc_setup$A ? _sfc_setup$A(props, ctx) : void 0;
+  return _sfc_setup$J ? _sfc_setup$J(props, ctx) : void 0;
 };
 const NovelHorizontal = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$B
+  "default": _sfc_main$K
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$d = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$c = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
 }));
-const _sfc_main$A = /* @__PURE__ */ vue_cjs_prod.defineComponent({
-  __name: "NovelsRelated",
+const _sfc_main$J = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "RelatedItem",
   __ssrInlineRender: true,
   props: {
     tags: Array
   },
   setup(__props) {
-    const comicsRelated = useState("comicsRelated", "$nRap6mRnDe");
+    const comicsRelated = useState("comicsRelated", "$F3PFHQnjEX");
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$d;
+      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$c;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
-        class: "px-5 py-5 mb-14",
+        class: "px-5 py-5 pb-20",
         style: { "border-top": "3px solid rgb(27, 28, 35)" }
       }, _attrs))}><div class="flex items-center justify-between"><h2 class="text-white font-bold text-3xl mb-7"> \u0110\u1EC1 xu\u1EA5t li\xEAn quan </h2></div><div class="whitespace-nowrap overflow-x-auto scrollbar-hide min-h-[200px]"><!--[-->`);
       serverRenderer.exports.ssrRenderList(vue_cjs_prod.unref(comicsRelated), (comicRelated) => {
@@ -8575,17 +8424,17 @@ const _sfc_main$A = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$z = _sfc_main$A.setup;
-_sfc_main$A.setup = (props, ctx) => {
+const _sfc_setup$I = _sfc_main$J.setup;
+_sfc_main$J.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/NovelsRelated.vue");
-  return _sfc_setup$z ? _sfc_setup$z(props, ctx) : void 0;
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/RelatedItem.vue");
+  return _sfc_setup$I ? _sfc_setup$I(props, ctx) : void 0;
 };
-const NovelsRelated = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const RelatedItem = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$A
+  "default": _sfc_main$J
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$z = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$I = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "RepresentCategory",
   __ssrInlineRender: true,
   props: {
@@ -8599,7 +8448,7 @@ const _sfc_main$z = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_client_only = __nuxt_component_2;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(`<!--[-->`);
       serverRenderer.exports.ssrRenderList(__props.record.content, (content) => {
         _push(`<div class="px-4"><div class="h-[40px] mb-4 flex justify-between"><h2 class="text-3xl font-bold flex justify-start items-center text-black">${serverRenderer.exports.ssrInterpolate(content.name || content.categoryVietName)}</h2>`);
@@ -8717,17 +8566,17 @@ const _sfc_main$z = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$y = _sfc_main$z.setup;
-_sfc_main$z.setup = (props, ctx) => {
+const _sfc_setup$H = _sfc_main$I.setup;
+_sfc_main$I.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/RepresentCategory.vue");
-  return _sfc_setup$y ? _sfc_setup$y(props, ctx) : void 0;
+  return _sfc_setup$H ? _sfc_setup$H(props, ctx) : void 0;
 };
 const RepresentCategory = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$z
+  "default": _sfc_main$I
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$y = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$H = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "Spotlight",
   __ssrInlineRender: true,
   props: {
@@ -8742,7 +8591,7 @@ const _sfc_main$y = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(Swiper), vue_cjs_prod.mergeProps({
         loop: true,
         modules: modules.value,
@@ -8881,18 +8730,18 @@ const _sfc_main$y = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$x = _sfc_main$y.setup;
-_sfc_main$y.setup = (props, ctx) => {
+const _sfc_setup$G = _sfc_main$H.setup;
+_sfc_main$H.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/Spotlight.vue");
-  return _sfc_setup$x ? _sfc_setup$x(props, ctx) : void 0;
+  return _sfc_setup$G ? _sfc_setup$G(props, ctx) : void 0;
 };
-const Spotlight = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["__scopeId", "data-v-efb7c3e0"]]);
+const Spotlight = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["__scopeId", "data-v-efb7c3e0"]]);
 const Spotlight$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": Spotlight
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$G = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "Trending",
   __ssrInlineRender: true,
   props: {
@@ -8906,7 +8755,7 @@ const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       const _component_client_only = __nuxt_component_2;
       const _component_NuxtLink = __nuxt_component_0$2;
       const _component_nuxt_img = __nuxt_component_2$1;
-      const _component_shared_mee_toon_img = _sfc_main$10;
+      const _component_shared_mee_toon_img = _sfc_main$14;
       _push(serverRenderer.exports.ssrRenderComponent(_component_client_only, _attrs, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -8987,7 +8836,7 @@ const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                             }),
                             _: 2
                           }, _parent4, _scopeId3));
-                          _push4(`</h3><p class="text-primary-gray mb-3 text-base" data-v-5db2f42d${_scopeId3}> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(content.newestChapter)}</p><div class="flex items-center" data-v-5db2f42d${_scopeId3}><div class="flex items-center mr-2" data-v-5db2f42d${_scopeId3}><img class="w-5 h-5 mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$4)} alt="view chapter" data-v-5db2f42d${_scopeId3}><span class="text-base text-primary-gray" data-v-5db2f42d${_scopeId3}>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.viewCount))}</span></div><div class="flex items-center" data-v-5db2f42d${_scopeId3}><img class="mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="star" data-v-5db2f42d${_scopeId3}><span class="text-base" data-v-5db2f42d${_scopeId3}>5 </span><span class="text-base text-primary-gray" data-v-5db2f42d${_scopeId3}>(${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.reviewCount))})</span></div></div></div></div>`);
+                          _push4(`</h3><p class="text-primary-gray mb-3 text-base" data-v-5db2f42d${_scopeId3}> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(content.newestChapter)}</p><div class="flex items-center" data-v-5db2f42d${_scopeId3}><div class="flex items-center mr-2" data-v-5db2f42d${_scopeId3}><img class="w-5 h-5 mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_0$3)} alt="view chapter" data-v-5db2f42d${_scopeId3}><span class="text-base text-primary-gray" data-v-5db2f42d${_scopeId3}>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.viewCount))}</span></div><div class="flex items-center" data-v-5db2f42d${_scopeId3}><img class="mr-1"${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="star" data-v-5db2f42d${_scopeId3}><span class="text-base" data-v-5db2f42d${_scopeId3}>5 </span><span class="text-base text-primary-gray" data-v-5db2f42d${_scopeId3}>(${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(content.reviewCount))})</span></div></div></div></div>`);
                         } else {
                           return [
                             vue_cjs_prod.createVNode("div", {
@@ -9018,7 +8867,7 @@ const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                                   vue_cjs_prod.createVNode("div", { class: "flex items-center mr-2" }, [
                                     vue_cjs_prod.createVNode("img", {
                                       class: "w-5 h-5 mr-1",
-                                      src: _imports_0$4,
+                                      src: _imports_0$3,
                                       alt: "view chapter"
                                     }),
                                     vue_cjs_prod.createVNode("span", { class: "text-base text-primary-gray" }, vue_cjs_prod.toDisplayString(vue_cjs_prod.unref(convertUnit)(content.viewCount)), 1)
@@ -9078,7 +8927,7 @@ const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                                 vue_cjs_prod.createVNode("div", { class: "flex items-center mr-2" }, [
                                   vue_cjs_prod.createVNode("img", {
                                     class: "w-5 h-5 mr-1",
-                                    src: _imports_0$4,
+                                    src: _imports_0$3,
                                     alt: "view chapter"
                                   }),
                                   vue_cjs_prod.createVNode("span", { class: "text-base text-primary-gray" }, vue_cjs_prod.toDisplayString(vue_cjs_prod.unref(convertUnit)(content.viewCount)), 1)
@@ -9191,7 +9040,7 @@ const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                                   vue_cjs_prod.createVNode("div", { class: "flex items-center mr-2" }, [
                                     vue_cjs_prod.createVNode("img", {
                                       class: "w-5 h-5 mr-1",
-                                      src: _imports_0$4,
+                                      src: _imports_0$3,
                                       alt: "view chapter"
                                     }),
                                     vue_cjs_prod.createVNode("span", { class: "text-base text-primary-gray" }, vue_cjs_prod.toDisplayString(vue_cjs_prod.unref(convertUnit)(content.viewCount)), 1)
@@ -9238,18 +9087,255 @@ const _sfc_main$x = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$w = _sfc_main$x.setup;
-_sfc_main$x.setup = (props, ctx) => {
+const _sfc_setup$F = _sfc_main$G.setup;
+_sfc_main$G.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/Trending.vue");
-  return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
+  return _sfc_setup$F ? _sfc_setup$F(props, ctx) : void 0;
 };
-const Trending = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-5db2f42d"]]);
+const Trending = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["__scopeId", "data-v-5db2f42d"]]);
 const Trending$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": Trending
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$w = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$F = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "ComicChapterTab",
+  __ssrInlineRender: true,
+  props: {
+    chapters: Array
+  },
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<!--[-->`);
+      serverRenderer.exports.ssrRenderList(__props.chapters, (chapter) => {
+        _push(`<div class="relative bg-accent-4" style="${serverRenderer.exports.ssrRenderStyle({ "border-bottom": "1px solid rgb(27, 28, 35)" })}"><div class="px-5 py-5 cursor-pointe"><a><h3 class="text-2xl mb-4"><b> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chapter.chapterNum)}</b></h3><div class="flex"><p class="mr-8 text-primary-gray text-2xl flex items-center">${serverRenderer.exports.ssrInterpolate(new Date(chapter.createdAt).toLocaleDateString())}</p><div class="mr-[17px] flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_9)} alt="view"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalView ? vue_cjs_prod.unref(convertUnit)(chapter.totalView) : 0)}</span></div><div class="mr-8 flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_10)} alt="like"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalLike ? vue_cjs_prod.unref(convertUnit)(chapter.totalLike) : 0)}</span></div><div class="flex items-center justify-center mr-4 text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_11)} alt="comment"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalComment ? vue_cjs_prod.unref(convertUnit)(chapter.totalComment) : 0)}</span></div></div></a></div></div>`);
+      });
+      _push(`<!--]-->`);
+    };
+  }
+});
+const _sfc_setup$E = _sfc_main$F.setup;
+_sfc_main$F.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicChapterTab.vue");
+  return _sfc_setup$E ? _sfc_setup$E(props, ctx) : void 0;
+};
+const ComicChapterTab = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$F
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$E = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "ComicTab",
+  __ssrInlineRender: true,
+  props: {
+    comic: Object
+  },
+  setup(__props) {
+    const tags = vue_cjs_prod.computed(() => {
+      return __props.comic.tags.map((tag) => tag.slug);
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      var _a;
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "relative bg-dark-gray" }, _attrs))}><div class="px-6 h-auto relative overflow-hidden pt-6"><div class="content mb-4"><p class="text-xl text-white whitespace-pre-line">${serverRenderer.exports.ssrInterpolate((_a = __props.comic) == null ? void 0 : _a.description)}</p></div></div><div class="scrollbar-hide overflow-auto whitespace-nowrap p-4" style="${serverRenderer.exports.ssrRenderStyle({ "display": "-webkit-box" })}"><!--[-->`);
+      serverRenderer.exports.ssrRenderList(__props.comic.tags, (tag) => {
+        _push(`<a class="inline-block py-1 px-4 mr-2 text-xl rounded-xl bg-accent-5" href="#"># ${serverRenderer.exports.ssrInterpolate(tag.name)}</a>`);
+      });
+      _push(`<!--]--></div>`);
+      _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(LazyComicsRelated), { tags: vue_cjs_prod.unref(tags) }, null, _parent));
+      _push(`</div>`);
+    };
+  }
+});
+const _sfc_setup$D = _sfc_main$E.setup;
+_sfc_main$E.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicTab.vue");
+  return _sfc_setup$D ? _sfc_setup$D(props, ctx) : void 0;
+};
+const ComicTab = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$E
+}, Symbol.toStringTag, { value: "Module" }));
+const __nuxt_component_1_lazy$b = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return MeeToonImg;
+}));
+const _sfc_main$D = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "ComicsRelated",
+  __ssrInlineRender: true,
+  props: {
+    tags: Array
+  },
+  setup(__props) {
+    const comicsRelated = useState("comicsRelated", "$83Bf6yO1tN");
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0$2;
+      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$b;
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
+        class: "px-5 py-5 pb-20",
+        style: { "border-top": "3px solid rgb(27, 28, 35)" }
+      }, _attrs))}><div class="flex items-center justify-between"><h2 class="text-white font-bold text-3xl mb-7"> \u0110\u1EC1 xu\u1EA5t li\xEAn quan </h2></div><div class="whitespace-nowrap overflow-x-auto scrollbar-hide min-h-[200px]"><!--[-->`);
+      serverRenderer.exports.ssrRenderList(vue_cjs_prod.unref(comicsRelated), (comicRelated) => {
+        _push(`<div class="inline-block w-[105px] mr-6"><div class="relative"><div class="absolute top-[-3px] left-0 w-full z-10"><span class="inline-block px-3 rounded-xl bg-[#1fcf84] font-semibold text-white text-base">${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[comicRelated.status])}</span></div>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+          to: vue_cjs_prod.unref(useNavigatorComicPreview)(comicRelated.slug, comicRelated._id),
+          title: comicRelated.comicName
+        }, {
+          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
+                class: "rounded-2xl",
+                src: comicRelated.verticalLogo
+              }, null, _parent2, _scopeId));
+            } else {
+              return [
+                vue_cjs_prod.createVNode(_component_LazySharedMeeToonImg, {
+                  class: "rounded-2xl",
+                  src: comicRelated.verticalLogo
+                }, null, 8, ["src"])
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+        _push(`</div><h3 class="line-clamp-1">`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+          class: "text-white font-bold text-xl",
+          title: comicRelated.comicName,
+          to: vue_cjs_prod.unref(useNavigatorComicPreview)(comicRelated.slug, comicRelated._id)
+        }, {
+          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${serverRenderer.exports.ssrInterpolate(comicRelated.comicName)}`);
+            } else {
+              return [
+                vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString(comicRelated.comicName), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+        _push(`</h3><p class="text-gray-100 text-base"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(comicRelated.newestChapter)}</p></div>`);
+      });
+      _push(`<!--]--></div></div>`);
+    };
+  }
+});
+const _sfc_setup$C = _sfc_main$D.setup;
+_sfc_main$D.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/ComicsRelated.vue");
+  return _sfc_setup$C ? _sfc_setup$C(props, ctx) : void 0;
+};
+const ComicsRelated = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$D
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$C = {};
+function _sfc_ssrRender$6(_ctx, _push, _parent, _attrs) {
+}
+const _sfc_setup$B = _sfc_main$C.setup;
+_sfc_main$C.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/comics/CommentComic.vue");
+  return _sfc_setup$B ? _sfc_setup$B(props, ctx) : void 0;
+};
+const CommentComic = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["ssrRender", _sfc_ssrRender$6]]);
+const CommentComic$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": CommentComic
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$B = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "Chaplist",
+  __ssrInlineRender: true,
+  props: {
+    slug: String,
+    chapterList: Object
+  },
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_SvgViewChapter = vue_cjs_prod.resolveComponent("SvgViewChapter");
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({
+        class: "list-chapter overflow-auto",
+        style: { "height": "calc(100vh - 400px)" }
+      }, _attrs))}><ul><!--[-->`);
+      serverRenderer.exports.ssrRenderList(__props.chapterList, (chap, cI) => {
+        _push(`<li class="flex items-center justify-between py-3 grid grid-cols-1 chapter_list-detail">`);
+        if (cI >= 0) {
+          _push(`<div><div class="chapter"><a class="text-xl text-white font-bold"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chap.chapterNumber)}</a></div><div class="flex justify-between items-center"><div class="text-primary-gray text-base">${serverRenderer.exports.ssrInterpolate(chap.updatedAt)}</div><div class="text-primary-gray text-base flex items-center">`);
+          _push(serverRenderer.exports.ssrRenderComponent(_component_SvgViewChapter, { class: "w-5 h-5 mb-1" }, null, _parent));
+          _push(` ${serverRenderer.exports.ssrInterpolate(chap.view)}</div></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</li>`);
+      });
+      _push(`<!--]--></ul></div>`);
+    };
+  }
+});
+const _sfc_setup$A = _sfc_main$B.setup;
+_sfc_main$B.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/manga/Chaplist.vue");
+  return _sfc_setup$A ? _sfc_setup$A(props, ctx) : void 0;
+};
+const Chaplist = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$B
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$A = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "ChapterImg",
+  __ssrInlineRender: true,
+  props: {
+    pages: Array
+  },
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_SharedMeeToonImg = _sfc_main$14;
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "pt-24 mx-auto w-full lg:w-[60%] bg-accent-1" }, _attrs))}><!--[-->`);
+      serverRenderer.exports.ssrRenderList(__props.pages, (page) => {
+        _push(`<div class="relative my-0 h-fit w-full">`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_SharedMeeToonImg, {
+          class: "w-full h-full",
+          src: page.linkHD
+        }, null, _parent));
+        _push(`</div>`);
+      });
+      _push(`<!--]--></div>`);
+    };
+  }
+});
+const _sfc_setup$z = _sfc_main$A.setup;
+_sfc_main$A.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/manga/ChapterImg.vue");
+  return _sfc_setup$z ? _sfc_setup$z(props, ctx) : void 0;
+};
+const ChapterImg = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$A
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$z = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "ReadMangaFooter",
+  __ssrInlineRender: true,
+  emits: ["nextProcess"],
+  setup(__props, { emit }) {
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "h-[200px] w-full overflow-hidden py-4 bg-accent-1" }, _attrs))}><div class="mx-auto flex h-full w-full flex-col space-y-4 md:w-1/2"><div class="flex h-full w-full gap-4"><button data-id="prev" class="absolute-center z-[700] h-full w-[20%] border-2 border-dashed border-white/40 px-2 text-white/40 transition-all hover:border-white hover:text-white md:gap-2"> Chapter tr\u01B0\u1EDBc </button><button data-id="next" class="absolute-center h-full w-[80%] gap-2 border-2 border-dashed border-white/40 text-white/40 transition-all hover:border-white hover:text-white"> Chapter k\u1EBF ti\u1EBFp </button></div><h1 class="py-4 px-2 text-center text-white/75"> M\u1EB9o: B\u1EA1n c\xF3 th\u1EC3 double tap/click v\xE0o 2 c\u1EA1nh c\u1EE7a m\xE0n h\xECnh \u0111\u1EC3 chuy\u1EC3n chap \u1EDF b\u1EA5t c\u1EE9 v\u1ECB tr\xED n\xE0o \u1EDF ch\u1EBF \u0111\u1ED9 d\u1ECDc! </h1></div></div>`);
+    };
+  }
+});
+const _sfc_setup$y = _sfc_main$z.setup;
+_sfc_main$z.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/manga/ReadMangaFooter.vue");
+  return _sfc_setup$y ? _sfc_setup$y(props, ctx) : void 0;
+};
+const ReadMangaFooter = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$z
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$y = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "NoveItem",
   __ssrInlineRender: true,
   props: {
@@ -9276,7 +9362,7 @@ const _sfc_main$w = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                 class: "rounded-2xl w-full",
                 src: novel.verticalLogo
               }, null, _parent2, _scopeId));
-              _push2(`</div><h3 class="text-xl line-clamp-1 mt-1 text-black font-semibold"${serverRenderer.exports.ssrRenderAttr("title", novel.name)}${_scopeId}>${serverRenderer.exports.ssrInterpolate(novel.name)}</h3>`);
+              _push2(`</div><h3 class="text-xl line-clamp-2 mt-1 text-black font-semibold"${serverRenderer.exports.ssrRenderAttr("title", novel.name)}${_scopeId}>${serverRenderer.exports.ssrInterpolate(novel.name)}</h3>`);
               if (novel.tags && novel.tags.length > 0) {
                 _push2(`<p class="text-primary-gray text-base font-medium line-clamp-1"${_scopeId}> #${serverRenderer.exports.ssrInterpolate(novel.tags[0].name)}</p>`);
               } else {
@@ -9305,7 +9391,7 @@ const _sfc_main$w = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                     }, null, 8, ["alt", "src"])
                   ]),
                   vue_cjs_prod.createVNode("h3", {
-                    class: "text-xl line-clamp-1 mt-1 text-black font-semibold",
+                    class: "text-xl line-clamp-2 mt-1 text-black font-semibold",
                     title: novel.name
                   }, vue_cjs_prod.toDisplayString(novel.name), 9, ["title"]),
                   novel.tags && novel.tags.length > 0 ? (vue_cjs_prod.openBlock(), vue_cjs_prod.createBlock("p", {
@@ -9330,17 +9416,17 @@ const _sfc_main$w = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$v = _sfc_main$w.setup;
-_sfc_main$w.setup = (props, ctx) => {
+const _sfc_setup$x = _sfc_main$y.setup;
+_sfc_main$y.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/novels/categories/NoveItem.vue");
-  return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
+  return _sfc_setup$x ? _sfc_setup$x(props, ctx) : void 0;
 };
 const NoveItem = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$w
+  "default": _sfc_main$y
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$v = {
+const _sfc_main$x = {
   __name: "welcome",
   __ssrInlineRender: true,
   props: {
@@ -9385,13 +9471,13 @@ const _sfc_main$v = {
     };
   }
 };
-const _sfc_setup$u = _sfc_main$v.setup;
-_sfc_main$v.setup = (props, ctx) => {
+const _sfc_setup$w = _sfc_main$x.setup;
+_sfc_main$x.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/@nuxt/ui-templates/dist/templates/welcome.vue");
-  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+  return _sfc_setup$w ? _sfc_setup$w(props, ctx) : void 0;
 };
-const welcome = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["__scopeId", "data-v-d2e18222"]]);
+const welcome = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["__scopeId", "data-v-d2e18222"]]);
 const welcome$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": welcome
@@ -9507,7 +9593,7 @@ const nuxtLoadingIndicator$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Obj
   __proto__: null,
   "default": nuxtLoadingIndicator
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$u = vue_cjs_prod.defineComponent({
+const _sfc_main$w = vue_cjs_prod.defineComponent({
   name: "NuxtPicture",
   mixins: [imageMixin],
   props: {
@@ -9604,13 +9690,13 @@ function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     sizes: _ctx.nSources[0].sizes
   }))}></picture>`);
 }
-const _sfc_setup$t = _sfc_main$u.setup;
-_sfc_main$u.setup = (props, ctx) => {
+const _sfc_setup$v = _sfc_main$w.setup;
+_sfc_main$w.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/@nuxt/image-edge/dist/runtime/components/nuxt-picture.vue");
-  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
+  return _sfc_setup$v ? _sfc_setup$v(props, ctx) : void 0;
 };
-const nuxtPicture = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["ssrRender", _sfc_ssrRender$5]]);
+const nuxtPicture = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["ssrRender", _sfc_ssrRender$5]]);
 const nuxtPicture$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": nuxtPicture
@@ -9664,6 +9750,33 @@ vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return Trending$3;
 }).then((c) => c.default || c));
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return BannerBar;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return ChapterTab;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return InfoTab;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return NewStory;
+}).then((c) => c.default || c));
+const LazyNovelsNovelHorizontal = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return NovelHorizontal;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return RelatedItem;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return RepresentCategory;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return Spotlight$1;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return Trending$1;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ComicChapterTab;
 }).then((c) => c.default || c));
 const LazyComicsComicHorizontal = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
@@ -9679,6 +9792,12 @@ vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return CommentComic$1;
 }).then((c) => c.default || c));
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return BannerBar$1;
+}).then((c) => c.default || c));
+const LazySharedMeeToonImg = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return MeeToonImg;
+}).then((c) => c.default || c));
+vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return HomeLoading;
 }).then((c) => c.default || c));
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
@@ -9689,33 +9808,6 @@ vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
 }).then((c) => c.default || c));
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ReadMangaFooter;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return BannerBar;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return NewStory;
-}).then((c) => c.default || c));
-const LazyNovelsNovelHorizontal = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return NovelHorizontal;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return NovelsRelated;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return RepresentCategory;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return Spotlight$1;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return Trending$1;
-}).then((c) => c.default || c));
-vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return BannerBar$1;
-}).then((c) => c.default || c));
-const LazySharedMeeToonImg = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
-  return MeeToonImg;
 }).then((c) => c.default || c));
 const LazyNovelsCategoriesNoveItem = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return NoveItem;
@@ -9747,7 +9839,7 @@ vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return nuxtPicture$1;
 }).then((c) => c.default || c));
-const _sfc_main$t = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$v = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -9764,22 +9856,22 @@ const _sfc_main$t = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       const _component_NuxtLink = __nuxt_component_0$2;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
       if (vue_cjs_prod.unref(pending)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$Q, null, null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$U, null, null, _parent));
       } else {
         _push(`<!---->`);
       }
       _push(`<div class="bg-white h-[100vh]"><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         class: "mx-2 my-2 flex items-center",
-        onClick: ($event) => _ctx.$router.back()
+        to: "/novel"
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_0$8,
+                src: _imports_0$7,
                 alt: "back"
               })
             ];
@@ -9794,11 +9886,11 @@ const _sfc_main$t = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_1$6,
+                src: _imports_1$5,
                 alt: "search"
               })
             ];
@@ -9807,7 +9899,7 @@ const _sfc_main$t = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         _: 1
       }, _parent));
       _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
-      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$14, { categories: vue_cjs_prod.unref(novelCategories) }, null, _parent));
+      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$18, { categories: vue_cjs_prod.unref(novelCategories) }, null, _parent));
       if (!vue_cjs_prod.unref(pending)) {
         _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(LazyNovelsCategoriesNoveItem), { novels: vue_cjs_prod.unref(novels) }, null, _parent));
@@ -9819,21 +9911,97 @@ const _sfc_main$t = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$s = _sfc_main$t.setup;
-_sfc_main$t.setup = (props, ctx) => {
+const _sfc_setup$u = _sfc_main$v.setup;
+_sfc_main$v.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/novel/danh-muc/[slug].vue");
-  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
+  return _sfc_setup$u ? _sfc_setup$u(props, ctx) : void 0;
+};
+const meta$a = void 0;
+const _sfc_main$u = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  async setup(__props) {
+    let __temp, __restore;
+    vue_cjs_prod.ref(false);
+    const { data: novels, pending, refresh } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useLazyAsyncData("novels", () => $fetch("/api/novel/danh-muc/all"), "$WJaewrUmsl")), __temp = await __temp, __restore(), __temp);
+    vue_cjs_prod.watchEffect(() => {
+      refresh();
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0$2;
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
+      if (vue_cjs_prod.unref(pending)) {
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$U, null, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<div class="bg-white h-[100vh]"><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
+      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+        class: "mx-2 my-2 flex items-center",
+        to: "/novel"
+      }, {
+        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
+          } else {
+            return [
+              vue_cjs_prod.createVNode("img", {
+                src: _imports_0$7,
+                alt: "back"
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`<div class="flex items-center justify-center w-[70%] mx-2 my-2 text-4xl text-black font-semibold"> #Danh m\u1EE5c truy\u1EC7n ch\u1EEF </div>`);
+      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+        to: "/tim-kiem",
+        class: "flex items-center mr-2 h-[40px] w-[30px] mx-2 my-2 rounded-2xl text-white"
+      }, {
+        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
+          } else {
+            return [
+              vue_cjs_prod.createVNode("img", {
+                src: _imports_1$5,
+                alt: "search"
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
+      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$18, { categories: vue_cjs_prod.unref(novelCategories) }, null, _parent));
+      if (!vue_cjs_prod.unref(pending)) {
+        _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
+        _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(LazyNovelsCategoriesNoveItem), { novels: vue_cjs_prod.unref(novels) }, null, _parent));
+        _push(`</section>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div></div></div>`);
+    };
+  }
+});
+const _sfc_setup$t = _sfc_main$u.setup;
+_sfc_main$u.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/novel/danh-muc/index.vue");
+  return _sfc_setup$t ? _sfc_setup$t(props, ctx) : void 0;
 };
 const meta$9 = void 0;
 vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheNovel;
 }));
 const meta$8 = void 0;
-const __nuxt_component_1_lazy$c = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$a = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ComicItem;
 }));
-const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$t = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
   __ssrInlineRender: true,
   setup(__props) {
@@ -9849,7 +10017,7 @@ const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$c;
+      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$a;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         to: "/",
@@ -9857,11 +10025,11 @@ const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_0$8,
+                src: _imports_0$7,
                 alt: "back"
               })
             ];
@@ -9876,11 +10044,11 @@ const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_1$6,
+                src: _imports_1$5,
                 alt: "search"
               })
             ];
@@ -9890,7 +10058,7 @@ const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, _parent));
       _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
       if (loading.value) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, { class: "w-[150px] h-[50px]" }, null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, { class: "w-[150px] h-[50px]" }, null, _parent));
       } else {
         _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_LazyCategorysComicItem, { comics: vue_cjs_prod.unref(comics) }, null, _parent));
@@ -9900,11 +10068,11 @@ const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$r = _sfc_main$s.setup;
-_sfc_main$s.setup = (props, ctx) => {
+const _sfc_setup$s = _sfc_main$t.setup;
+_sfc_main$t.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/tag/[slug].vue");
-  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
+  return _sfc_setup$s ? _sfc_setup$s(props, ctx) : void 0;
 };
 const meta$7 = void 0;
 const _imports_0$2 = publicAssetsURL(`icons/searchPage/icon-back.svg`);
@@ -9912,7 +10080,7 @@ const _imports_1$2 = publicAssetsURL(`icons/searchPage/icon-search.svg`);
 const _imports_2$3 = publicAssetsURL(`icons/searchPage/icon-close.svg`);
 const _imports_2$2 = publicAssetsURL(`icons/searchPage/icon-view-count.svg`);
 const _imports_3$2 = publicAssetsURL(`icons/searchPage/icon-star.svg`);
-const _sfc_main$r = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$s = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "index",
   __ssrInlineRender: true,
   setup(__props) {
@@ -9947,8 +10115,8 @@ const _sfc_main$r = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_CommonSearchLoading = _sfc_main$13;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_CommonSearchLoading = _sfc_main$17;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh] w-full" }, _attrs))}><div class="flex justify-between">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         to: "/",
@@ -10077,14 +10245,14 @@ const _sfc_main$r = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$q = _sfc_main$r.setup;
-_sfc_main$r.setup = (props, ctx) => {
+const _sfc_setup$r = _sfc_main$s.setup;
+_sfc_main$s.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/tim-kiem/index.vue");
-  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
+  return _sfc_setup$r ? _sfc_setup$r(props, ctx) : void 0;
 };
 const meta$6 = void 0;
-const _sfc_main$q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$r = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "trending",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -10092,9 +10260,9 @@ const _sfc_main$q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const { data: comics, pending } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch("/api/trending", "$4u4pOgvoES")), __temp = await __temp, __restore(), __temp);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       if (vue_cjs_prod.unref(pending)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
       } else {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
@@ -10103,11 +10271,11 @@ const _sfc_main$q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_0$8,
+                  src: _imports_0$7,
                   alt: "back"
                 })
               ];
@@ -10122,11 +10290,11 @@ const _sfc_main$q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_1$6,
+                  src: _imports_1$5,
                   alt: "search"
                 })
               ];
@@ -10192,11 +10360,11 @@ const _sfc_main$q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$p = _sfc_main$q.setup;
-_sfc_main$q.setup = (props, ctx) => {
+const _sfc_setup$q = _sfc_main$r.setup;
+_sfc_main$r.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/trending.vue");
-  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
+  return _sfc_setup$q ? _sfc_setup$q(props, ctx) : void 0;
 };
 const meta$5 = void 0;
 const _imports_0$1 = publicAssetsURL(`icons/novelChapterPage/icon-back.svg`);
@@ -10208,10 +10376,10 @@ const _imports_5 = publicAssetsURL(`icons/novelChapterPage/icon-share.svg`);
 const _imports_6$1 = publicAssetsURL(`icons/novelChapterPage/icon-footer-setting.svg`);
 const _imports_7$1 = publicAssetsURL(`icons/novelChapterPage/icon-prev.svg`);
 const _imports_8 = publicAssetsURL(`icons/novelChapterPage/icon-next.svg`);
-const __nuxt_component_1_lazy$b = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$9 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return nuxtLink;
 }));
-const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$q = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[_id]",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -10219,12 +10387,14 @@ const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const route = useRoute();
     const params = route.params;
     const chapterSlug = vue_cjs_prod.ref(params.chapter_slug);
-    const novelInfo = useState("novelInfo", "$HVlbtZ43jE");
-    const chapters = useState("chapters", "$hzhKmb7mLU");
-    const novel = useState("novel", "$IPd0cD1MYh");
+    const novelInfo = useState("novelInfo", "$XhypRniTIQ");
+    const chapters = useState("chapters", "$yP6fc7Yd2e");
     const shouldShowControl = vue_cjs_prod.ref(true);
     const settingFont = vue_cjs_prod.ref(false);
     const fontDefault = vue_cjs_prod.ref(15);
+    const chapterListEL = vue_cjs_prod.ref(null);
+    const shouldShowChapterList = vue_cjs_prod.ref(false);
+    onClickOutside(chapterListEL, (event) => set(shouldShowChapterList, false));
     const {
       pending,
       data: readPage,
@@ -10233,26 +10403,27 @@ const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       params: {
         slug: chapterSlug.value
       }
-    }, "$jOngBuOQev")), __temp = await __temp, __restore(), __temp);
+    }, "$OQfFs5ofyB")), __temp = await __temp, __restore(), __temp);
     vue_cjs_prod.onMounted(async () => {
-      var _a, _b, _c;
-      novelInfo.value = await $fetch("/api/novel/information", {
-        params: {
-          novelId: (_a = readPage.value) == null ? void 0 : _a.novelId
-        }
-      });
-      set(chapters, (_b = novelInfo.value) == null ? void 0 : _b.chapters);
-      set(novel, (_c = novelInfo.value) == null ? void 0 : _c.novel);
+      var _a, _b;
+      if (!chapters.value) {
+        novelInfo.value = await $fetch("/api/novel/information", {
+          params: {
+            novelId: (_a = readPage.value) == null ? void 0 : _a.novel._id
+          }
+        });
+        set(chapters, (_b = novelInfo.value) == null ? void 0 : _b.chapters);
+      }
     });
     vue_cjs_prod.watchEffect(() => {
       refresh();
     });
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b, _c, _d, _e, _f;
-      const _component_CommonPageLoading = _sfc_main$Q;
+      const _component_CommonPageLoading = _sfc_main$U;
       const _component_Head = vue_cjs_prod.resolveComponent("Head");
       const _component_Title = vue_cjs_prod.resolveComponent("Title");
-      const _component_LazyNuxtLink = __nuxt_component_1_lazy$b;
+      const _component_LazyNuxtLink = __nuxt_component_1_lazy$9;
       if (vue_cjs_prod.unref(pending)) {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_CommonPageLoading, null, null, _parent));
@@ -10269,10 +10440,10 @@ const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                 default: vue_cjs_prod.withCtx((_2, _push3, _parent3, _scopeId2) => {
                   var _a2, _b2, _c2, _d2;
                   if (_push3) {
-                    _push3(`${serverRenderer.exports.ssrInterpolate((_a2 = vue_cjs_prod.unref(novel)) == null ? void 0 : _a2.name)} | Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapterNum)}`);
+                    _push3(`${serverRenderer.exports.ssrInterpolate((_a2 = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _a2.name)} | Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapter.chapterNum)}`);
                   } else {
                     return [
-                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_c2 = vue_cjs_prod.unref(novel)) == null ? void 0 : _c2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_d2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d2.chapterNum), 1)
+                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_c2 = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _c2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_d2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d2.chapter.chapterNum), 1)
                     ];
                   }
                 }),
@@ -10284,7 +10455,7 @@ const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                   default: vue_cjs_prod.withCtx(() => {
                     var _a2, _b2;
                     return [
-                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_a2 = vue_cjs_prod.unref(novel)) == null ? void 0 : _a2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapterNum), 1)
+                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_a2 = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _a2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapter.chapterNum), 1)
                     ];
                   }),
                   _: 1
@@ -10296,7 +10467,7 @@ const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, _parent));
         _push(`<div class="relative flex h-fit flex-1 text-white"><div class="h-fit min-h-screen w-full bg-[#f8f3e6] text-black"><div class="${serverRenderer.exports.ssrRenderClass([{ "top-0": shouldShowControl.value }, "ease-in-out duration-300 fixed top-[-70px] left-0 z-[999] h-[44px] w-full"])}"><div class="flex h-full w-full items-center justify-between text-lg md:text-2xl bg-black/40">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNuxtLink, {
-          to: vue_cjs_prod.unref(useNavigatorNovel)((_a = vue_cjs_prod.unref(novel)) == null ? void 0 : _a.slug),
+          to: vue_cjs_prod.unref(useNavigatorNovel)((_a = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _a.slug),
           class: "w-[30px] h-[30px] flex ml-4"
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
@@ -10313,19 +10484,29 @@ const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
           }),
           _: 1
         }, _parent));
-        _push(`<div class="flex align-center"><span class="text-2xl font-semibold text-white"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b.chapterNum)}</span><img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$1)} alt="arrow down"></div><div class="mr-4"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2$1)} alt="report"></div></div></div><footer class="${serverRenderer.exports.ssrRenderClass([{ "bottom-0": shouldShowControl.value }, "fixed bottom-[-70px] h-[70px] bg-black/40 backdrop-blur-xl w-full ease-in-out duration-300"])}"><div style="${serverRenderer.exports.ssrRenderStyle(!settingFont.value ? null : { display: "none" })}" class="flex justify-around h-full"><div class="flex align-center w-[30px] ml-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_3$1)} alt="follow"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4)} alt="comment"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_5)} alt="share"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6$1)} alt="setting"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7$1)} alt="setting"></div><div class="flex align-center w-[30px] mr-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_8)} alt="setting"></div></div><div style="${serverRenderer.exports.ssrRenderStyle(settingFont.value ? null : { display: "none" })}" class="setting-font flex items-center justify-around h-full"><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A+ </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> M\u1EB7c \u0111\u1ECBnh </div></div></footer><h1 class="px-7 pt-[60px] font-[Literata] text-3xl"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(readPage)) == null ? void 0 : _c.chapterNum)}: ${serverRenderer.exports.ssrInterpolate(((_d = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d.chapterName) ? (_e = vue_cjs_prod.unref(readPage)) == null ? void 0 : _e.chapterName : "...")}</h1><div style="${serverRenderer.exports.ssrRenderStyle({ "font-size": `${fontDefault.value}px` })}" class="px-7 pt-10 chapter-content font-[Literata]">${(_f = vue_cjs_prod.unref(readPage)) == null ? void 0 : _f.content}</div></div></div></div>`);
+        _push(`<div class="flex align-center"><span class="text-2xl font-semibold text-white"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b.chapter.chapterNum)}</span><img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$1)} alt="arrow down"></div><div class="mr-4"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2$1)} alt="report"></div></div></div><footer class="${serverRenderer.exports.ssrRenderClass([{ "bottom-0": shouldShowControl.value }, "fixed bottom-[-70px] h-[70px] bg-black/40 backdrop-blur-xl w-full ease-in-out duration-300"])}"><div style="${serverRenderer.exports.ssrRenderStyle(!settingFont.value ? null : { display: "none" })}" class="flex justify-around h-full"><div class="flex align-center w-[30px] ml-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_3$1)} alt="follow"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4)} alt="comment"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_5)} alt="share"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6$1)} alt="setting"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7$1)} alt="setting"></div><div class="flex align-center w-[30px] mr-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_8)} alt="setting"></div></div><div style="${serverRenderer.exports.ssrRenderStyle(settingFont.value ? null : { display: "none" })}" class="setting-font flex items-center justify-around h-full"><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A+ </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> M\u1EB7c \u0111\u1ECBnh </div></div></footer>`);
+        if (shouldShowChapterList.value) {
+          _push(`<div class="fixed z-[9999] bottom-0 w-full h-full h-[90%] bg-accent-4 overflow-auto scrollbar-hide"><div class="absolute w-full"><div class="rounded-l-2xl rounded-r-2xl px-5 py-5"><h3 class="text-white text-3xl"> Chapters </h3></div><!--[-->`);
+          serverRenderer.exports.ssrRenderList(vue_cjs_prod.unref(chapters), (chapter) => {
+            _push(`<div class="relative" style="${serverRenderer.exports.ssrRenderStyle({ "border-bottom": "1px solid rgb(27, 28, 35)" })}"><div class="px-5 py-5 cursor-pointe"><a><h3 class="text-xl mb-4"><b> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chapter.chapterNum)}</b></h3><div class="flex"><p class="mr-8 text-primary-gray text-2xl flex items-center">${serverRenderer.exports.ssrInterpolate(new Date(chapter.createdAt).toLocaleDateString())}</p><div class="mr-[17px] flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_9)} alt="view"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalView ? _ctx.convertUnit(chapter.totalView) : 0)}</span></div><div class="mr-8 flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_10)} alt="like"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalLike ? _ctx.convertUnit(chapter.totalLike) : 0)}</span></div><div class="flex items-center justify-center mr-4 text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_11)} alt="comment"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalComment ? _ctx.convertUnit(chapter.totalComment) : 0)}</span></div></div></a></div></div>`);
+          });
+          _push(`<!--]--></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`<div><h1 class="px-7 pt-[60px] font-[Literata] text-3xl"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(readPage)) == null ? void 0 : _c.chapter.chapterNum)}: ${serverRenderer.exports.ssrInterpolate(((_d = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d.chapter.chapterName) ? (_e = vue_cjs_prod.unref(readPage)) == null ? void 0 : _e.chapter.chapterName : "...")}</h1><div style="${serverRenderer.exports.ssrRenderStyle({ "font-size": `${fontDefault.value}px` })}" class="px-7 pt-10 chapter-content font-[Literata]">${(_f = vue_cjs_prod.unref(readPage)) == null ? void 0 : _f.chapter.content}</div></div></div></div></div>`);
       }
     };
   }
 });
-const _sfc_setup$o = _sfc_main$p.setup;
-_sfc_main$p.setup = (props, ctx) => {
+const _sfc_setup$p = _sfc_main$q.setup;
+_sfc_main$q.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-chu-chapter/[chapter_slug]/[_id].vue");
-  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
+  return _sfc_setup$p ? _sfc_setup$p(props, ctx) : void 0;
 };
 const meta$4 = void 0;
-const _sfc_main$o = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$p = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "truyen-chu-hot",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -10337,22 +10518,22 @@ const _sfc_main$o = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       if (vue_cjs_prod.unref(pending)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
       } else {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-          to: "/",
-          class: "mx-2 my-2 flex items-center"
+          class: "mx-2 my-2 flex items-center",
+          onClick: ($event) => _ctx.$router.back()
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_0$8,
+                  src: _imports_0$7,
                   alt: "back"
                 })
               ];
@@ -10367,11 +10548,11 @@ const _sfc_main$o = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_1$6,
+                  src: _imports_1$5,
                   alt: "search"
                 })
               ];
@@ -10437,11 +10618,11 @@ const _sfc_main$o = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$n = _sfc_main$o.setup;
-_sfc_main$o.setup = (props, ctx) => {
+const _sfc_setup$o = _sfc_main$p.setup;
+_sfc_main$p.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-chu-hot.vue");
-  return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
+  return _sfc_setup$o ? _sfc_setup$o(props, ctx) : void 0;
 };
 const meta$3 = void 0;
 const _imports_0 = publicAssetsURL(`icons/comicPage/icon-back.svg`);
@@ -10450,10 +10631,16 @@ const _imports_2 = publicAssetsURL(`icons/comicPage/icon-view-count.svg`);
 const _imports_3 = publicAssetsURL(`icons/comicPage/icon-follow-count.svg`);
 const _imports_6 = publicAssetsURL(`icons/comicPage/icon-share.svg`);
 const _imports_7 = publicAssetsURL(`icons/comicPage/icon-follow.svg`);
-const __nuxt_component_1_lazy$a = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$8 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
 }));
-const _sfc_main$n = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const __nuxt_component_2_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return InfoTab;
+}));
+const __nuxt_component_3_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return ChapterTab;
+}));
+const _sfc_main$o = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -10462,13 +10649,13 @@ const _sfc_main$n = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const params = route.params;
     const slug = vue_cjs_prod.ref(params.slug);
     const tab = vue_cjs_prod.ref("comic");
-    const chapters = useState("chapters", "$l5sYf7rrBP");
+    const chapters = useState("chapters", "$mS1ETWgiUx");
     const runtimeConfig = useRuntimeConfig();
     const {
       data: comic,
       pending,
       refresh
-    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch(`/api/novel/${slug.value}`, "$IgajYpKSE1")), __temp = await __temp, __restore(), __temp);
+    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useLazyAsyncData("novel-info", () => $fetch(`/api/novel/${slug.value}`), "$JYJhdLBbhU")), __temp = await __temp, __restore(), __temp);
     vue_cjs_prod.onMounted(async () => {
       if (!comic.value)
         return;
@@ -10500,55 +10687,61 @@ const _sfc_main$n = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$a;
-      _push(`<section${serverRenderer.exports.ssrRenderAttrs(_attrs)} data-v-3165c15b><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.verticalLogo))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-3165c15b>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-        class: "ml-4",
-        onClick: ($event) => _ctx.$router.back()
-      }, {
-        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-3165c15b${_scopeId}>`);
-          } else {
-            return [
-              vue_cjs_prod.createVNode("img", {
-                src: _imports_0,
-                alt: "back"
-              })
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-3165c15b><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-3165c15b><span class="text-white text-2xl" data-v-3165c15b>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-3165c15b>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
-        class: "relative w-full",
-        src: (_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.verticalLogo
-      }, null, _parent));
-      _push(`</div><div class="relative mt-[150px]" data-v-3165c15b><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-3165c15b><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-3165c15b><div class="left" data-v-3165c15b><div data-v-3165c15b><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(comic)) == null ? void 0 : _c.name)}</h1></div><div class="flex flex-wrap" data-v-3165c15b><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_d = vue_cjs_prod.unref(comic)) == null ? void 0 : _d.novelStatus])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-3165c15b><span class="ml-1" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_e = vue_cjs_prod.unref(comic)) == null ? void 0 : _e.viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-3165c15b><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-3165c15b><span class="ml-1" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_f = vue_cjs_prod.unref(comic)) == null ? void 0 : _f.followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-3165c15b><span class="ml-1" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_g = vue_cjs_prod.unref(comic)) == null ? void 0 : _g.totalComment))}</span></div></div></div><div class="right" data-v-3165c15b><div class="w-[80px] text-center cursor-pointer" data-v-3165c15b><p class="text-yellow-400 text-4xl" data-v-3165c15b> 5 </p><div class="flex items-center justify-center" data-v-3165c15b><!--[-->`);
-      serverRenderer.exports.ssrRenderList(5, (i) => {
-        _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-3165c15b>`);
-      });
-      _push(`<!--]--></div><div data-v-3165c15b><span class="text-white text-xl" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate((_h = vue_cjs_prod.unref(comic)) == null ? void 0 : _h.reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-3165c15b><div class="cursor-pointer" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-3165c15b></div><div class="ml-6 cursor-pointer" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-3165c15b></div><a class="comic-read" data-v-3165c15b> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-3165c15b><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-3165c15b><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-3165c15b><span data-v-3165c15b>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-3165c15b><a data-v-3165c15b>Chapters (${serverRenderer.exports.ssrInterpolate(((_i = vue_cjs_prod.unref(chapters)) == null ? void 0 : _i.length) ? (_j = vue_cjs_prod.unref(chapters)) == null ? void 0 : _j.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-3165c15b><a data-v-3165c15b>\u0110\xE1nh gi\xE1</a></div></div></div>`);
-      if (vue_cjs_prod.unref(comicTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$I, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$8;
+      const _component_LazyNovelsInfoTab = __nuxt_component_2_lazy$3;
+      const _component_LazyNovelsChapterTab = __nuxt_component_3_lazy$3;
+      if (vue_cjs_prod.unref(pending)) {
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$U, _attrs, null, _parent));
       } else {
-        _push(`<!---->`);
+        _push(`<section${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "h-[100vh] bg-accent-4" }, _attrs))} data-v-b4a99fdc><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.verticalLogo))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-b4a99fdc>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+          class: "ml-4",
+          to: "/novel"
+        }, {
+          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-b4a99fdc${_scopeId}>`);
+            } else {
+              return [
+                vue_cjs_prod.createVNode("img", {
+                  src: _imports_0,
+                  alt: "back"
+                })
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-b4a99fdc><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-b4a99fdc><span class="text-white text-2xl" data-v-b4a99fdc>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-b4a99fdc>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
+          class: "relative w-full",
+          src: (_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.verticalLogo
+        }, null, _parent));
+        _push(`</div><div class="relative mt-[150px]" data-v-b4a99fdc><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-b4a99fdc><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-b4a99fdc><div class="left" data-v-b4a99fdc><div data-v-b4a99fdc><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(comic)) == null ? void 0 : _c.name)}</h1></div><div class="flex flex-wrap" data-v-b4a99fdc><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_d = vue_cjs_prod.unref(comic)) == null ? void 0 : _d.novelStatus])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-b4a99fdc><span class="ml-1" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_e = vue_cjs_prod.unref(comic)) == null ? void 0 : _e.viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-b4a99fdc><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-b4a99fdc><span class="ml-1" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_f = vue_cjs_prod.unref(comic)) == null ? void 0 : _f.followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-b4a99fdc><span class="ml-1" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_g = vue_cjs_prod.unref(comic)) == null ? void 0 : _g.totalComment))}</span></div></div></div><div class="right" data-v-b4a99fdc><div class="w-[80px] text-center cursor-pointer" data-v-b4a99fdc><p class="text-yellow-400 text-4xl" data-v-b4a99fdc> 5 </p><div class="flex items-center justify-center" data-v-b4a99fdc><!--[-->`);
+        serverRenderer.exports.ssrRenderList(5, (i) => {
+          _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-b4a99fdc>`);
+        });
+        _push(`<!--]--></div><div data-v-b4a99fdc><span class="text-white text-xl" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate((_h = vue_cjs_prod.unref(comic)) == null ? void 0 : _h.reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-b4a99fdc><div class="cursor-pointer" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-b4a99fdc></div><div class="ml-6 cursor-pointer" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-b4a99fdc></div><a class="comic-read" data-v-b4a99fdc> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-b4a99fdc><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-b4a99fdc><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-b4a99fdc><span data-v-b4a99fdc>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-b4a99fdc><a data-v-b4a99fdc>Chapters (${serverRenderer.exports.ssrInterpolate(((_i = vue_cjs_prod.unref(chapters)) == null ? void 0 : _i.length) ? (_j = vue_cjs_prod.unref(chapters)) == null ? void 0 : _j.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-b4a99fdc><a data-v-b4a99fdc>\u0110\xE1nh gi\xE1</a></div></div></div>`);
+        if (vue_cjs_prod.unref(comicTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNovelsInfoTab, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        if (vue_cjs_prod.unref(chapterTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNovelsChapterTab, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</section>`);
       }
-      if (vue_cjs_prod.unref(chapterTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$J, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</section>`);
     };
   }
 });
-const _sfc_setup$m = _sfc_main$n.setup;
-_sfc_main$n.setup = (props, ctx) => {
+const _sfc_setup$n = _sfc_main$o.setup;
+_sfc_main$o.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-chu/[slug].vue");
-  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
+  return _sfc_setup$n ? _sfc_setup$n(props, ctx) : void 0;
 };
 const meta$2 = {
   pageTransition: {
@@ -10556,16 +10749,16 @@ const meta$2 = {
     css: false
   }
 };
-const __nuxt_component_1_lazy$9 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$7 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return nuxtLink;
 }));
-const __nuxt_component_3_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_3_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ChapterImg;
 }));
 const __nuxt_component_4_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ReadMangaFooter;
 }));
-const _sfc_main$m = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$n = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[_id]",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -10616,12 +10809,12 @@ const _sfc_main$m = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b;
-      const _component_CommonPageLoading = _sfc_main$Q;
+      const _component_CommonPageLoading = _sfc_main$U;
       const _component_Head = vue_cjs_prod.resolveComponent("Head");
       const _component_Title = vue_cjs_prod.resolveComponent("Title");
-      const _component_LazyNuxtLink = __nuxt_component_1_lazy$9;
+      const _component_LazyNuxtLink = __nuxt_component_1_lazy$7;
       const _component_ClientOnly = __nuxt_component_2;
-      const _component_LazyMangaChapterImg = __nuxt_component_3_lazy$1;
+      const _component_LazyMangaChapterImg = __nuxt_component_3_lazy$2;
       const _component_LazyMangaReadMangaFooter = __nuxt_component_4_lazy$1;
       if (vue_cjs_prod.unref(pending)) {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
@@ -10703,17 +10896,17 @@ const _sfc_main$m = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$l = _sfc_main$m.setup;
-_sfc_main$m.setup = (props, ctx) => {
+const _sfc_setup$m = _sfc_main$n.setup;
+_sfc_main$n.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-tranh-chapter/[chapter_slug]/[_id].vue");
-  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
+  return _sfc_setup$m ? _sfc_setup$m(props, ctx) : void 0;
 };
 const meta$1 = void 0;
-const __nuxt_component_1_lazy$8 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_2_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
 }));
-const _sfc_main$l = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$m = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[_id]",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -10723,13 +10916,13 @@ const _sfc_main$l = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const slug = vue_cjs_prod.ref(params.slug);
     const _id = vue_cjs_prod.ref(params._id);
     const tab = vue_cjs_prod.ref("comic");
-    const chapters = useState("chapters", "$cvDiOQJNbS");
+    const chapters = useState("chapters", "$KB1XoeGJDE");
     const runtimeConfig = useRuntimeConfig();
     const {
       data: comic,
       pending,
       refresh
-    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch(`/api/comic/${slug.value}/${_id.value}`, "$wXjkDBX2pu")), __temp = await __temp, __restore(), __temp);
+    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch(`/api/comic/${slug.value}/${_id.value}`, "$aWDrouH4S5")), __temp = await __temp, __restore(), __temp);
     vue_cjs_prod.onMounted(async () => {
       var _a;
       if (!comic.value)
@@ -10761,56 +10954,63 @@ const _sfc_main$l = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b, _c, _d;
+      const _component_CommonPageLoading = _sfc_main$U;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$8;
-      _push(`<section${serverRenderer.exports.ssrRenderAttrs(_attrs)} data-v-1e392ff0><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage(vue_cjs_prod.unref(comic).squareCover))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-1e392ff0>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-        class: "ml-4",
-        onClick: ($event) => _ctx.$router.back()
-      }, {
-        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-1e392ff0${_scopeId}>`);
-          } else {
-            return [
-              vue_cjs_prod.createVNode("img", {
-                src: _imports_0,
-                alt: "back"
-              })
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-1e392ff0><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-1e392ff0><span class="text-white text-2xl" data-v-1e392ff0>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-1e392ff0>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
-        class: "relative w-full",
-        src: vue_cjs_prod.unref(comic).squareCover
-      }, null, _parent));
-      _push(`</div><div class="relative mt-[150px]" data-v-1e392ff0><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-1e392ff0><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-1e392ff0><div class="left" data-v-1e392ff0><div data-v-1e392ff0><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.comicName)}</h1></div><div class="flex flex-wrap" data-v-1e392ff0><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.status])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-1e392ff0><span class="ml-1" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-1e392ff0><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-1e392ff0><span class="ml-1" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-1e392ff0><span class="ml-1" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).totalComment))}</span></div></div></div><div class="right" data-v-1e392ff0><div class="w-[80px] text-center cursor-pointer" data-v-1e392ff0><p class="text-yellow-400 text-4xl" data-v-1e392ff0> 5 </p><div class="flex items-center justify-center" data-v-1e392ff0><!--[-->`);
-      serverRenderer.exports.ssrRenderList(5, (i) => {
-        _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-1e392ff0>`);
-      });
-      _push(`<!--]--></div><div data-v-1e392ff0><span class="text-white text-xl" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(comic).reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-1e392ff0><div class="cursor-pointer" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-1e392ff0></div><div class="ml-6 cursor-pointer" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-1e392ff0></div><a class="comic-read" data-v-1e392ff0> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-1e392ff0><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-1e392ff0><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-1e392ff0><span data-v-1e392ff0>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-1e392ff0><a data-v-1e392ff0>Chapters (${serverRenderer.exports.ssrInterpolate(((_c = vue_cjs_prod.unref(chapters)) == null ? void 0 : _c.length) ? (_d = vue_cjs_prod.unref(chapters)) == null ? void 0 : _d.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-1e392ff0><a data-v-1e392ff0>\u0110\xE1nh gi\xE1</a></div></div></div>`);
-      if (vue_cjs_prod.unref(comicTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$I, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+      const _component_LazySharedMeeToonImg = __nuxt_component_2_lazy$2;
+      if (vue_cjs_prod.unref(pending)) {
+        _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)} data-v-75a72620>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_CommonPageLoading, null, null, _parent));
+        _push(`</div>`);
       } else {
-        _push(`<!---->`);
+        _push(`<section${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "h-[100vh] bg-accent-4" }, _attrs))} data-v-75a72620><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage(vue_cjs_prod.unref(comic).squareCover))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-75a72620>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+          class: "ml-4",
+          onClick: ($event) => _ctx.$router.back()
+        }, {
+          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-75a72620${_scopeId}>`);
+            } else {
+              return [
+                vue_cjs_prod.createVNode("img", {
+                  src: _imports_0,
+                  alt: "back"
+                })
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-75a72620><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-75a72620><span class="text-white text-2xl" data-v-75a72620>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-75a72620>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
+          class: "relative w-full",
+          src: vue_cjs_prod.unref(comic).squareCover
+        }, null, _parent));
+        _push(`</div><div class="relative mt-[150px]" data-v-75a72620><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-75a72620><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-75a72620><div class="left" data-v-75a72620><div data-v-75a72620><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-75a72620>${serverRenderer.exports.ssrInterpolate((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.comicName)}</h1></div><div class="flex flex-wrap" data-v-75a72620><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.status])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-75a72620><span class="ml-1" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-75a72620><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-75a72620><span class="ml-1" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-75a72620><span class="ml-1" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).totalComment))}</span></div></div></div><div class="right" data-v-75a72620><div class="w-[80px] text-center cursor-pointer" data-v-75a72620><p class="text-yellow-400 text-4xl" data-v-75a72620> 5 </p><div class="flex items-center justify-center" data-v-75a72620><!--[-->`);
+        serverRenderer.exports.ssrRenderList(5, (i) => {
+          _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-75a72620>`);
+        });
+        _push(`<!--]--></div><div data-v-75a72620><span class="text-white text-xl" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(comic).reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-75a72620><div class="cursor-pointer" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-75a72620></div><div class="ml-6 cursor-pointer" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-75a72620></div><a class="comic-read" data-v-75a72620> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-75a72620><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-75a72620><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-75a72620><span data-v-75a72620>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-75a72620><a data-v-75a72620>Chapters (${serverRenderer.exports.ssrInterpolate(((_c = vue_cjs_prod.unref(chapters)) == null ? void 0 : _c.length) ? (_d = vue_cjs_prod.unref(chapters)) == null ? void 0 : _d.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-75a72620><a data-v-75a72620>\u0110\xE1nh gi\xE1</a></div></div></div>`);
+        if (vue_cjs_prod.unref(comicTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$E, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        if (vue_cjs_prod.unref(chapterTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$F, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</section>`);
       }
-      if (vue_cjs_prod.unref(chapterTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$J, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</section>`);
     };
   }
 });
-const _sfc_setup$k = _sfc_main$l.setup;
-_sfc_main$l.setup = (props, ctx) => {
+const _sfc_setup$l = _sfc_main$m.setup;
+_sfc_main$m.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-tranh/[slug]/[_id].vue");
-  return _sfc_setup$k ? _sfc_setup$k(props, ctx) : void 0;
+  return _sfc_setup$l ? _sfc_setup$l(props, ctx) : void 0;
 };
 const meta = {
   pageTransition: {
@@ -10824,7 +11024,7 @@ const routes = [
     path: "/danh-muc/:slug",
     file: "/Users/bonn/Documents/GitHub/comedy-app/pages/danh-muc/[slug].vue",
     children: [],
-    meta: meta$b,
+    meta: meta$c,
     alias: [],
     component: () => Promise.resolve().then(function() {
       return _slug_$4;
@@ -10835,10 +11035,10 @@ const routes = [
     path: "/",
     file: "/Users/bonn/Documents/GitHub/comedy-app/pages/index.vue",
     children: [],
-    meta: meta$a,
+    meta: meta$b,
     alias: [],
     component: () => Promise.resolve().then(function() {
-      return index$4;
+      return index$5;
     })
   },
   {
@@ -10846,10 +11046,21 @@ const routes = [
     path: "/novel/danh-muc/:slug",
     file: "/Users/bonn/Documents/GitHub/comedy-app/pages/novel/danh-muc/[slug].vue",
     children: [],
-    meta: meta$9,
+    meta: meta$a,
     alias: [],
     component: () => Promise.resolve().then(function() {
       return _slug_$3;
+    })
+  },
+  {
+    name: "novel-danh-muc",
+    path: "/novel/danh-muc",
+    file: "/Users/bonn/Documents/GitHub/comedy-app/pages/novel/danh-muc/index.vue",
+    children: [],
+    meta: meta$9,
+    alias: [],
+    component: () => Promise.resolve().then(function() {
+      return index$3;
     })
   },
   {
@@ -11200,7 +11411,7 @@ const _plugins = [
   _47Users_47bonn_47Documents_47GitHub_47comedy_45app_47node_modules_47nuxt_47dist_47pages_47runtime_47router,
   _47Users_47bonn_47Documents_47GitHub_47comedy_45app_47node_modules_47_64nuxt_47image_45edge_47dist_47runtime_47plugin
 ];
-const _sfc_main$k = {
+const _sfc_main$l = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
@@ -11231,30 +11442,30 @@ const _sfc_main$k = {
     };
   }
 };
-const _sfc_setup$j = _sfc_main$k.setup;
-_sfc_main$k.setup = (props, ctx) => {
+const _sfc_setup$k = _sfc_main$l.setup;
+_sfc_main$l.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/nuxt/dist/app/components/nuxt-root.vue");
-  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
+  return _sfc_setup$k ? _sfc_setup$k(props, ctx) : void 0;
 };
-const _sfc_main$j = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$k = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "app",
   __ssrInlineRender: true,
   setup(__props) {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtPage = vue_cjs_prod.resolveComponent("NuxtPage");
       _push(`<!--[-->`);
-      _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(_sfc_main$_), null, null, _parent));
+      _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(_sfc_main$12), null, null, _parent));
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtPage, null, null, _parent));
       _push(`<!--]-->`);
     };
   }
 });
-const _sfc_setup$i = _sfc_main$j.setup;
-_sfc_main$j.setup = (props, ctx) => {
+const _sfc_setup$j = _sfc_main$k.setup;
+_sfc_main$k.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
-  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
+  return _sfc_setup$j ? _sfc_setup$j(props, ctx) : void 0;
 };
 if (!globalThis.$fetch) {
   globalThis.$fetch = $fetch$1.create({
@@ -11265,8 +11476,8 @@ let entry;
 const plugins = normalizePlugins(_plugins);
 {
   entry = async function createNuxtAppServer(ssrContext) {
-    const vueApp = vue_cjs_prod.createApp(_sfc_main$k);
-    vueApp.component("App", _sfc_main$j);
+    const vueApp = vue_cjs_prod.createApp(_sfc_main$l);
+    vueApp.component("App", _sfc_main$k);
     const nuxt = createNuxtApp({ vueApp, ssrContext });
     try {
       await applyPlugins(nuxt, plugins);
@@ -11282,7 +11493,7 @@ const entry$1 = (ctx) => entry(ctx);
 const __nuxt_component_0_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheFooter$1;
 }));
-const _sfc_main$i = {};
+const _sfc_main$j = {};
 function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs) {
   const _component_LazyTheFooter = __nuxt_component_0_lazy$2;
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "_layout max-w-[450px] md:max-w-[768px] mx-auto h-[100vh]" }, _attrs))}>`);
@@ -11290,13 +11501,13 @@ function _sfc_ssrRender$4(_ctx, _push, _parent, _attrs) {
   _push(serverRenderer.exports.ssrRenderComponent(_component_LazyTheFooter, null, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$h = _sfc_main$i.setup;
-_sfc_main$i.setup = (props, ctx) => {
+const _sfc_setup$i = _sfc_main$j.setup;
+_sfc_main$j.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/default.vue");
-  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
+  return _sfc_setup$i ? _sfc_setup$i(props, ctx) : void 0;
 };
-const _default = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$4]]);
+const _default = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["ssrRender", _sfc_ssrRender$4]]);
 const _default$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": _default
@@ -11304,7 +11515,7 @@ const _default$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePr
 const __nuxt_component_0_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheHeader;
 }));
-const _sfc_main$h = {};
+const _sfc_main$i = {};
 function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs) {
   const _component_LazyTheHeader = __nuxt_component_0_lazy$1;
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "_layout max-w-[450px] md:max-w-[768px] mx-auto h-[100vh]" }, _attrs))}>`);
@@ -11312,13 +11523,13 @@ function _sfc_ssrRender$3(_ctx, _push, _parent, _attrs) {
   serverRenderer.exports.ssrRenderSlot(_ctx.$slots, "default", {}, null, _push, _parent);
   _push(`</div>`);
 }
-const _sfc_setup$g = _sfc_main$h.setup;
-_sfc_main$h.setup = (props, ctx) => {
+const _sfc_setup$h = _sfc_main$i.setup;
+_sfc_main$i.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/manga.vue");
-  return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
+  return _sfc_setup$h ? _sfc_setup$h(props, ctx) : void 0;
 };
-const manga = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$3]]);
+const manga = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["ssrRender", _sfc_ssrRender$3]]);
 const manga$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": manga
@@ -11326,7 +11537,7 @@ const manga$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 const __nuxt_component_0_lazy = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheFooter$1;
 }));
-const _sfc_main$g = {};
+const _sfc_main$h = {};
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs) {
   const _component_LazyTheFooter = __nuxt_component_0_lazy;
   _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "_layout max-w-[450px] md:max-w-[768px] mx-auto h-[100vh]" }, _attrs))}>`);
@@ -11334,13 +11545,13 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs) {
   _push(serverRenderer.exports.ssrRenderComponent(_component_LazyTheFooter, null, null, _parent));
   _push(`</div>`);
 }
-const _sfc_setup$f = _sfc_main$g.setup;
-_sfc_main$g.setup = (props, ctx) => {
+const _sfc_setup$g = _sfc_main$h.setup;
+_sfc_main$h.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/menu.vue");
-  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
+  return _sfc_setup$g ? _sfc_setup$g(props, ctx) : void 0;
 };
-const menu = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["ssrRender", _sfc_ssrRender$2]]);
+const menu = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["ssrRender", _sfc_ssrRender$2]]);
 const menu$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": menu
@@ -11988,15 +12199,15 @@ function imageMeta(input) {
   throw new Error("Input should be buffer!");
 }
 const types = Object.keys(typeHandlers);
-const index$5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const index$6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   imageMeta,
   types
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$7 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$6 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ComicItem;
 }));
-const _sfc_main$f = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$g = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
   __ssrInlineRender: true,
   setup(__props) {
@@ -12007,7 +12218,7 @@ const _sfc_main$f = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const comics = useState("comics", "$qCqTMbX8SL");
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$7;
+      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$6;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         to: "/",
@@ -12015,11 +12226,11 @@ const _sfc_main$f = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_0$8,
+                src: _imports_0$7,
                 alt: "back"
               })
             ];
@@ -12034,11 +12245,11 @@ const _sfc_main$f = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_1$6,
+                src: _imports_1$5,
                 alt: "search"
               })
             ];
@@ -12047,9 +12258,9 @@ const _sfc_main$f = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         _: 1
       }, _parent));
       _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
-      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$14, { categories: vue_cjs_prod.unref(categories) }, null, _parent));
+      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$18, { categories: vue_cjs_prod.unref(categories) }, null, _parent));
       if (loading.value) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, { class: "w-[150px] h-[50px]" }, null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, { class: "w-[150px] h-[50px]" }, null, _parent));
       } else {
         _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_LazyCategorysComicItem, { comics: vue_cjs_prod.unref(comics) }, null, _parent));
@@ -12059,23 +12270,23 @@ const _sfc_main$f = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
   }
 });
-const _sfc_setup$e = _sfc_main$f.setup;
-_sfc_main$f.setup = (props, ctx) => {
+const _sfc_setup$f = _sfc_main$g.setup;
+_sfc_main$g.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/danh-muc/[slug].vue");
-  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
+  return _sfc_setup$f ? _sfc_setup$f(props, ctx) : void 0;
 };
 const _slug_$4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": _sfc_main$f
+  "default": _sfc_main$g
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$6 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$5 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheHome;
 }));
-const _sfc_main$e = {};
+const _sfc_main$f = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLayout = __nuxt_component_0$1;
-  const _component_LazyTheHome = __nuxt_component_1_lazy$6;
+  const _component_LazyTheHome = __nuxt_component_1_lazy$5;
   _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLayout, _attrs, {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -12089,18 +12300,18 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
     _: 1
   }, _parent));
 }
-const _sfc_setup$d = _sfc_main$e.setup;
-_sfc_main$e.setup = (props, ctx) => {
+const _sfc_setup$e = _sfc_main$f.setup;
+_sfc_main$f.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
-  return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
+  return _sfc_setup$e ? _sfc_setup$e(props, ctx) : void 0;
 };
-const index$3 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["ssrRender", _sfc_ssrRender$1]]);
-const index$4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const index$4 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["ssrRender", _sfc_ssrRender$1]]);
+const index$5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": index$3
+  "default": index$4
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$d = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+const _sfc_main$e = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -12117,22 +12328,22 @@ const _sfc_main$d = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       const _component_NuxtLink = __nuxt_component_0$2;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
       if (vue_cjs_prod.unref(pending)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$Q, null, null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$U, null, null, _parent));
       } else {
         _push(`<!---->`);
       }
       _push(`<div class="bg-white h-[100vh]"><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         class: "mx-2 my-2 flex items-center",
-        onClick: ($event) => _ctx.$router.back()
+        to: "/novel"
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_0$8,
+                src: _imports_0$7,
                 alt: "back"
               })
             ];
@@ -12147,11 +12358,11 @@ const _sfc_main$d = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_1$6,
+                src: _imports_1$5,
                 alt: "search"
               })
             ];
@@ -12160,7 +12371,86 @@ const _sfc_main$d = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         _: 1
       }, _parent));
       _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
-      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$14, { categories: vue_cjs_prod.unref(novelCategories) }, null, _parent));
+      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$18, { categories: vue_cjs_prod.unref(novelCategories) }, null, _parent));
+      if (!vue_cjs_prod.unref(pending)) {
+        _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
+        _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(LazyNovelsCategoriesNoveItem), { novels: vue_cjs_prod.unref(novels) }, null, _parent));
+        _push(`</section>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div></div></div>`);
+    };
+  }
+});
+const _sfc_setup$d = _sfc_main$e.setup;
+_sfc_main$e.setup = (props, ctx) => {
+  const ssrContext = vue_cjs_prod.useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/novel/danh-muc/[slug].vue");
+  return _sfc_setup$d ? _sfc_setup$d(props, ctx) : void 0;
+};
+const _slug_$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": _sfc_main$e
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$d = /* @__PURE__ */ vue_cjs_prod.defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  async setup(__props) {
+    let __temp, __restore;
+    vue_cjs_prod.ref(false);
+    const { data: novels, pending, refresh } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useLazyAsyncData("novels", () => $fetch("/api/novel/danh-muc/all"), "$YUP53AaX7U")), __temp = await __temp, __restore(), __temp);
+    vue_cjs_prod.watchEffect(() => {
+      refresh();
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0$2;
+      _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
+      if (vue_cjs_prod.unref(pending)) {
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$U, null, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<div class="bg-white h-[100vh]"><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
+      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+        class: "mx-2 my-2 flex items-center",
+        to: "/novel"
+      }, {
+        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
+          } else {
+            return [
+              vue_cjs_prod.createVNode("img", {
+                src: _imports_0$7,
+                alt: "back"
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`<div class="flex items-center justify-center w-[70%] mx-2 my-2 text-4xl text-black font-semibold"> #Danh m\u1EE5c truy\u1EC7n ch\u1EEF </div>`);
+      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+        to: "/tim-kiem",
+        class: "flex items-center mr-2 h-[40px] w-[30px] mx-2 my-2 rounded-2xl text-white"
+      }, {
+        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
+          } else {
+            return [
+              vue_cjs_prod.createVNode("img", {
+                src: _imports_1$5,
+                alt: "search"
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
+      _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$18, { categories: vue_cjs_prod.unref(novelCategories) }, null, _parent));
       if (!vue_cjs_prod.unref(pending)) {
         _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(vue_cjs_prod.unref(LazyNovelsCategoriesNoveItem), { novels: vue_cjs_prod.unref(novels) }, null, _parent));
@@ -12175,20 +12465,20 @@ const _sfc_main$d = /* @__PURE__ */ vue_cjs_prod.defineComponent({
 const _sfc_setup$c = _sfc_main$d.setup;
 _sfc_main$d.setup = (props, ctx) => {
   const ssrContext = vue_cjs_prod.useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/novel/danh-muc/[slug].vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/novel/danh-muc/index.vue");
   return _sfc_setup$c ? _sfc_setup$c(props, ctx) : void 0;
 };
-const _slug_$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const index$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": _sfc_main$d
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$5 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$4 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return TheNovel;
 }));
 const _sfc_main$c = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLayout = __nuxt_component_0$1;
-  const _component_LazyTheNovel = __nuxt_component_1_lazy$5;
+  const _component_LazyTheNovel = __nuxt_component_1_lazy$4;
   _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLayout, _attrs, {
     default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -12213,7 +12503,7 @@ const index$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   __proto__: null,
   "default": index$1
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$4 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return ComicItem;
 }));
 const _sfc_main$b = /* @__PURE__ */ vue_cjs_prod.defineComponent({
@@ -12227,7 +12517,7 @@ const _sfc_main$b = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const comics = useState("comics", "$9eQryIJETV");
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$4;
+      const _component_LazyCategorysComicItem = __nuxt_component_1_lazy$3;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         to: "/",
@@ -12235,11 +12525,11 @@ const _sfc_main$b = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_0$8,
+                src: _imports_0$7,
                 alt: "back"
               })
             ];
@@ -12254,11 +12544,11 @@ const _sfc_main$b = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, {
         default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
           } else {
             return [
               vue_cjs_prod.createVNode("img", {
-                src: _imports_1$6,
+                src: _imports_1$5,
                 alt: "search"
               })
             ];
@@ -12268,7 +12558,7 @@ const _sfc_main$b = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       }, _parent));
       _push(`</div><div class="flex flex-wrap p-4 bg-white">`);
       if (loading.value) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, { class: "w-[150px] h-[50px]" }, null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, { class: "w-[150px] h-[50px]" }, null, _parent));
       } else {
         _push(`<section class="mt-4 overflow-auto scrollbar-hide" style="${serverRenderer.exports.ssrRenderStyle({ "height": "calc(100vh - 50px)" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_LazyCategorysComicItem, { comics: vue_cjs_prod.unref(comics) }, null, _parent));
@@ -12323,8 +12613,8 @@ const _sfc_main$a = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_CommonSearchLoading = _sfc_main$13;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_CommonSearchLoading = _sfc_main$17;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh] w-full" }, _attrs))}><div class="flex justify-between">`);
       _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
         to: "/",
@@ -12471,9 +12761,9 @@ const _sfc_main$9 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const { data: comics, pending } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch("/api/trending", "$YTq7nv4xSJ")), __temp = await __temp, __restore(), __temp);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       if (vue_cjs_prod.unref(pending)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
       } else {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
@@ -12482,11 +12772,11 @@ const _sfc_main$9 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_0$8,
+                  src: _imports_0$7,
                   alt: "back"
                 })
               ];
@@ -12501,11 +12791,11 @@ const _sfc_main$9 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_1$6,
+                  src: _imports_1$5,
                   alt: "search"
                 })
               ];
@@ -12581,7 +12871,7 @@ const trending = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProp
   __proto__: null,
   "default": _sfc_main$9
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$3 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return nuxtLink;
 }));
 const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
@@ -12592,12 +12882,14 @@ const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const route = useRoute();
     const params = route.params;
     const chapterSlug = vue_cjs_prod.ref(params.chapter_slug);
-    useState("novelInfo", "$UUxfEkVwtW");
-    useState("chapters", "$L86wQEcB6C");
-    const novel = useState("novel", "$4h0h2WubJ1");
+    useState("novelInfo", "$7S0cX2BVCD");
+    const chapters = useState("chapters", "$45AsQNQXaO");
     const shouldShowControl = vue_cjs_prod.ref(true);
     const settingFont = vue_cjs_prod.ref(false);
     const fontDefault = vue_cjs_prod.ref(15);
+    const chapterListEL = vue_cjs_prod.ref(null);
+    const shouldShowChapterList = vue_cjs_prod.ref(false);
+    onClickOutside(chapterListEL, (event) => set(shouldShowChapterList, false));
     const {
       pending,
       data: readPage,
@@ -12606,16 +12898,16 @@ const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
       params: {
         slug: chapterSlug.value
       }
-    }, "$LIl7Ndd7l4")), __temp = await __temp, __restore(), __temp);
+    }, "$MNPzomig8L")), __temp = await __temp, __restore(), __temp);
     vue_cjs_prod.watchEffect(() => {
       refresh();
     });
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b, _c, _d, _e, _f;
-      const _component_CommonPageLoading = _sfc_main$Q;
+      const _component_CommonPageLoading = _sfc_main$U;
       const _component_Head = vue_cjs_prod.resolveComponent("Head");
       const _component_Title = vue_cjs_prod.resolveComponent("Title");
-      const _component_LazyNuxtLink = __nuxt_component_1_lazy$3;
+      const _component_LazyNuxtLink = __nuxt_component_1_lazy$2;
       if (vue_cjs_prod.unref(pending)) {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)}>`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_CommonPageLoading, null, null, _parent));
@@ -12632,10 +12924,10 @@ const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                 default: vue_cjs_prod.withCtx((_2, _push3, _parent3, _scopeId2) => {
                   var _a2, _b2, _c2, _d2;
                   if (_push3) {
-                    _push3(`${serverRenderer.exports.ssrInterpolate((_a2 = vue_cjs_prod.unref(novel)) == null ? void 0 : _a2.name)} | Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapterNum)}`);
+                    _push3(`${serverRenderer.exports.ssrInterpolate((_a2 = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _a2.name)} | Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapter.chapterNum)}`);
                   } else {
                     return [
-                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_c2 = vue_cjs_prod.unref(novel)) == null ? void 0 : _c2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_d2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d2.chapterNum), 1)
+                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_c2 = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _c2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_d2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d2.chapter.chapterNum), 1)
                     ];
                   }
                 }),
@@ -12647,7 +12939,7 @@ const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
                   default: vue_cjs_prod.withCtx(() => {
                     var _a2, _b2;
                     return [
-                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_a2 = vue_cjs_prod.unref(novel)) == null ? void 0 : _a2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapterNum), 1)
+                      vue_cjs_prod.createTextVNode(vue_cjs_prod.toDisplayString((_a2 = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _a2.name) + " | Ch\u01B0\u01A1ng " + vue_cjs_prod.toDisplayString((_b2 = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b2.chapter.chapterNum), 1)
                     ];
                   }),
                   _: 1
@@ -12659,7 +12951,7 @@ const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, _parent));
         _push(`<div class="relative flex h-fit flex-1 text-white"><div class="h-fit min-h-screen w-full bg-[#f8f3e6] text-black"><div class="${serverRenderer.exports.ssrRenderClass([{ "top-0": shouldShowControl.value }, "ease-in-out duration-300 fixed top-[-70px] left-0 z-[999] h-[44px] w-full"])}"><div class="flex h-full w-full items-center justify-between text-lg md:text-2xl bg-black/40">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNuxtLink, {
-          to: vue_cjs_prod.unref(useNavigatorNovel)((_a = vue_cjs_prod.unref(novel)) == null ? void 0 : _a.slug),
+          to: vue_cjs_prod.unref(useNavigatorNovel)((_a = vue_cjs_prod.unref(readPage).novel) == null ? void 0 : _a.slug),
           class: "w-[30px] h-[30px] flex ml-4"
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
@@ -12676,7 +12968,17 @@ const _sfc_main$8 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
           }),
           _: 1
         }, _parent));
-        _push(`<div class="flex align-center"><span class="text-2xl font-semibold text-white"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b.chapterNum)}</span><img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$1)} alt="arrow down"></div><div class="mr-4"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2$1)} alt="report"></div></div></div><footer class="${serverRenderer.exports.ssrRenderClass([{ "bottom-0": shouldShowControl.value }, "fixed bottom-[-70px] h-[70px] bg-black/40 backdrop-blur-xl w-full ease-in-out duration-300"])}"><div style="${serverRenderer.exports.ssrRenderStyle(!settingFont.value ? null : { display: "none" })}" class="flex justify-around h-full"><div class="flex align-center w-[30px] ml-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_3$1)} alt="follow"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4)} alt="comment"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_5)} alt="share"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6$1)} alt="setting"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7$1)} alt="setting"></div><div class="flex align-center w-[30px] mr-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_8)} alt="setting"></div></div><div style="${serverRenderer.exports.ssrRenderStyle(settingFont.value ? null : { display: "none" })}" class="setting-font flex items-center justify-around h-full"><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A+ </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> M\u1EB7c \u0111\u1ECBnh </div></div></footer><h1 class="px-7 pt-[60px] font-[Literata] text-3xl"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(readPage)) == null ? void 0 : _c.chapterNum)}: ${serverRenderer.exports.ssrInterpolate(((_d = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d.chapterName) ? (_e = vue_cjs_prod.unref(readPage)) == null ? void 0 : _e.chapterName : "...")}</h1><div style="${serverRenderer.exports.ssrRenderStyle({ "font-size": `${fontDefault.value}px` })}" class="px-7 pt-10 chapter-content font-[Literata]">${(_f = vue_cjs_prod.unref(readPage)) == null ? void 0 : _f.content}</div></div></div></div>`);
+        _push(`<div class="flex align-center"><span class="text-2xl font-semibold text-white"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_b = vue_cjs_prod.unref(readPage)) == null ? void 0 : _b.chapter.chapterNum)}</span><img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$1)} alt="arrow down"></div><div class="mr-4"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2$1)} alt="report"></div></div></div><footer class="${serverRenderer.exports.ssrRenderClass([{ "bottom-0": shouldShowControl.value }, "fixed bottom-[-70px] h-[70px] bg-black/40 backdrop-blur-xl w-full ease-in-out duration-300"])}"><div style="${serverRenderer.exports.ssrRenderStyle(!settingFont.value ? null : { display: "none" })}" class="flex justify-around h-full"><div class="flex align-center w-[30px] ml-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_3$1)} alt="follow"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4)} alt="comment"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_5)} alt="share"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6$1)} alt="setting"></div><div class="flex align-center w-[30px]"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7$1)} alt="setting"></div><div class="flex align-center w-[30px] mr-3"><img${serverRenderer.exports.ssrRenderAttr("src", _imports_8)} alt="setting"></div></div><div style="${serverRenderer.exports.ssrRenderStyle(settingFont.value ? null : { display: "none" })}" class="setting-font flex items-center justify-around h-full"><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> A+ </div><div class="flex items-center justify-center w-[95px] h-[30px] border-[1px] border-white rounded-2xl text-white text-center"> M\u1EB7c \u0111\u1ECBnh </div></div></footer>`);
+        if (shouldShowChapterList.value) {
+          _push(`<div class="fixed z-[9999] bottom-0 w-full h-full h-[90%] bg-accent-4 overflow-auto scrollbar-hide"><div class="absolute w-full"><div class="rounded-l-2xl rounded-r-2xl px-5 py-5"><h3 class="text-white text-3xl"> Chapters </h3></div><!--[-->`);
+          serverRenderer.exports.ssrRenderList(vue_cjs_prod.unref(chapters), (chapter) => {
+            _push(`<div class="relative" style="${serverRenderer.exports.ssrRenderStyle({ "border-bottom": "1px solid rgb(27, 28, 35)" })}"><div class="px-5 py-5 cursor-pointe"><a><h3 class="text-xl mb-4"><b> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate(chapter.chapterNum)}</b></h3><div class="flex"><p class="mr-8 text-primary-gray text-2xl flex items-center">${serverRenderer.exports.ssrInterpolate(new Date(chapter.createdAt).toLocaleDateString())}</p><div class="mr-[17px] flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_9)} alt="view"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalView ? _ctx.convertUnit(chapter.totalView) : 0)}</span></div><div class="mr-8 flex items-center justify-center text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_10)} alt="like"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalLike ? _ctx.convertUnit(chapter.totalLike) : 0)}</span></div><div class="flex items-center justify-center mr-4 text-2xl"><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_11)} alt="comment"><span class="text-primary-gray">${serverRenderer.exports.ssrInterpolate(chapter.totalComment ? _ctx.convertUnit(chapter.totalComment) : 0)}</span></div></div></a></div></div>`);
+          });
+          _push(`<!--]--></div></div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`<div><h1 class="px-7 pt-[60px] font-[Literata] text-3xl"> Ch\u01B0\u01A1ng ${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(readPage)) == null ? void 0 : _c.chapter.chapterNum)}: ${serverRenderer.exports.ssrInterpolate(((_d = vue_cjs_prod.unref(readPage)) == null ? void 0 : _d.chapter.chapterName) ? (_e = vue_cjs_prod.unref(readPage)) == null ? void 0 : _e.chapter.chapterName : "...")}</h1><div style="${serverRenderer.exports.ssrRenderStyle({ "font-size": `${fontDefault.value}px` })}" class="px-7 pt-10 chapter-content font-[Literata]">${(_f = vue_cjs_prod.unref(readPage)) == null ? void 0 : _f.chapter.content}</div></div></div></div></div>`);
       }
     };
   }
@@ -12703,22 +13005,22 @@ const _sfc_main$7 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_SharedMeeToonImg = _sfc_main$10;
+      const _component_SharedMeeToonImg = _sfc_main$14;
       if (vue_cjs_prod.unref(pending)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$13, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$17, vue_cjs_prod.mergeProps({ class: "w-[150px] h-[50px]" }, _attrs), null, _parent));
       } else {
         _push(`<div${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "bg-white h-[100vh]" }, _attrs))}><div class="flex justify-between justify-center" style="${serverRenderer.exports.ssrRenderStyle({ "box-shadow": "rgb(242 242 242) 0 -1px 0 inset" })}">`);
         _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-          to: "/",
-          class: "mx-2 my-2 flex items-center"
+          class: "mx-2 my-2 flex items-center",
+          onClick: ($event) => _ctx.$router.back()
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$8)} alt="back"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0$7)} alt="back"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_0$8,
+                  src: _imports_0$7,
                   alt: "back"
                 })
               ];
@@ -12733,11 +13035,11 @@ const _sfc_main$7 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
         }, {
           default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$6)} alt="search"${_scopeId}>`);
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_1$5)} alt="search"${_scopeId}>`);
             } else {
               return [
                 vue_cjs_prod.createVNode("img", {
-                  src: _imports_1$6,
+                  src: _imports_1$5,
                   alt: "search"
                 })
               ];
@@ -12813,8 +13115,14 @@ const truyenChuHot = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
   __proto__: null,
   "default": _sfc_main$7
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$2 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
+}));
+const __nuxt_component_2_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return InfoTab;
+}));
+const __nuxt_component_3_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+  return ChapterTab;
 }));
 const _sfc_main$6 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
   __name: "[slug]",
@@ -12825,13 +13133,13 @@ const _sfc_main$6 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const params = route.params;
     const slug = vue_cjs_prod.ref(params.slug);
     const tab = vue_cjs_prod.ref("comic");
-    const chapters = useState("chapters", "$zGB0VWHqbe");
+    const chapters = useState("chapters", "$wuX2hidpng");
     const runtimeConfig = useRuntimeConfig();
     const {
       data: comic,
       pending,
       refresh
-    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch(`/api/novel/${slug.value}`, "$bQBwizKiiZ")), __temp = await __temp, __restore(), __temp);
+    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useLazyAsyncData("novel-info", () => $fetch(`/api/novel/${slug.value}`), "$X4LcmzhNik")), __temp = await __temp, __restore(), __temp);
     vue_cjs_prod.watchEffect(async () => {
       if (isClient)
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -12854,47 +13162,53 @@ const _sfc_main$6 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$2;
-      _push(`<section${serverRenderer.exports.ssrRenderAttrs(_attrs)} data-v-3165c15b><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.verticalLogo))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-3165c15b>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-        class: "ml-4",
-        onClick: ($event) => _ctx.$router.back()
-      }, {
-        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-3165c15b${_scopeId}>`);
-          } else {
-            return [
-              vue_cjs_prod.createVNode("img", {
-                src: _imports_0,
-                alt: "back"
-              })
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-3165c15b><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-3165c15b><span class="text-white text-2xl" data-v-3165c15b>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-3165c15b>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
-        class: "relative w-full",
-        src: (_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.verticalLogo
-      }, null, _parent));
-      _push(`</div><div class="relative mt-[150px]" data-v-3165c15b><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-3165c15b><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-3165c15b><div class="left" data-v-3165c15b><div data-v-3165c15b><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(comic)) == null ? void 0 : _c.name)}</h1></div><div class="flex flex-wrap" data-v-3165c15b><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_d = vue_cjs_prod.unref(comic)) == null ? void 0 : _d.novelStatus])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-3165c15b><span class="ml-1" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_e = vue_cjs_prod.unref(comic)) == null ? void 0 : _e.viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-3165c15b><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-3165c15b><span class="ml-1" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_f = vue_cjs_prod.unref(comic)) == null ? void 0 : _f.followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-3165c15b><span class="ml-1" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_g = vue_cjs_prod.unref(comic)) == null ? void 0 : _g.totalComment))}</span></div></div></div><div class="right" data-v-3165c15b><div class="w-[80px] text-center cursor-pointer" data-v-3165c15b><p class="text-yellow-400 text-4xl" data-v-3165c15b> 5 </p><div class="flex items-center justify-center" data-v-3165c15b><!--[-->`);
-      serverRenderer.exports.ssrRenderList(5, (i) => {
-        _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-3165c15b>`);
-      });
-      _push(`<!--]--></div><div data-v-3165c15b><span class="text-white text-xl" data-v-3165c15b>${serverRenderer.exports.ssrInterpolate((_h = vue_cjs_prod.unref(comic)) == null ? void 0 : _h.reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-3165c15b><div class="cursor-pointer" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-3165c15b></div><div class="ml-6 cursor-pointer" data-v-3165c15b><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-3165c15b></div><a class="comic-read" data-v-3165c15b> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-3165c15b><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-3165c15b><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-3165c15b><span data-v-3165c15b>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-3165c15b><a data-v-3165c15b>Chapters (${serverRenderer.exports.ssrInterpolate(((_i = vue_cjs_prod.unref(chapters)) == null ? void 0 : _i.length) ? (_j = vue_cjs_prod.unref(chapters)) == null ? void 0 : _j.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-3165c15b><a data-v-3165c15b>\u0110\xE1nh gi\xE1</a></div></div></div>`);
-      if (vue_cjs_prod.unref(comicTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$I, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy$1;
+      const _component_LazyNovelsInfoTab = __nuxt_component_2_lazy$1;
+      const _component_LazyNovelsChapterTab = __nuxt_component_3_lazy$1;
+      if (vue_cjs_prod.unref(pending)) {
+        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$U, _attrs, null, _parent));
       } else {
-        _push(`<!---->`);
+        _push(`<section${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "h-[100vh] bg-accent-4" }, _attrs))} data-v-b4a99fdc><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.verticalLogo))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-b4a99fdc>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+          class: "ml-4",
+          to: "/novel"
+        }, {
+          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-b4a99fdc${_scopeId}>`);
+            } else {
+              return [
+                vue_cjs_prod.createVNode("img", {
+                  src: _imports_0,
+                  alt: "back"
+                })
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-b4a99fdc><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-b4a99fdc><span class="text-white text-2xl" data-v-b4a99fdc>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-b4a99fdc>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
+          class: "relative w-full",
+          src: (_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.verticalLogo
+        }, null, _parent));
+        _push(`</div><div class="relative mt-[150px]" data-v-b4a99fdc><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-b4a99fdc><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-b4a99fdc><div class="left" data-v-b4a99fdc><div data-v-b4a99fdc><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate((_c = vue_cjs_prod.unref(comic)) == null ? void 0 : _c.name)}</h1></div><div class="flex flex-wrap" data-v-b4a99fdc><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_d = vue_cjs_prod.unref(comic)) == null ? void 0 : _d.novelStatus])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-b4a99fdc><span class="ml-1" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_e = vue_cjs_prod.unref(comic)) == null ? void 0 : _e.viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-b4a99fdc><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-b4a99fdc><span class="ml-1" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_f = vue_cjs_prod.unref(comic)) == null ? void 0 : _f.followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-b4a99fdc><span class="ml-1" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)((_g = vue_cjs_prod.unref(comic)) == null ? void 0 : _g.totalComment))}</span></div></div></div><div class="right" data-v-b4a99fdc><div class="w-[80px] text-center cursor-pointer" data-v-b4a99fdc><p class="text-yellow-400 text-4xl" data-v-b4a99fdc> 5 </p><div class="flex items-center justify-center" data-v-b4a99fdc><!--[-->`);
+        serverRenderer.exports.ssrRenderList(5, (i) => {
+          _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-b4a99fdc>`);
+        });
+        _push(`<!--]--></div><div data-v-b4a99fdc><span class="text-white text-xl" data-v-b4a99fdc>${serverRenderer.exports.ssrInterpolate((_h = vue_cjs_prod.unref(comic)) == null ? void 0 : _h.reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-b4a99fdc><div class="cursor-pointer" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-b4a99fdc></div><div class="ml-6 cursor-pointer" data-v-b4a99fdc><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-b4a99fdc></div><a class="comic-read" data-v-b4a99fdc> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-b4a99fdc><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-b4a99fdc><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-b4a99fdc><span data-v-b4a99fdc>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-b4a99fdc><a data-v-b4a99fdc>Chapters (${serverRenderer.exports.ssrInterpolate(((_i = vue_cjs_prod.unref(chapters)) == null ? void 0 : _i.length) ? (_j = vue_cjs_prod.unref(chapters)) == null ? void 0 : _j.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-b4a99fdc><a data-v-b4a99fdc>\u0110\xE1nh gi\xE1</a></div></div></div>`);
+        if (vue_cjs_prod.unref(comicTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNovelsInfoTab, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        if (vue_cjs_prod.unref(chapterTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_component_LazyNovelsChapterTab, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</section>`);
       }
-      if (vue_cjs_prod.unref(chapterTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$J, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</section>`);
     };
   }
 });
@@ -12904,12 +13218,12 @@ _sfc_main$6.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-chu/[slug].vue");
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
-const _slug_ = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-3165c15b"]]);
+const _slug_ = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-b4a99fdc"]]);
 const _slug_$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": _slug_
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy$1 = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_1_lazy = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return nuxtLink;
 }));
 const __nuxt_component_3_lazy = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
@@ -12962,10 +13276,10 @@ const _sfc_main$5 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b;
-      const _component_CommonPageLoading = _sfc_main$Q;
+      const _component_CommonPageLoading = _sfc_main$U;
       const _component_Head = vue_cjs_prod.resolveComponent("Head");
       const _component_Title = vue_cjs_prod.resolveComponent("Title");
-      const _component_LazyNuxtLink = __nuxt_component_1_lazy$1;
+      const _component_LazyNuxtLink = __nuxt_component_1_lazy;
       const _component_ClientOnly = __nuxt_component_2;
       const _component_LazyMangaChapterImg = __nuxt_component_3_lazy;
       const _component_LazyMangaReadMangaFooter = __nuxt_component_4_lazy;
@@ -13059,7 +13373,7 @@ const __id_$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   __proto__: null,
   "default": _sfc_main$5
 }, Symbol.toStringTag, { value: "Module" }));
-const __nuxt_component_1_lazy = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
+const __nuxt_component_2_lazy = vue_cjs_prod.defineAsyncComponent(() => Promise.resolve().then(function() {
   return MeeToonImg;
 }));
 const _sfc_main$4 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
@@ -13072,13 +13386,13 @@ const _sfc_main$4 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     const slug = vue_cjs_prod.ref(params.slug);
     const _id = vue_cjs_prod.ref(params._id);
     const tab = vue_cjs_prod.ref("comic");
-    const chapters = useState("chapters", "$5sjVlV0RFl");
+    const chapters = useState("chapters", "$cwBZJIR1dJ");
     const runtimeConfig = useRuntimeConfig();
     const {
       data: comic,
       pending,
       refresh
-    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch(`/api/comic/${slug.value}/${_id.value}`, "$hq9qUhonb8")), __temp = await __temp, __restore(), __temp);
+    } = ([__temp, __restore] = vue_cjs_prod.withAsyncContext(() => useFetch(`/api/comic/${slug.value}/${_id.value}`, "$NSgnwJ3ZyN")), __temp = await __temp, __restore(), __temp);
     vue_cjs_prod.watchEffect(async () => {
       if (isClient)
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -13100,48 +13414,55 @@ const _sfc_main$4 = /* @__PURE__ */ vue_cjs_prod.defineComponent({
     };
     return (_ctx, _push, _parent, _attrs) => {
       var _a, _b, _c, _d;
+      const _component_CommonPageLoading = _sfc_main$U;
       const _component_NuxtLink = __nuxt_component_0$2;
-      const _component_LazySharedMeeToonImg = __nuxt_component_1_lazy;
-      _push(`<section${serverRenderer.exports.ssrRenderAttrs(_attrs)} data-v-1e392ff0><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage(vue_cjs_prod.unref(comic).squareCover))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-1e392ff0>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
-        class: "ml-4",
-        onClick: ($event) => _ctx.$router.back()
-      }, {
-        default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-1e392ff0${_scopeId}>`);
-          } else {
-            return [
-              vue_cjs_prod.createVNode("img", {
-                src: _imports_0,
-                alt: "back"
-              })
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-1e392ff0><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-1e392ff0><span class="text-white text-2xl" data-v-1e392ff0>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-1e392ff0>`);
-      _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
-        class: "relative w-full",
-        src: vue_cjs_prod.unref(comic).squareCover
-      }, null, _parent));
-      _push(`</div><div class="relative mt-[150px]" data-v-1e392ff0><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-1e392ff0><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-1e392ff0><div class="left" data-v-1e392ff0><div data-v-1e392ff0><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.comicName)}</h1></div><div class="flex flex-wrap" data-v-1e392ff0><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.status])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-1e392ff0><span class="ml-1" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-1e392ff0><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-1e392ff0><span class="ml-1" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-1e392ff0><span class="ml-1" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).totalComment))}</span></div></div></div><div class="right" data-v-1e392ff0><div class="w-[80px] text-center cursor-pointer" data-v-1e392ff0><p class="text-yellow-400 text-4xl" data-v-1e392ff0> 5 </p><div class="flex items-center justify-center" data-v-1e392ff0><!--[-->`);
-      serverRenderer.exports.ssrRenderList(5, (i) => {
-        _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-1e392ff0>`);
-      });
-      _push(`<!--]--></div><div data-v-1e392ff0><span class="text-white text-xl" data-v-1e392ff0>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(comic).reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-1e392ff0><div class="cursor-pointer" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-1e392ff0></div><div class="ml-6 cursor-pointer" data-v-1e392ff0><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-1e392ff0></div><a class="comic-read" data-v-1e392ff0> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-1e392ff0><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-1e392ff0><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-1e392ff0><span data-v-1e392ff0>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-1e392ff0><a data-v-1e392ff0>Chapters (${serverRenderer.exports.ssrInterpolate(((_c = vue_cjs_prod.unref(chapters)) == null ? void 0 : _c.length) ? (_d = vue_cjs_prod.unref(chapters)) == null ? void 0 : _d.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-1e392ff0><a data-v-1e392ff0>\u0110\xE1nh gi\xE1</a></div></div></div>`);
-      if (vue_cjs_prod.unref(comicTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$I, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+      const _component_LazySharedMeeToonImg = __nuxt_component_2_lazy;
+      if (vue_cjs_prod.unref(pending)) {
+        _push(`<div${serverRenderer.exports.ssrRenderAttrs(_attrs)} data-v-75a72620>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_CommonPageLoading, null, null, _parent));
+        _push(`</div>`);
       } else {
-        _push(`<!---->`);
+        _push(`<section${serverRenderer.exports.ssrRenderAttrs(vue_cjs_prod.mergeProps({ class: "h-[100vh] bg-accent-4" }, _attrs))} data-v-75a72620><div style="${serverRenderer.exports.ssrRenderStyle(backgroundImage(vue_cjs_prod.unref(comic).squareCover))}" class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover" data-v-75a72620>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_NuxtLink, {
+          class: "ml-4",
+          onClick: ($event) => _ctx.$router.back()
+        }, {
+          default: vue_cjs_prod.withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_0)} alt="back" data-v-75a72620${_scopeId}>`);
+            } else {
+              return [
+                vue_cjs_prod.createVNode("img", {
+                  src: _imports_0,
+                  alt: "back"
+                })
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`<div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4" data-v-75a72620><img class="mr-2"${serverRenderer.exports.ssrRenderAttr("src", _imports_1)} alt="report" data-v-75a72620><span class="text-white text-2xl" data-v-75a72620>B\xE1o c\xE1o</span></div></div><div class="fixed top-0 w-full max-w-[768px]" data-v-75a72620>`);
+        _push(serverRenderer.exports.ssrRenderComponent(_component_LazySharedMeeToonImg, {
+          class: "relative w-full",
+          src: vue_cjs_prod.unref(comic).squareCover
+        }, null, _parent));
+        _push(`</div><div class="relative mt-[150px]" data-v-75a72620><div class="px-5" style="${serverRenderer.exports.ssrRenderStyle({ "background": "linear-gradient(rgba(17, 18, 23, 0) 0%, rgba(17, 18, 23, 0.5) 33.85%, rgba(17, 18, 23, 0.8) 68.75%, rgb(17, 18, 23) 100%)" })}" data-v-75a72620><div class="bg-contain p-6 bg-comic flex items-center justify-between rounded-xl" style="${serverRenderer.exports.ssrRenderStyle({ "background-image": "url(/icons/comicPage/backgroundInfo.png)" })}" data-v-75a72620><div class="left" data-v-75a72620><div data-v-75a72620><h1 class="text-ellipsis line-clamp-1 text-3xl font-bold text-white" data-v-75a72620>${serverRenderer.exports.ssrInterpolate((_a = vue_cjs_prod.unref(comic)) == null ? void 0 : _a.comicName)}</h1></div><div class="flex flex-wrap" data-v-75a72620><div class="my-4 flex items-center justify-center rounded-xl text-[#1fcf84] border-[#1fcf84] text-base border-[1px] h-[20px] w-[80px]" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(COMIC_STATUS)[(_b = vue_cjs_prod.unref(comic)) == null ? void 0 : _b.status])}</div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_2)} alt="view count" data-v-75a72620><span class="ml-1" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).viewCount))}</span></div><div class="mx-4 my-4 flex items-center text-gray-50 text-base" data-v-75a72620><img class="w-[18px] h-[18px]"${serverRenderer.exports.ssrRenderAttr("src", _imports_3)} alt="follow count" data-v-75a72620><span class="ml-1" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).followingCount))}</span></div><div class="flex items-center text-base text-gray-50" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_4$1)} alt="comment count" data-v-75a72620><span class="ml-1" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(convertUnit)(vue_cjs_prod.unref(comic).totalComment))}</span></div></div></div><div class="right" data-v-75a72620><div class="w-[80px] text-center cursor-pointer" data-v-75a72620><p class="text-yellow-400 text-4xl" data-v-75a72620> 5 </p><div class="flex items-center justify-center" data-v-75a72620><!--[-->`);
+        serverRenderer.exports.ssrRenderList(5, (i) => {
+          _push(`<img${serverRenderer.exports.ssrRenderAttr("src", _imports_5$1)} alt="rating" data-v-75a72620>`);
+        });
+        _push(`<!--]--></div><div data-v-75a72620><span class="text-white text-xl" data-v-75a72620>${serverRenderer.exports.ssrInterpolate(vue_cjs_prod.unref(comic).reviewCount)} \u0110\xE1nh gi\xE1</span></div></div></div></div></div></div><div class="bg-footer-comic_page px-3 fixed bottom-0 w-full h-[60px] max-w-[768px] flex items-center z-50" data-v-75a72620><div class="cursor-pointer" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_6)} alt="Chia s\u1EBB" data-v-75a72620></div><div class="ml-6 cursor-pointer" data-v-75a72620><img${serverRenderer.exports.ssrRenderAttr("src", _imports_7)} alt="Theo d\xF5i" data-v-75a72620></div><a class="comic-read" data-v-75a72620> B\u1EAFt \u0111\u1EA7u \u0111\u1ECDc </a></div><div class="relative bg-accent-4" data-v-75a72620><div class="whitespace-nowrap overflow-x-auto border-b-[1px solid rgb(27, 28, 35)]" data-v-75a72620><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(comicTab) }, "eKaTWX inline-block"])}" data-v-75a72620><span data-v-75a72620>Gi\u1EDBi thi\u1EC7u</span></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(chapterTab) }, "eKaTWX"])}" data-v-75a72620><a data-v-75a72620>Chapters (${serverRenderer.exports.ssrInterpolate(((_c = vue_cjs_prod.unref(chapters)) == null ? void 0 : _c.length) ? (_d = vue_cjs_prod.unref(chapters)) == null ? void 0 : _d.length : 0)})</a></div><div class="${serverRenderer.exports.ssrRenderClass([{ active: vue_cjs_prod.unref(reviewTab) }, "eKaTWX"])}" data-v-75a72620><a data-v-75a72620>\u0110\xE1nh gi\xE1</a></div></div></div>`);
+        if (vue_cjs_prod.unref(comicTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$E, { comic: vue_cjs_prod.unref(comic) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        if (vue_cjs_prod.unref(chapterTab)) {
+          _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$F, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</section>`);
       }
-      if (vue_cjs_prod.unref(chapterTab)) {
-        _push(serverRenderer.exports.ssrRenderComponent(_sfc_main$J, { chapters: vue_cjs_prod.unref(chapters) }, null, _parent));
-      } else {
-        _push(`<!---->`);
-      }
-      _push(`</section>`);
     };
   }
 });
@@ -13151,7 +13472,7 @@ _sfc_main$4.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/truyen-tranh/[slug]/[_id].vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __id_ = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-1e392ff0"]]);
+const __id_ = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-75a72620"]]);
 const __id_$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": __id_

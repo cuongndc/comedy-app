@@ -1,1 +1,0 @@
-import{o as e,b as s,f as t,W as a}from"./entry-95a94210.mjs";const o={class:"flex w-full bg-black/40 h-full fixed z-50"},l=t("img",{src:a,alt:"loading",class:"h-[50px] fixed top-[50%] left-[calc(50%_-_30px)]"},null,-1),c=[l],p={__name:"PageLoading",props:{className:{type:String,default:""}},setup(_){return(n,r)=>(e(),s("div",o,c))}};export{p as default};

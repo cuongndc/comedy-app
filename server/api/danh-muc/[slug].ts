@@ -12,5 +12,5 @@ export default defineEventHandler(async (event) => {
       },
     }
   }
-  return await mongo.db().collection(collections.comics).find(filter).limit(15).sort({ updatedAt: -1 }).toArray()
+  return await mongo.db().collection(collections.comics).find(filter).limit(30).sort({ updatedAt: -1 }).toArray()
 })

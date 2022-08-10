@@ -2,12 +2,11 @@
 import { computed, onMounted, watchEffect } from 'vue'
 import { isClient } from '@vueuse/core'
 import { convertUnit } from '~/common'
-import { navigateTo, useFetch, useRuntimeConfig, useState } from '#app'
+import {navigateTo, useLazyAsyncData, useLazyFetch, useRuntimeConfig, useState} from '#app'
 import type { Chapter, Comic } from '~/types'
 import { COMIC_STATUS, TRUYEN_CHU_CHAPTER, comicTabs } from '~/contants'
-import ComicChapterTab from '~/components/comics/ComicChapterTab.vue'
-import ComicTab from '~/components/comics/ComicTab.vue'
 import { definePageMeta } from '#imports'
+import PageLoading from '~/components/common/PageLoading.vue'
 
 definePageMeta({
   pageTransition: {
@@ -27,7 +26,7 @@ const {
   data: comic,
   pending,
   refresh,
-} = await useFetch<Comic>(`/api/novel/${slug.value}`)
+} = await useLazyAsyncData<Comic>('novel-info', () => $fetch(`/api/novel/${slug.value}`))
 
 onMounted(async () => {
   if (!comic.value)
@@ -77,12 +76,13 @@ const backgroundImage = (image) => {
 </script>
 
 <template>
-  <section>
+  <PageLoading v-if="pending" />
+  <section class="h-[100vh] bg-accent-4" v-else>
     <div
       :style="backgroundImage(comic?.verticalLogo)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"
     >
-      <NuxtLink class="ml-4" @click="$router.back()">
+      <NuxtLink class="ml-4" to="/novel">
         <img src="/icons/comicPage/icon-back.svg" alt="back">
       </NuxtLink>
       <div class="flex items-center bg-deep-black/50 h-[30px] rounded-2xl px-3 mr-4">
@@ -178,8 +178,8 @@ const backgroundImage = (image) => {
         </div>
       </div>
     </div>
-    <ComicTab v-if="comicTab" :comic="comic" />
-    <ComicChapterTab v-if="chapterTab" :chapters="chapters" />
+    <LazyNovelsInfoTab v-if="comicTab" :comic="comic" />
+    <LazyNovelsChapterTab v-if="chapterTab" :chapters="chapters" />
   </section>
 </template>
 
