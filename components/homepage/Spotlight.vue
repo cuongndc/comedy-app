@@ -26,26 +26,29 @@ const autoPlaySettings = ref<autoSettingSwiper>({
 </script>
 
 <template>
-  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings" class="bc-banner">
-    <SwiperSlide v-for="cover in banner.covers" :key="cover._id" class="carousel-image">
+  <Swiper :loop="true" :modules="modules" :autoplay="autoPlaySettings">
+    <SwiperSlide v-for="cover in banner.covers" :key="cover._id">
       <NuxtLink
-        :to="useNavigatorComicPreview(cover.slug, cover._id)"
-        class="relative block h-[65vw] sm:h-[460px] md:[460px]"
+        :to="useNavigatorComicPreview(cover.slug, cover._id)" class="relative block h-[65vw] sm:h-[460px] md:[460px]"
         :title="cover.comicName"
       >
         <div class="w-full bottom-0">
-          <SharedMeeToonImg
+          <shared-mee-toon-img
             class="w-full"
             :alt="cover.comicName"
             :src="`${cover.link}`"
+            sizes="xs:320px 2xs:390px sm:640px md:768px"
           />
         </div>
-        <SharedMeeToonImg
+        <shared-mee-toon-img
           v-for="animation in cover.animations"
           :key="animation.image"
-          class="w-full bottom-0"
+          class="absolute w-full bottom-0"
           :alt="cover.comicName"
           :src="`${animation.image}`"
+          sizes="xs:320px 2xs:390px sm:640px md:768px"
+          :width="375"
+          :height="280"
         />
       </NuxtLink>
     </SwiperSlide>

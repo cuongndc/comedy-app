@@ -42,10 +42,10 @@ const navigatorComicPreview = (slug: string, _id: string) => {
         >
           <SwiperSlide v-for="content in record.content" :key="content.slug" class="h-[130px]">
             <div class="flex items-center p-5" @click="navigatorComicPreview(content.slug, content._id)">
-              <div>
+              <div class="w-[75px]">
                 <shared-mee-toon-img
                   fil="cover"
-                  class="aspect-[3/4] w-[75px] h-full relative rounded-2xl"
+                  class="w-[75px] h-full relative rounded-2xl"
                   :width="75" :height="100"
                   sizes="sm:75px 2sm:100px sm:150px md:150px"
                   :src="content.verticalLogo"

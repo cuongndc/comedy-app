@@ -31,13 +31,19 @@ const props = defineProps({
 </script>
 
 <template>
-  <v-img
-    fil
-    :alt="alt"
+  <nuxt-img
+    :loading="loading"
     :width="width"
     :height="height"
+    :quality="quality"
+    :format="format"
+    :preset="preset"
+    :modifiers="modifiers"
+    :sizes="sizes"
+    :fil="fil"
     :class="className"
-    :src="$img(src, { quality, format: 'webp' }, { provider: 'imageengine' })"
-    :lazy-src="$img(src, { quality, format: 'webp' }, { provider: 'imageengine' })"
+    :alt="alt"
+    provider="imageengine"
+    :src="src"
   />
 </template>
