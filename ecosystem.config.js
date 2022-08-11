@@ -7,6 +7,10 @@ module.exports = {
       script: '.output/server/index.mjs',
       args: 'start',
       version: '0.0.1',
+      watch: true,
+      env: {
+        NODE_ENV: 'production',
+      },
     },
   ],
 }
