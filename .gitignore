@@ -17,5 +17,4 @@ coverage
 # Module build
 dist
 
-# Environment files
-.env*
+DS_Store
