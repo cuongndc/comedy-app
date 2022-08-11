@@ -1,6 +1,6 @@
 globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_manifest = {
   "node_modules/nuxt/dist/app/entry.mjs": {
-    "file": "entry-e57c9408.mjs",
+    "file": "entry-b5225d3d.mjs",
     "src": "node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -23,16 +23,16 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
       "components/TheHeader.vue",
       "components/VisitedComic.vue",
       "components/categorys/CateList.vue",
-      "components/common/PageLoading.vue",
-      "components/common/SearchLoading.vue",
-      "components/homepage/Catelog.vue",
-      "components/novels/ChapterTab.vue",
       "components/comics/ComicChapterTab.vue",
       "components/comics/ComicTab.vue",
       "components/comics/CommentComic.vue",
+      "components/common/PageLoading.vue",
+      "components/common/SearchLoading.vue",
+      "components/homepage/Catelog.vue",
       "components/manga/Chaplist.vue",
       "components/manga/ChapterImg.vue",
       "components/manga/ReadMangaFooter.vue",
+      "components/novels/ChapterTab.vue",
       "components/novels/categories/NoveItem.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/welcome.vue",
       "pages/danh-muc/[slug].vue",
@@ -51,11 +51,11 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
       "virtual:nuxt:/Users/bonn/Documents/GitHub/comedy-app/.nuxt/error-component.mjs"
     ],
     "css": [
-      "entry.4f971340.css"
+      "entry.fa0f9e10.css"
     ]
   },
   "virtual:nuxt:/Users/bonn/Documents/GitHub/comedy-app/.nuxt/error-component.mjs": {
-    "file": "error-component-517334a9.mjs",
+    "file": "error-component-cf2ddb6b.mjs",
     "src": "virtual:nuxt:/Users/bonn/Documents/GitHub/comedy-app/.nuxt/error-component.mjs",
     "isDynamicEntry": true,
     "imports": [
@@ -67,7 +67,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/ChapterRepresent.vue": {
-    "file": "ChapterRepresent-2d4e05e0.mjs",
+    "file": "ChapterRepresent-0d8fc81a.mjs",
     "src": "components/ChapterRepresent.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -76,7 +76,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/shared/MeeToonImg.vue": {
-    "file": "MeeToonImg-5e35f600.mjs",
+    "file": "MeeToonImg-d8f1e150.mjs",
     "src": "components/shared/MeeToonImg.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -84,7 +84,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/TheFooter.vue": {
-    "file": "TheFooter-25db0fc6.mjs",
+    "file": "TheFooter-a844b0e7.mjs",
     "src": "components/TheFooter.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -92,7 +92,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/TheHeader.vue": {
-    "file": "TheHeader-b107061f.mjs",
+    "file": "TheHeader-d47fa637.mjs",
     "src": "components/TheHeader.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -100,37 +100,37 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/VisitedComic.vue": {
-    "file": "VisitedComic-1cb934bb.mjs",
+    "file": "VisitedComic-1bd68ad6.mjs",
     "src": "components/VisitedComic.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
-      "_index-72ad406e.mjs",
-      "_swiper-slide-1e811b77.mjs",
-      "_index-e38c411c.mjs"
+      "_index-06a1a6d4.mjs",
+      "_swiper-slide-1fe8b0a5.mjs",
+      "_index-9d82279a.mjs"
     ]
   },
-  "_index-72ad406e.mjs": {
-    "file": "index-72ad406e.mjs",
+  "_index-06a1a6d4.mjs": {
+    "file": "index-06a1a6d4.mjs",
     "imports": [
-      "_index-e38c411c.mjs",
+      "_index-9d82279a.mjs",
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
-  "_swiper-slide-1e811b77.mjs": {
-    "file": "swiper-slide-1e811b77.mjs",
+  "_swiper-slide-1fe8b0a5.mjs": {
+    "file": "swiper-slide-1fe8b0a5.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
-  "_index-e38c411c.mjs": {
-    "file": "index-e38c411c.mjs",
+  "_index-9d82279a.mjs": {
+    "file": "index-9d82279a.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
   "components/categorys/CateList.vue": {
-    "file": "CateList-cdb38088.mjs",
+    "file": "CateList-0397d76c.mjs",
     "src": "components/categorys/CateList.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -138,7 +138,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/categorys/ComicItem.vue": {
-    "file": "ComicItem-676f01ae.mjs",
+    "file": "ComicItem-04eac2b2.mjs",
     "src": "components/categorys/ComicItem.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -150,129 +150,8 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
   "_index-b351655c.mjs": {
     "file": "index-b351655c.mjs"
   },
-  "components/common/PageLoading.vue": {
-    "file": "PageLoading-b98d5115.mjs",
-    "src": "components/common/PageLoading.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs"
-    ]
-  },
-  "components/common/SearchLoading.vue": {
-    "file": "SearchLoading-f0247a97.mjs",
-    "src": "components/common/SearchLoading.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs"
-    ]
-  },
-  "components/homepage/Catelog.vue": {
-    "file": "Catelog-5ba299ed.mjs",
-    "src": "components/homepage/Catelog.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs"
-    ]
-  },
-  "components/homepage/NewStory.vue": {
-    "file": "NewStory-dc930a34.mjs",
-    "src": "components/homepage/NewStory.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs"
-    ]
-  },
-  "components/homepage/RepresentCategory.vue": {
-    "file": "RepresentCategory-4f05f25a.mjs",
-    "src": "components/homepage/RepresentCategory.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "components/shared/MeeToonImg.vue"
-    ]
-  },
-  "components/homepage/Spotlight.vue": {
-    "file": "Spotlight-347ce6b4.mjs",
-    "src": "components/homepage/Spotlight.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "_swiper-slide-1e811b77.mjs",
-      "_autoplay-2194dbe3.mjs"
-    ]
-  },
-  "_autoplay-2194dbe3.mjs": {
-    "file": "autoplay-2194dbe3.mjs",
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs"
-    ]
-  },
-  "components/homepage/Trending.vue": {
-    "file": "Trending-01ff1fa8.mjs",
-    "src": "components/homepage/Trending.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "components/shared/MeeToonImg.vue",
-      "_grid-55226633.mjs",
-      "_swiper-slide-1e811b77.mjs",
-      "_index-b351655c.mjs"
-    ]
-  },
-  "_grid-55226633.mjs": {
-    "file": "grid-55226633.mjs"
-  },
-  "components/novels/ChapterTab.vue": {
-    "file": "ChapterTab-e66d6a49.mjs",
-    "src": "components/novels/ChapterTab.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "_index-b351655c.mjs"
-    ]
-  },
-  "components/novels/NewStory.vue": {
-    "file": "NewStory-d0c9e932.mjs",
-    "src": "components/novels/NewStory.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs"
-    ]
-  },
-  "components/novels/RepresentCategory.vue": {
-    "file": "RepresentCategory-78f2b0b6.mjs",
-    "src": "components/novels/RepresentCategory.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "components/shared/MeeToonImg.vue"
-    ]
-  },
-  "components/novels/Spotlight.vue": {
-    "file": "Spotlight-a4de1a91.mjs",
-    "src": "components/novels/Spotlight.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "components/shared/MeeToonImg.vue",
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "_swiper-slide-1e811b77.mjs",
-      "_autoplay-2194dbe3.mjs"
-    ]
-  },
-  "components/novels/Trending.vue": {
-    "file": "Trending-e74f347e.mjs",
-    "src": "components/novels/Trending.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.mjs",
-      "components/shared/MeeToonImg.vue",
-      "_grid-55226633.mjs",
-      "_swiper-slide-1e811b77.mjs",
-      "_index-b351655c.mjs"
-    ]
-  },
   "components/comics/ComicChapterTab.vue": {
-    "file": "ComicChapterTab-ddded220.mjs",
+    "file": "ComicChapterTab-394a98e3.mjs",
     "src": "components/comics/ComicChapterTab.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -281,7 +160,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/comics/ComicTab.vue": {
-    "file": "ComicTab-e589e87d.mjs",
+    "file": "ComicTab-4ed8a0ae.mjs",
     "src": "components/comics/ComicTab.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -289,15 +168,87 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/comics/CommentComic.vue": {
-    "file": "CommentComic-940ccdab.mjs",
+    "file": "CommentComic-b2ec2e8c.mjs",
     "src": "components/comics/CommentComic.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
+  "components/common/PageLoading.vue": {
+    "file": "PageLoading-57fce9d5.mjs",
+    "src": "components/common/PageLoading.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "components/common/SearchLoading.vue": {
+    "file": "SearchLoading-cfaf7229.mjs",
+    "src": "components/common/SearchLoading.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "components/homepage/Catelog.vue": {
+    "file": "Catelog-fe37912b.mjs",
+    "src": "components/homepage/Catelog.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "components/homepage/NewStory.vue": {
+    "file": "NewStory-18b9cd74.mjs",
+    "src": "components/homepage/NewStory.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "components/homepage/RepresentCategory.vue": {
+    "file": "RepresentCategory-0f248b95.mjs",
+    "src": "components/homepage/RepresentCategory.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "components/shared/MeeToonImg.vue"
+    ]
+  },
+  "components/homepage/Spotlight.vue": {
+    "file": "Spotlight-b55cce54.mjs",
+    "src": "components/homepage/Spotlight.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_swiper-slide-1fe8b0a5.mjs",
+      "_autoplay-fc19fa83.mjs"
+    ]
+  },
+  "_autoplay-fc19fa83.mjs": {
+    "file": "autoplay-fc19fa83.mjs",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "components/homepage/Trending.vue": {
+    "file": "Trending-1b4d7c62.mjs",
+    "src": "components/homepage/Trending.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "components/shared/MeeToonImg.vue",
+      "_grid-55226633.mjs",
+      "_swiper-slide-1fe8b0a5.mjs",
+      "_index-b351655c.mjs"
+    ]
+  },
+  "_grid-55226633.mjs": {
+    "file": "grid-55226633.mjs"
+  },
   "components/manga/Chaplist.vue": {
-    "file": "Chaplist-f5f11ca6.mjs",
+    "file": "Chaplist-bdcc90eb.mjs",
     "src": "components/manga/Chaplist.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -305,7 +256,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/manga/ChapterImg.vue": {
-    "file": "ChapterImg-1a4b9e99.mjs",
+    "file": "ChapterImg-d4dead78.mjs",
     "src": "components/manga/ChapterImg.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -314,15 +265,64 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "components/manga/ReadMangaFooter.vue": {
-    "file": "ReadMangaFooter-b6a72692.mjs",
+    "file": "ReadMangaFooter-f566ba6a.mjs",
     "src": "components/manga/ReadMangaFooter.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
+  "components/novels/ChapterTab.vue": {
+    "file": "ChapterTab-c79e6c26.mjs",
+    "src": "components/novels/ChapterTab.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_index-b351655c.mjs"
+    ]
+  },
+  "components/novels/NewStory.vue": {
+    "file": "NewStory-91641fe8.mjs",
+    "src": "components/novels/NewStory.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "components/novels/RepresentCategory.vue": {
+    "file": "RepresentCategory-429d32fc.mjs",
+    "src": "components/novels/RepresentCategory.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "components/shared/MeeToonImg.vue"
+    ]
+  },
+  "components/novels/Spotlight.vue": {
+    "file": "Spotlight-e4f1d675.mjs",
+    "src": "components/novels/Spotlight.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "components/shared/MeeToonImg.vue",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_swiper-slide-1fe8b0a5.mjs",
+      "_autoplay-fc19fa83.mjs"
+    ]
+  },
+  "components/novels/Trending.vue": {
+    "file": "Trending-ac1e4ac3.mjs",
+    "src": "components/novels/Trending.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "components/shared/MeeToonImg.vue",
+      "_grid-55226633.mjs",
+      "_swiper-slide-1fe8b0a5.mjs",
+      "_index-b351655c.mjs"
+    ]
+  },
   "components/novels/categories/NoveItem.vue": {
-    "file": "NoveItem-8a6e6b69.mjs",
+    "file": "NoveItem-4c4384ce.mjs",
     "src": "components/novels/categories/NoveItem.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -330,7 +330,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "node_modules/@nuxt/ui-templates/dist/templates/welcome.vue": {
-    "file": "welcome-b4e7a9cd.mjs",
+    "file": "welcome-51ab9a48.mjs",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/welcome.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -338,7 +338,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/danh-muc/[slug].vue": {
-    "file": "_slug_-b1c22ea2.mjs",
+    "file": "_slug_-0e4af3f6.mjs",
     "src": "pages/danh-muc/[slug].vue",
     "isDynamicEntry": true,
     "imports": [
@@ -351,7 +351,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/index.vue": {
-    "file": "index-7a5c3b15.mjs",
+    "file": "index-0df74a5c.mjs",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -362,7 +362,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/novel/danh-muc/[slug].vue": {
-    "file": "_slug_-1292ab25.mjs",
+    "file": "_slug_-eb114bca.mjs",
     "src": "pages/novel/danh-muc/[slug].vue",
     "isDynamicEntry": true,
     "imports": [
@@ -372,7 +372,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/novel/danh-muc/index.vue": {
-    "file": "index-c0963d60.mjs",
+    "file": "index-fb972410.mjs",
     "src": "pages/novel/danh-muc/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -382,7 +382,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/novel/index.vue": {
-    "file": "index-29916652.mjs",
+    "file": "index-89028a6b.mjs",
     "src": "pages/novel/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -393,7 +393,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/tag/[slug].vue": {
-    "file": "_slug_-02894c2b.mjs",
+    "file": "_slug_-7914346b.mjs",
     "src": "pages/tag/[slug].vue",
     "isDynamicEntry": true,
     "imports": [
@@ -405,7 +405,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/tim-kiem/index.vue": {
-    "file": "index-84929f22.mjs",
+    "file": "index-bfe0188b.mjs",
     "src": "pages/tim-kiem/index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -413,64 +413,64 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
       "components/common/SearchLoading.vue",
       "components/shared/MeeToonImg.vue",
       "_index-b351655c.mjs",
-      "_index-e38c411c.mjs"
+      "_index-9d82279a.mjs"
     ]
   },
   "pages/trending.vue": {
-    "file": "trending-56a40951.mjs",
+    "file": "trending-f894247d.mjs",
     "src": "pages/trending.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
       "components/shared/MeeToonImg.vue",
-      "_fetch-eded2b7d.mjs",
+      "_fetch-a362cbd0.mjs",
       "components/common/SearchLoading.vue",
       "_index-b351655c.mjs"
     ]
   },
-  "_fetch-eded2b7d.mjs": {
-    "file": "fetch-eded2b7d.mjs",
+  "_fetch-a362cbd0.mjs": {
+    "file": "fetch-a362cbd0.mjs",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
   "pages/truyen-chu-chapter/[chapter_slug]/[_id].vue": {
-    "file": "__id_-9c18241e.mjs",
+    "file": "__id_-2a9eef76.mjs",
     "src": "pages/truyen-chu-chapter/[chapter_slug]/[_id].vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
       "components/common/PageLoading.vue",
-      "_fetch-eded2b7d.mjs",
-      "_index-72ad406e.mjs",
-      "_index-e38c411c.mjs"
+      "_fetch-a362cbd0.mjs",
+      "_index-06a1a6d4.mjs",
+      "_index-9d82279a.mjs"
     ],
     "dynamicImports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
   "pages/truyen-chu-hot.vue": {
-    "file": "truyen-chu-hot-0936424c.mjs",
+    "file": "truyen-chu-hot-7a0627b5.mjs",
     "src": "pages/truyen-chu-hot.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
       "components/shared/MeeToonImg.vue",
-      "_fetch-eded2b7d.mjs",
+      "_fetch-a362cbd0.mjs",
       "components/common/SearchLoading.vue",
       "_index-b351655c.mjs",
-      "_index-e38c411c.mjs"
+      "_index-9d82279a.mjs"
     ]
   },
   "pages/truyen-chu/[slug].vue": {
-    "file": "_slug_-11f0da6c.mjs",
+    "file": "_slug_-56014337.mjs",
     "src": "pages/truyen-chu/[slug].vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
       "_index-b351655c.mjs",
       "components/common/PageLoading.vue",
-      "_index-e38c411c.mjs"
+      "_index-9d82279a.mjs"
     ],
     "dynamicImports": [
       "components/shared/MeeToonImg.vue",
@@ -479,13 +479,13 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/truyen-tranh-chapter/[chapter_slug]/[_id].vue": {
-    "file": "__id_-759ede0b.mjs",
+    "file": "__id_-8f7556a0.mjs",
     "src": "pages/truyen-tranh-chapter/[chapter_slug]/[_id].vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
       "components/common/PageLoading.vue",
-      "_fetch-eded2b7d.mjs"
+      "_fetch-a362cbd0.mjs"
     ],
     "dynamicImports": [
       "node_modules/nuxt/dist/app/entry.mjs",
@@ -494,24 +494,24 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "pages/truyen-tranh/[slug]/[_id].vue": {
-    "file": "__id_-19abdee0.mjs",
+    "file": "__id_-bb3768c9.mjs",
     "src": "pages/truyen-tranh/[slug]/[_id].vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
       "components/common/PageLoading.vue",
-      "_fetch-eded2b7d.mjs",
+      "_fetch-a362cbd0.mjs",
       "_index-b351655c.mjs",
       "components/comics/ComicChapterTab.vue",
       "components/comics/ComicTab.vue",
-      "_index-e38c411c.mjs"
+      "_index-9d82279a.mjs"
     ],
     "dynamicImports": [
       "components/shared/MeeToonImg.vue"
     ]
   },
   "layouts/default.vue": {
-    "file": "default-bb8ad2a2.mjs",
+    "file": "default-4cd45dd2.mjs",
     "src": "layouts/default.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -522,7 +522,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "layouts/manga.vue": {
-    "file": "manga-7efedf73.mjs",
+    "file": "manga-346d12b3.mjs",
     "src": "layouts/manga.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -533,7 +533,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "layouts/menu.vue": {
-    "file": "menu-db3c7879.mjs",
+    "file": "menu-80ee43c9.mjs",
     "src": "layouts/menu.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -544,7 +544,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": {
-    "file": "error-404-de57f3a8.mjs",
+    "file": "error-404-096b46a1.mjs",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -555,7 +555,7 @@ globalThis.__timing__.logStart('Load chunks/app/client.manifest');const client_m
     ]
   },
   "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
-    "file": "error-500-bd59a19c.mjs",
+    "file": "error-500-e3df3c2d.mjs",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [

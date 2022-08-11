@@ -1,5 +1,4 @@
 import client from '~/serverless/mongoClient'
-
 import { collections } from '~/contants'
 
 export default defineEventHandler(async (event) => {

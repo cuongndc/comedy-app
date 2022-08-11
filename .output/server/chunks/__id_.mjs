@@ -1,6 +1,5 @@
 globalThis.__timing__.logStart('Load chunks/__id_');import { defineEventHandler } from 'h3';
-import mongo from './mongo.mjs';
-import { c as collections } from './index.mjs';
+import { c as client, a as collections } from './index.mjs';
 import 'mongodb';
 
 const __id_ = defineEventHandler(async (event) => {

@@ -1,6 +1,5 @@
 globalThis.__timing__.logStart('Load chunks/chapters2');import { defineEventHandler, useQuery } from 'h3';
-import mongo from './mongo.mjs';
-import { c as collections } from './index.mjs';
+import { c as client, a as collections } from './index.mjs';
 import 'mongodb';
 
 const chapters = defineEventHandler(async (event) => {
