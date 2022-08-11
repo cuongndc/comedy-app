@@ -3,6 +3,7 @@ import { c as client, a as collections } from './index.mjs';
 import 'mongodb';
 
 const __id_ = defineEventHandler(async (event) => {
+  console.log("client", client);
   const params = event.context.params;
   const { slug } = params;
   return await client.db().collection(collections.comics).findOne({

@@ -2,9 +2,7 @@ globalThis.__timing__.logStart('Load chunks/axios');import axios from 'axios';
 
 const baseURL = process.env.SERVICE_URL;
 const headers = {
-  "Content-Type": "application/json",
-  "referer": baseURL,
-  "origin": baseURL
+  "Content-Type": "application/json"
 };
 const instance = axios.create({
   baseURL,
