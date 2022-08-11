@@ -1,11 +1,12 @@
-import mongo from '~/server/api/mongo'
+import client from '~/serverless/mongoClient'
+
 import { collections } from '~/contants'
 
 export default defineEventHandler(async (event) => {
   const params = event.context.params
   const { slug } = params
 
-  return await mongo.db().collection(collections.comics).findOne({
+  return await client.db().collection(collections.comics).findOne({
     slug,
   })
 })

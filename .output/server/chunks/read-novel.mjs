@@ -5,10 +5,10 @@ import 'mongodb';
 
 const readNovel = defineEventHandler(async (event) => {
   const { slug } = useQuery(event);
-  const chapter = await mongo.db().collection(collections.novelChapters).findOne({
+  const chapter = await client.db().collection(collections.novelChapters).findOne({
     slug
   });
-  const novel = await mongo.db().collection(collections.novels).findOne({
+  const novel = await client.db().collection(collections.novels).findOne({
     _id: chapter.novelId
   });
   return {

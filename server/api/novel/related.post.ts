@@ -1,10 +1,10 @@
 import { useBody } from 'h3'
-import mongo from '~/server/api/mongo'
+import client from '~/serverless/mongoClient'
 import { collections } from '~/contants'
 
 export default defineEventHandler(async (event) => {
   const body = await useBody(event)
-  return await mongo.db().collection(collections.novels).find({
+  return await client.db().collection(collections.novels).find({
     'tags.slug': {
       $in: body.tags,
     },

@@ -6,7 +6,6 @@ import { ref } from 'vue'
 import { useRuntimeConfig } from '#app'
 import useNavigatorComicPreview from '~/composables/useNavigatorComicPreview'
 import type { IBanner } from '~/types'
-import { LazySharedMeeToonImg } from '#components'
 
 const props = defineProps({
   banner: Object as PropType<IBanner>,

@@ -13,7 +13,7 @@ const _slug_ = defineEventHandler(async (event) => {
       }
     };
   }
-  return await mongo.db().collection(collections.comics).find(filter).limit(30).sort({ updatedAt: -1 }).toArray();
+  return await client.db().collection(collections.comics).find(filter).limit(30).sort({ updatedAt: -1 }).toArray();
 });
 
 export { _slug_ as default };;globalThis.__timing__.logEnd('Load chunks/_slug_4');

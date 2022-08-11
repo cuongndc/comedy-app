@@ -2,7 +2,7 @@
 import { computed, onMounted, watchEffect } from 'vue'
 import { isClient } from '@vueuse/core'
 import { convertUnit } from '~/common'
-import {navigateTo, useLazyAsyncData, useLazyFetch, useRuntimeConfig, useState} from '#app'
+import { navigateTo, useLazyAsyncData, useRuntimeConfig, useState } from '#app'
 import type { Chapter, Comic } from '~/types'
 import { COMIC_STATUS, TRUYEN_CHU_CHAPTER, comicTabs } from '~/contants'
 import { definePageMeta } from '#imports'
@@ -77,7 +77,7 @@ const backgroundImage = (image) => {
 
 <template>
   <PageLoading v-if="pending" />
-  <section class="h-[100vh] bg-accent-4" v-else>
+  <section v-else class="h-[100vh] bg-accent-4">
     <div
       :style="backgroundImage(comic?.verticalLogo)"
       class="flex items-center justify-between h-[50px] z-10 fixed top-0 w-full overflow-hidden bg-cover"

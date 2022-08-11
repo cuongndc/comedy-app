@@ -5,7 +5,7 @@ import 'mongodb';
 
 const information = defineEventHandler(async (event) => {
   const { novelId } = useQuery(event);
-  const chapters = await mongo.db().collection(collections.novelChapters).find({
+  const chapters = await client.db().collection(collections.novelChapters).find({
     novelId
   }).toArray();
   return {

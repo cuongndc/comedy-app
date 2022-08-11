@@ -6,7 +6,7 @@ import 'mongodb';
 const __id_ = defineEventHandler(async (event) => {
   const params = event.context.params;
   const { slug } = params;
-  return await mongo.db().collection(collections.comics).findOne({
+  return await client.db().collection(collections.comics).findOne({
     slug
   });
 });

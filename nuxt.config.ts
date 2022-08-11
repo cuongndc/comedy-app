@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from 'nuxt'
-import mongodbSetup from './modules/mongodb-setup'
 
 export default defineNuxtConfig({
   nitro: {
@@ -8,15 +7,8 @@ export default defineNuxtConfig({
   app: {
     buildAssetsDir: '/assets/',
   },
-  experimental: {
-    reactivityTransform: true,
-    viteNode: false,
-  },
   runtimeConfig: {
-    mongodbURI: process.env.MONGODB_URI,
-    serviceURL: process.env.SERVICE_URL,
     public: {
-      publicURL: process.env.PUBLIC_URL,
       domain: process.env.DOMAIN,
       siteName: process.env.SITE_NAME,
       imgCDN: process.env.IMAGE_CDN,
@@ -84,7 +76,7 @@ export default defineNuxtConfig({
     'nuxt-proxy',
     '@nuxt/image-edge',
     '@kevinmarrec/nuxt-pwa',
-    mongodbSetup,
+    './modules/mongodb',
   ],
   build: {
     postcss: {

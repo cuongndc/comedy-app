@@ -1,4 +1,4 @@
-import mongo from '~/server/api/mongo'
+import client from '~/serverless/mongoClient'
 import { collections } from '~/contants'
 
 export default defineEventHandler(async () => {
@@ -8,7 +8,7 @@ export default defineEventHandler(async () => {
     'dam-my-bach-hop',
   ]
 
-  return await mongo.db().collection(collections.comics).find({
+  return await client.db().collection(collections.comics).find({
     'categories.categorySlug': {
       $in: slug,
     },

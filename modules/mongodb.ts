@@ -1,10 +1,10 @@
 import { defineNuxtModule } from '@nuxt/kit'
-import mongo from '../server/api/mongo'
+import client from '../serverless/mongoClient'
 
 export default defineNuxtModule({
   setup(options, nuxt) {
     nuxt.hook('render:setupMiddleware', async () => {
-      await mongo.connect()
+      await client.connect()
     })
   },
 })

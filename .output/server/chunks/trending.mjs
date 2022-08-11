@@ -9,7 +9,7 @@ const trending = defineEventHandler(async () => {
     "ngon-tinh-hien-dai",
     "dam-my-bach-hop"
   ];
-  return await mongo.db().collection(collections.comics).find({
+  return await client.db().collection(collections.comics).find({
     "categories.categorySlug": {
       $in: slug
     }

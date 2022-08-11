@@ -5,7 +5,7 @@ import 'mongodb';
 
 const chapters = defineEventHandler(async (event) => {
   const { comic_slug } = useQuery(event);
-  return await mongo.db().collection(collections.chapters).find({
+  return await client.db().collection(collections.chapters).find({
     comicSlug: comic_slug
   }).sort({
     chapterOrderIndex: 1
