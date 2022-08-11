@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = process.env.SERVICE_URL
+const baseURL = 'http://service.meetoon.co'
 const headers = {
   'Content-Type': 'application/json',
 }
