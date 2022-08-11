@@ -1,7 +1,7 @@
 import type { MongoClientOptions } from 'mongodb'
 import { MongoClient } from 'mongodb'
 
-const uri = globalThis.process.env.MONGODB_URI
+const uri = process.env.MONGODB_URI as string || 'mongodb+srv://cuongnd:aPOEFnnYrKjH5fnn@cluster0.qkg20.mongodb.net/comics-db'
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
